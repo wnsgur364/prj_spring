@@ -54,13 +54,13 @@
 	        	<div class="row text-center">
 	        		<h2>개인프로젝트</h2>
 	          		<div class="col-lg-6">
-						<a href="../html/index.html" target="_blank">
+						<a href="#" target="_blank">
 							<h2>KOKOA BANK</h2>
 							<img src="resources/images/pf1.PNG" class="rounded">
 						</a>
 					</div>
 	          		<div class="col-lg-6">
-						<a href="../html/admin/adminMain.html" target="_blank">
+						<a href="#" target="_blank">
 							<h2>KOKOA BANK ADMIN</h2>
 							<img src="resources/images/pfad1.PNG" class="rounded">
 						</a>
