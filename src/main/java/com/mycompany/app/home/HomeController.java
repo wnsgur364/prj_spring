@@ -12,7 +12,8 @@ public class HomeController {
 		
 		
 		// 아래의 jsp 파일 호출
-		return "home";
+		return "app/home/home";
 	}
+	
 	
 }
