@@ -72,7 +72,7 @@
   	<footer id="footer" class="footer">
     	<div class="container">
       		<div class="copyright">
-        		&copy; Copyright <strong><span>포트폴리오</span></strong>. All Rights Reserved
+        		&copy; Copyright <strong><span>mycompany</span></strong>. All Rights Reserved
       		</div>
     	</div>
   	</footer>
