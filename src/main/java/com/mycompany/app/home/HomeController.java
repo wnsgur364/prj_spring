@@ -42,4 +42,13 @@ public class HomeController {
 		return "app/admin/adminCustomer";
 	}
 	
+	@RequestMapping(value = "/account")
+	public String account() {
+		// 여기에서 서버단에 필요한 작업을 수행한다.
+		
+		
+		// 아래의 jsp 파일 호출
+		return "app/main/account";
+	}
+	
 }
