@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  	<meta charset="utf-8">
+  	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  	<title>KOKOA BANK ADMIN</title>
+	<!-- Google Fonts -->
+	<link href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	<!-- Vendor CSS Files -->
+	<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Template Main CSS File -->
+	<link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<header class="fixed-top container" id="header">
+		<div class="container">
+      		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        		<ul class="nav col-auto me-auto mb-2 align-items-center">
+         	 		<li><a href="adminMain.html" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
+          			<li><a href="adminAccount.html" class="nav-link px-3 text-black">계좌관리</a></li>
+          			<li><a href="adminTransaction.html" class="nav-link px-3 text-black">거래관리</a></li>
+          			<li><a href="adminCustomer.html" class="nav-link px-3 text-black">고객관리</a></li>
+          			<li><a href="adminFee.html" class="nav-link px-3 text-black">수수료관리</a></li>
+          			<li><a href="adminInfuencer.html" class="nav-link px-3 text-black">인플루언서관리</a></li>
+        		</ul>
+      		</div>
+    	</div>
+	</header>
+	<main id="main" class="main">
+	    <div class="pagetitle">
+			<h1>관리</h1>
+      			<nav>
+        		<ol class="breadcrumb">
+          			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
+          			<li class="breadcrumb-item active">관리</li>
+        		</ol>
+      		</nav>
+    	</div>
+		<section class="section profile">
+	      	<div class="row">
+	        	<div class="col">
+	          		<div class="card">
+	            		<div class="card-body pt-3">
+	              			<!-- Bordered Tabs -->
+	              			<ul class="nav nav-tabs nav-tabs-bordered">
+				                <li class="nav-item">
+	            			    	<button class="nav-link active text-dark" data-bs-toggle="tab" data-bs-target="#profile-overview">개요</button>
+	                			</li>
+				                <li class="nav-item">
+	                  				<button class="nav-link text-dark" data-bs-toggle="tab" data-bs-target="#profile-edit">프로필 수정</button>
+	                			</li>
+	              			</ul>
+	              			<div class="tab-content pt-2">
+	                			<div class="tab-pane fade show active profile-overview" id="profile-overview">
+	                  				<h5 class="card-title">KAKAO BANK</h5>
+	                  				<p class="small fst-italic">KAKAO BANK 관리자 메인 페이지</p>
+	                  				<h5 class="card-title">프로필</h5>
+	                  				<div class="row">
+	                    				<div class="col-lg-3 col-md-4 label ">이름</div>
+	                    				<div class="col-lg-9 col-md-8">이준혁</div>
+	                  				</div>
+	                  				<div class="row">
+	                    				<div class="col-lg-3 col-md-4 label">성별</div>
+	                    				<div class="col-lg-9 col-md-8">남자</div>
+	                  				</div>
+				                 	<div class="row">
+				                    	<div class="col-lg-3 col-md-4 label">생년월일</div>
+				                    	<div class="col-lg-9 col-md-8">1991.02.10</div>
+				                  	</div>
+	                  				<div class="row">
+	                    				<div class="col-lg-3 col-md-4 label">국적</div>
+	                    				<div class="col-lg-9 col-md-8">대한민국</div>
+	                  				</div>
+				                  	<div class="row">
+				                    	<div class="col-lg-3 col-md-4 label">주소</div>
+				                    	<div class="col-lg-9 col-md-8">경기도 김포시</div>
+				                  	</div>
+	                  				<div class="row">
+	                    				<div class="col-lg-3 col-md-4 label">전화번호</div>
+	                    				<div class="col-lg-9 col-md-8">010-1234-5678</div>
+	                  				</div>
+				                 	<div class="row">
+				                    	<div class="col-lg-3 col-md-4 label">이메일</div>
+				                    	<div class="col-lg-9 col-md-8">example@exmple.com</div>
+				                  	</div>
+	               				</div>
+	                			<div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+	                  				<!-- Profile Edit Form -->
+	                  				<form>
+	                    				<div class="row mb-3">
+	                      					<label for="fullName" class="col-md-4 col-lg-3 col-form-label">이름</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="fullName" type="text" class="form-control" id="fullName" value="이준혁">
+	                      					</div>
+	                    				</div>
+	                    				<div class="row mb-3">
+	                      					<label for="about" class="col-md-4 col-lg-3 col-form-label">내용</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<textarea name="about" class="form-control" id="about" style="height: 100px">이준혁 개인 프로젝트 KOKOA BANK 관리자 페이지</textarea>
+	                      					</div>
+	                    				</div>
+	                    				<div class="row mb-3">
+	                      					<label for="gender" class="col-md-4 col-lg-3 col-form-label">성별</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="gender" type="text" class="form-control" id="gender" value="남자">
+	                     					</div>
+	                    				</div>
+	                    				<div class="row mb-3">
+	                      					<label for="dob" class="col-md-4 col-lg-3 col-form-label">생년월일</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="dob" type="text" class="form-control" id="dob" value="1991.02.10">
+	                      					</div>
+	                    				</div>
+					                    <div class="row mb-3">
+	                      					<label for="Country" class="col-md-4 col-lg-3 col-form-label">국적</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="country" type="text" class="form-control" id="Country" value="대한민국">
+	                      					</div>
+	                   					</div>
+	                    				<div class="row mb-3">
+	                      					<label for="Address" class="col-md-4 col-lg-3 col-form-label">주소</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="address" type="text" class="form-control" id="Address" value="경기도 김포시">
+	                      					</div>
+	                    				</div>
+					                    <div class="row mb-3">
+	               				      		<label for="Phone" class="col-md-4 col-lg-3 col-form-label">전화번호</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="phone" type="text" class="form-control" id="Phone" value="010-1234-5678">
+	                      					</div>
+	                    				</div>
+	                    				<div class="row mb-3">
+	                      					<label for="Email" class="col-md-4 col-lg-3 col-form-label">이메일</label>
+	                      					<div class="col-md-8 col-lg-9">
+	                        					<input name="email" type="email" class="form-control" id="Email" value="example@exmple.com">
+	                      					</div>
+	                    				</div>
+	                    				<div class="text-center">
+	                      					<button type="submit" class="btn btn-outline-secondary">프로필 변경</button>
+	                    				</div>
+	                  				</form>
+	                			</div>
+	              			</div>
+	            		</div>
+	          		</div>
+	        	</div>
+	      	</div>
+	    </section>
+	</main>
+  	<footer id="footer" class="footer">
+    	<div class="copyright">
+     		 &copy; Copyright <strong><span>KOKOA BANK</span></strong> Corp. All Rights Reserved
+    	</div>
+  	</footer>
+	<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../assets/js/main.js"></script>
+	<script type=text/javascript>
+	
+		// datepicker
+		$(function() {
+	
+			$(".datepicker").datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
+	
+		});
+	
+		// 기간설정
+		$(".selectPeriod").on("change", function() {
+			var period = $(this).val();
+			var today = new Date();
+			var oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
+			var oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+			var threeMonthsAgo = new Date(today.getTime() - (90 * 24 * 60 * 60 * 1000));
+			
+			switch (period) {
+				case "1주일":
+					$(".dateStart").datepicker("setDate", oneWeekAgo);
+					$(".dateFinish").datepicker("setDate", today);
+					break;
+				case "1개월":
+					$(".dateStart").datepicker("setDate", oneMonthAgo);
+					$(".dateFinish").datepicker("setDate", today);
+					break;
+				case "3개월":
+					$(".dateStart").datepicker("setDate", threeMonthsAgo);
+					$(".dateFinish").datepicker("setDate", today);
+					break;
+			}
+		});	
+	
+	</script>
+</body>
+</html>

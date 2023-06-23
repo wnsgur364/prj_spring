@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>포트폴리오</title>
+	<title>바이오그라피</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 	<!-- Google Fonts -->
@@ -12,17 +12,17 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 	<!-- Vendor CSS Files -->
-	<link href="resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<!-- Template Main CSS File -->
-	<link href="resources/css/main.css" rel="stylesheet">
+	<link href="/resources/css/biography.css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header d-flex align-items-center fixed-top">
 	  	<div class="container-fluid d-flex align-items-center justify-content-center">
 	    	<a href="#" class="logo d-flex align-items-center me-auto me-lg-0">
 	     	<!-- <img src="assets/img/logo.png" alt=""> -->
-      			<h1>포트폴리오</h1>
+      			<h1>바이오그라피</h1>
 	    	</a>
 	  	</div>
 	</header>
@@ -60,7 +60,7 @@
 						</a>
 					</div>
 	          		<div class="col-lg-6">
-						<a href="#" target="_blank">
+						<a href="loginForm" target="_blank">
 							<h2>KOKOA BANK ADMIN</h2>
 							<img src="resources/images/pfad1.PNG" class="rounded">
 						</a>
@@ -81,8 +81,8 @@
     	<div class="line"></div>
   	</div>
 	<!-- Vendor JS Files -->
-	<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Template Main JS File -->
-	<script src="resources/js/main.js"></script>
+	<script src="/resources/js/biography.js"></script>
 </body>
 </html>
