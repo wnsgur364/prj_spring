@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,9 +6,9 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>KOKOA BANK REGISTER</title>
     <!-- 부트스트랩 -->
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Template Main CSS File -->
-	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="/resources/css/style.css" rel="stylesheet">
   	<!-- Google Fonts -->
   	<link href="https://fonts.gstatic.com" rel="preconnect">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -63,6 +64,6 @@
     	</div>
   	</main>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="/resources/js/main.js"></script>
 </body>
 </html>
