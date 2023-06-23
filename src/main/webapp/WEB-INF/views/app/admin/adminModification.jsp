@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -23,20 +24,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header class="fixed-top container" id="header" style="width: 1320px; margin: auto;">
-		<div class="container">
-      		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-				<ul class="nav col-auto me-auto mb-2 align-items-center">
-         	 		<li><a href="adminMain.html" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
-          			<li><a href="adminAccount.html" class="nav-link px-3 text-black">계좌관리</a></li>
-          			<li><a href="adminTransaction.html" class="nav-link px-3 text-black">거래관리</a></li>
-          			<li><a href="adminCustomer.html" class="nav-link px-3 text-black">고객관리</a></li>
-          			<li><a href="adminFee.html" class="nav-link px-3 text-black">수수료관리</a></li>
-          			<li><a href="adminInfuencer.html" class="nav-link px-3 text-black">인플루언서관리</a></li>
-        		</ul>
-      		</div>
-    	</div>
-	</header>
+	<%@ include file="header.jsp" %>
 	<main id="main" class="main">
 	    <div class="pagetitle">
       		<h1>데이터 수정</h1>
@@ -164,11 +152,7 @@
           	</div>
 		</div>	
 	</main>
-  	<footer id="footer" class="footer" style="width: 1180px; margin: auto;">
-    	<div class="copyright">
-     		 &copy; Copyright <strong><span>KOKOA BANK</span></strong> Corp. All Rights Reserved
-    	</div>
-  	</footer>
+	<%@ include file="footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

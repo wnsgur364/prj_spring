@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,15 +6,15 @@
   	<meta content="width=device-width, initial-scale=1.0" name="viewport">
   	<title>KOKOA BANK ADMIN</title>
 	<!-- 부트스트랩 -->
-	<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- JqueryUi -->
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<!-- Fontawesome -->
 	<script src="https://kit.fontawesome.com/b05f67c88a.js" crossorigin="anonymous"></script>
 	<!-- Style CSS -->
-	<link href="../assets/css/style.css" rel="stylesheet">
+	<link href="/resources/css/style.css" rel="stylesheet">
 	<!-- Datatables -->
-	<link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+	<link href="/resources/vendor/simple-datatables/style.css" rel="stylesheet">
 	<!-- Google Fonts -->
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -23,27 +24,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<header class="fixed-top container" id="header" style="width: 1320px; margin: auto;">
-		<div class="container">
-      		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        		<ul class="nav col-auto me-auto mb-2 align-items-center">
-         	 		<li><a href="adminMain.html" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
-          			<li><a href="adminAccount.html" class="nav-link px-3 text-black">계좌관리</a></li>
-          			<li><a href="adminTransaction.html" class="nav-link px-3 text-black">거래관리</a></li>
-          			<li><a href="adminCustomer.html" class="nav-link px-3 text-black">고객관리</a></li>
-          			<li><a href="adminFee.html" class="nav-link px-3 text-black">수수료관리</a></li>
-          			<li><a href="adminInfuencer.html" class="nav-link px-3 text-black">인플루언서관리</a></li>
-        		</ul>
-      		</div>
-    	</div>
-	</header>
-  	<main id="main" class="main">
+	<%@ include file="header.jsp" %>
+	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>인플루언서관리</h1>
+      		<h1>고객관리</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">인플루언서관리</li>
+          			<li class="breadcrumb-item active">고객관리</li>
         		</ol>
       		</nav>
     	</div>
@@ -227,16 +215,12 @@
 	    		</div>
 	  		</div>
 		</div>
-  	<footer id="footer" class="footer">
-    	<div class="copyright">
-     		 &copy; Copyright <strong><span>KOKOA BANK</span></strong> Corp. All Rights Reserved
-    	</div>
-  	</footer>
+	<%@ include file="footer.jsp" %>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	<script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
-	<script src="../assets/js/main.js"></script>
+	<script src="/resources/vendor/simple-datatables/simple-datatables.js"></script>
+	<script src="/resources/js/main.js"></script>
 	<script type=text/javascript>
 	
 		// datepicker
