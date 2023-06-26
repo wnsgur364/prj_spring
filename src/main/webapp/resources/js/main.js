@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     	new simpleDatatables.DataTable(datatable);
   	})
 	
-	
 	// checkbox all check
 	document.getElementById("allCheck").addEventListener('change', function(){
 		for (var i = 0; i < document.getElementsByName("checked").length; i++) {
@@ -60,26 +59,86 @@ document.addEventListener('DOMContentLoaded', () => {
 	datatableTop.style.display = 'flex';
 	datatableTop.style.justifyContent = 'flex-end';
 	datatableDropdown.style.marginRight = '10px';
+			
+	// checkbox 적용되는 datatables 효과 제거
+  	const firstThElement = document.querySelector('th:first-child');
+  	const aElement = firstThElement.querySelector('a');
+
+  	firstThElement.removeAttribute('data-sortable');
+  	firstThElement.removeAttribute('aria-sort');
+  	firstThElement.classList.remove('datatable-ascending');
+  	firstThElement.removeAttribute('style');
+
+  	if (aElement) {
+    	aElement.removeAttribute('href');
+    	aElement.classList.remove('datatable-sorter');
+  	}
 	
-	// 벨리데이션 관련	
-	const forms = document.querySelectorAll('.needs-validation')
+});
+
+// 서치버튼 클릭이벤트
+$("#btnSearch").on("click", function(){
 	
-	document.getElementById('submitForm').addEventListener('click', event => {
-		for (const form of forms) {
-	    	if (!form.checkValidity()) {
-	      		for (const input of form.querySelectorAll('input[required]')) {
-	        		if (input.value.trim() === '') {
-	          			input.style.borderColor = 'red';
-	        			input.parentElement.querySelector('.invalid-feedback').classList.add('d-block')
-	          			break;
-	        		} else {
-	          			input.style.borderColor = '';
-	       				input.parentElement.querySelector('.invalid-feedback').classList.remove('d-block')
-	        			}
-				}
-	      		break;
-			}
-		}
-	}, false)
+	$("form[name=formList]").attr("action","/codeGroupList").submit();
 	
-})();
+});
+
+$("#submitForm").click(function() {
+	// 체크된 체크박스를 배열로 저장
+	var checkedItems = [];
+	$("input[name='checked']:checked").each(function() {
+		checkedItems.push($(this).closest("tr").find("td:eq(1)").text()); // seq 값 가져오기
+	});
+
+	// 수정 폼으로 데이터 전달
+	if (checkedItems.length > 0) {
+		var url = "codeGroupForm?seq=" + checkedItems.join(",");
+		location.href = url;
+	}
+	
+    // 체크박스 해제
+    $("input[name='checked']").prop('checked', false);
+});
+
+// 이전 버튼 스크립트
+$('#btnCancel').on('click', function() {
+  window.history.back();
+});
+
+// datepicker
+$(function() {
+	$(".datepicker").datepicker({
+		dateFormat: 'yy-mm-dd'
+	});
+});
+
+// 기간 설정
+$(".selectPeriod").on("change", function() {
+	var period = $(this).val();
+	var today = new Date();
+	var oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
+	var oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+	var threeMonthsAgo = new Date(today.getTime() - (90 * 24 * 60 * 60 * 1000));
+	
+	switch (period) {
+		case "1주일":
+			$(".dateStart").datepicker("setDate", oneWeekAgo);
+			$(".dateFinish").datepicker("setDate", today);
+			break;
+		case "1개월":
+			$(".dateStart").datepicker("setDate", oneMonthAgo);
+			$(".dateFinish").datepicker("setDate", today);
+			break;
+		case "3개월":
+			$(".dateStart").datepicker("setDate", threeMonthsAgo);
+			$(".dateFinish").datepicker("setDate", today);
+			break;
+	}
+});
+
+// 모달관련
+$('#btnDelete').on('click', function() {
+  	$('#staticBackdrop').css('display', 'block');
+ 	$('#staticBackdropTitle').text('삭제');
+  	$('#staticBackdropBody').text('정말 삭제 하시겠습니까?');
+});

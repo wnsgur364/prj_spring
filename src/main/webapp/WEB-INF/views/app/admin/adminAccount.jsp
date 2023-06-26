@@ -5,16 +5,12 @@
   	<meta charset="utf-8">
   	<meta content="width=device-width, initial-scale=1.0" name="viewport">
   	<title>KOKOA BANK ADMIN</title>
-	<!-- 부트스트랩 -->
+  	<!-- CSS -->
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- JqueryUi -->
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<!-- Fontawesome -->
-	<script src="https://kit.fontawesome.com/b05f67c88a.js" crossorigin="anonymous"></script>
-	<!-- Style CSS -->
+	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<link href="/resources/css/style.css" rel="stylesheet">
-	<!-- Datatables -->
 	<link href="/resources/vendor/simple-datatables/style.css" rel="stylesheet">
+	<link href="/resources/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 	<!-- Google Fonts -->
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -41,15 +37,15 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-body py-5">
-								<div class="row">
-									<div class="col-2" style="margin-right: -24px;">
+								<div class="d-flex">
+									<div class="col-2">
 				    					<select class="form-select">
 				    						<option selected disabled>사용</option>
 				      						<option>N</option>
 				      						<option>Y</option>
 				    					</select>
 				  					</div>
-									<div class="col-2" style="margin-right: -24px;">
+									<div class="col-2">
 				    					<select class="form-select selectPeriod">
 				      						<option selected disabled>기간</option>
 				      						<option>1주일</option>
@@ -57,27 +53,24 @@
 				      						<option>3개월</option>
 				    					</select>
 				  					</div>
-					    			<div class="col-2" style="margin-right: -24px;">
+					    			<div class="col-2">
 				    					<input type="text" class="form-control datepicker dateStart" placeholder="시작일">
 				  					</div>
-					    			<div class="col-2" style="margin-right: -24px;">
+					    			<div class="col-2">
 				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
 				  					</div> 					
-									<div class="col-2" style="margin-right: -24px;">
+									<div class="col-2">
 				    					<select id="" class="form-select">
 				      						<option selected disabled>검색구분</option>
 				      						<option>...</option>
 				    					</select>
 				  					</div>
-				  					<div class="col-2" style="margin-right: -20px;">
+				  					<div class="col-2">
 				    					<input type="text" class="form-control" placeholder="검색어">
 				  					</div>  
 				  					<div class="col">
-										<button type="button" class="btn btn-danger" id="btnSearch">
-											<i class="fa-solid fa-magnifying-glass"></i>
-										</button>
-										<button type="button" class="btn btn-warning" id="btnRefresh">
-											<i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>
+										<button type="submit" class="btn btn-outline-secondary" id="btnSearch">
+											<i class="bi bi-search"></i>
 										</button>
 									</div>
 								</div>
@@ -118,72 +111,6 @@
 											<td>2023-05-15 09:20:06</td>
 						    				<td>2023-05-15 09:20:06</td>
 										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>3</td>
-											<td>홍길동</td>
-											<td>3333-74-8759</td>
-											<td>N</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>4</td>
-											<td>김길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>5</td>
-											<td>김길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>6</td>
-											<td>김길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>7</td>
-											<td>김길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>8</td>
-											<td>김길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
@@ -216,87 +143,11 @@
 	  		</div>
 		</div>
   	<%@ include file="footer.jsp" %>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  	<!-- Script -->
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/resources/vendor/jquery/jquery.min.js"></script> 
+	<script src="/resources/vendor/jquery-ui/jquery-ui.min.js"></script>
 	<script src="/resources/vendor/simple-datatables/simple-datatables.js"></script>
   	<script src="/resources/js/main.js"></script>
-	<script type=text/javascript>
-	
-		// datepicker
-		$(function() {
-	
-			$(".datepicker").datepicker({
-				dateFormat: 'yy-mm-dd'
-			});
-	
-		});
-	
-		// 기간설정
-		$(".selectPeriod").on("change", function() {
-			var period = $(this).val();
-			var today = new Date();
-			var oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
-			var oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
-			var threeMonthsAgo = new Date(today.getTime() - (90 * 24 * 60 * 60 * 1000));
-			
-			switch (period) {
-				case "1주일":
-					$(".dateStart").datepicker("setDate", oneWeekAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-				case "1개월":
-					$(".dateStart").datepicker("setDate", oneMonthAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-				case "3개월":
-					$(".dateStart").datepicker("setDate", threeMonthsAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-			}
-		});	
-		
-		// 모달 문구 변경
-		var staticBackdrop = document.getElementById('staticBackdrop')
-		var staticBackdropTitle = document.getElementById('staticBackdropTitle')
-		var staticBackdropBody = document.getElementById('staticBackdropBody')
-		
-		
-		document.getElementById('btnDelete').addEventListener('click', function(){
-			
-			document.getElementById('staticBackdrop').style.display = "block";
-			
-			document.getElementById('staticBackdropTitle').textContent = "삭제";
-			document.getElementById('staticBackdropBody').textContent = "정말 삭제 하시겠습니까?";
-			
-		}) 
-		
-		// checkbox 적용되는 datatables 효과 제거
-		const firstThElement = document.querySelector('th:first-child');
-		const aElement = firstThElement.querySelector('a');
-	
-		firstThElement.removeAttribute('data-sortable');
-		firstThElement.removeAttribute('aria-sort');
-		firstThElement.classList.remove('datatable-ascending');
-		firstThElement.removeAttribute('style');
-	
-		if (aElement) {
-		  aElement.removeAttribute('href');
-		  aElement.classList.remove('datatable-sorter');
-		}
-		
-		// 상하정렬버튼 클릭시 checkbox 해제
-		const nonFirstThElements = document.querySelectorAll('th:not(:first-child)');
-
-		nonFirstThElements.forEach((thElement) => {
-			thElement.addEventListener('click', function() {
-			  	var checkboxes = document.getElementsByName("checked");
-			  	for (var i = 0; i < checkboxes.length; i++) {
-			    	checkboxes[i].checked = false;
-			  	}
-			});
-		});
-	
-	</script>
 </body>
 </html>
