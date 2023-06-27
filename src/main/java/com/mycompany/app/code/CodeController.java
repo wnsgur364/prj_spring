@@ -8,14 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CodeController {
 
-	@Autowired
-	CodeServiceImpl service;
-	
-	@RequestMapping("/codeList")
-	public String codeList(Model model) {
-		
-		model.addAttribute("list", service.selectList());
-		
-		return "codeList";
-	}
+	/*
+	 * @Autowired CodeServiceImpl service;
+	 * 
+	 * @RequestMapping("/codeList") public String codeList(Model model) {
+	 * 
+	 * model.addAttribute("list", service.selectList());
+	 * 
+	 * return "codeList"; }
+	 */
 }
