@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/home")
 	public String home() {
 		// 여기에서 서버단에 필요한 작업을 수행한다.
 		
