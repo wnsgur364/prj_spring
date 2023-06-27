@@ -71,7 +71,7 @@
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
 											<th scope="col">seq</th>
-											<th scope="col">사용</th>
+											<th scope="col">delNy</th>
 											<th scope="col">name</th>
 										</tr>
 									</thead>

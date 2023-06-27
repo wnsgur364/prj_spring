@@ -43,7 +43,7 @@
                			<div class="col-md-4">
                 			<div class="form-floating">
                     			<input type="text" class="form-control" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>">
-                    			<label for="floatingName">사용</label>
+                    			<label for="floatingName">delNy</label>
                     			<div class="invalid-feedback">
                     				Looks good!
                   				</div>
@@ -59,10 +59,10 @@
                				</div>
                			</div>
                 		<div class="d-flex justify-content-center">
-                			<button type="button" class="btn btn-outline-secondary" id="btnList" onclick="location.href='codeGroupList'">목록</button>
-							<button type="button" class="btn btn-outline-secondary btnInsert" id="btnUpdate" >저장</button>
-							<button type="button" class="btn btn-outline-secondary" id="btnUelete" >사용</button>
-							<button type="button" class="btn btn-outline-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+                			<button type="button" class="btn btn-outline-secondary" id="btnList" onclick="location.href='codeGroupList'">List</button>
+							<button type="button" class="btn btn-outline-secondary btnInsert" id="btnUpdate" >Update</button>
+							<button type="button" class="btn btn-outline-secondary" id="btnUelete" >Uelete</button>
+							<button type="button" class="btn btn-outline-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
 						</div>
               		</form>
             	</div>
@@ -80,8 +80,8 @@
         		body
       			</div>
       			<div class="modal-footer">
-        			<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">취소</button>
-        			<button type="button" class="btn btn-outline-primary" id="btnDelete">확인</button>
+        			<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        			<button type="button" class="btn btn-outline-primary" id="btnDelete">OK</button>
       			</div>
     		</div>
   		</div>
