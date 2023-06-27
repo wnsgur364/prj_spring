@@ -23,7 +23,7 @@
        			<li><a href="deposit" class="nav-link px-3 text-black">입금</a></li>
        			<li><a href="send" class="nav-link px-3 text-black">이체</a></li>
        			<li><a href="autoSend" class="nav-link px-3 text-black">자동이체</a></li>
-       			<li><a href="exchangRate" class="nav-link px-3 text-black">환율</a></li>
+       			<li><a href="exchangeRate" class="nav-link px-3 text-black">환율</a></li>
        			<li><a href="domesticStock" class="nav-link px-3 text-black">국내주식</a></li>
        			<li><a href="foreignStock" class="nav-link px-3 text-black">해외주식</a></li>
        		</ul>
