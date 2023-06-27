@@ -23,16 +23,16 @@
 	<%@ include file="header.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>계좌관리</h1>
+      		<h1>codeGroupList</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">계좌관리</li>
+          			<li class="breadcrumb-item active">codeGroupList</li>
         		</ol>
       		</nav>
     	</div>
 	    <section class="section">
-			<form>
+			<form name=formList method="post">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card">
@@ -80,12 +80,9 @@
 											<th scope="col" class="doNotScript">
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
-											<th scope="col">순서</th>
-											<th scope="col">이름</th>
-											<th scope="col">계좌번호</th>
+											<th scope="col">seq</th>
 											<th scope="col">사용</th>
-											<th scope="col">등록일</th>
-											<th scope="col">수정일</th>
+											<th scope="col">name</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -100,22 +97,10 @@
 											<td>2023-05-15 09:20:06</td>
 						    				<td>2023-05-15 09:20:06</td>
 										</tr>
-										<tr>
-											<td scope="col">
-												<input type="checkbox" name="checked" value="">
-											</td>
-											<td>2</td>
-											<td>홍길동</td>
-											<td>3333-74-8759</td>
-											<td>Y</td>
-											<td>2023-05-15 09:20:06</td>
-						    				<td>2023-05-15 09:20:06</td>
-										</tr>
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
-									<a class="btn btn-outline-secondary" href="#">수정</a>
-									<button type="button" class="btn btn-danger" id="btnDelete" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+									<button type="button" class="btn btn-outline-secondary" id="btnModification" onclick="location.href='codeGroupForm'">추가</button>
 								</div>
 							</div>
 						</div>
@@ -124,24 +109,6 @@
 			</form>
     	</section>
 	</main>
-	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTitle" 
-			 aria-hidden="true">
-	  		<div class="modal-dialog">
-	    		<div class="modal-content">
-	      			<div class="modal-header">
-	        			<h1 class="modal-title fs-5" id="staticBackdropTitle">title</h1>
-	        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      			</div>
-	      			<div class="modal-body" id="staticBackdropBody">
-	        		body
-	      			</div>
-	      			<div class="modal-footer">
-	        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	        			<button type="button" class="btn btn-primary">확인</button>
-	      			</div>
-	    		</div>
-	  		</div>
-		</div>
   	<%@ include file="footer.jsp" %>
   	<!-- Script -->
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

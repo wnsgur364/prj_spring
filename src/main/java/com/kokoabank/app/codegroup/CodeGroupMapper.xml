@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis,org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- 전체 매퍼중에서 유일한 값을 사용하여야 한다.
+	해서 관계적으로 해당 파일의 패스와 파일이름(확장자 제외)
+	그리고 dao 에서 namespace와 일치하여야 된다. -->
+	
+<mapper namespace="com.kokoabank.app.codegroup.CodeGroupMapper">
+								 <!-- select 결과를 받을 객체 -->
+	<resultMap id="resultMapObj" type="com.kokoabank.app.codegroup.CodeGroup"></resultMap>
+					
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT *
+		FROM 
+			kbCodeGroup
+		WHERE
+			name LIKE CONCAT('%',#{shKeyword},'%')
+	</select>
+	
+<!-- 
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT *
+		FROM 
+			kbCodeGroup
+		WHERE
+			name LIKE CONCAT('%',#{shKeyword},'%')
+		AND
+ 			delNy = 0
+	</select> 
+-->
+	
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT *
+		FROM 
+			kbCodeGroup
+		WHERE
+			seq = #{seq}
+	</select>
+	
+    <update id="update">
+        UPDATE 
+        	kbCodeGroup
+        SET 
+        	name = #{name}
+        WHERE 
+        	seq = #{seq}
+    </update>
+   
+	<delete id="delete">
+	    DELETE 
+	    FROM 
+	    	kbCodeGroup
+	    WHERE 
+	    	seq = #{seq}
+	</delete> 
+
+	<insert id="insert">
+ 		INSERT INTO 
+ 			kbCodeGroup 
+ 			(delNy ,name)
+    	VALUES 
+    		(#{delNy}, #{name})
+	</insert>
+	
+    <update id="uelete">
+        UPDATE 
+        	kbCodeGroup
+        SET 
+        	delNy = #{delNy}
+        WHERE 
+        	seq = #{seq}
+    </update>
+    
+<!--     
+    <update id="uelete">
+        UPDATE 
+        	kbCodeGroup
+       	SET
+			delNy = "1"
+		WHERE				
+		 	seq = #{seq}
+    </update>
+ -->
+</mapper>

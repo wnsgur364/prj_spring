@@ -5,13 +5,19 @@
   	<meta charset="utf-8">
   	<meta content="width=device-width, initial-scale=1.0" name="viewport">
   	<title>KOKOA BANK ADMIN</title>
+  	<!-- CSS -->
+	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	<link href="/resources/css/style.css" rel="stylesheet">
+	<link href="/resources/vendor/simple-datatables/style.css" rel="stylesheet">
+	<link href="/resources/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 	<!-- Google Fonts -->
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!-- Vendor CSS Files -->
-	<link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Template Main CSS File -->
-	<link href="../assets/css/style.css" rel="stylesheet">
+	<!-- font-family: 'Dongle', sans-serif; -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -137,43 +143,11 @@
 	    </section>
 	</main>
 	<%@ include file="footer.jsp" %>
-	<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="../assets/js/main.js"></script>
-	<script type=text/javascript>
-	
-		// datepicker
-		$(function() {
-	
-			$(".datepicker").datepicker({
-				dateFormat: 'yy-mm-dd'
-			});
-	
-		});
-	
-		// 기간설정
-		$(".selectPeriod").on("change", function() {
-			var period = $(this).val();
-			var today = new Date();
-			var oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
-			var oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
-			var threeMonthsAgo = new Date(today.getTime() - (90 * 24 * 60 * 60 * 1000));
-			
-			switch (period) {
-				case "1주일":
-					$(".dateStart").datepicker("setDate", oneWeekAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-				case "1개월":
-					$(".dateStart").datepicker("setDate", oneMonthAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-				case "3개월":
-					$(".dateStart").datepicker("setDate", threeMonthsAgo);
-					$(".dateFinish").datepicker("setDate", today);
-					break;
-			}
-		});	
-	
-	</script>
+	<!-- Script -->
+	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/resources/vendor/jquery/jquery.min.js"></script> 
+	<script src="/resources/vendor/jquery-ui/jquery-ui.min.js"></script>
+	<script src="/resources/vendor/simple-datatables/simple-datatables.js"></script>
+  	<script src="/resources/js/main.js"></script>
 </body>
 </html>

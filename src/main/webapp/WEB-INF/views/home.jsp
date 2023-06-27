@@ -72,7 +72,7 @@
   	<footer id="footer" class="footer">
     	<div class="container">
       		<div class="copyright">
-        		&copy; Copyright <strong><span>mycompany</span></strong>. All Rights Reserved
+        		&copy; Copyright <strong><span>포트폴리오</span></strong>. All Rights Reserved
       		</div>
     	</div>
   	</footer>
@@ -80,9 +80,7 @@
 	<div id="preloader">
     	<div class="line"></div>
   	</div>
-	<!-- Vendor JS Files -->
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Template Main JS File -->
 	<script src="/resources/js/biography.js"></script>
 </body>
 </html>

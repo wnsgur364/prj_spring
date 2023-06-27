@@ -51,8 +51,7 @@
                       						</div>
                     					</div>
                    						<div class="col-12 d-flex">
-                      						<button class="btn btn-outline-secondary w-50" id="submitForm" type="submit" onclick="location.href=`adminAccount.html`">로그인</button>
-                      						<button class="btn btn-outline-secondary btnCancel w-50" type="button">뒤로</button>
+                      						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit" onclick="location.href=`index`">로그인</button>
                     					</div>
                     					<div class="col-12">
                       						<p class="small mb-0">아이디가 없으신가요? <a href="#">회원가입</a></p>
@@ -68,13 +67,5 @@
 	</main>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/js/main.js"></script>
-	<script type="text/javascript">
-	
-		// 이전 버튼 스크립트
-		document.querySelector('.btnCancel').addEventListener('click', function() {
-	  		window.history.back();
-		});
-	
-	</script>
 </body>
 </html>

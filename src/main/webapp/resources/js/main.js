@@ -76,35 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 });
 
-// 서치버튼 클릭이벤트
-$("#btnSearch").on("click", function(){
-	
-	$("form[name=formList]").attr("action","/codeGroupList").submit();
-	
-});
-
-$("#submitForm").click(function() {
-	// 체크된 체크박스를 배열로 저장
-	var checkedItems = [];
-	$("input[name='checked']:checked").each(function() {
-		checkedItems.push($(this).closest("tr").find("td:eq(1)").text()); // seq 값 가져오기
-	});
-
-	// 수정 폼으로 데이터 전달
-	if (checkedItems.length > 0) {
-		var url = "codeGroupForm?seq=" + checkedItems.join(",");
-		location.href = url;
-	}
-	
-    // 체크박스 해제
-    $("input[name='checked']").prop('checked', false);
-});
-
-// 이전 버튼 스크립트
-$('#btnCancel').on('click', function() {
-  window.history.back();
-});
-
 // datepicker
 $(function() {
 	$(".datepicker").datepicker({
@@ -137,8 +108,60 @@ $(".selectPeriod").on("change", function() {
 });
 
 // 모달관련
-$('#btnDelete').on('click', function() {
+$('#btnDeleteCheck').on('click', function() {
   	$('#staticBackdrop').css('display', 'block');
  	$('#staticBackdropTitle').text('삭제');
   	$('#staticBackdropBody').text('정말 삭제 하시겠습니까?');
+});
+
+$("#btnModification").click(function() {
+	// 체크된 체크박스를 배열로 저장
+	var checkedItems = [];
+	$("input[name='checked']:checked").each(function() {
+		checkedItems.push($(this).closest("tr").find("td:eq(1)").text()); // seq 값 가져오기
+	});
+
+	// 수정 폼으로 데이터 전달
+	if (checkedItems.length > 0) {
+		var url = "codeGroupForm?seq=" + checkedItems.join(",");
+		location.href = url;
+	}
+	
+    // 체크박스 해제
+    $("input[name='checked']").prop('checked', false);
+});
+
+// 서치버튼 클릭이벤트
+$("#btnSearch").on("click", function(){
+	
+	$("form[name=formList]").attr("action","/codeGroupList").submit();
+	
+});
+
+// 업데이트버튼 클릭이벤트
+$("#btnUpdate").on("click", function(){
+	
+	$("form[name=form]").attr("action","/codeGroupUpdate").submit();
+	
+});
+
+// 딜리트버튼 클릭이벤트
+$("#btnDelete").on("click", function(){
+	
+	$("form[name=form]").attr("action","/codeGroupDelete").submit();
+	
+});
+
+// 인서트버튼 클릭이벤트
+$(".btnInsert").on("click", function(){
+	
+	$("form[name=form]").attr("action","/codeGroupInsert").submit();
+	
+});
+
+// 율리트버튼 클릭이벤트
+$("#btnUelete").on("click", function(){
+	
+	$("form[name=form]").attr("action","/codeGroupUelete").submit();
+	
 });
