@@ -98,7 +98,7 @@
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-outline-secondary" id="btnModification" onclick="location.href='codeGroupForm'">추가</button>
+									<button type="button" class="btn btn-outline-secondary" id="btnModification" onclick="location.href='codeGroupForm'">Edit</button>
 								</div>
 							</div>
 						</div>
