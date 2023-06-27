@@ -58,6 +58,10 @@
 		  	</button>
 		</div>
 	</div>
+	<div class="d-flex justify-content-center">
+		<button class="btn btn-outline-secondary" onclick="location.href='accountAdd'">추가</button>
+		<button class="btn btn-outline-secondary" onclick="location.href='accountModification'">수정</button> 
+	</div>
 	<main id="main" class="main">
 	    <div class="pagetitle">
       		<h1>통장이름</h1>
@@ -86,7 +90,7 @@
 				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword">
 				  					</div>  
 				  					<div class="col-1">
-										<button type="submit" class="btn btn-outline-secondary" id="btnSearch">
+										<button type="submit" class="btn btn-outline-secondary" id="">
 											<i class="bi bi-search"></i>
 										</button>
 									</div>
