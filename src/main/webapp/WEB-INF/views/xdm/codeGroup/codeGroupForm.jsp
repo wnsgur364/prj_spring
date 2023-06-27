@@ -34,7 +34,7 @@
               			<div class="col-md-4">
                 			<div class="form-floating">
                     			<input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>">
-                    			<label for="floatingName">seq</label>
+                    			<label for="floatingName">seq (unable to input)</label>
                     			<div class="invalid-feedback">
                     				Looks good!
                   				</div>
@@ -43,7 +43,7 @@
                			<div class="col-md-4">
                 			<div class="form-floating">
                     			<input type="text" class="form-control" id="delNy" name="delNy" required value="<c:out value="${item.delNy}"/>">
-                    			<label for="floatingName">delNy</label>
+                    			<label for="floatingName">delNy (use=0, unuse=1)</label>
                     			<div class="invalid-feedback">
                     				Looks good!
                   				</div>

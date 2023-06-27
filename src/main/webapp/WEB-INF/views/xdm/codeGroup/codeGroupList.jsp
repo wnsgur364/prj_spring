@@ -88,8 +88,8 @@
 														<td scope="col">
 															<input type="checkbox" name="checked" value="">
 														</td>
-														<td><c:out value="${list.seq}"></c:out></td>
-														<td><c:out value="${list.delNy}"></c:out></td>
+														<td><a href="codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.seq}"></c:out></a></td>
+														<td><a href="codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.delNy}"></c:out></a></td>
 														<td><a href="codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"></c:out></a></td>
 													</tr>
 												</c:forEach>
