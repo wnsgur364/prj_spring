@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/")
 	public String home() {
-		// 여기에서 서버단에 필요한 작업을 수행한다.
-		
-		
-		// 아래의 jsp 파일 호출
-		return "home/home";
+		return "/home";
 	}
+	
+	@RequestMapping(value = "/adminMain")
+	public String adminMain() {
+		return "xdm/index/adminMain";
+	}
+	
 }
