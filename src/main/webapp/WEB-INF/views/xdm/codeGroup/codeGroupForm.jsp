@@ -59,10 +59,10 @@
                				</div>
                			</div>
                 		<div class="d-flex justify-content-center">
-                			<button type="button" class="btn btn-outline-secondary" id="btnList" onclick="location.href='codeGroupList'">List</button>
-							<button type="button" class="btn btn-outline-secondary btnInsert" id="btnUpdate" >Update</button>
-							<button type="button" class="btn btn-outline-secondary" id="btnUelete" >Uelete</button>
-							<button type="button" class="btn btn-outline-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+                			<button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
+							<button type="button" class="btn btn-success btnInsert" id="btnUpdate" >Update</button>
+							<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
+							<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
 						</div>
               		</form>
             	</div>
@@ -80,8 +80,8 @@
         		body
       			</div>
       			<div class="modal-footer">
-        			<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-        			<button type="button" class="btn btn-outline-primary" id="btnDelete">OK</button>
+        			<button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+        			<button type="button" class="btn btn-danger" id="btnDelete">OK</button>
       			</div>
     		</div>
   		</div>

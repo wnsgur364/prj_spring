@@ -43,7 +43,7 @@
 				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword">
 				  					</div>  
 				  					<div class="col-1">
-										<button type="submit" class="btn btn-outline-secondary" id="btnSearch">
+										<button type="submit" class="btn btn-dark" id="btnSearch">
 											<i class="bi bi-search"></i>
 										</button>
 									</div>
@@ -98,7 +98,7 @@
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-outline-secondary" id="btnModification" onclick="location.href='codeGroupForm'">Edit</button>
+									<button type="button" class="btn btn-primary" id="btnModification" onclick="location.href='codeGroupForm'">Edit</button>
 								</div>
 							</div>
 						</div>
