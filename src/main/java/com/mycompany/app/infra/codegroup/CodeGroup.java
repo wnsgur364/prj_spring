@@ -29,5 +29,4 @@ public class CodeGroup {
 		this.delNy = delNy;
 	}
 	
-	
 }

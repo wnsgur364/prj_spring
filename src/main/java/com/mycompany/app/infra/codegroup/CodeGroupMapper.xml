@@ -21,7 +21,7 @@
 		SELECT
 			<include refid="abc" />
 		FROM 
-			kbCodeGroup
+			codeGroup
 		WHERE 1=1
 			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
 	</select> 
@@ -30,14 +30,14 @@
 		SELECT 
 		  	<include refid="abc" /> 
 		FROM 
-		  	kbCodeGroup 
+		  	codeGroup 
 		WHERE 1=1
 	  		AND seq = #{seq}
 	</select>
 	
     <update id="update">
         UPDATE 
-        	kbCodeGroup
+        	codeGroup
         SET 
         	name = #{name}
         WHERE 
@@ -47,22 +47,22 @@
 	<delete id="delete">
 	    DELETE 
 	    FROM 
-	    	kbCodeGroup
+	    	codeGroup
 	    WHERE 
 	    	seq = #{seq}
 	</delete> 
 
 	<insert id="insert">
  		INSERT INTO 
- 			kbCodeGroup 
+ 			codeGroup 
  			(delNy ,name)
     	VALUES 
     		(0, #{name})
 	</insert>
-    
+     
     <update id="uelete">
         UPDATE 
-        	kbCodeGroup
+        	codeGroup
        	SET
 			delNy = "1"
 		WHERE				
