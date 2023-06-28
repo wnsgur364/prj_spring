@@ -14,13 +14,13 @@ public class CodeGroupController {
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(CodeGroupVo vo, Model model) {
 		model.addAttribute("list", service.selectList(vo));
-		return "xdm/codeGroup/codeGroupList";
+		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	
 	@RequestMapping("/codeGroupForm")
 	public String codeGroupForm(CodeGroupVo vo, Model model) {
 		model.addAttribute("item", service.selectOne(vo));
-		return "xdm/codeGroup/codeGroupForm";
+		return "xdm/infra/codeGroup/codeGroupForm";
 	}
 	
 	@RequestMapping("/codeGroupUpdate")

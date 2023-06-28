@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/biography")
 	public String home() {
-		return "home/home";
+		return "usr/infra/index/biography";
 	}
 	
 	@RequestMapping(value = "/index")
@@ -18,72 +18,72 @@ public class IndexController {
 	
 	@RequestMapping(value = "/account")
 	public String account() {
-		return "usr/infra/subpage/account";
+		return "usr/infra/index/account";
 	}
 	
 	@RequestMapping(value = "/accountAdd")
 	public String accountAdd() {
-		return "usr/infra/subpage/accountAdd";
+		return "usr/infra/index/accountAdd";
 	}
 	
 	@RequestMapping(value = "/accountModification")
 	public String accountModification() {
-		return "usr/infra/subpage/accountModification";
+		return "usr/infra/index/accountModification";
 	}
 	
 	@RequestMapping(value = "/autoSend")
 	public String autoSend() {
-		return "usr/infra/subpage/autoSend";
+		return "usr/infra/index/autoSend";
 	}
 	
 	@RequestMapping(value = "/send")
 	public String send() {
-		return "usr/infra/subpage/send";
+		return "usr/infra/index/send";
 	}
 	
 	@RequestMapping(value = "/deposit")
 	public String deposit() {
-		return "usr/infra/subpage/deposit";
+		return "usr/infra/index/deposit";
 	}
 	
 	@RequestMapping(value = "/domesticStock")
 	public String domesticStock() {
-		return "usr/infra/subpage/domesticStock";
+		return "usr/infra/index/domesticStock";
 	}
 	
 	@RequestMapping(value = "/exchangeRate")
 	public String exchangeRate() {
-		return "usr/infra/subpage/exchangeRate";
+		return "usr/infra/index/exchangeRate";
 	}
 	
 	@RequestMapping(value = "/foreignStock")
 	public String foreignStock() {
-		return "usr/infra/subpage/foreignStock";
+		return "usr/infra/index/foreignStock";
 	}
 	
 	@RequestMapping(value = "/adminMain")
 	public String adminMain() {
-		return "xdm/index/adminMain";
+		return "xdm/infra/index/adminMain";
 	}
 	
 	@RequestMapping(value = "/adminAccount")
 	public String adminAccount() {
-		return "xdm/subpage/adminAccount";
+		return "xdm/infra/index/adminAccount";
 	}
 	
 	@RequestMapping(value = "/adminTransaction")
 	public String adminTransaction() {
-		return "xdm/subpage/adminTransaction";
+		return "xdm/infra/index/adminTransaction";
 	}
 	
 	@RequestMapping(value = "/adminCustomer")
 	public String adminCustomer() {
-		return "xdm/subpage/adminCustomer";
+		return "xdm/infra/index/adminCustomer";
 	}
 	
 	@RequestMapping(value = "/adminInfluencer")
 	public String adminInfluencer() {
-		return "xdm/subpage/adminInfluencer";
+		return "xdm/infra/index/adminInfluencer";
 	}
 	
 }
