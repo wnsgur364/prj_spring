@@ -24,7 +24,7 @@
               				<div class="d-flex justify-content-center py-4">
                 				<a href="indexUsrView" class="logo d-flex align-items-center w-auto">
                   					<!-- <img src="assets/img/logo.png" alt=""> -->
-                  					<span class="d-none d-lg-block">KOKOA BANK</span>
+                  					<span class="d-none d-lg-block">KOKOA BANK ADMIN</span>
                 				</a>
               				</div>
               				<div class="card mb-3">

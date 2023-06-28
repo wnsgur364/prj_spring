@@ -19,7 +19,7 @@
    		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
        		<ul class="nav col-auto me-auto mb-2 align-items-center">
       	 		<li><a href="indexXdmView" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
-       			<li><a href="codeGroupForm" class="nav-link px-3 text-black">codeGroupList</a></li>
+       			<li><a href="codeGroupList" class="nav-link px-3 text-black">codeGroupList</a></li>
        			<li><a href="accountXdmView" class="nav-link px-3 text-black">계좌관리</a></li>
        			<li><a href="transactionXdmView" class="nav-link px-3 text-black">거래관리</a></li>
        			<li><a href="customerXdmView" class="nav-link px-3 text-black">고객관리</a></li>
