@@ -80,23 +80,6 @@
 							<div class="card-body py-5">
 								<div class="d-flex">
 									<div class="col-2">
-				    					<select id="delNy" class="form-select" name="shOption">
-				      						<option value="" selected disabled>검색구분</option>
-											<option value="0">N</option>
-										    <option value="1">Y</option>
-				    					</select>
-				  					</div>
-				  					<div class="col-2">
-				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword">
-				  					</div>  
-				  					<div class="col-1">
-										<button type="submit" class="btn btn-outline-secondary" id="">
-											<i class="bi bi-search"></i>
-										</button>
-									</div>
-								</div>
-								<div class="d-flex">
-									<div class="col-2">
 				    					<select class="form-select selectPeriod">
 				      						<option selected disabled>기간</option>
 				      						<option>1주일</option>
@@ -110,6 +93,11 @@
 					    			<div class="col-2">
 				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
 				  					</div>
+				  					<div class="col-1">
+										<button type="submit" class="btn btn-outline-secondary" id="">
+											<i class="bi bi-search"></i>
+										</button>
+									</div>
 								</div>
 								<table class="table datatable">		
 									<thead>

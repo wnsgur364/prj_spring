@@ -51,7 +51,8 @@
                			</div>
                 		<div class="d-flex justify-content-center">
                 			<button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
-							<button type="button" class="btn btn-success btnInsert" id="btnUpdate" >Update</button>
+							<button type="button" class="btn btn-success" id="btnUpdate" >Update</button>
+							<button type="button" class="btn btn-secondary" id="btnInsert" >Insert</button>
 							<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
 							<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
 						</div>

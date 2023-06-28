@@ -153,7 +153,7 @@ $("#btnDelete").on("click", function(){
 });
 
 // 인서트버튼 클릭이벤트
-$(".btnInsert").on("click", function(){
+$("#btnInsert").on("click", function(){
 	
 	$("form[name=form]").attr("action","/codeGroupInsert").submit();
 	
