@@ -1,10 +1,11 @@
-package com.mycompany.app.codegroup;
+package com.mycompany.app.infra.codegroup;
 
 public class CodeGroupVo {
 
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
+	private String name;
 	private Integer delNy;
 //	-----
 	public Integer getShOption() {
@@ -30,6 +31,12 @@ public class CodeGroupVo {
 	}
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

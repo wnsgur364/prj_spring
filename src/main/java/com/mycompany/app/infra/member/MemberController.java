@@ -1,4 +1,4 @@
-package com.mycompany.app.member;
+package com.mycompany.app.infra.member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

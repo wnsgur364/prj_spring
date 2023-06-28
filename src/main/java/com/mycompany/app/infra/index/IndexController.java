@@ -1,10 +1,10 @@
-package com.mycompany.app.home;
+package com.mycompany.app.infra.index;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
+public class IndexController {
 
 	@RequestMapping(value = "/")
 	public String home() {
@@ -13,52 +13,52 @@ public class HomeController {
 	
 	@RequestMapping(value = "/index")
 	public String index() {
-		return "usr/index/index";
+		return "usr/infra/index/index";
 	}
 	
 	@RequestMapping(value = "/account")
 	public String account() {
-		return "usr/subpage/account";
+		return "usr/infra/subpage/account";
 	}
 	
 	@RequestMapping(value = "/accountAdd")
 	public String accountAdd() {
-		return "usr/subpage/accountAdd";
+		return "usr/infra/subpage/accountAdd";
 	}
 	
 	@RequestMapping(value = "/accountModification")
 	public String accountModification() {
-		return "usr/subpage/accountModification";
+		return "usr/infra/subpage/accountModification";
 	}
 	
 	@RequestMapping(value = "/autoSend")
 	public String autoSend() {
-		return "usr/subpage/autoSend";
+		return "usr/infra/subpage/autoSend";
 	}
 	
 	@RequestMapping(value = "/send")
 	public String send() {
-		return "usr/subpage/send";
+		return "usr/infra/subpage/send";
 	}
 	
 	@RequestMapping(value = "/deposit")
 	public String deposit() {
-		return "usr/subpage/deposit";
+		return "usr/infra/subpage/deposit";
 	}
 	
 	@RequestMapping(value = "/domesticStock")
 	public String domesticStock() {
-		return "usr/subpage/domesticStock";
+		return "usr/infra/subpage/domesticStock";
 	}
 	
 	@RequestMapping(value = "/exchangeRate")
 	public String exchangeRate() {
-		return "usr/subpage/exchangeRate";
+		return "usr/infra/subpage/exchangeRate";
 	}
 	
 	@RequestMapping(value = "/foreignStock")
 	public String foreignStock() {
-		return "usr/subpage/foreignStock";
+		return "usr/infra/subpage/foreignStock";
 	}
 	
 	@RequestMapping(value = "/adminMain")
