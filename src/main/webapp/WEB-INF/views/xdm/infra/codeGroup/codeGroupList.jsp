@@ -14,7 +14,7 @@
   	<title>KOKOA BANK ADMIN</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
+	<%@ include file="../index/headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
       		<h1>codeGroupList</h1>
@@ -105,6 +105,6 @@
 			</form>
     	</section>
 	</main>
-  	<%@ include file="../index/footer.jsp" %>
+  	<%@ include file="../index/footerXdmView.jsp" %>
 </body>
 </html>

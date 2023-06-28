@@ -18,20 +18,20 @@
 	<div class="container">
    		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
        		<ul class="nav col-auto me-auto mb-2 align-items-center">
-      	 		<li><a href="index" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
-       			<li><a href="account" class="nav-link px-3 text-black">조회</a></li>
-       			<li><a href="deposit" class="nav-link px-3 text-black">입금</a></li>
-       			<li><a href="send" class="nav-link px-3 text-black">이체</a></li>
-       			<li><a href="autoSend" class="nav-link px-3 text-black">자동이체</a></li>
-       			<li><a href="exchangeRate" class="nav-link px-3 text-black">환율</a></li>
-       			<li><a href="domesticStock" class="nav-link px-3 text-black">국내주식</a></li>
-       			<li><a href="foreignStock" class="nav-link px-3 text-black">해외주식</a></li>
+      	 		<li><a href="indexUsrView" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
+       			<li><a href="accountUsrView" class="nav-link px-3 text-black">조회</a></li>
+       			<li><a href="depositUsrView" class="nav-link px-3 text-black">입금</a></li>
+       			<li><a href="sendUsrView" class="nav-link px-3 text-black">이체</a></li>
+       			<li><a href="autoSendUsrView" class="nav-link px-3 text-black">자동이체</a></li>
+       			<li><a href="exchangeRateUsrView" class="nav-link px-3 text-black">환율</a></li>
+       			<li><a href="domesticStockUsrView" class="nav-link px-3 text-black">국내주식</a></li>
+       			<li><a href="foreignStockUsrView" class="nav-link px-3 text-black">해외주식</a></li>
        		</ul>
        		<div class="col">
-       			<a href="usrLoginForm" class="px-3" style="text-decoration: none; color: black; margin-left: 170px;">
+       			<a href="loginUsrForm" class="px-3" style="text-decoration: none; color: black; margin-left: 170px;">
        				로그인
        			</a>
-				<a href="usrRegisterForm" style="text-decoration: none; color: black;">
+				<a href="registerUsrForm" style="text-decoration: none; color: black;">
 					회원가입
 				</a>	
        		</div>

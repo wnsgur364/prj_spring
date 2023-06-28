@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 	
 	@RequestMapping(value = "/loginXdmForm")
-	public String xdmLoginForm() {
+	public String loginXdmForm() {
 		return "xdm/infra/member/loginXdmForm";
 	}
 	
-	@RequestMapping(value = "/xdmRegisterForm")
-	public String xdmRegisterForm() {
-		return "xdm/infra/member/xdmRegisterForm";
+	@RequestMapping(value = "/registerXdmForm")
+	public String registerXdmForm() {
+		return "xdm/infra/member/registerXdmForm";
 	}
 	
-	@RequestMapping(value = "/usrLoginForm")
-	public String usrLoginForm() {
-		return "usr/infra/member/usrLoginForm";
+	@RequestMapping(value = "/loginUsrForm")
+	public String loginUsrForm() {
+		return "usr/infra/member/loginUsrForm";
 	}
 	
-	@RequestMapping(value = "/usrRegisterForm")
-	public String usrRegisterForm() {
-		return "usr/infra/member/usrRegisterForm";
+	@RequestMapping(value = "/registerUsrForm")
+	public String registerUsrForm() {
+		return "usr/infra/member/registerUsrForm";
 	}
 	
 }

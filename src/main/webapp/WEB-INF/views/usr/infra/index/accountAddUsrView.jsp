@@ -8,7 +8,7 @@
 	<title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
+	<%@ include file="headerUsrView.jsp" %>
 	<main>
    		<div class="container text-center" id="autoSend" style="width: 1320px; height: 870px; padding-top: 100px;">
 			<div class="col-5 m-auto">
@@ -37,12 +37,12 @@
 					</div>
 					<div class="d-flex justify-content-center">
 						<button class="btn btn-outline-secondary" id="submitForm" type="submit">확인</button>
-		    			<button class="btn btn-outline-secondary" onclick="location.href='account'">취소</button>   		
+		    			<button class="btn btn-outline-secondary" onclick="location.href='accountUsrView'">취소</button>   		
 		    		</div>
 				</form>
 			</div>
 		</div>
   	</main>
-	<%@ include file="../index/footer.jsp" %>
+	<%@ include file="footerUsrView.jsp" %>
 </body>
 </html>

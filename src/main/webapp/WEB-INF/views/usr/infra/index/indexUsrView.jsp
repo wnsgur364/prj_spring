@@ -1,85 +1,107 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
-<html lang="KO">
+<html lang="ko">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>바이오그라피</title>
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	<!-- Vendor CSS Files -->
-	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<!-- Template Main CSS File -->
-	<link href="/resources/css/biography.css" rel="stylesheet">
+    <title>KOKOA BANK</title>
 </head>
 <body>
-	<header id="header" class="header d-flex align-items-center fixed-top">
-	  	<div class="container-fluid d-flex align-items-center justify-content-center">
-	    	<a href="#" class="logo d-flex align-items-center me-auto me-lg-0">
-	     	<!-- <img src="assets/img/logo.png" alt=""> -->
-      			<h1>바이오그라피</h1>
-	    	</a>
-	  	</div>
-	</header>
-	<main id="main">
-	    <section id="about" class="about">
-	      	<div class="container page-header">
-	        	<div class="row gy-4 justify-content-center">
-	          		<div class="col-lg-4">
-	            		<img src="resources/images/profile-img.jpg" class="img-fluid rounded" alt="">
-	          		</div>
-		          	<div class="col-lg-5 content">
-	              		<div class="col-lg-8">
-	                		<ul>
-	                			<li><i class="bi bi-chevron-right"></i> <strong>이름:</strong> <span>이준혁</span></li>
-	                			<li><i class="bi bi-chevron-right"></i> <strong>성별:</strong> <span>남자</span></li>
-	                  			<li><i class="bi bi-chevron-right"></i> <strong>생년월일:</strong> <span>1991.02.10</span></li>
-	                  			<li><i class="bi bi-chevron-right"></i> <strong>국적:</strong> <span>대한민국</span></li>
-	                  			<li><i class="bi bi-chevron-right"></i> <strong>주소:</strong> <span>경기도 김포시</span></li>
-	                  			<li><i class="bi bi-chevron-right"></i> <strong>전화번호:</strong> <span>010-1234-5678</span></li>
-		                  		<li><i class="bi bi-chevron-right"></i> <strong>이메일:</strong> <span>example@example.com</span></li>
-	                		</ul>
-	              		</div>
+	<%@ include file="headerUsrView.jsp" %>
+	<div class="container">
+		<div class="row">
+			<div class="d-flex justify-content-center" style="padding: 33px; height: 714px; margin-top: 50px;">
+				<iframe width="1200" height="100%" src="https://www.youtube.com/embed/NJUjU9ALj4A?controls=0?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 15px; margin: 50px;"></iframe>
+			</div>	
+		</div>
+		<div class="row-md d-flex justify-content-center" style="padding: 50px; font-family: 'Dongle', sans-serif;">
+			<div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
+				<img src="resources/images/influencer1.jpg" class="card-img-top" alt="주식단테" style="margin-bottom: -15px;">
+				<div class="fs-1 text-center py-4">주식단테</div>
+				<div class="card-body d-flex justify-content-center align-items-end">
+					<div>
+						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+						</a>
+					</div>
+					<div>
+						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
+						</a>
+					</div>
+				</div>
+		  	</div>
+			<div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
+				<img src="resources/images/influencer2.jpg" class="card-img-top" alt="삼프로TV" style="margin-bottom: -15px;">
+				<div class="fs-1 text-center py-4">삼프로TV</div>
+				<div class="card-body d-flex justify-content-center align-items-end">
+					<div>
+						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+						</a>
+					</div>
+					<div>
+						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
+						</a>
 					</div>
 				</div>
 			</div>
-	    </section>
-	    <section id="testimonials" class="testimonials">
-	      	<div class="container">
-	        	<div class="row text-center">
-	        		<h2>개인프로젝트</h2>
-	          		<div class="col-lg-6">
-						<a href="index" target="_blank">
-							<h2>KOKOA BANK</h2>
-							<img src="resources/images/pf1.PNG" class="rounded">
+			<div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
+				<img src="resources/images/influencer3.jpg" class="card-img-top" alt="슈카월드" style="margin-bottom: -15px;">
+				<div class="fs-1 text-center py-4">슈카월드</div>
+				<div class="card-body d-flex justify-content-center align-items-end">
+					<div>
+						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
 						</a>
 					</div>
-	          		<div class="col-lg-6">
-						<a href="xdmLoginForm" target="_blank">
-							<h2>KOKOA BANK ADMIN</h2>
-							<img src="resources/images/pfad1.PNG" class="rounded">
+					<div>
+						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
 						</a>
 					</div>
-	        	</div>
-	      	</div>
-	   	</section>
-	</main>
-  	<footer id="footer" class="footer">
-    	<div class="container">
-      		<div class="copyright">
-        		&copy; Copyright <strong><span>포트폴리오</span></strong>. All Rights Reserved
-      		</div>
-    	</div>
-  	</footer>
-	<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-	<div id="preloader">
-    	<div class="line"></div>
-  	</div>
-	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/js/biography.js"></script>
+				</div>
+		  	</div>
+			  <div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
+				<img src="resources/images/influencer4.jpg" class="card-img-top" alt="테미녀" style="margin-bottom: -15px;">
+				<div class="fs-1 text-center py-4">테미녀</div>
+				<div class="card-body d-flex justify-content-center align-items-end">
+					<div>
+						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+						</a>
+					</div>
+					<div>
+						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
+						</a>
+					</div>
+				</div>
+		  	</div>
+			<div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
+				<img src="resources/images/influencer5.jpg" class="card-img-top" alt="천덩이" style="margin-bottom: -15px;">
+				<div class="fs-1 text-center py-4">천덩이</div>
+				<div class="card-body d-flex justify-content-center align-items-end">
+					<div>
+						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+						</a>
+					</div>
+					<div>
+						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
+						</a>
+					</div>
+				</div>
+		  	</div>
+		</div>	
+	</div>
+	<!-- 뉴스 -->
+	<div class="container" id="news" style="width: 1320px; height: 900px; padding-top: 100px;">
+		<div class="h4 d-flex justify-content-center">뉴스 API</div>
+	</div>
+	<%@ include file="footerUsrView.jsp" %>
 </body>
 </html>

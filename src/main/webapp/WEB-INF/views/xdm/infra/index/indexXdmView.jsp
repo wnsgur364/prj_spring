@@ -8,7 +8,7 @@
   	<title>KOKOA BANK ADMIN</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="headerXdmView.jsp" %>
 	<main id="main" class="main">
 	    <div class="pagetitle">
 			<h1>관리</h1>
@@ -130,6 +130,6 @@
 	      	</div>
 	    </section>
 	</main>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="footerXdmView.jsp" %>
 </body>
 </html>

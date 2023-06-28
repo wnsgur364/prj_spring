@@ -8,7 +8,7 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
+	<%@ include file="headerUsrView.jsp" %>
 	<!-- 조회 -->
 	<div id="myCarousel" class="carousel slide carousel-dark position-relative container" data-bs-touch="false" style="width: 1000px; padding: 100px 50px 0 50px; box-sizing: border-box; margin: auto;">
   		<div class="carousel-inner" style="margin: auto;">
@@ -59,8 +59,8 @@
 		</div>
 	</div>
 	<div class="d-flex justify-content-center">
-		<button class="btn btn-outline-secondary" onclick="location.href='accountAdd'">추가</button>
-		<button class="btn btn-outline-secondary" onclick="location.href='accountModification'">수정</button> 
+		<button class="btn btn-outline-secondary" onclick="location.href='accountAddUsrView'">추가</button>
+		<button class="btn btn-outline-secondary" onclick="location.href='accountModificationUsrView'">수정</button> 
 	</div>
 	<main id="main" class="main">
 	    <div class="pagetitle">
@@ -196,6 +196,6 @@
 			</form>
     	</section>
 	</main>
-	<%@ include file="../index/footer.jsp" %>
+	<%@ include file="footerUsrView.jsp" %>
 </body>
 </html>

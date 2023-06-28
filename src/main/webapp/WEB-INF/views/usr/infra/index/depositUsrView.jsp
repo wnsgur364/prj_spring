@@ -8,11 +8,11 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
-	<div class="container text-center" id="autoSend" style="width: 1320px; height: 870px; padding-top: 100px;">
+	<%@ include file="headerUsrView.jsp" %>
+	<div class="container text-center" id="deposit" style="width: 1320px; height: 870px; padding-top: 100px;">
 		<form>
 			<div class="row-md">
-				<div class="fs-1" style="margin-bottom: 30px; font-family: 'Dongle', sans-serif;">자동이체</div>
+				<div class="fs-1" style="margin-bottom: 30px; font-family: 'Dongle', sans-serif;">입금</div>
 				<div class="col-5" style="margin: 10px auto;">
 					<select id="selectAccount" class="form-select">
    						<option selected disabled>계좌선택</option>
@@ -23,9 +23,6 @@
 				</div>
 				<div class="col-5" style="margin: 10px auto;">
 					<input type="text" id="balance" class="form-control" placeholder="잔액" disabled>
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control" placeholder="계좌번호">
 				</div>
 				<div class="col-5" style="margin: 10px auto;">
 					<input type="text" class="form-control" placeholder="금액">
@@ -39,19 +36,13 @@
 				<div class="col-5" style="margin: 10px auto;">
 					<input type="password" class="form-control" placeholder="비밀번호">
 				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control datepicker" placeholder="자동이체 시작날짜">
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control datepicker" placeholder="자동이체 종료날짜">
-				</div>
 			</div>
-		</form>
+		</form>	
 		<div class="d-flex justify-content-center">
 			<button class="btn btn-outline-secondary">확인</button>
 	    	<button class="btn btn-outline-secondary">취소</button>   		
-	    </div>	
+	    </div>
 	</div>
-	<%@ include file="../index/footer.jsp" %>
+	<%@ include file="footerUsrView.jsp" %>
 </body>
 </html>

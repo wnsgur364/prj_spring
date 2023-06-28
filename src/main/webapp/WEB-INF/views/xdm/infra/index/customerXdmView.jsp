@@ -14,14 +14,14 @@
   	<title>KOKOA BANK ADMIN</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
+	<%@ include file="headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>계좌관리</h1>
+      		<h1>고객관리</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">계좌관리</li>
+          			<li class="breadcrumb-item active">고객관리</li>
         		</ol>
       		</nav>
     	</div>
@@ -96,6 +96,6 @@
 			</form>
     	</section>
 	</main>
-  	<%@ include file="../index/footer.jsp" %>
+  	<%@ include file="footerXdmView.jsp" %>
 </body>
 </html>

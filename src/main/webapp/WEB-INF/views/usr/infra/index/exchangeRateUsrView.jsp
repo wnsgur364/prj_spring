@@ -8,10 +8,10 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="../index/header.jsp" %>
+	<%@ include file="headerUsrView.jsp" %>
 	<div class="container" style="width: 1320px; height: 870px; padding-top: 100px;" id="exchangeRate">
 		<div class="h4 d-flex justify-content-center">환율 API</div>
 	</div>
-	<%@ include file="../index/footer.jsp" %>
+	<%@ include file="footerUsrView.jsp" %>
 </body>
 </html>

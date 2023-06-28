@@ -22,7 +22,7 @@
           			<div class="row justify-content-center">
             			<div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               				<div class="d-flex justify-content-center py-4">
-                				<a href="index" class="logo d-flex align-items-center w-auto">
+                				<a href="indexUsrView" class="logo d-flex align-items-center w-auto">
                   					<!-- <img src="assets/img/logo.png" alt=""> -->
                   					<span class="d-none d-lg-block">KOKOA BANK</span>
                 				</a>
@@ -69,7 +69,7 @@
                    							<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit">회원가입</button>
                    						</div>
                    						<div class="col-12">
-                   							<p class="small mb-0">이미 계정이 있으신가요? <a href="usrLoginForm">로그인</a></p>
+                   							<p class="small mb-0">이미 계정이 있으신가요? <a href="loginXdmForm">로그인</a></p>
             							</div>
                						</form>
                					</div>

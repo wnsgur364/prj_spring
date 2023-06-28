@@ -22,7 +22,7 @@
           			<div class="row justify-content-center">
             			<div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               				<div class="d-flex justify-content-center py-4">
-                				<a href="index" class="logo d-flex align-items-center w-auto">
+                				<a href="indexUsrView" class="logo d-flex align-items-center w-auto">
                   					<!-- <img src="" alt=""> -->
                   					<span class="d-none d-lg-block">KOKOA BANK</span>
                 				</a>
@@ -51,10 +51,10 @@
                       						</div>
                     					</div>
                    						<div class="col-12 d-flex">
-                      						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit" onclick="location.href=`adminMain`">로그인</button>
+                      						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit" onclick="location.href=`indexXdmView`">로그인</button>
                     					</div>
                     					<div class="col-12">
-                      						<p class="small mb-0">아이디가 없으신가요? <a href="xdmRegisterForm">회원가입</a></p>
+                      						<p class="small mb-0">아이디가 없으신가요? <a href="registerXdmForm">회원가입</a></p>
                     					</div>
                   					</form>
                 				</div>

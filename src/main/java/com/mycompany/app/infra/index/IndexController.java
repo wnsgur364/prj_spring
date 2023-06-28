@@ -6,84 +6,84 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/indexUsrView")
+	@RequestMapping(value = "/")
 	public String home() {
+		return "usr/infra/biography/biographyUsrView";
+	}
+	
+	@RequestMapping(value = "/indexUsrView")
+	public String indexUsrView() {
 		return "usr/infra/index/indexUsrView";
 	}
 	
-	@RequestMapping(value = "/index")
-	public String index() {
-		return "usr/infra/index/index";
+	@RequestMapping(value = "/accountUsrView")
+	public String accountUsrView() {
+		return "usr/infra/index/accountUsrView";
 	}
 	
-	@RequestMapping(value = "/account")
-	public String account() {
-		return "usr/infra/index/account";
+	@RequestMapping(value = "/accountAddUsrView")
+	public String accountAddUsrView() {
+		return "usr/infra/index/accountAddUsrView";
 	}
 	
-	@RequestMapping(value = "/accountAdd")
-	public String accountAdd() {
-		return "usr/infra/index/accountAdd";
+	@RequestMapping(value = "/accountModificationUsrView")
+	public String accountModificationUsrView() {
+		return "usr/infra/index/accountModificationUsrView";
 	}
 	
-	@RequestMapping(value = "/accountModification")
-	public String accountModification() {
-		return "usr/infra/index/accountModification";
+	@RequestMapping(value = "/autoSendUsrView")
+	public String autoSendUsrView() {
+		return "usr/infra/index/autoSendUsrView";
 	}
 	
-	@RequestMapping(value = "/autoSend")
-	public String autoSend() {
-		return "usr/infra/index/autoSend";
+	@RequestMapping(value = "/sendUsrView")
+	public String sendUsrView() {
+		return "usr/infra/index/sendUsrView";
 	}
 	
-	@RequestMapping(value = "/send")
-	public String send() {
-		return "usr/infra/index/send";
+	@RequestMapping(value = "/depositUsrView")
+	public String depositUsrView() {
+		return "usr/infra/index/depositUsrView";
 	}
 	
-	@RequestMapping(value = "/deposit")
-	public String deposit() {
-		return "usr/infra/index/deposit";
+	@RequestMapping(value = "/domesticStockUsrView")
+	public String domesticStockUsrView() {
+		return "usr/infra/index/domesticStockUsrView";
 	}
 	
-	@RequestMapping(value = "/domesticStock")
-	public String domesticStock() {
-		return "usr/infra/index/domesticStock";
+	@RequestMapping(value = "/exchangeRateUsrView")
+	public String exchangeRateUsrView() {
+		return "usr/infra/index/exchangeRateUsrView";
 	}
 	
-	@RequestMapping(value = "/exchangeRate")
-	public String exchangeRate() {
-		return "usr/infra/index/exchangeRate";
-	}
-	
-	@RequestMapping(value = "/foreignStock")
-	public String foreignStock() {
-		return "usr/infra/index/foreignStock";
+	@RequestMapping(value = "/foreignStockUsrView")
+	public String foreignStockUsrView() {
+		return "usr/infra/index/foreignStockUsrView";
 	}
 	
 	@RequestMapping(value = "/indexXdmView")
-	public String adminMain() {
+	public String indexXdmView() {
 		return "xdm/infra/index/indexXdmView";
 	}
 	
-	@RequestMapping(value = "/adminAccount")
-	public String adminAccount() {
-		return "xdm/infra/index/adminAccount";
+	@RequestMapping(value = "/accountXdmView")
+	public String accountXdmView() {
+		return "xdm/infra/index/accountXdmView";
 	}
 	
-	@RequestMapping(value = "/adminTransaction")
-	public String adminTransaction() {
-		return "xdm/infra/index/adminTransaction";
+	@RequestMapping(value = "/transactionXdmView")
+	public String transactionXdmView() {
+		return "xdm/infra/index/transactionXdmView";
 	}
 	
-	@RequestMapping(value = "/adminCustomer")
-	public String adminCustomer() {
-		return "xdm/infra/index/adminCustomer";
+	@RequestMapping(value = "/customerXdmView")
+	public String customerXdmView() {
+		return "xdm/infra/index/customerXdmView";
 	}
 	
-	@RequestMapping(value = "/adminInfluencer")
-	public String adminInfluencer() {
-		return "xdm/infra/index/adminInfluencer";
+	@RequestMapping(value = "/influencerXdmView")
+	public String influencerXdmView() {
+		return "xdm/infra/index/influencerXdmView";
 	}
 	
 }
