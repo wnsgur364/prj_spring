@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/biography")
+	@RequestMapping(value = "/indexUsrView")
 	public String home() {
-		return "usr/infra/index/biography";
+		return "usr/infra/index/indexUsrView";
 	}
 	
 	@RequestMapping(value = "/index")
@@ -61,9 +61,9 @@ public class IndexController {
 		return "usr/infra/index/foreignStock";
 	}
 	
-	@RequestMapping(value = "/adminMain")
+	@RequestMapping(value = "/indexXdmView")
 	public String adminMain() {
-		return "xdm/infra/index/adminMain";
+		return "xdm/infra/index/indexXdmView";
 	}
 	
 	@RequestMapping(value = "/adminAccount")
