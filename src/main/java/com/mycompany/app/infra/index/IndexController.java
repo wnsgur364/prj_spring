@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/biographyUsrView")
 	public String home() {
 		return "usr/infra/biography/biographyUsrView";
 	}
