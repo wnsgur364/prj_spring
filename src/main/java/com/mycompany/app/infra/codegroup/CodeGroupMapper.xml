@@ -53,11 +53,13 @@
 	</delete> 
 
 	<insert id="insert">
- 		INSERT INTO 
- 			codeGroup 
- 			(delNy ,name)
-    	VALUES 
-    		(0, #{name})
+ 		INSERT INTO codeGroup (
+ 			delNy,
+ 			name
+    	) VALUES (
+    		0, 
+    		#{name}
+		)
 	</insert>
      
     <update id="uelete">

@@ -30,33 +30,39 @@
             	<div class="card-body">
               		<h5 class="card-title">codeGroupForm</h5>
               		<p>codeGroupForm</p>
-              		<form class="row g-3 needs-validation" name="form" method="post" novalidate >
-              			<div class="col-md-4">
-                			<div class="form-floating">
-                    			<input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>">
-                    			<label for="floatingName">seq (unable to input)</label>
-                    			<div class="invalid-feedback">
-                    				Looks good!
-                  				</div>
-               				</div>
-               			</div>
-               			<div class="col-md-4">
-                			<div class="form-floating">
-                    			<input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
-                    			<label for="floatingName">name</label>
-                    			<div class="invalid-feedback">
-                    				Looks good!
-                  				</div>
-               				</div>
-               			</div>
-                		<div class="d-flex justify-content-center">
-                			<button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
-							<button type="button" class="btn btn-success" id="btnUpdate" >Update</button>
-							<button type="button" class="btn btn-secondary" id="btnInsert" >Insert</button>
-							<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
-							<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+              		<form class="row g-3 needs-validation" name="form" method="post" novalidate>
+					    <div class="col-md-4">
+						    <div class="form-floating">
+						        <input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>" ${empty item.seq ? 'disabled' : ''}>
+						        <label for="floatingName">seq (unable to input)</label>
+						        <div class="invalid-feedback">
+						            Looks good!
+						        </div>
+						    </div>
 						</div>
-              		</form>
+					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
+					            <label for="floatingName">name</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+					    <div class="d-flex justify-content-center">
+					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
+					        <c:choose>
+					            <c:when test="${empty item.seq}">
+					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
+					            </c:when>
+					            <c:otherwise>
+					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+					            	<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
+					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
+					            </c:otherwise>
+					        </c:choose>
+					    </div>
+					</form>
             	</div>
           	</div>
 		</div>	

@@ -98,7 +98,7 @@
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-primary" id="btnModification" onclick="location.href='codeGroupForm'">Edit</button>
+									<button type="button" class="btn btn-primary" id="btnModification" onclick="location.href='codeGroupForm'">Add</button>
 								</div>
 							</div>
 						</div>
