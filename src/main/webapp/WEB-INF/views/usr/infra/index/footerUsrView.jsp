@@ -8,6 +8,9 @@
    		</div>
 	</footer>
 </div>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
 <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/vendor/jquery/jquery.min.js"></script> 
 <script src="/resources/vendor/jquery-ui/jquery-ui.min.js"></script>
