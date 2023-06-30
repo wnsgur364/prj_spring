@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+	
 	"use strict";
+	
 	// Easy selector helper function
 	const select = (el, all = false) => {
 		el = el.trim()
@@ -18,20 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			select(el, all).addEventListener(type, listener)
 		}
 	}
-	
-	/* Back to top button */
-  	let backtotop = select('.back-to-top')
-  	if (backtotop) {
-    	const toggleBacktotop = () => {
-      		if (window.scrollY > 100) {
-        		backtotop.classList.add('active')
-      		} else {
-        		backtotop.classList.remove('active')
-      		}
-    	}
-    	window.addEventListener('load', toggleBacktotop)
-    	onscroll(document, toggleBacktotop)
-  	}
 
     // Initiate Bootstrap validation check
   	var needsValidation = document.querySelectorAll('.needs-validation')
@@ -47,7 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			form.classList.add('was-validated')
 		}, false)
 	})
-
+	
+  	// Scroll top button 
+  	const scrollTop = document.querySelector('.scroll-top');
+  	if (scrollTop) {
+    	const togglescrollTop = function() {
+      		window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    	}
+    	window.addEventListener('load', togglescrollTop);
+    	document.addEventListener('scroll', togglescrollTop);
+    	scrollTop.addEventListener('click', window.scrollTo({
+      		top: 0,
+      		behavior: 'smooth'
+    	}));
+  	}
+	
 	// Initiate Datatables
   	const datatables = select('.datatable', true)
   	datatables.forEach(datatable => {
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     	aElement.removeAttribute('href');
     	aElement.classList.remove('datatable-sorter');
   	}
-	
+ 
 });
 
 // datepicker

@@ -102,6 +102,9 @@
 								<table class="table datatable">		
 									<thead>
 										<tr>
+											<th scope="col" class="doNotScript">
+												<input type="checkbox" name="checked" id="allCheck" value="">
+											</th>
 											<th scope="col">순서</th>
 											<th scope="col">날짜</th>
 								      		<th scope="col">내용</th>
@@ -112,64 +115,11 @@
 									</thead>
 									<tbody>
 										<tr>
+											<td scope="col">
+												<input type="checkbox" name="checked" value="">
+											</td>
 											<td>1</td>
 								      		<td>2023-06-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>출금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>2</td>
-								      		<td>2023-06-18</td>
-								      		<td>순대국</td>
-								      		<td>4,000</td>
-								      		<td>출금</td>
-								      		<td>590,000</td>
-										</tr>
-										<tr>
-								      		<td>3</td>
-								      		<td>2023-04-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>출금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>4</td>
-								      		<td>2023-04-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>입금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>5</td>
-								      		<td>2023-04-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>입금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>6</td>
-								      		<td>2023-04-15</td>
-								      		<td>순대국</td>
-								      		<td>8,000</td>
-								      		<td>입금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>9 </td>
-								      		<td>2023-04-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>출금</td>
-								      		<td>500,000</td>
-										</tr>
-										<tr>
-								      		<td>10</td>
-								      		<td>2023-04-15</td>
 								      		<td>순대국</td>
 								      		<td>5,000</td>
 								      		<td>출금</td>
