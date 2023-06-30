@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis,org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.mycompany.app.infra.code.CodeMapper">
+								 <!-- select 결과를 받을 객체 -->
+	<resultMap id="resultMapObj" type="com.mycompany.app.infra.code.Code"></resultMap>
+					
+	<sql id="bcd">
+		seq,
+		delNy,
+		name,
+		codeGroup_seq
+	</sql>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			<include refid="bcd" />
+		FROM 
+			code
+		WHERE 1=1
+			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
+	</select> 
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+		  	<include refid="bcd" /> 
+		FROM 
+		  	code
+		WHERE 1=1
+	  		AND seq = #{seq}
+	</select>
+	
+    <update id="update">
+        UPDATE 
+        	code
+        SET 
+        	name = #{name},
+        	codeGroup_seq = #{codeGroup_seq}
+        WHERE 
+        	seq = #{seq}
+    </update>
+   
+	<delete id="delete">
+	    DELETE 
+	    FROM 
+	    	code
+	    WHERE 
+	    	seq = #{seq}
+	</delete> 
+
+	<insert id="insert">
+ 		INSERT INTO code (
+ 			delNy,
+ 			name,
+ 			codeGroup_seq
+    	) VALUES (
+    		0, 
+    		#{name},
+    		#{codeGroup_seq}
+		)
+	</insert>
+     
+    <update id="uelete">
+        UPDATE 
+        	code
+       	SET
+			delNy = "1"
+		WHERE				
+		 	seq = #{seq}
+    </update>
+    
+</mapper>
