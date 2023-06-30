@@ -1889,7 +1889,7 @@
                                 noResults: "No results match your search query",
                                 info: "전체 {rows}개 중 {start}부터 {end}까지 표시"
                             },
-                            template: (t, e) => `<div class='${t.classes.top}'>\n    ${t.paging&&t.perPageSelect?`<div class='${t.classes.dropdown}'>\n            <label>\n                <select class='${t.classes.selector}'></select> ${t.labels.perPage}\n            </label>\n        </div>`:""}\n    ${t.searchable?`<div class='${t.classes.search}'>\n            <input class='${t.classes.input}' placeholder='${t.labels.placeholder}' type='search' title='${t.labels.searchTitle}'${e.id?` aria-controls="${e.id}"`:""}>\n        </div>`:""}\n</div>\n<div class='${t.classes.container}'${t.scrollY.length?` style='height: ${t.scrollY}; overflow-Y: auto;'`:""}></div>\n<div class='${t.classes.bottom}'>\n    ${t.paging?`<div class='${t.classes.info}'></div>`:""}\n    <nav class='${t.classes.pagination}'></nav>\n</div>`,
+                            template: (t, e) => `<div class='${t.classes.top}'>\n  ${t.paging?`<div class='${t.classes.info}'></div>`:""}\n  ${t.paging&&t.perPageSelect?`<div class='${t.classes.dropdown}'>\n            <label>\n                <select class='${t.classes.selector}'></select> ${t.labels.perPage}\n            </label>\n        </div>`:""}\n   <div class='${t.classes.container}'${t.scrollY.length?` style='height: ${t.scrollY}; overflow-Y: auto;'`:""}></div>\n<div class='${t.classes.bottom}'>\n  <nav class='${t.classes.pagination}'></nav>\n</div>`,
                             classes: {
                                 active: "datatable-active",
                                 ascending: "datatable-ascending",

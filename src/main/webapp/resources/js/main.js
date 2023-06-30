@@ -62,19 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.getElementsByName("checked")[i].checked = this.checked;
 		}
 	});	
-	
-	// 검색 컨테이너를 숨김 처리
-	const searchContainer = document.querySelector('.datatable-search');
-	searchContainer.style.display = 'none';
-	
-	// HTML 요소 가져오기
-	const datatableTop = document.querySelector('.datatable-top');
-	const datatableDropdown = document.querySelector('.datatable-dropdown');
-	
-	// 스타일 설정하여 오른쪽에 붙도록 변경
-	datatableTop.style.display = 'flex';
-	datatableTop.style.justifyContent = 'flex-end';
-	datatableDropdown.style.marginRight = '10px';
 			
 	// checkbox 적용되는 datatables 효과 제거
   	const firstThElement = document.querySelector('th:first-child');

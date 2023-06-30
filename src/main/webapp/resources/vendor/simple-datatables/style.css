@@ -207,3 +207,8 @@ table.datatable-table:focus {
 	outline: solid 1px black;
     outline-offset: -1px;
 }
+
+.datatable-dropdown {
+	float: right;
+}
+
