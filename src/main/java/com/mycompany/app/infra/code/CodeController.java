@@ -5,11 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.codegroup.CodeGroupServiceImpl;
+import com.mycompany.app.infra.codegroup.CodeGroupVo;
+
 @Controller
 public class CodeController {
 
 	@Autowired
 	CodeServiceImpl service;
+	@Autowired
+	CodeGroupServiceImpl groupService;
 	
 	@RequestMapping("/codeList")
 	public String codeList(CodeVo vo, Model model) {
@@ -18,8 +23,9 @@ public class CodeController {
 	}
 	
 	@RequestMapping("/codeForm")
-	public String codeForm(CodeVo vo, Model model) {
+	public String codeForm(CodeVo vo, Model model, CodeGroupVo groupvo, Model groupModel) {
 		model.addAttribute("item", service.selectOne(vo));
+		groupModel.addAttribute("group", groupService.selectList(groupvo));
 		return "xdm/infra/code/codeForm";
 	}
 	

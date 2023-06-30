@@ -49,15 +49,16 @@
 					            </div>
 					        </div>
 					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="codeGroup_seq" name="codeGroup_seq" required value="<c:out value="${item.codeGroup_seq}"/>">
-					            <label for="floatingName">codeGroup_seq</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
+					    <div class="col-md-4">
+						    <div class="form-floating">
+							    <select class="form-select" name="codeGroup_seq">
+								    <c:forEach items="${group}" var="group" varStatus="status">
+									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.name}"></c:out></option>
+									</c:forEach>
+								</select>
+								<label for="floatingName">codeGroup_seq</label>
+							</div>
+   					     </div>
 					    <div class="d-flex justify-content-center">
 					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeList'">List</button>
 					        <c:choose>
@@ -66,7 +67,7 @@
 					            </c:when>
 					            <c:otherwise>
 					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					            	<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
+					            	<button type="button" class="btn btn-warning" id="btnUelete">Uelete</button>
 					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
 					            </c:otherwise>
 					        </c:choose>

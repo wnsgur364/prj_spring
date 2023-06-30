@@ -57,7 +57,7 @@
 					            </c:when>
 					            <c:otherwise>
 					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					            	<button type="button" class="btn btn-warning" id="btnUelete" >Uelete</button>
+					            	<button type="button" class="btn btn-warning" id="btnUelete">Uelete</button>
 					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
 					            </c:otherwise>
 					        </c:choose>
