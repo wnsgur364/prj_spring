@@ -85,5 +85,36 @@
   		</div>
 	</div>
 	<%@ include file="../index/footerXdmView.jsp" %>
+	<script>
+	
+		// 업데이트버튼 클릭이벤트
+		$("#btnUpdate").on("click", function(){
+			
+			$("form[name=form]").attr("action","/codeGroupUpdate").submit();
+			
+		});
+	
+		// 딜리트버튼 클릭이벤트
+		$("#btnDelete").on("click", function(){
+			
+			$("form[name=form]").attr("action","/codeGroupDelete").submit();
+			
+		});
+	
+		// 인서트버튼 클릭이벤트
+		$("#btnInsert").on("click", function(){
+			
+			$("form[name=form]").attr("action","/codeGroupInsert").submit();
+			
+		});
+	
+		// 율리트버튼 클릭이벤트
+		$("#btnUelete").on("click", function(){
+			
+			$("form[name=form]").attr("action","/codeGroupUelete").submit();
+			
+		});
+	
+	</script>
 </body>
 </html>

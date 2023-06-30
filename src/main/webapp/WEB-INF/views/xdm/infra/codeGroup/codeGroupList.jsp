@@ -109,5 +109,15 @@
     	</section>
 	</main>
   	<%@ include file="../index/footerXdmView.jsp" %>
+  	<script>
+  	
+  		// 서치버튼 클릭이벤트
+		$("#btnSearch").on("click", function(){
+			
+			$("form[name=formList]").attr("action","/codeGroupList").submit();
+			
+		});
+		
+  	</script>
 </body>
 </html>

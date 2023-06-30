@@ -144,38 +144,3 @@ $("#btnModification").click(function() {
     // 체크박스 해제
     $("input[name='checked']").prop('checked', false);
 });
-
-// 서치버튼 클릭이벤트
-$("#btnSearch").on("click", function(){
-	
-	$("form[name=formList]").attr("action","/codeGroupList").submit();
-	
-});
-
-// 업데이트버튼 클릭이벤트
-$("#btnUpdate").on("click", function(){
-	
-	$("form[name=form]").attr("action","/codeGroupUpdate").submit();
-	
-});
-
-// 딜리트버튼 클릭이벤트
-$("#btnDelete").on("click", function(){
-	
-	$("form[name=form]").attr("action","/codeGroupDelete").submit();
-	
-});
-
-// 인서트버튼 클릭이벤트
-$("#btnInsert").on("click", function(){
-	
-	$("form[name=form]").attr("action","/codeGroupInsert").submit();
-	
-});
-
-// 율리트버튼 클릭이벤트
-$("#btnUelete").on("click", function(){
-	
-	$("form[name=form]").attr("action","/codeGroupUelete").submit();
-	
-});
