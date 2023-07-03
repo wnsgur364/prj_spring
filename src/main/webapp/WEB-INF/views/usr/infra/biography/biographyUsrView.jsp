@@ -42,6 +42,7 @@
 	                  			<li><i class="bi bi-chevron-right"></i> <strong>주소:</strong> <span>경기도 김포시</span></li>
 	                  			<li><i class="bi bi-chevron-right"></i> <strong>전화번호:</strong> <span>010-1234-5678</span></li>
 		                  		<li><i class="bi bi-chevron-right"></i> <strong>이메일:</strong> <span>example@example.com</span></li>
+		                  		<li><i class="bi bi-chevron-right"></i> <strong>깃허브:</strong> <span><a href="https://github.com/wnsgur364">https://github.com/wnsgur364</a></span></li>
 	                		</ul>
 	              		</div>
 					</div>
