@@ -20,7 +20,6 @@ public class CodeController {
 	@RequestMapping("/codeList")
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "code" : vo.getShKeyword());
-		
 		model.addAttribute("list", service.selectList(vo));
 		return "xdm/infra/code/codeList";
 	}
