@@ -19,6 +19,8 @@ public class CodeController {
 	
 	@RequestMapping("/codeList")
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : "code");
+		
 		model.addAttribute("list", service.selectList(vo));
 		return "xdm/infra/code/codeList";
 	}
