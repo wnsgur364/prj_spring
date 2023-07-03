@@ -3,6 +3,7 @@ package com.mycompany.app.infra.code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.app.infra.codegroup.CodeGroupServiceImpl;
@@ -17,9 +18,8 @@ public class CodeController {
 	CodeGroupServiceImpl groupService;
 	
 	@RequestMapping("/codeList")
-	public String codeList(CodeVo vo, Model model) {
+	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
 		model.addAttribute("list", service.selectList(vo));
-		model.addAttribute("vo", vo);
 		return "xdm/infra/code/codeList";
 	}
 	
