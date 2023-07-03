@@ -14,7 +14,7 @@
   	<title>KOKOA BANK ADMIN</title>
 </head>
 <body>
-	<%@ include file="../index/headerXdmView.jsp" %>
+	<%@ include file="../../../include/headerXdmView.jsp" %>
 	<main id="main" class="main">
 	    <div class="pagetitle">
       		<h1>codeGroupForm</h1>
@@ -84,7 +84,7 @@
     		</div>
   		</div>
 	</div>
-	<%@ include file="../index/footerXdmView.jsp" %>
+	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	
 		// 업데이트버튼 클릭이벤트

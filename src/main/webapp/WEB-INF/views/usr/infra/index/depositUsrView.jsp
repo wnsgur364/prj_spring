@@ -8,7 +8,7 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="headerUsrView.jsp" %>
+	<%@ include file="../../../include/headerUsrView.jsp" %>
 	<div class="container text-center" id="deposit" style="width: 1320px; height: 870px; padding-top: 100px;">
 		<form>
 			<div class="row-md">
@@ -43,6 +43,6 @@
 	    	<button class="btn btn-outline-secondary">취소</button>   		
 	    </div>
 	</div>
-	<%@ include file="footerUsrView.jsp" %>
+	<%@ include file="../../../include/footerUsrView.jsp" %>
 </body>
 </html>

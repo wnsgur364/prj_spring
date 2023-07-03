@@ -8,10 +8,10 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="headerUsrView.jsp" %>
+	<%@ include file="../../../include/headerUsrView.jsp" %>
 	<div class="container" style="width: 1320px; height: 870px; padding-top: 100px;" id="foreignStock">
 		<div class="h4 d-flex justify-content-center">해외 주식 API</div>
 	</div>
-	<%@ include file="footerUsrView.jsp" %>
+	<%@ include file="../../../include/footerUsrView.jsp" %>
 </body>
 </html>

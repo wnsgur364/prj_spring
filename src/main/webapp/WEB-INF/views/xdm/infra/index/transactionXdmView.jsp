@@ -14,7 +14,7 @@
   	<title>KOKOA BANK ADMIN</title>
 </head>
 <body>
-	<%@ include file="headerXdmView.jsp" %>
+	<%@ include file="../../../include/headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
       		<h1>거래관리</h1>
@@ -96,6 +96,6 @@
 			</form>
     	</section>
 	</main>
-  	<%@ include file="footerXdmView.jsp" %>
+  	<%@ include file="../../../include/footerXdmView.jsp" %>
 </body>
 </html>

@@ -8,7 +8,7 @@
 	<title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="headerUsrView.jsp" %>
+	<%@ include file="../../../include/headerUsrView.jsp" %>
 	<main>
    		<div class="container text-center" id="autoSend" style="width: 1320px; height: 870px; padding-top: 100px;">
 			<div class="col-5 m-auto">
@@ -57,6 +57,6 @@
 			</div>
 		</div>
   	</main>
-	<%@ include file="footerUsrView.jsp" %>
+	<%@ include file="../../../include/footerUsrView.jsp" %>
 </body>
 </html>

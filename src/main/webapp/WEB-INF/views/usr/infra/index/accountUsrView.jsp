@@ -8,7 +8,7 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="headerUsrView.jsp" %>
+	<%@ include file="../../../include/headerUsrView.jsp" %>
 	<!-- 조회 -->
 	<div id="myCarousel" class="carousel slide carousel-dark position-relative container" data-bs-touch="false" style="width: 1000px; padding: 100px 50px 0 50px; box-sizing: border-box; margin: auto;">
   		<div class="carousel-inner" style="margin: auto;">
@@ -134,6 +134,6 @@
 			</form>
     	</section>
 	</main>
-	<%@ include file="footerUsrView.jsp" %>
+	<%@ include file="../../../include/footerUsrView.jsp" %>
 </body>
 </html>

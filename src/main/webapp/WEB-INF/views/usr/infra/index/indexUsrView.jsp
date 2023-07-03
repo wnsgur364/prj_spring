@@ -8,7 +8,7 @@
     <title>KOKOA BANK</title>
 </head>
 <body>
-	<%@ include file="headerUsrView.jsp" %>
+	<%@ include file="../../../include/headerUsrView.jsp" %>
 	<div class="container">
 		<div class="row">
 			<div class="d-flex justify-content-center" style="padding: 33px; height: 714px; margin-top: 50px;">
@@ -102,6 +102,6 @@
 	<div class="container" id="news" style="width: 1320px; height: 900px; padding-top: 100px;">
 		<div class="h4 d-flex justify-content-center">뉴스 API</div>
 	</div>
-	<%@ include file="footerUsrView.jsp" %>
+	<%@ include file="../../../include/footerUsrView.jsp" %>
 </body>
 </html>
