@@ -12,8 +12,10 @@ public class CodeGroupController {
 	@Autowired
 	CodeGroupServiceImpl service;
 	
+	
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
+		
 		vo.setShKeyword(vo.getShKeyword() == null ? "CodeGroup" : vo.getShKeyword());
 		model.addAttribute("list", service.selectList(vo));
 		return "xdm/infra/codeGroup/codeGroupList";

@@ -71,15 +71,5 @@
 		 	seq = #{seq}
     </update>
     
-   	<select id="paging" resultMap="resultMapObj">
-		SELECT
-			a.seq, 
-			a.name
-		FROM codeGroup a
-		WHERE 1=1
-			AND delNy = 0
-			And delNy = 1
-		ORDER BY a.seq DESC
-	</select>
     
 </mapper>
