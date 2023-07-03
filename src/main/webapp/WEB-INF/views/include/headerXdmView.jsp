@@ -3,7 +3,7 @@
 <!-- CSS -->
 <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="/resources/css/style.css" rel="stylesheet">
+<link href="/resources/xdm/xdm.css" rel="stylesheet">
 <link href="/resources/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 <!-- Google Fonts -->
 <link href="https://fonts.gstatic.com" rel="preconnect">

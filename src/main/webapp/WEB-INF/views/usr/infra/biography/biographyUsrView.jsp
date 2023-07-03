@@ -14,7 +14,7 @@
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 	<!-- Template Main CSS File -->
-	<link href="/resources/css/biography.css" rel="stylesheet">
+	<link href="/resources/biography/biography.css" rel="stylesheet">
 </head>
 <body>
 	<header id="header" class="header d-flex align-items-center fixed-top">
@@ -81,6 +81,6 @@
     	<div class="line"></div>
   	</div>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/js/biography.js"></script>
+	<script src="/resources/biography/biography.js"></script>
 </body>
 </html>
