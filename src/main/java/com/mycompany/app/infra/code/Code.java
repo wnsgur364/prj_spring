@@ -6,6 +6,7 @@ public class Code {
 	private String name;
 	private String codeGroup_seq;
 	private Integer delNy;
+
 //  ----	
 	public String getSeq() {
 		return seq;

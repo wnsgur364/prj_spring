@@ -14,6 +14,7 @@ public class CodeGroupController {
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(CodeGroupVo vo, Model model) {
 		model.addAttribute("list", service.selectList(vo));
+		model.addAttribute("vo", vo);
 		return "xdm/infra/codeGroup/codeGroupList";
 	}
 	

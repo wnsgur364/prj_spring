@@ -19,6 +19,7 @@ public class CodeController {
 	@RequestMapping("/codeList")
 	public String codeList(CodeVo vo, Model model) {
 		model.addAttribute("list", service.selectList(vo));
+		model.addAttribute("vo", vo);
 		return "xdm/infra/code/codeList";
 	}
 	

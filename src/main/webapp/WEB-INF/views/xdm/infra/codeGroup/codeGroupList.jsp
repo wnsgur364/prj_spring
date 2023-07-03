@@ -40,7 +40,7 @@
 				    					</select>
 				  					</div>
 				  					<div class="col-2">
-				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword">
+				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
 				  					</div>  
 				  					<div class="col-1">
 										<button type="submit" class="btn btn-dark" id="btnSearch">
