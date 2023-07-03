@@ -11,5 +11,4 @@
 <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/resources/vendor/jquery/jquery.min.js"></script> 
 <script src="/resources/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="/resources/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="/resources/js/main.js"></script>
