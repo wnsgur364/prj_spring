@@ -71,5 +71,4 @@
 		 	seq = #{seq}
     </update>
     
-    
 </mapper>

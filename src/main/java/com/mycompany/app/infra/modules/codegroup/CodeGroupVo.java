@@ -1,14 +1,13 @@
 package com.mycompany.app.infra.modules.codegroup;
 
-import com.mycompany.app.infra.common.base.BaseVo;
-
-public class CodeGroupVo extends BaseVo{
+public class CodeGroupVo {
 
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
 	private String name;
 	private Integer delNy;
+	
 //	-----
 	public Integer getShOption() {
 		return shOption;
