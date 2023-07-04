@@ -20,7 +20,7 @@
 		FROM 
 			code
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND male LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND delNy LIKE CONCAT('%',#{shKeyword},'%')</if>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
