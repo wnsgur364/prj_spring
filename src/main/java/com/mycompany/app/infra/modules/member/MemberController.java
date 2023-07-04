@@ -49,11 +49,16 @@ public class MemberController {
 	public String loginUsrForm() {
 		return "usr/infra/member/loginUsrForm";
 	}
-	
+
 	@RequestMapping(value = "/registerUsrForm")
-	public String registerUsrForm(Member dto) {
-		service.insert(dto);
+	public String registerUsrForm() {
 		return "usr/infra/member/registerUsrForm";
+	}
+	
+	@RequestMapping(value = "/registerInsert")
+	public String registerInsert(Member dto) {
+		service.insert(dto);
+		return "redirect:/loginUsrForm";
 	}
 	
 	@RequestMapping(value = "/loginXdmForm")

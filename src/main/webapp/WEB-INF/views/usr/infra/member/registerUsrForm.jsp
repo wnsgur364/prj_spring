@@ -86,7 +86,7 @@
 		// 인서트버튼 클릭이벤트
 		$("#submitForm").on("click", function(){
 			
-			$("form[name=form]").attr("action","/memberInsert").submit();
+			$("form[name=form]").attr("action","/registerInsert").submit();
 			
 		});
 	</script>

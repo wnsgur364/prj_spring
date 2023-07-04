@@ -12,6 +12,11 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 	CodeGroupDao dao;
 
 	@Override
+	public int selectOneCount(CodeGroupVo vo) {
+		return dao.selectOneCount(vo);
+	}
+	
+	@Override
 	public List<CodeGroup> selectList(CodeGroupVo vo) { 
 		return dao.selectList(vo); 
 	}
@@ -26,10 +31,10 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 		return dao.update(dto); 
 	}
 	
-	@Override
-	public int delete(CodeGroup dto) {
-		return dao.delete(dto);
-	}
+//	@Override
+//	public int delete(CodeGroup dto) {
+//		return dao.delete(dto);
+//	}
 	
 	@Override
 	public int insert(CodeGroup dto) {
@@ -39,16 +44,6 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 	@Override
 	public int uelete(CodeGroup dto) {
 		return dao.uelete(dto);
-	}
-
-	@Override
-	public List<CodeGroupVo> getList(CodeGroupVo vo) {
-		return dao.getList(vo); 
-	}
-
-	@Override
-	public int getListCnt(CodeGroupVo vo) {
-		return dao.getListCnt(vo);
 	}
 	
 }

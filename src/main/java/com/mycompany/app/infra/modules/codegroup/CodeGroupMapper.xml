@@ -17,14 +17,26 @@
 		name
 	</sql>
 	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			<include refid="abc" />
+	<sql id="selectCommon">
 		FROM 
 			codeGroup
 		WHERE 1=1
 			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
-	</select> 
+	</sql>
+	
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+	
+   	<select id="selectList" resultMap="resultMapObj">
+		SELECT aa.* FROM (   	
+	   		SELECT
+				<include refid="abc" />
+	   			<include refid="selectCommon" />
+		) aa
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+   	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
@@ -43,6 +55,7 @@
         WHERE 
         	seq = #{seq}
     </update>
+    
 <!--  실제로는 update 삭제 (uelete) 로 사용함.
 	<delete id="delete">
 	    DELETE 
@@ -52,6 +65,7 @@
 	    	seq = #{seq}
 	</delete> 
  -->
+ 
 	<insert id="insert">
  		INSERT INTO codeGroup (
  			delNy,
@@ -70,28 +84,5 @@
 		WHERE				
 		 	seq = #{seq}
     </update>
-    
-   	<sql id="boardWhere">
-		WHERE column1 = #{value1}
-			AND column2 = #{value2}
-	</sql>
-    
-	<select id="getList" resultMap="resultMapObj">
-		<![CDATA[
-			SELECT *
-			FROM codeGroup
-		]]>
-		<include refid="boardWhere"/>
-		<![CDATA[
-			ORDER BY seq DESC
-			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
-		]]>	
-	</select>
-	
-	<select id="getListCnt" resultMap="resultMapObj">
-		SELECT COUNT(*)
-		FROM codeGroup
-		<include refid="boardWhere"/>	
-	</select>
     
 </mapper>
