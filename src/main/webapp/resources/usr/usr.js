@@ -90,13 +90,6 @@ $(".selectPeriod").on("change", function() {
 	}
 });
 
-// 모달관련
-$('#btnDeleteCheck').on('click', function() {
-  	$('#staticBackdrop').css('display', 'block');
- 	$('#staticBackdropTitle').text('삭제');
-  	$('#staticBackdropBody').text('정말 삭제 하시겠습니까?');
-});
-
 $("#btnModification").click(function() {
 	// 체크된 체크박스를 배열로 저장
 	var checkedItems = [];

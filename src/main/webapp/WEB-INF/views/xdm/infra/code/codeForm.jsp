@@ -67,7 +67,6 @@
 					            </c:when>
 					            <c:otherwise>
 					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					            	<button type="button" class="btn btn-warning" id="btnUelete">Uelete</button>
 					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
 					            </c:otherwise>
 					        </c:choose>
@@ -77,23 +76,7 @@
           	</div>
 		</div>	
 	</main>
-	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropTitle" aria-hidden="true">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-      			<div class="modal-header">
-        			<h1 class="modal-title fs-5" id="staticBackdropTitle">title</h1>
-        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      			</div>
-      			<div class="modal-body" id="staticBackdropBody">
-        		body
-      			</div>
-      			<div class="modal-footer">
-        			<button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
-        			<button type="button" class="btn btn-danger" id="btnDelete">OK</button>
-      			</div>
-    		</div>
-  		</div>
-	</div>
+  	<%@ include file="../../../include/modalBase.jsp" %>	
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	
@@ -101,13 +84,6 @@
 		$("#btnUpdate").on("click", function(){
 			
 			$("form[name=form]").attr("action","/codeUpdate").submit();
-			
-		});
-	
-		// 딜리트버튼 클릭이벤트
-		$("#btnDelete").on("click", function(){
-			
-			$("form[name=form]").attr("action","/codeDelete").submit();
 			
 		});
 	
@@ -119,7 +95,7 @@
 		});
 	
 		// 율리트버튼 클릭이벤트
-		$("#btnUelete").on("click", function(){
+		$("#btnDelete").on("click", function(){
 			
 			$("form[name=form]").attr("action","/codeUelete").submit();
 			

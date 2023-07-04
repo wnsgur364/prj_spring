@@ -17,19 +17,19 @@
 	<%@ include file="../../../include/headerXdmView.jsp" %>
 	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>codeGroupForm</h1>
+      		<h1>memberForm</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">codeGroupForm</li>
+          			<li class="breadcrumb-item active">memberForm</li>
         		</ol>
       		</nav>
     	</div>
 	    <div class="col-lg-12">
           	<div class="card">
             	<div class="card-body">
-              		<h5 class="card-title">codeGroupForm</h5>
-              		<p>codeGroupForm</p>
+              		<h5 class="card-title">memberForm</h5>
+              		<p>memberForm</p>
               		<form class="row g-3 needs-validation" name="form" method="post" novalidate>
 					    <div class="col-md-4">
 						    <div class="form-floating">
@@ -66,7 +66,6 @@
           	</div>
 		</div>	
 	</main>
-  	<%@ include file="../../../include/modalBase.jsp" %>	
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	

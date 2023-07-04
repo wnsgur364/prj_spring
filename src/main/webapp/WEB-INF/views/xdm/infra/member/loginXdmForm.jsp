@@ -53,9 +53,6 @@
                    						<div class="col-12 d-flex">
                       						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit" onclick="location.href=`indexXdmView`">로그인</button>
                     					</div>
-                    					<div class="col-12">
-                      						<p class="small mb-0">아이디가 없으신가요? <a href="registerXdmForm">회원가입</a></p>
-                    					</div>
                   					</form>
                 				</div>
               				</div>
