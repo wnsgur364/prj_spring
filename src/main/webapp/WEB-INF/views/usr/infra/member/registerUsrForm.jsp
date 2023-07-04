@@ -33,36 +33,35 @@
                     					<h5 class="card-title text-center pb-0 fs-4">회원가입</h5>
                     					<p class="text-center small">계정을 만들려면 개인 정보를 입력해 주세요.</p>
                   					</div>
-
-                  					<form class="row g-3 needs-validation" novalidate>
+                  					<form class="row g-3 needs-validation" name="form" method="post" novalidate>
                   						<div class="col-12">
                     						<label for="id" class="form-label">아이디</label>
-                    						<input type="text" name="id" class="form-control" id="id" required>
+                    						<input type="text" name="id" class="form-control" id="id" required value="<c:out value="${item.id}"/>">
                     						<div class="invalid-feedback">아이디를 입력해 주세요.</div>
                     					</div>
                     					<div class="col-12">
-                    						<label for="firstName" class="form-label">이름</label>
-                      						<input type="text" name="firstName" class="form-control" id="firstName" required>	
+                    						<label for="name" class="form-label">이름</label>
+                      						<input type="text" name="name" class="form-control" id="name" required value="<c:out value="${item.name}"/>">	
                    							<div class="invalid-feedback">이름을 입력해 주세요.</div>
                     					</div>
                     					<div class="col-12">
                       						<label for="email" class="form-label">이메일</label>
-                       						<input type="text" name="email" class="form-control" id="yourUsername" required>
+                       						<input type="text" name="email" class="form-control" id="email" required value="<c:out value="${item.email}"/>">
                        						<div class="invalid-feedback">이메일을 입력해 주세요.</div>
                     					</div>
                    						<div class="col-12">
-                  							<label for="password" class="form-label">비밀번호</label>
-                   							<input type="password" name="password" class="form-control" id="password" required>
+                  							<label for="pw" class="form-label">비밀번호</label>
+                   							<input type="password" name="pw" class="form-control" id="pw" required value="<c:out value="${item.pw}"/>">
                    							<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
                    						</div>
                    						<div class="col-12">
-                  							<label for="passwordCheck" class="form-label">비밀번호 확인</label>
-                   							<input type="password" name="passwordCheck" class="form-control" id="passwordCheck" required>
+                  							<label for="pwCheck" class="form-label">비밀번호 확인</label>
+                   							<input type="password" name="pwCheck" class="form-control" id="pwCheck" required>
                    							<div class="invalid-feedback">비밀번호가 일치하지 않습니다.</div>
                    						</div>
                    						<div class="col-12">
                   							<label for="phone" class="form-label">전화번호</label>
-               								<input type="tel" name="phone" class="form-control" id="phone" required>
+               								<input type="tel" name="phone" class="form-control" id="phone" required value="<c:out value="${item.phone}"/>">
                								<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
                 						</div>
                   						<div class="col-12 d-flex">
@@ -81,6 +80,15 @@
     	</div>
   	</main>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/resources/vendor/jquery/jquery.min.js"></script>
 	<script src="/resources/usr/usr.js"></script>
+	<script>
+		// 인서트버튼 클릭이벤트
+		$("#submitForm").on("click", function(){
+			
+			$("form[name=form]").attr("action","/memberInsert").submit();
+			
+		});
+	</script>
 </body>
 </html>

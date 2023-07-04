@@ -51,7 +51,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/registerUsrForm")
-	public String registerUsrForm() {
+	public String registerUsrForm(Member dto) {
+		service.insert(dto);
 		return "usr/infra/member/registerUsrForm";
 	}
 	
