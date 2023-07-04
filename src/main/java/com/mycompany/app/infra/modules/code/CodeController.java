@@ -1,11 +1,14 @@
 package com.mycompany.app.infra.modules.code;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.modules.codegroup.CodeGroup;
 import com.mycompany.app.infra.modules.codegroup.CodeGroupServiceImpl;
 import com.mycompany.app.infra.modules.codegroup.CodeGroupVo;
 
@@ -19,8 +22,15 @@ public class CodeController {
 	
 	@RequestMapping("/codeList")
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) {
-		vo.setShKeyword(vo.getShKeyword() == null ? "code" : vo.getShKeyword());
-		model.addAttribute("list", service.selectList(vo));
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
+		vo.setParamsPaging(service.selectOneCount(vo));
+		if (vo.getTotalRows() > 0) {
+			List<Code> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		} else {
+//			by pass
+		}
+		
 		return "xdm/infra/code/codeList";
 	}
 	

@@ -42,8 +42,26 @@
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
-					            <label for="floatingName">name</label>
+					            <input type="text" class="form-control" id="male" name="male" required value="<c:out value="${item.male}"/>">
+					            <label for="floatingName">male</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="female" name="female" required value="<c:out value="${item.female}"/>">
+					            <label for="floatingName">female</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="etc" name="etc" required value="<c:out value="${item.etc}"/>">
+					            <label for="floatingName">etc</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>

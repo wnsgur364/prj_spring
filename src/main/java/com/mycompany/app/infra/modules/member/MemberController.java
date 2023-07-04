@@ -12,12 +12,15 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl service;
 	
-
-	
 	@RequestMapping(value = "/memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		model.addAttribute("list", service.selectList(vo));
+		vo.setParamsPaging(service.selectOneCount(vo));
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", service.selectList(vo));
+		} else {
+//			by pass
+		}
 		return "xdm/infra/member/memberList";
 	}
 	

@@ -10,6 +10,11 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	MemberDao dao;
+	
+	@Override
+	public int selectOneCount(MemberVo vo) {
+		return dao.selectOneCount(vo);
+	}
 
 	@Override
 	public List<Member> selectList(MemberVo vo) { 

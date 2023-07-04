@@ -42,8 +42,8 @@
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
-					            <label for="floatingName">name</label>
+					            <input type="text" class="form-control" id="gender" name="gender" required value="<c:out value="${item.gender}"/>">
+					            <label for="floatingName">gender</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>

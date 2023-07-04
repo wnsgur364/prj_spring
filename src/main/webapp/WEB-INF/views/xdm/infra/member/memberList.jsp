@@ -32,6 +32,8 @@
 						<div class="card">
 							<div class="card-body py-5">
 								<div class="d-flex">
+									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-2">
 				    					<select id="delNy" class="form-select" name="shOption">
 				      						<option value="" selected disabled>검색구분</option>
@@ -105,10 +107,11 @@
 										</c:choose>	
 									</tbody>
 								</table>
-								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-primary" onclick="location.href='memberForm'">Add</button>
-									<button type="button" class="btn btn-success" id="btnModification">Edit</button>
-								</div>
+								<%@ include file="../../../include/pagination.jsp" %>
+							</div>
+							<div class="d-flex justify-content-center">
+								<button type="button" class="btn btn-primary" onclick="location.href='memberForm'">Add</button>
+								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 							</div>
 						</div>
 					</div>
@@ -116,7 +119,6 @@
 			</form>
     	</section>
 	</main>
-  	<%@ include file="../../../include/modalBase.jsp" %>	
   	<%@ include file="../../../include/footerXdmView.jsp" %>
   	<script>
   	

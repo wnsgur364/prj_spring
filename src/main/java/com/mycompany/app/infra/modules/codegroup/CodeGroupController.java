@@ -16,11 +16,8 @@ public class CodeGroupController {
 	
 	@RequestMapping("/codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
-		
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		
 		vo.setParamsPaging(service.selectOneCount(vo));
-		
 		if (vo.getTotalRows() > 0) {
 			List<CodeGroup> list = service.selectList(vo);
 			model.addAttribute("list", list);

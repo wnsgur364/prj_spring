@@ -10,17 +10,31 @@
 	<sql id="bcd">
 		seq,
 		delNy,
-		name,
+		male,
+		female,
+		etc,
 		codeGroup_seq
 	</sql>
 	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			<include refid="bcd" />
+	<sql id="selectCommon">
 		FROM 
 			code
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND male LIKE CONCAT('%',#{shKeyword},'%')</if>
+	</sql>
+	
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT bb.* FROM (
+			SELECT
+				<include refid="bcd" />
+				<include refid="selectCommon" />
+		) bb
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -36,7 +50,9 @@
         UPDATE 
         	code
         SET 
-        	name = #{name},
+   			male = #{male},
+			female = #{female},
+			etc = #{etc},
         	codeGroup_seq = #{codeGroup_seq}
         WHERE 
         	seq = #{seq}
@@ -45,11 +61,15 @@
 	<insert id="insert">
  		INSERT INTO code (
  			delNy,
- 			name,
+ 			male,
+ 			female,
+ 			etc,
  			codeGroup_seq
     	) VALUES (
     		0, 
-    		#{name},
+    		#{male},
+    		#{female},
+    		#{etc},
     		#{codeGroup_seq}
 		)
 	</insert>

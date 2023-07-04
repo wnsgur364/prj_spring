@@ -32,6 +32,8 @@
 						<div class="card">
 							<div class="card-body py-5">
 								<div class="d-flex">
+									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-2">
 				    					<select id="delNy" class="form-select" name="shOption">
 				      						<option value="" selected disabled>검색구분</option>
@@ -72,7 +74,9 @@
 											</th>
 											<th scope="col">seq</th>
 											<th scope="col">delNy</th>
-											<th scope="col">name</th>
+											<th scope="col">male</th>
+											<th scope="col">female</th>
+											<th scope="col">etc</th>
 											<th scope="col">codeGroup_seq</th>
 										</tr>
 									</thead>
@@ -91,7 +95,9 @@
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
 														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><a href="codeForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"></c:out></a></td>
+														<td><c:out value="${list.male}"></c:out></td>
+														<td><c:out value="${list.female}"></c:out></td>
+														<td><c:out value="${list.etc}"></c:out></td>
 														<td><c:out value="${list.codeGroup_seq}"></c:out></td>
 													</tr>
 												</c:forEach>
@@ -99,10 +105,13 @@
 										</c:choose>	
 									</tbody>
 								</table>
-								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-primary" onclick="location.href='codeForm'">Add</button>
-									<button type="button" class="btn btn-success" id="btnModification">Edit</button>
-								</div>
+								<!-- pagination s -->
+								<%@include file="../../../include/pagination.jsp"%>
+								<!-- pagination e -->
+							</div>
+							<div class="d-flex justify-content-center">
+								<button type="button" class="btn btn-primary" onclick="location.href='codeForm'">Add</button>
+								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 							</div>
 						</div>
 					</div>

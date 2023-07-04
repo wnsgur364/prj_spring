@@ -11,7 +11,7 @@
 								 <!-- select 결과를 받을 객체 -->
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.member.Member"></resultMap>
 					
-	<sql id="abc">
+	<sql id="cde">
 		seq,
 		delNy,
 		id,
@@ -21,18 +21,30 @@
 		phone
 	</sql>
 	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			<include refid="abc" />
+	<sql id="selectCommon">
 		FROM 
 			member
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
-	</select> 
+			<if test="shKeyword != null and !shKeyword.equals('')">AND id LIKE CONCAT('%',#{shKeyword},'%')</if>
+	</sql>
 	
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT cc.* FROM (
+			SELECT
+				<include refid="cde" />
+				<include refid="selectCommon" />
+		) cc
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+	</select> 
+
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="abc" /> 
+		  	<include refid="cde" /> 
 		FROM 
 		  	member 
 		WHERE 1=1
