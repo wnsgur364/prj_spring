@@ -9,7 +9,7 @@
     <!-- 부트스트랩 -->
 	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Template Main CSS File -->
-	<link href="/resources/css/style.css" rel="stylesheet">
+	<link href="/resources/xdm/xdm.css" rel="stylesheet">
   	<!-- Google Fonts -->
   	<link href="https://fonts.gstatic.com" rel="preconnect">
   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -63,6 +63,6 @@
    		</div>
 	</main>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/js/main.js"></script>
+	<script src="/resources/xdm/xdm.js"></script>
 </body>
 </html>

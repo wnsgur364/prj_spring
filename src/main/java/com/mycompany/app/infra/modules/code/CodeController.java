@@ -37,12 +37,6 @@ public class CodeController {
 		return "redirect:/codeList";
 	}
 	
-	@RequestMapping("/codeDelete")
-	public String codeDelete(Code dto) {
-		service.delete(dto);
-		return "redirect:/codeList";
-	}
-	
 	@RequestMapping("/codeInsert")
 	public String codeInsert(Code dto) {
 		service.insert(dto);

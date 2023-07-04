@@ -1,14 +1,16 @@
-package com.mycompany.app.infra.modules.codegroup;
+package com.mycompany.app.infra.modules.member;
 
-import com.mycompany.app.infra.common.base.BaseVo;
-
-public class CodeGroupVo extends BaseVo {
+public class MemberVo {
 
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
 	private String name;
 	private Integer delNy;
+	private String id;
+	private String pw;
+	private String email;
+	private String phone;
 	
 //	-----
 	public Integer getShOption() {
@@ -40,6 +42,30 @@ public class CodeGroupVo extends BaseVo {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

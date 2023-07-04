@@ -43,7 +43,7 @@
         WHERE 
         	seq = #{seq}
     </update>
-   
+<!--  실제로는 update 삭제 (uelete) 로 사용함.
 	<delete id="delete">
 	    DELETE 
 	    FROM 
@@ -51,7 +51,7 @@
 	    WHERE 
 	    	seq = #{seq}
 	</delete> 
-
+ -->
 	<insert id="insert">
  		INSERT INTO codeGroup (
  			delNy,
@@ -70,5 +70,28 @@
 		WHERE				
 		 	seq = #{seq}
     </update>
+    
+   	<sql id="boardWhere">
+		WHERE column1 = #{value1}
+			AND column2 = #{value2}
+	</sql>
+    
+	<select id="getList" resultMap="resultMapObj">
+		<![CDATA[
+			SELECT *
+			FROM codeGroup
+		]]>
+		<include refid="boardWhere"/>
+		<![CDATA[
+			ORDER BY seq DESC
+			LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		]]>	
+	</select>
+	
+	<select id="getListCnt" resultMap="resultMapObj">
+		SELECT COUNT(*)
+		FROM codeGroup
+		<include refid="boardWhere"/>	
+	</select>
     
 </mapper>

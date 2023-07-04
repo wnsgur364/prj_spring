@@ -15,4 +15,8 @@ public interface CodeGroupService {
 	public int insert(CodeGroup dto);
 	
 	public int uelete(CodeGroup dto);
+	
+	List<CodeGroupVo> getList(CodeGroupVo vo);
+	
+	int getListCnt(CodeGroupVo vo);
 }

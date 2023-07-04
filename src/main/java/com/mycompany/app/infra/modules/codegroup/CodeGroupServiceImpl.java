@@ -40,5 +40,15 @@ public class CodeGroupServiceImpl implements CodeGroupService {
 	public int uelete(CodeGroup dto) {
 		return dao.uelete(dto);
 	}
+
+	@Override
+	public List<CodeGroupVo> getList(CodeGroupVo vo) {
+		return dao.getList(vo); 
+	}
+
+	@Override
+	public int getListCnt(CodeGroupVo vo) {
+		return dao.getListCnt(vo);
+	}
 	
 }

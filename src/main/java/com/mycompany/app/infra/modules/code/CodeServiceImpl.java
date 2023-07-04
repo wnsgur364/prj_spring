@@ -27,11 +27,6 @@ public class CodeServiceImpl implements CodeService {
 	}
 
 	@Override
-	public int delete(Code dto) {
-		return dao.delete(dto);
-	}
-
-	@Override
 	public int uelete(Code dto) {
 		return dao.uelete(dto);
 	}

@@ -29,5 +29,9 @@ public class CodeGroupDao {
 	
 	public int insert(CodeGroup dto) { return sqlSession.insert(namespace + ".insert", dto); }
 
+	public List<CodeGroupVo>getList(CodeGroupVo vo) { return sqlSession.selectList(namespace + ".getList", vo); }
+	
+	public int getListCnt(CodeGroupVo vo) { return sqlSession.selectOne(namespace + ".getListCnt", vo); }
+	
 }
  

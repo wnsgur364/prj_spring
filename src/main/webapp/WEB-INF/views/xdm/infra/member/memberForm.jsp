@@ -42,6 +42,15 @@
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
+					            <input type="text" class="form-control" id="id" name="id" required value="<c:out value="${item.id}"/>">
+					            <label for="floatingName">id</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+					    <div class="col-md-4">
+					        <div class="form-floating">
 					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
 					            <label for="floatingName">name</label>
 					            <div class="invalid-feedback">
@@ -49,8 +58,35 @@
 					            </div>
 					        </div>
 					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="pw" name="pw" required value="<c:out value="${item.pw}"/>">
+					            <label for="floatingName">pw</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="email" name="email" required value="<c:out value="${item.email}"/>">
+					            <label for="floatingName">email</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="phone" name="phone" required value="<c:out value="${item.phone}"/>">
+					            <label for="floatingName">phone</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
 					    <div class="d-flex justify-content-center">
-					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
+					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='memberList'">List</button>
 					        <c:choose>
 					            <c:when test="${empty item.seq}">
 					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
@@ -66,27 +102,28 @@
           	</div>
 		</div>	
 	</main>
+	<%@ include file="../../../include/modalBase.jsp" %>
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeGroupUpdate").submit();
+			$("form[name=form]").attr("action","/memberUpdate").submit();
 			
 		});
 	
 		// 인서트버튼 클릭이벤트
 		$("#btnInsert").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeGroupInsert").submit();
+			$("form[name=form]").attr("action","/memberInsert").submit();
 			
 		});
 	
 		// 율리트버튼 클릭이벤트
 		$("#btnDelete").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeGroupUelete").submit();
+			$("form[name=form]").attr("action","/memberUelete").submit();
 			
 		});
 	

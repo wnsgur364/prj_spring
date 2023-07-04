@@ -72,7 +72,11 @@
 											</th>
 											<th scope="col">seq</th>
 											<th scope="col">delNy</th>
+											<th scope="col">id</th>
 											<th scope="col">name</th>
+											<th scope="col">pw</th>
+											<th scope="col">email</th>
+											<th scope="col">phone</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -90,7 +94,11 @@
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
 														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><a href="codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name}"></c:out></a></td>
+														<td><a href="memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.id}"></c:out></a></td>
+														<td><c:out value="${list.name}"></c:out></td>
+														<td><c:out value="${list.pw}"></c:out></td>
+														<td><c:out value="${list.email}"></c:out></td>
+														<td><c:out value="${list.phone}"></c:out></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -98,7 +106,7 @@
 									</tbody>
 								</table>
 								<div class="d-flex justify-content-center">
-									<button type="button" class="btn btn-primary" onclick="location.href='codeGroupForm'">Add</button>
+									<button type="button" class="btn btn-primary" onclick="location.href='memberForm'">Add</button>
 									<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 								</div>
 							</div>
@@ -115,8 +123,25 @@
   		// 서치버튼 클릭이벤트
 		$("#btnSearch").on("click", function(){
 			
-			$("form[name=formList]").attr("action","/codeGroupList").submit();
+			$("form[name=formList]").attr("action","/memberList").submit();
 			
+		});
+
+		$("#btnModification").click(function() {
+			// 체크된 체크박스를 배열로 저장
+			var checkedItems = [];
+			$("input[name='checked']:checked").each(function() {
+				checkedItems.push($(this).closest("tr").find("td:eq(1)").text()); // seq 값 가져오기
+			});
+
+			// 수정 폼으로 데이터 전달
+			if (checkedItems.length > 0) {
+				var url = "memberForm?seq=" + checkedItems.join(",");
+				location.href = url;
+			}
+			
+		    // 체크박스 해제
+		    $("input[name='checked']").prop('checked', false);
 		});
 		
   	</script>

@@ -10,8 +10,6 @@ public interface CodeService {
 	
 	public int update (Code dto);
 	
-	public int delete (Code dto);
-	
 	public int uelete (Code dto);
 	
 	public int insert (Code dto);

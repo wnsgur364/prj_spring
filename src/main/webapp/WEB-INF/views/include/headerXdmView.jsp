@@ -20,6 +20,7 @@
       	 		<li><a href="indexXdmView" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
        			<li><a href="codeGroupList" class="nav-link px-3 text-black">codeGroupList</a></li>
        			<li><a href="codeList" class="nav-link px-3 text-black">codeList</a></li>
+  				<li><a href="memberList" class="nav-link px-3 text-black">memberList</a></li>   			
        			<li><a href="accountXdmView" class="nav-link px-3 text-black">계좌관리</a></li>
        			<li><a href="transactionXdmView" class="nav-link px-3 text-black">거래관리</a></li>
        			<li><a href="customerXdmView" class="nav-link px-3 text-black">고객관리</a></li>

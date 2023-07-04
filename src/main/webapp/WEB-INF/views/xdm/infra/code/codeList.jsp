@@ -119,6 +119,23 @@
 			$("form[name=formList]").attr("action","/codeList").submit();
 			
 		});
+		
+		$("#btnModification").click(function() {
+			// 체크된 체크박스를 배열로 저장
+			var checkedItems = [];
+			$("input[name='checked']:checked").each(function() {
+				checkedItems.push($(this).closest("tr").find("td:eq(1)").text()); // seq 값 가져오기
+			});
+
+			// 수정 폼으로 데이터 전달
+			if (checkedItems.length > 0) {
+				var url = "codeForm?seq=" + checkedItems.join(",");
+				location.href = url;
+			}
+			
+		    // 체크박스 해제
+		    $("input[name='checked']").prop('checked', false);
+		});
   	
   	</script>
 </body>

@@ -3,60 +3,76 @@
 	PUBLIC "-//mybatis,org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.mycompany.app.infra.modules.code.CodeMapper">
+<!-- 전체 매퍼중에서 유일한 값을 사용하여야 한다.
+	해서 관계적으로 해당 파일의 패스와 파일이름(확장자 제외)
+	그리고 dao 에서 namespace와 일치하여야 된다. -->
+	
+<mapper namespace="com.mycompany.app.infra.modules.member.MemberMapper">
 								 <!-- select 결과를 받을 객체 -->
-	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.code.Code"></resultMap>
+	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.member.Member"></resultMap>
 					
-	<sql id="bcd">
+	<sql id="abc">
 		seq,
 		delNy,
+		id,
 		name,
-		codeGroup_seq
+		pw,
+		email,
+		phone
 	</sql>
 	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			<include refid="bcd" />
+			<include refid="abc" />
 		FROM 
-			code
+			member
 		WHERE 1=1
 			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
 	</select> 
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="bcd" /> 
+		  	<include refid="abc" /> 
 		FROM 
-		  	code
+		  	member 
 		WHERE 1=1
 	  		AND seq = #{seq}
 	</select>
 	
     <update id="update">
         UPDATE 
-        	code
+        	member
         SET 
+        	id = #{id},
         	name = #{name},
-        	codeGroup_seq = #{codeGroup_seq}
+        	pw = #{pw},
+			email = #{email},
+			phone = #{phone}
         WHERE 
         	seq = #{seq}
     </update>
 
 	<insert id="insert">
- 		INSERT INTO code (
+ 		INSERT INTO member (
  			delNy,
- 			name,
- 			codeGroup_seq
+ 			id,
+			name,
+			pw,
+			email,
+			phone
     	) VALUES (
-    		0, 
+    		0,
+    		#{id},
     		#{name},
-    		#{codeGroup_seq}
+    		#{pw},
+    		#{email},
+    		#{phone}
 		)
 	</insert>
      
     <update id="uelete">
         UPDATE 
-        	code
+        	member
        	SET
 			delNy = "1"
 		WHERE				
