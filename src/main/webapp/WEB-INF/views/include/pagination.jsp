@@ -3,11 +3,9 @@
 <div class="container-fluid px-0 mt-2">
     <div class="row">
         <div class="col">
-            <!-- <ul class="pagination pagination-sm justify-content-center mb-0"> -->
             <ul class="pagination justify-content-center mb-0">
-                <!-- <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-angles-left"></i></a></li> -->
 				<c:if test="${vo.startPage gt vo.pageNumToShow}">
-	                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.startPage - 1})"><i class="fa-solid fa-angle-left"></i></a></li>
+	                <li class="page-item"><a class="page-link" href="javascript:goList(${vo.startPage - 1})"><i class="bi bi-caret-left-fill"></i></a></li>
 				</c:if>
 				<c:forEach begin="${vo.startPage}" end="${vo.endPage}" varStatus="i">
 					<c:choose>
@@ -20,9 +18,8 @@
 					</c:choose>
 				</c:forEach>                
 				<c:if test="${vo.endPage ne vo.totalPages}">                
-                	<li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="fa-solid fa-angle-right"></i></a></li>
+                	<li class="page-item"><a class="page-link" href="javascript:goList(${vo.endPage + 1})"><i class="bi bi-caret-right-fill"></i></a></li>
 				</c:if>
-                <!-- <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-angles-right"></i></a></li> -->
             </ul>
         </div>
     </div>
