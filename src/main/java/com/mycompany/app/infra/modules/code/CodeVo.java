@@ -7,9 +7,11 @@ public class CodeVo extends BaseVo {
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
-	private String name;
 	private String codeGroup_seq;
 	private Integer delNy;
+	private Integer male;
+	private Integer female;
+	private Integer etc;
 //	----
 	public Integer getShOption() {
 		return shOption;
@@ -29,12 +31,6 @@ public class CodeVo extends BaseVo {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getCodeGroup_seq() {
 		return codeGroup_seq;
 	}
@@ -47,5 +43,24 @@ public class CodeVo extends BaseVo {
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
 	}
+	public Integer getMale() {
+		return male;
+	}
+	public void setMale(Integer male) {
+		this.male = male;
+	}
+	public Integer getFemale() {
+		return female;
+	}
+	public void setFemale(Integer female) {
+		this.female = female;
+	}
+	public Integer getEtc() {
+		return etc;
+	}
+	public void setEtc(Integer etc) {
+		this.etc = etc;
+	}
+	
 	
 }

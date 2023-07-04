@@ -7,9 +7,8 @@ public class CodeGroupVo extends BaseVo {
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
-	private String name;
 	private Integer delNy;
-	
+	private Integer gender;	
 //	-----
 	public Integer getShOption() {
 		return shOption;
@@ -35,11 +34,11 @@ public class CodeGroupVo extends BaseVo {
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
 	}
-	public String getName() {
-		return name;
+	public Integer getGender() {
+		return gender;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setGender(Integer gender) {
+		this.gender = gender;
 	}
 	
 }

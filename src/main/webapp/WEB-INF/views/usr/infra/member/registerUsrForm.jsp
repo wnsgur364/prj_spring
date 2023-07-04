@@ -36,22 +36,22 @@
                   					<form class="row g-3 needs-validation" name="form" method="post" novalidate>
                   						<div class="col-12">
                     						<label for="id" class="form-label">아이디</label>
-                    						<input type="text" name="id" class="form-control" id="id" required value="<c:out value="${item.id}"/>">
+                    						<input type="text" name="id" class="form-control" id="id" required>
                     						<div class="invalid-feedback">아이디를 입력해 주세요.</div>
                     					</div>
                     					<div class="col-12">
                     						<label for="name" class="form-label">이름</label>
-                      						<input type="text" name="name" class="form-control" id="name" required value="<c:out value="${item.name}"/>">	
+                      						<input type="text" name="name" class="form-control" id="name" required>	
                    							<div class="invalid-feedback">이름을 입력해 주세요.</div>
                     					</div>
                     					<div class="col-12">
                       						<label for="email" class="form-label">이메일</label>
-                       						<input type="text" name="email" class="form-control" id="email" required value="<c:out value="${item.email}"/>">
+                       						<input type="text" name="email" class="form-control" id="email" required>
                        						<div class="invalid-feedback">이메일을 입력해 주세요.</div>
                     					</div>
                    						<div class="col-12">
                   							<label for="pw" class="form-label">비밀번호</label>
-                   							<input type="password" name="pw" class="form-control" id="pw" required value="<c:out value="${item.pw}"/>">
+                   							<input type="password" name="pw" class="form-control" id="pw" required>
                    							<div class="invalid-feedback">비밀번호를 입력해 주세요.</div>
                    						</div>
                    						<div class="col-12">
@@ -61,7 +61,7 @@
                    						</div>
                    						<div class="col-12">
                   							<label for="phone" class="form-label">전화번호</label>
-               								<input type="tel" name="phone" class="form-control" id="phone" required value="<c:out value="${item.phone}"/>">
+               								<input type="tel" name="phone" class="form-control" id="phone" required>
                								<div class="invalid-feedback">전화번호를 입력해 주세요.</div>
                 						</div>
                   						<div class="col-12 d-flex">

@@ -33,7 +33,7 @@
 			SELECT
 				<include refid="bcd" />
 				<include refid="selectCommon" />
-		) bb
+			) bb
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	
