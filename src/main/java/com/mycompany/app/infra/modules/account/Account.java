@@ -8,7 +8,7 @@ public class Account {
 	private String accountName;
 	private String accountPassword;
 	private Integer accountBalance;
-	private String memeber_seq;
+	private String member_seq;
 //  ----
 	public String getSeq() {
 		return seq;
@@ -52,11 +52,11 @@ public class Account {
 	public void setAccountBalance(Integer accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-	public String getMemeber_seq() {
-		return memeber_seq;
+	public String getMember_seq() {
+		return member_seq;
 	}
-	public void setMemeber_seq(String memeber_seq) {
-		this.memeber_seq = memeber_seq;
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
 	}
 	
 

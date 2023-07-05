@@ -21,9 +21,8 @@
        			<li><a href="codeGroupList" class="nav-link px-3 text-black">codeGroupList</a></li>
        			<li><a href="codeList" class="nav-link px-3 text-black">codeList</a></li>
   				<li><a href="memberList" class="nav-link px-3 text-black">memberList</a></li>   			
-       			<li><a href="accountXdmView" class="nav-link px-3 text-black">계좌관리</a></li>
+       			<li><a href="accountList" class="nav-link px-3 text-black">accountList</a></li>
        			<li><a href="transactionXdmView" class="nav-link px-3 text-black">거래관리</a></li>
-       			<li><a href="customerXdmView" class="nav-link px-3 text-black">고객관리</a></li>
        			<li><a href="influencerXdmView" class="nav-link px-3 text-black">인플루언서관리</a></li>
        		</ul>
    		</div>

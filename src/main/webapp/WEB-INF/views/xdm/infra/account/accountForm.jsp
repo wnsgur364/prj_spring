@@ -67,11 +67,29 @@
 					            </div>
 					        </div>
 					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>">
+					            <label for="floatingName">accountPassword</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="accountBalance" name="accountBalance" required value="<c:out value="${item.accountBalance}"/>">
+					            <label for="floatingName">accountBalance</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
 					    <div class="col-md-4">
 						    <div class="form-floating">
 							    <select class="form-select" name="member_seq">
 								    <c:forEach items="${group}" var="group" varStatus="status">
-									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.name}"></c:out></option>
+									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
 									</c:forEach>
 								</select>
 								<label for="floatingName">member_seq</label>
@@ -101,21 +119,21 @@
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeUpdate").submit();
+			$("form[name=form]").attr("action","/accountUpdate").submit();
 			
 		});
 	
 		// 인서트버튼 클릭이벤트
 		$("#btnInsert").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeInsert").submit();
+			$("form[name=form]").attr("action","/accountInsert").submit();
 			
 		});
 	
 		// 율리트버튼 클릭이벤트
 		$("#btnDelete").on("click", function(){
 			
-			$("form[name=form]").attr("action","/codeUelete").submit();
+			$("form[name=form]").attr("action","/accountUelete").submit();
 			
 		});
 	

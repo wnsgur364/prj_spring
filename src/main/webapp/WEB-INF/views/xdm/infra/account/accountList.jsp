@@ -17,11 +17,11 @@
 	<%@ include file="../../../include/headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>codeList</h1>
+      		<h1>accountList</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">codeList</li>
+          			<li class="breadcrumb-item active">accountList</li>
         		</ol>
       		</nav>
     	</div>
@@ -74,10 +74,12 @@
 											</th>
 											<th scope="col">seq</th>
 											<th scope="col">delNy</th>
-											<th scope="col">male</th>
-											<th scope="col">female</th>
-											<th scope="col">etc</th>
-											<th scope="col">codeGroup_seq</th>
+											<th scope="col">defaultNy</th>
+											<th scope="col">accountNumber</th>
+											<th scope="col">accountName</th>
+											<th scope="col">accountPassword</th>
+											<th scope="col">accountBalance</th>
+											<th scope="col">member_seq</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -95,10 +97,12 @@
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
 														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><c:out value="${list.male}"></c:out></td>
-														<td><c:out value="${list.female}"></c:out></td>
-														<td><c:out value="${list.etc}"></c:out></td>
-														<td><c:out value="${list.codeGroup_seq}"></c:out></td>
+														<td><c:out value="${list.defaultNy}"></c:out></td>
+														<td><c:out value="${list.accountNumber}"></c:out></td>
+														<td><c:out value="${list.accountName}"></c:out></td>
+														<td><c:out value="${list.accountPassword}"></c:out></td>
+														<td><c:out value="${list.accountBalance}"></c:out></td>
+														<td><c:out value="${list.member_seq}"></c:out></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -110,7 +114,7 @@
 								<!-- pagination e -->
 							</div>
 							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-primary" onclick="location.href='codeForm'">Add</button>
+								<button type="button" class="btn btn-primary" onclick="location.href='accountForm'">Add</button>
 								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 							</div>
 						</div>
@@ -125,7 +129,7 @@
 		// 서치버튼 클릭이벤트
 		$("#btnSearch").on("click", function(){
 			
-			$("form[name=formList]").attr("action","/codeList").submit();
+			$("form[name=formList]").attr("action","/accountList").submit();
 			
 		});
 		
@@ -138,7 +142,7 @@
 
 			// 수정 폼으로 데이터 전달
 			if (checkedItems.length > 0) {
-				var url = "codeForm?seq=" + checkedItems.join(",");
+				var url = "accountForm?seq=" + checkedItems.join(",");
 				location.href = url;
 			}
 			

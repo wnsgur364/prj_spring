@@ -55,7 +55,7 @@
    			defaultNy = #{defaultNy},
 			accountName = #{accountName},
 			accountPassword = #{accountPassword},
-        	memeber_seq = #{memeber_seq}
+        	member_seq = #{member_seq}
         WHERE 
         	seq = #{seq}
     </update>
@@ -68,16 +68,15 @@
  			accountName,
  			accountPassword,
  			accountBalance,
- 			memeber_seq
+ 			member_seq
     	) VALUES (
     		0, 
     		#{defaultNy},
-    		#{male},
     		#{accountNumber},
     		#{accountName},
    			#{accountPassword},
    			#{accountBalance},
-    		#{memeber_seq}
+    		#{member_seq}
 		)
 	</insert>
      

@@ -71,7 +71,7 @@
 						    <div class="form-floating">
 							    <select class="form-select" name="codeGroup_seq">
 								    <c:forEach items="${group}" var="group" varStatus="status">
-									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.name}"></c:out></option>
+									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
 									</c:forEach>
 								</select>
 								<label for="floatingName">codeGroup_seq</label>

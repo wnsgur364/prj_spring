@@ -110,7 +110,7 @@
 								<%@ include file="../../../include/pagination.jsp" %>
 							</div>
 							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-primary" onclick="location.href='memberForm'">Add</button>
+								<!-- <button type="button" class="btn btn-primary" onclick="location.href='memberForm'">Add</button> -->
 								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 							</div>
 						</div>
