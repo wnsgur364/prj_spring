@@ -17,11 +17,11 @@
 	<%@ include file="../../../include/headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>accountList</h1>
+      		<h1>transactionList</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">accountList</li>
+          			<li class="breadcrumb-item active">transactionList</li>
         		</ol>
       		</nav>
     	</div>
@@ -74,12 +74,13 @@
 											</th>
 											<th scope="col">seq</th>
 											<th scope="col">delNy</th>
-											<th scope="col">defaultNy</th>
-											<th scope="col">accountNumber</th>
-											<th scope="col">accountName</th>
-											<th scope="col">accountPassword</th>
-											<th scope="col">accountBalance</th>
-											<th scope="col">member_seq</th>
+											<th scope="col">recipientAccountNumber</th>
+											<th scope="col">balance</th>
+											<th scope="col">date</th>
+											<th scope="col">contents</th>
+											<th scope="col">dateStart</th>
+											<th scope="col">dateFinish</th>
+											<th scope="col">account_seq</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -97,12 +98,13 @@
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
 														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><c:out value="${list.defaultNy}"></c:out></td>
-														<td><c:out value="${list.accountNumber}"></c:out></td>
-														<td><c:out value="${list.accountName}"></c:out></td>
-														<td><c:out value="${list.accountPassword}"></c:out></td>
-														<td><c:out value="${list.accountBalance}"></c:out></td>
-														<td><c:out value="${list.member_seq}"></c:out></td>
+														<td><c:out value="${list.recipientAccountNumber}"></c:out></td>
+														<td><c:out value="${list.balance}"></c:out></td>
+														<td><c:out value="${list.date}"></c:out></td>
+														<td><c:out value="${list.contents}"></c:out></td>
+														<td><c:out value="${list.dateStart}"></c:out></td>
+														<td><c:out value="${list.dateFinish}"></c:out></td>
+														<td><c:out value="${list.account_seq}"></c:out></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -114,7 +116,7 @@
 								<!-- pagination e -->
 							</div>
 							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-primary" onclick="location.href='accountForm'">Add</button>
+								<button type="button" class="btn btn-primary" onclick="location.href='transactionForm'">Add</button>
 								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
 							</div>
 						</div>
@@ -129,7 +131,7 @@
 		// 서치버튼 클릭이벤트
 		$("#btnSearch").on("click", function(){
 			
-			$("form[name=formList]").attr("action","/accountList").submit();
+			$("form[name=formList]").attr("action","/transactionList").submit();
 			
 		});
 		
@@ -142,7 +144,7 @@
 
 			// 수정 폼으로 데이터 전달
 			if (checkedItems.length > 0) {
-				var url = "accountForm?seq=" + checkedItems.join(",");
+				var url = "transactionForm?seq=" + checkedItems.join(",");
 				location.href = url;
 			}
 			

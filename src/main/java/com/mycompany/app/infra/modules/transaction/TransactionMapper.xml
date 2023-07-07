@@ -16,14 +16,14 @@
 		contents,
 		dateStart,
 		dateFinish,
-		acountSeq
+		account_seq
 	</sql>
 	
 	<sql id="selectCommon">
 		FROM 
 			transaction
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND delNy LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND contents LIKE CONCAT('%',#{shKeyword},'%')</if>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
@@ -55,11 +55,8 @@
         SET 
    			recipientAccountNumber = #{recipientAccountNumber},
 			balance = #{balance},
-			date = #{date},
 			contents = #{contents},
-			dateStart = #{dateStart},
-			dateFinish = #{dateFinish},
-			acountSeq = #{acountSeq}
+			account_seq = #{account_seq}
         WHERE 
         	seq = #{seq}
     </update>
@@ -69,20 +66,14 @@
 			delNy,
 			recipientAccountNumber,
 			balance,
-			date,
 			contents,
-			dateStart,
-			dateFinish,
-			acountSeq
+			account_seq
     	) VALUES (
     		0, 
     		#{recipientAccountNumber},
     		#{balance},
-    		#{date},
    			#{contents},
-   			#{dateStart},
-    		#{dateFinish},
-    		#{acountSeq}
+    		#{account_seq}
 		)
 	</insert>
      

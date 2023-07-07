@@ -17,19 +17,19 @@
 	<%@ include file="../../../include/headerXdmView.jsp" %>
 	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>accountForm</h1>
+      		<h1>transactionForm</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">accountForm</li>
+          			<li class="breadcrumb-item active">transactionForm</li>
         		</ol>
       		</nav>
     	</div>
 	    <div class="col-lg-12">
           	<div class="card">
             	<div class="card-body">
-              		<h5 class="card-title">accountForm</h5>
-              		<p>accountForm</p>
+              		<h5 class="card-title">transactionForm</h5>
+              		<p>transactionForm</p>
               		<form class="row g-3 needs-validation" name="form" method="post" novalidate>
 					    <div class="col-md-4">
 						    <div class="form-floating">
@@ -40,10 +40,10 @@
 						        </div>
 						    </div>
 						</div>
-					    <div class="col-md-4">
+   					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="defaultNy" name="defaultNy" required value="<c:out value="${item.defaultNy}"/>">
-					            <label for="floatingName">defaultNy</label>
+					            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required value="<c:out value="${item.recipientAccountNumber}"/>">
+					            <label for="floatingName">recipientAccountNumber</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -51,8 +51,38 @@
 					    </div>
    					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required value="<c:out value="${item.accountNumber}"/>">
-					            <label for="floatingName">accountNumber</label>
+					            <input type="text" class="form-control" id="balance" name="balance" required value="<c:out value="${item.balance}"/>">
+					            <label for="floatingName">balance</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+						<%-- 					    
+					     <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="date" name="date" required value="<c:out value="${item.date}"/>">
+					            <label for="floatingName">date</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+					     --%>
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="contents" name="contents" required value="<c:out value="${item.contents}"/>">
+					            <label for="floatingName">contents</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+						<%-- 					    
+   					    <div class="col-md-4">
+					        <div class="form-floating">
+					            <input type="text" class="form-control" id="dateStart" name="dateStart" required value="<c:out value="${item.dateStart}"/>">
+					            <label for="floatingName">dateStart</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -60,43 +90,26 @@
 					    </div>
    					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountName" name="accountName" required value="<c:out value="${item.accountName}"/>">
-					            <label for="floatingName">accountName</label>
+					            <input type="text" class="form-control" id="dateFinish" name="dateFinish" required value="<c:out value="${item.dateFinish}"/>">
+					            <label for="floatingName">dateFinish</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
 					        </div>
 					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>">
-					            <label for="floatingName">accountPassword</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountBalance" name="accountBalance" required value="<c:out value="${item.accountBalance}"/>">
-					            <label for="floatingName">accountBalance</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
+					     --%>
 					    <div class="col-md-4">
 						    <div class="form-floating">
-							    <select class="form-select" name="member_seq">
+							    <select class="form-select" name="account_seq">
 								    <c:forEach items="${group}" var="group" varStatus="status">
 									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
 									</c:forEach>
 								</select>
-								<label for="floatingName">member_seq</label>
+								<label for="floatingName">account_seq</label>
 							</div>
    					     </div>
 					    <div class="d-flex justify-content-center">
-					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='accountList'">List</button>
+					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='transactionList'">List</button>
 					        <c:choose>
 					            <c:when test="${empty item.seq}">
 					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
@@ -119,21 +132,21 @@
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
 			
-			$("form[name=form]").attr("action","/accountUpdate").submit();
+			$("form[name=form]").attr("action","/transactionUpdate").submit();
 			
 		});
 	
 		// 인서트버튼 클릭이벤트
 		$("#btnInsert").on("click", function(){
 			
-			$("form[name=form]").attr("action","/accountInsert").submit();
+			$("form[name=form]").attr("action","/transactionInsert").submit();
 			
 		});
 	
 		// 율리트버튼 클릭이벤트
 		$("#btnDelete").on("click", function(){
 			
-			$("form[name=form]").attr("action","/accountUelete").submit();
+			$("form[name=form]").attr("action","/transactionUelete").submit();
 			
 		});
 	
