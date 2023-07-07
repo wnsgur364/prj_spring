@@ -22,8 +22,8 @@
        			<li><a href="codeList" class="nav-link px-3 text-black">codeList</a></li>
   				<li><a href="memberList" class="nav-link px-3 text-black">memberList</a></li>   			
        			<li><a href="accountList" class="nav-link px-3 text-black">accountList</a></li>
-       			<li><a href="transactionXdmView" class="nav-link px-3 text-black">거래관리</a></li>
-       			<li><a href="influencerXdmView" class="nav-link px-3 text-black">인플루언서관리</a></li>
+       			<li><a href="transactionList" class="nav-link px-3 text-black">transactionList</a></li>
+       			<li><a href="influencerList" class="nav-link px-3 text-black">influencerList</a></li>
        		</ul>
    		</div>
    	</div>

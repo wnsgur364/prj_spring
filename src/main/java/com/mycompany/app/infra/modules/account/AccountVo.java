@@ -3,10 +3,10 @@ package com.mycompany.app.infra.modules.account;
 import com.mycompany.app.infra.common.base.BaseVo;
 
 public class AccountVo extends BaseVo {
+	
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
-	
 //  ----
 	public Integer getShOption() {
 		return shOption;

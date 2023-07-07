@@ -7,7 +7,7 @@
 								 <!-- select 결과를 받을 객체 -->
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.account.Account"></resultMap>
 					
-	<sql id="bcd">
+	<sql id="account">
 		seq,
 		delNy,
 		defaultNy,
@@ -31,17 +31,17 @@
 	</select>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT dd.* FROM (
+		SELECT a.* FROM (
 			SELECT
-				<include refid="bcd" />
+				<include refid="account" />
 				<include refid="selectCommon" />
-			) dd
+			) a
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="bcd" /> 
+		  	<include refid="account" /> 
 		FROM 
 		  	account
 		WHERE 1=1

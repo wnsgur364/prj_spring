@@ -11,7 +11,7 @@
 								 <!-- select 결과를 받을 객체 -->
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.member.Member"></resultMap>
 					
-	<sql id="cde">
+	<sql id="member">
 		seq,
 		delNy,
 		id,
@@ -34,17 +34,17 @@
 	</select>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT cc.* FROM (
+		SELECT m.* FROM (
 			SELECT
-				<include refid="cde" />
+				<include refid="member" />
 				<include refid="selectCommon" />
-		) cc
+		) m
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="cde" /> 
+		  	<include refid="member" /> 
 		FROM 
 		  	member 
 		WHERE 1=1
