@@ -26,5 +26,4 @@ public class AccountVo extends BaseVo {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	
 }

@@ -35,10 +35,12 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-2">
-				    					<select id="delNy" class="form-select" name="shOption">
-				      						<option value="" selected disabled>검색구분</option>
-											<option value="0">N</option>
-										    <option value="1">Y</option>
+				    					<select id="shOption" class="form-select" name="shOption">
+							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
+							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>계좌번호</option>
+							                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>계좌명</option>
+							                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
+							                <option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>이름</option>
 				    					</select>
 				  					</div>
 				  					<div class="col-2">
@@ -73,20 +75,20 @@
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
 											<th scope="col">seq</th>
-											<th scope="col">delNy</th>
-											<th scope="col">defaultNy</th>
-											<th scope="col">accountNumber</th>
-											<th scope="col">accountName</th>
-											<th scope="col">accountPassword</th>
-											<th scope="col">accountBalance</th>
-											<th scope="col">member_seq</th>
+											<th scope="col">아이디</th>
+											<th scope="col">이름</th>
+											<th scope="col">대표계좌</th>
+											<th scope="col">계좌번호</th>
+											<th scope="col">계좌명</th>
+											<th scope="col">계좌비밀번호</th>
+											<th scope="col">계좌잔액</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:choose>
 											<c:when test="${fn:length(list) eq 0}">
 												<tr>
-													<td class="text-cneter" colspan="9">There is no data</td>
+													<td class="text-cneter" colspan="9">데이터가 없습니다.</td>
 												</tr>
 											</c:when>
 											<c:otherwise>
@@ -96,13 +98,25 @@
 															<input type="checkbox" name="checked" value="">
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
-														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><c:out value="${list.defaultNy}"></c:out></td>
+														<td><c:out value="${list.id}"></c:out></td>
+														<td><c:out value="${list.name}"></c:out></td>
+														<td>
+								                            <c:choose>
+								                                <c:when test="${list.defaultNy == 0}">
+								                                    미사용
+								                                </c:when>
+								                                <c:when test="${list.defaultNy == 1}">
+								                                    사용
+								                                </c:when>
+								                                <c:otherwise>
+								                                    알 수 없음
+								                                </c:otherwise>
+								                            </c:choose>
+								                        </td>
 														<td><c:out value="${list.accountNumber}"></c:out></td>
 														<td><c:out value="${list.accountName}"></c:out></td>
 														<td><c:out value="${list.accountPassword}"></c:out></td>
 														<td><c:out value="${list.accountBalance}"></c:out></td>
-														<td><c:out value="${list.member_seq}"></c:out></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -114,8 +128,8 @@
 								<!-- pagination e -->
 							</div>
 							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-primary" onclick="location.href='accountForm'">Add</button>
-								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
+								<button type="button" class="btn btn-primary" onclick="location.href='accountForm'">추가</button>
+								<button type="button" class="btn btn-success" id="btnModification">수정</button>
 							</div>
 						</div>
 					</div>

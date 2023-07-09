@@ -8,21 +8,37 @@
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.account.Account"></resultMap>
 					
 	<sql id="account">
-		seq,
-		delNy,
-		defaultNy,
-		accountNumber,
-		accountName,
-		accountPassword,
-		accountBalance,
-		member_seq
+		a.seq,
+		a.delNy,
+		a.defaultNy,
+		a.accountNumber,
+		a.accountName,
+		a.accountPassword,
+		a.accountBalance,
+		b.id,
+		b.name
 	</sql>
 	
 	<sql id="selectCommon">
 		FROM 
-			account
+			account a
+				LEFT JOIN member b ON b.delNy = 0 AND b.seq = a.member_seq
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND delNy LIKE CONCAT('%',#{shKeyword},'%')</if>
+	        <if test="shKeyword != null and !shKeyword.equals('')">
+	            AND (
+	                b.name LIKE CONCAT('%',#{shKeyword},'%')
+	                OR a.accountNumber LIKE CONCAT('%',#{shKeyword},'%')
+	                OR a.accountName LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR b.id LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR b.name LIKE CONCAT('%',#{shKeyword},'%')
+	            )
+        	</if>
+			<choose>
+				<when test="shOption == 1">AND a.accountNumber LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 2">AND a.accountName LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 3">AND b.id LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 4">AND b.name LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
@@ -41,7 +57,14 @@
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="account" /> 
+  			seq,
+			delNy,
+			defaultNy,
+			accountNumber,
+			accountName,
+			accountPassword,
+			accountBalance,
+			member_seq
 		FROM 
 		  	account
 		WHERE 1=1
@@ -53,8 +76,10 @@
         	account
         SET 
    			defaultNy = #{defaultNy},
+   			accountNumber = #{accountNumber},
 			accountName = #{accountName},
 			accountPassword = #{accountPassword},
+			accountBalance = #{accountBalance},
         	member_seq = #{member_seq}
         WHERE 
         	seq = #{seq}

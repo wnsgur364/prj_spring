@@ -8,7 +8,9 @@ public class Account {
 	private String accountName;
 	private String accountPassword;
 	private Integer accountBalance;
-	private String member_seq;
+	private String member_seq; 
+	private String id;
+	private String name;
 //  ----
 	public String getSeq() {
 		return seq;
@@ -58,6 +60,16 @@ public class Account {
 	public void setMember_seq(String member_seq) {
 		this.member_seq = member_seq;
 	}
-	
-
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 }
