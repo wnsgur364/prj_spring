@@ -43,7 +43,7 @@
 					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="defaultNy" name="defaultNy" required value="<c:out value="${item.defaultNy}"/>">
-					            <label for="floatingName">defaultNy</label>
+					            <label for="floatingName">대표계좌</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -52,7 +52,7 @@
    					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required value="<c:out value="${item.accountNumber}"/>">
-					            <label for="floatingName">accountNumber</label>
+					            <label for="floatingName">계좌번호</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -61,7 +61,7 @@
    					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="accountName" name="accountName" required value="<c:out value="${item.accountName}"/>">
-					            <label for="floatingName">accountName</label>
+					            <label for="floatingName">계좌이름</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -70,7 +70,7 @@
    					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>">
-					            <label for="floatingName">accountPassword</label>
+					            <label for="floatingName">계좌비밀번호</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -79,7 +79,7 @@
    					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="accountBalance" name="accountBalance" required value="<c:out value="${item.accountBalance}"/>">
-					            <label for="floatingName">accountBalance</label>
+					            <label for="floatingName">계좌잔액</label>
 					            <div class="invalid-feedback">
 					                Looks good!
 					            </div>
@@ -92,7 +92,7 @@
 									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
 									</c:forEach>
 								</select>
-								<label for="floatingName">member_seq</label>
+								<label for="floatingName">회원번호</label>
 							</div>
    					     </div>
 					    <div class="d-flex justify-content-center">

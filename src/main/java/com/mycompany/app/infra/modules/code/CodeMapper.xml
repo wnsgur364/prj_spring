@@ -10,6 +10,7 @@
 	<sql id="code">
 		seq,
 		delNy,
+		name,
 		male,
 		female,
 		etc,

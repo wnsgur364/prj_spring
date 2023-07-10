@@ -8,6 +8,7 @@ public class CodeGroup {
 	
 	private String seq;
 	private Integer delNy;
+	private String name;
 	private Integer gender;
 //	-----
 	public String getSeq() {
@@ -15,6 +16,12 @@ public class CodeGroup {
 	}
 	public void setSeq(String seq) {
 		this.seq = seq;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Integer getDelNy() {
 		return delNy;

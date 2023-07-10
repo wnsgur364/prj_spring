@@ -5,6 +5,7 @@ public class Code {
 	private String seq;
 	private String codeGroup_seq;
 	private Integer delNy;
+	private String name;
 	private Integer male;
 	private Integer female;
 	private Integer etc;
@@ -27,6 +28,12 @@ public class Code {
 	}
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Integer getMale() {
 		return male;

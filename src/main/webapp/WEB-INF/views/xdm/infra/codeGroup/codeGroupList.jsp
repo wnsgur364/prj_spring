@@ -74,6 +74,7 @@
 											</th>
 											<th scope="col">seq</th>
 											<th scope="col">delNy</th>
+											<th scope="col">name</th>
 											<th scope="col">gender</th>
 										</tr>
 									</thead>
@@ -92,6 +93,7 @@
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
 														<td><c:out value="${list.delNy}"></c:out></td>
+														<td><c:out value="${list.name}"></c:out></td>
 														<td><c:out value="${list.gender}"></c:out></td>
 													</tr>
 												</c:forEach>

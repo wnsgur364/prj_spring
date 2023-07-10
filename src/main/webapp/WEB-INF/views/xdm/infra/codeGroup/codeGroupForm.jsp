@@ -42,6 +42,15 @@
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
+					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
+					            <label for="floatingName">name</label>
+					            <div class="invalid-feedback">
+					                Looks good!
+					            </div>
+					        </div>
+					    </div>
+					    <div class="col-md-4">
+					        <div class="form-floating">
 					            <input type="text" class="form-control" id="gender" name="gender" required value="<c:out value="${item.gender}"/>">
 					            <label for="floatingName">gender</label>
 					            <div class="invalid-feedback">
@@ -69,26 +78,46 @@
   	<%@ include file="../../../include/modalBase.jsp" %>	
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
+
+		validationInst = function(){
+			if(validationUpdt() == false) return false;
+		}
+	
+		validationUpdt = function(){
+			
+			onlyNum = /^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/;
+			
+		    if(onlyNum.test($.trim($("#gender").val())) == false){
+		        alert("숫자만 입력해 주세요")
+		        $("#gender").focus();
+		        return false;
+		    } else {
+//		    	by pass
+		    }
+		    if($.trim($("#name").val()) == "" || $.trim($("#name").val()) == null){
+		        alert("데이터를 입력해 주세요")
+		        $("#name").focus();
+		        return false;
+		    } else {
+//		    	by pass
+		    }
+		}
 	
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
-			
+			if (validationUpdt() == false) return false;
 			$("form[name=form]").attr("action","/codeGroupUpdate").submit();
-			
 		});
 	
 		// 인서트버튼 클릭이벤트
 		$("#btnInsert").on("click", function(){
-			
+			if (validationInst() == false) return false;
 			$("form[name=form]").attr("action","/codeGroupInsert").submit();
-			
 		});
 	
 		// 율리트버튼 클릭이벤트
 		$("#btnDelete").on("click", function(){
-			
 			$("form[name=form]").attr("action","/codeGroupUelete").submit();
-			
 		});
 	
 	</script>

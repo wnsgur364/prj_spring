@@ -4,7 +4,7 @@ public class Account {
 	private String seq;
 	private Integer delNy;
 	private Integer defaultNy;
-	private Integer accountNumber;
+	private String accountNumber;
 	private String accountName;
 	private String accountPassword;
 	private Integer accountBalance;
@@ -30,10 +30,10 @@ public class Account {
 	public void setDefaultNy(Integer defaultNy) {
 		this.defaultNy = defaultNy;
 	}
-	public Integer getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
-	public void setAccountNumber(Integer accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 	public String getAccountName() {

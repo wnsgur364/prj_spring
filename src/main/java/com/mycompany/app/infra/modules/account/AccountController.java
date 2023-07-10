@@ -34,9 +34,10 @@ public class AccountController {
 	}
 	
 	@RequestMapping("/accountForm")
-	public String codeForm(AccountVo vo, Model model, MemberVo groupvo, Model groupModel) {
+	public String accountForm(AccountVo vo, Model model, MemberVo groupvo, Model groupModel) {
 		model.addAttribute("item", service.selectOne(vo));
 		groupModel.addAttribute("group", groupService.selectList(groupvo));
+		
 		return "xdm/infra/account/accountForm";
 	}
 	
@@ -53,7 +54,7 @@ public class AccountController {
 	}
 	
 	@RequestMapping("/accountUelete")
-	public String account(Account dto) {
+	public String accountUelete(Account dto) {
 		service.uelete(dto);
 		return "redirect:/accountList";
 	}

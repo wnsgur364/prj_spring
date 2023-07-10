@@ -38,7 +38,7 @@
 				    					<select id="shOption" class="form-select" name="shOption">
 							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
 							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>계좌번호</option>
-							                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>계좌명</option>
+							                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>계좌이름</option>
 							                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
 							                <option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>이름</option>
 				    					</select>
@@ -79,7 +79,7 @@
 											<th scope="col">이름</th>
 											<th scope="col">대표계좌</th>
 											<th scope="col">계좌번호</th>
-											<th scope="col">계좌명</th>
+											<th scope="col">계좌이름</th>
 											<th scope="col">계좌비밀번호</th>
 											<th scope="col">계좌잔액</th>
 										</tr>

@@ -14,6 +14,7 @@
 	<sql id="codeGroup">
 		seq,
 		delNy,
+		name,
 		gender
 	</sql>
 	
@@ -51,6 +52,7 @@
         UPDATE 
         	codeGroup
         SET 
+        	name = #{name},
         	gender = #{gender}
         WHERE 
         	seq = #{seq}
@@ -69,9 +71,11 @@
 	<insert id="insert">
  		INSERT INTO codeGroup (
  			delNy,
+ 			name,
  			gender
     	) VALUES (
     		0, 
+    		#{name},
     		#{gender}
 		)
 	</insert>
