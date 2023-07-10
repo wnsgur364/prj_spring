@@ -12,3 +12,4 @@
 <script src="/resources/vendor/jquery/jquery.min.js"></script> 
 <script src="/resources/vendor/jquery-ui/jquery-ui.min.js"></script>
 <script src="/resources/xdm/xdm.js"></script>
+<script src="/resources/js/validation.js"></script>
