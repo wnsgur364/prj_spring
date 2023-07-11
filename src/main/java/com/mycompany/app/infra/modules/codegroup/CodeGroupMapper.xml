@@ -14,15 +14,14 @@
 	<sql id="codeGroup">
 		seq,
 		delNy,
-		name,
-		gender
+		name
 	</sql>
 	
 	<sql id="selectCommon">
 		FROM 
 			codeGroup
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND delNy LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
@@ -52,8 +51,7 @@
         UPDATE 
         	codeGroup
         SET 
-        	name = #{name},
-        	gender = #{gender}
+        	name = #{name}
         WHERE 
         	seq = #{seq}
     </update>
@@ -71,12 +69,10 @@
 	<insert id="insert">
  		INSERT INTO codeGroup (
  			delNy,
- 			name,
- 			gender
+ 			name
     	) VALUES (
     		0, 
-    		#{name},
-    		#{gender}
+    		#{name}
 		)
 	</insert>
      

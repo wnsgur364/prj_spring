@@ -35,57 +35,35 @@
 						    <div class="form-floating">
 						        <input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>" ${empty item.seq ? 'disabled' : ''}>
 						        <label for="floatingName">seq (unable to input)</label>
-						        <div class="invalid-feedback">
-						            Looks good!
-						        </div>
+						        <div class="invalid-feedback"></div>
 						    </div>
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
-					            <input type="text" class="form-control" id="male" name="male" required value="<c:out value="${item.male}"/>">
-					            <label for="floatingName">male</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="female" name="female" required value="<c:out value="${item.female}"/>">
-					            <label for="floatingName">female</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="etc" name="etc" required value="<c:out value="${item.etc}"/>">
-					            <label for="floatingName">etc</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
+					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
+					            <label for="floatingName">코드명</label>
+					            <div class="invalid-feedback"></div>
 					        </div>
 					    </div>
 					    <div class="col-md-4">
 						    <div class="form-floating">
 							    <select class="form-select" name="codeGroup_seq">
 								    <c:forEach items="${group}" var="group" varStatus="status">
-									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
+									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.name}"></c:out></option>
 									</c:forEach>
 								</select>
-								<label for="floatingName">codeGroup_seq</label>
+								<label for="floatingName">코드그룹명</label>
 							</div>
    					     </div>
 					    <div class="d-flex justify-content-center">
-					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeList'">List</button>
+					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeList'">목록</button>
 					        <c:choose>
 					            <c:when test="${empty item.seq}">
-					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
+					                <button type="button" class="btn btn-success" id="btnInsert">저장</button>
 					            </c:when>
 					            <c:otherwise>
-					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
+					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+					                <button type="button" class="btn btn-success" id="btnUpdate">저장</button>
 					            </c:otherwise>
 					        </c:choose>
 					    </div>
@@ -98,25 +76,31 @@
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	
+		var objName = $("#name");
+		
+		validationInst = function(){
+			if(validationUpdt() == false) return false;
+		}
+	
+		validationUpdt = function(){
+			if (checkOnlyKoreanEnglishNumber(objName, "코드 이름은 한글, 영문대소문자, 숫자만 입력 가능합니다.") === false) return false;
+		}
+	
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
-			
+			if (validationUpdt() == false) return false;
 			$("form[name=form]").attr("action","/codeUpdate").submit();
-			
 		});
 	
 		// 인서트버튼 클릭이벤트
 		$("#btnInsert").on("click", function(){
-			
+			if (validationInst() == false) return false;
 			$("form[name=form]").attr("action","/codeInsert").submit();
-			
 		});
 	
 		// 율리트버튼 클릭이벤트
 		$("#btnDelete").on("click", function(){
-			
 			$("form[name=form]").attr("action","/codeUelete").submit();
-			
 		});
 	
 	</script>

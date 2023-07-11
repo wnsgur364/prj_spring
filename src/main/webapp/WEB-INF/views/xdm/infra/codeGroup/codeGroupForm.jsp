@@ -35,38 +35,25 @@
 						    <div class="form-floating">
 						        <input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>" ${empty item.seq ? 'disabled' : ''}>
 						        <label for="floatingName">seq (unable to input)</label>
-						        <div class="invalid-feedback">
-						            Looks good!
-						        </div>
+						        <div class="invalid-feedback"></div>
 						    </div>
 						</div>
 					    <div class="col-md-4">
 					        <div class="form-floating">
 					            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
-					            <label for="floatingName">name</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="gender" name="gender" required value="<c:out value="${item.gender}"/>">
-					            <label for="floatingName">gender</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
+					            <label for="floatingName">코드그룹명</label>
+					            <div class="invalid-feedback"></div>
 					        </div>
 					    </div>
 					    <div class="d-flex justify-content-center">
-					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">List</button>
+					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='codeGroupList'">목록</button>
 					        <c:choose>
 					            <c:when test="${empty item.seq}">
-					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
+					                <button type="button" class="btn btn-success" id="btnInsert">저장</button>
 					            </c:when>
 					            <c:otherwise>
-					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
+					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+					                <button type="button" class="btn btn-success" id="btnUpdate">저장</button>
 					            </c:otherwise>
 					        </c:choose>
 					    </div>
@@ -79,16 +66,16 @@
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
 	
-		var objName = $("#gender");
+		var objName = $("#name");
 		
 		validationInst = function(){
 			if(validationUpdt() == false) return false;
 		}
 	
 		validationUpdt = function(){
-			if(checkOnlyNum(objName) == false) return false;
+			if (checkOnlyKoreanEnglishNumber(objName, "코드그룹 이름은 한글, 영문대소문자, 숫자만 입력 가능합니다.") === false) return false;
 		}
-	
+		
 		// 업데이트버튼 클릭이벤트
 		$("#btnUpdate").on("click", function(){
 			if (validationUpdt() == false) return false;

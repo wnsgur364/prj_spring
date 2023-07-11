@@ -50,22 +50,6 @@
 										</button>
 									</div>
 								</div>
-								<div class="d-flex">
-									<div class="col-2">
-				    					<select class="form-select selectPeriod">
-				      						<option selected disabled>기간</option>
-				      						<option>1주일</option>
-				      						<option>1개월</option>
-				      						<option>3개월</option>
-				    					</select>
-				  					</div>
-					    			<div class="col-2">
-				    					<input type="text" class="form-control datepicker dateStart" placeholder="시작일">
-				  					</div>
-					    			<div class="col-2">
-				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
-				  					</div>
-								</div>
 								<table class="table datatable">		
 									<thead>
 										<tr>
@@ -73,11 +57,8 @@
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
 											<th scope="col">seq</th>
-											<th scope="col">delNy</th>
-											<th scope="col">male</th>
-											<th scope="col">female</th>
-											<th scope="col">etc</th>
-											<th scope="col">codeGroup_seq</th>
+											<th scope="col">코드명</th>
+											<th scope="col">코드그룹명</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -94,11 +75,8 @@
 															<input type="checkbox" name="checked" value="">
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
-														<td><c:out value="${list.delNy}"></c:out></td>
-														<td><c:out value="${list.male}"></c:out></td>
-														<td><c:out value="${list.female}"></c:out></td>
-														<td><c:out value="${list.etc}"></c:out></td>
-														<td><c:out value="${list.codeGroup_seq}"></c:out></td>
+														<td><c:out value="${list.name}"></c:out></td>
+														<td><c:out value="${list.codeGroupName}"></c:out></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>
@@ -110,8 +88,8 @@
 								<!-- pagination e -->
 							</div>
 							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-primary" onclick="location.href='codeForm'">Add</button>
-								<button type="button" class="btn btn-success" id="btnModification">Edit</button>
+								<button type="button" class="btn btn-primary" onclick="location.href='codeForm'">추가</button>
+								<button type="button" class="btn btn-success" id="btnModification">수정</button>
 							</div>
 						</div>
 					</div>

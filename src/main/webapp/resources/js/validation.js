@@ -77,3 +77,16 @@
             obj.removeClass("is-invalid");
         }
     }
+    
+    checkOnlyKoreanEnglishNumber  = function(obj, message) {
+        var regExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
+
+        if (regExp.test($.trim(obj.val())) == false) {
+            obj.addClass("is-invalid");
+            obj.focus();
+            $(".invalid-feedback").text(message);
+            return false;
+        } else {
+            obj.removeClass("is-invalid");
+        }
+    }

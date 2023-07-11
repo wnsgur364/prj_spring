@@ -6,10 +6,7 @@ public class Code {
 	private String codeGroup_seq;
 	private Integer delNy;
 	private String name;
-	private Integer male;
-	private Integer female;
-	private Integer etc;
-
+	private String codeGroupName;
 //  ----	
 	public String getSeq() {
 		return seq;
@@ -35,23 +32,11 @@ public class Code {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getMale() {
-		return male;
+	public String getCodeGroupName() {
+		return codeGroupName;
 	}
-	public void setMale(Integer male) {
-		this.male = male;
-	}
-	public Integer getFemale() {
-		return female;
-	}
-	public void setFemale(Integer female) {
-		this.female = female;
-	}
-	public Integer getEtc() {
-		return etc;
-	}
-	public void setEtc(Integer etc) {
-		this.etc = etc;
+	public void setCodeGroupName(String codeGroupName) {
+		this.codeGroupName = codeGroupName;
 	}
 	
 }
