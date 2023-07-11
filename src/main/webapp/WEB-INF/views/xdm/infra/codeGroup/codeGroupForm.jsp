@@ -78,13 +78,15 @@
   	<%@ include file="../../../include/modalBase.jsp" %>	
 	<%@ include file="../../../include/footerXdmView.jsp" %>
 	<script>
-
+	
+		var objName = $("#gender");
+		
 		validationInst = function(){
 			if(validationUpdt() == false) return false;
 		}
 	
 		validationUpdt = function(){
-			if(check($.trim($("#gender").val())) == false) return false;
+			if(checkOnlyNum(objName) == false) return false;
 		}
 	
 		// 업데이트버튼 클릭이벤트

@@ -36,12 +36,6 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 	
-	@RequestMapping("/memberInsert")
-	public String memberInsert(Member dto) {
-		service.insert(dto);
-		return "redirect:/memberList";
-	}
-	
 	@RequestMapping("/memberUelete")
 	public String memberUelete(Member dto) {
 		service.uelete(dto);
