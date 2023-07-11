@@ -39,7 +39,7 @@
 	    }
 	}
 	
-   checkName = function(obj) {
+    checkName = function(obj) {
         var regExp = /^[ㄱ-ㅎ가-힣]{2,20}$/;
 
         if (regExp.test($.trim(obj.val())) == false) {
@@ -52,7 +52,7 @@
         }
     }
 
-   checkEmail = function(obj) {
+    checkEmail = function(obj) {
         var regExp = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
         if (regExp.test($.trim(obj.val())) == false) {
@@ -65,7 +65,7 @@
         }
     }
 	
-   checkPhone = function(obj) {
+    checkPhone = function(obj) {
         var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;;
 
         if (regExp.test($.trim(obj.val())) == false) {
