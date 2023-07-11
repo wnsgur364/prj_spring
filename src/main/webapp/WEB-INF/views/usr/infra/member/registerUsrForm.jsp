@@ -98,13 +98,13 @@
 		var objEmail = $("#email");
 		var objPhone = $("#phone");
 	
-		validationInst = function(){
-			if(checkId(objId) == false) return false;
-			if(checkPw(objPw) == false) return false;
-			if(checkPwCheck(objPwCheck) == false) return false;
-			if(checkName(objName) == false) return false;
-			if(checkEmail(objEmail) == false) return false;
-			if(checkPhone(objPhone) == false) return false;
+		validationInst = function() {
+		    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
+		    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
+		    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
+		    if (checkName(objName, "이름은 한글만 입력 가능합니다.") === false) return false;
+		    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
+		    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
 		}
 	
 		// 인서트버튼 클릭이벤트

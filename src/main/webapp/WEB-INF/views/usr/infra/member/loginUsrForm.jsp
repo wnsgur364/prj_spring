@@ -50,6 +50,12 @@
                       						<input type="password" name="pw" class="form-control" id="pw" required>
                       						<div class="invalid-feedback"></div>
                     					</div>
+                    					<div class="col-12">
+                      						<div class="form-check">
+                        						<input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                        						<label class="form-check-label" for="rememberMe">아이디 저장</label>
+                      						</div>
+                    					</div>
                    						<div class="col-12 d-flex">
                       						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit">로그인</button>
                     					</div>
@@ -74,15 +80,37 @@
 		var objId = $("#id");
 		var objPw = $("#pw");
 	
-		validationInst = function(){
-			if(checkId(objId) == false) return false;
-			if(checkPw(objPw) == false) return false;
+		validationInst = function() {
+		    if (checkId(objId, "올바른 아이디를 입력해주세요.") === false) return false;
+		    if (checkPw(objPw, "올바른 비밀번호를 입력해주세요.") === false) return false;
 		}
 	
 		// 인서트버튼 클릭이벤트
 		$("#submitForm").on("click", function(){
 			if (validationInst() == false) return false;
 // 			$("form[name=form]").attr("action","/").submit();
+		});
+		
+		// 아이디 저장 체크박스의 변경 이벤트 리스너 추가
+		$("#rememberMe").change(function() {
+		  var isChecked = $(this).is(":checked"); // 체크 여부 확인
+
+		  if (isChecked) {
+		    var savedId = $("#id").val(); // 저장할 아이디 가져오기
+		    localStorage.setItem("savedId", savedId); // 아이디 로컬 스토리지에 저장
+		  } else {
+		    localStorage.removeItem("savedId"); // 저장된 아이디 제거
+		  }
+		});
+
+		// 페이지 로드 시, 로컬 스토리지에서 저장된 아이디가 있는지 확인하여 적용
+		$(document).ready(function() {
+		  var savedId = localStorage.getItem("savedId"); // 저장된 아이디 가져오기
+
+		  if (savedId) {
+		    $("#id").val(savedId); // 아이디 필드에 저장된 아이디 설정
+		    $("#rememberMe").prop("checked", true); // 체크박스 선택 상태로 설정
+		  }
 		});
 		
 	</script>
