@@ -65,7 +65,7 @@
         }
     }
 	
-    checkPhone = function(obj) {
+   checkPhone = function(obj) {
         var regExp = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})([0-9]{3,4})([0-9]{4})$/;;
 
         if (regExp.test($.trim(obj.val())) == false) {
