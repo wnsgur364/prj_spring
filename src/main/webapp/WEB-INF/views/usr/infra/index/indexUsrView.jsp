@@ -37,12 +37,12 @@
 				<div class="fs-1 text-center py-4">삼프로TV</div>
 				<div class="card-body d-flex justify-content-center align-items-end">
 					<div>
-						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.youtube.com/channel/UChlv4GSd7OQl3js-jkLOnFA" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
 						</a>
 					</div>
 					<div>
-						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.instagram.com/3protv.official/" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
 						</a>
 					</div>
@@ -53,12 +53,12 @@
 				<div class="fs-1 text-center py-4">슈카월드</div>
 				<div class="card-body d-flex justify-content-center align-items-end">
 					<div>
-						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.youtube.com/channel/UCsJ6RuBiTVWRX156FVbeaGg" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
 						</a>
 					</div>
 					<div>
-						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.instagram.com/syukaworld/" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
 						</a>
 					</div>
@@ -69,12 +69,12 @@
 				<div class="fs-1 text-center py-4">테미녀</div>
 				<div class="card-body d-flex justify-content-center align-items-end">
 					<div>
-						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.youtube.com/@tesla_crazy_lady" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
 						</a>
 					</div>
 					<div>
-						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.instagram.com/tesla_crazy_lady/" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
 						</a>
 					</div>
@@ -85,12 +85,12 @@
 				<div class="fs-1 text-center py-4">천덩이</div>
 				<div class="card-body d-flex justify-content-center align-items-end">
 					<div>
-						<a href="https://www.youtube.com/channel/UC6ij59Gy_HnqO4pFu9A_zgQ" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.youtube.com/channel/UCVqtfuvKbb5bZYcxrZ1pzJw" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
 						</a>
 					</div>
 					<div>
-						<a href="https://www.instagram.com/imtaeho11/" style="text-decoration: none;" class="fs-1 px-2">
+						<a href="https://www.instagram.com/cheondng2/" style="text-decoration: none;" class="fs-1 px-2">
 							<i class="fa-brands fa-instagram" style="color: #46729b;"></i>
 						</a>
 					</div>

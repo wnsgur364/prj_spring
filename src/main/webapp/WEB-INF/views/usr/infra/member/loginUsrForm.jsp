@@ -42,22 +42,16 @@
                   					<form class="row g-3 needs-validation" name="form" method="post" novalidate>
                    						<div class="col-12">
                       						<label for="id" class="form-label">아이디</label>
-                      						<input type="text" name="id" class="form-control" id="id" required>
+                      						<input type="text" id="id" name="id" class="form-control" required value="test333">
                        						<div class="invalid-feedback"></div>
                    						</div>
                     					<div class="col-12">
                       						<label for="pw" class="form-label">비밀번호</label>
-                      						<input type="password" name="pw" class="form-control" id="pw" required>
+                      						<input type="password" id="pw" name="pw" class="form-control" required value="Ezen0508!">
                       						<div class="invalid-feedback"></div>
                     					</div>
-                    					<div class="col-12">
-                      						<div class="form-check">
-                        						<input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        						<label class="form-check-label" for="rememberMe">아이디 저장</label>
-                      						</div>
-                    					</div>
                    						<div class="col-12 d-flex">
-                      						<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit">로그인</button>
+                      						<button class="btn btn-outline-secondary w-100" id="btnLogin" type="button">로그인</button>
                     					</div>
                     					<div class="col-12">
                       						<p class="small mb-0">아이디가 없으신가요? <a href="registerUsrForm">회원가입</a></p>
@@ -73,45 +67,46 @@
 	</main>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/resources/vendor/jquery/jquery.min.js"></script>
-	<script src="/resources/usr/usr.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 	<script src="/resources/js/validation.js"></script>
 	<script>
-	
+		
+		$("#btnLogin").on("click", function(){
+			
+			if(validation() == false) return false;
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/loginProc"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val(),
+					"pw" : $("#pw").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						alert(response.rtMember.name);
+						location.href = "/indexUsrView";
+					} else {
+						alert("그런 회원 없습니다.");
+						$("#pw").val("");
+						$("#pw").focus();
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		});
+		
 		var objId = $("#id");
 		var objPw = $("#pw");
 	
-		validationInst = function() {
+		validation = function() {
 		    if (checkId(objId, "올바른 아이디를 입력해주세요.") === false) return false;
 		    if (checkPw(objPw, "올바른 비밀번호를 입력해주세요.") === false) return false;
 		}
-	
-		// 인서트버튼 클릭이벤트
-		$("#submitForm").on("click", function(){
-			if (validationInst() == false) return false;
-// 			$("form[name=form]").attr("action","/").submit();
-		});
-		
-		// 아이디 저장 체크박스의 변경 이벤트 리스너 추가
-		$("#rememberMe").change(function() {
-		  var isChecked = $(this).is(":checked"); // 체크 여부 확인
-
-		  if (isChecked) {
-		    var savedId = $("#id").val(); // 저장할 아이디 가져오기
-		    localStorage.setItem("savedId", savedId); // 아이디 로컬 스토리지에 저장
-		  } else {
-		    localStorage.removeItem("savedId"); // 저장된 아이디 제거
-		  }
-		});
-
-		// 페이지 로드 시, 로컬 스토리지에서 저장된 아이디가 있는지 확인하여 적용
-		$(document).ready(function() {
-		  var savedId = localStorage.getItem("savedId"); // 저장된 아이디 가져오기
-
-		  if (savedId) {
-		    $("#id").val(savedId); // 아이디 필드에 저장된 아이디 설정
-		    $("#rememberMe").prop("checked", true); // 체크박스 선택 상태로 설정
-		  }
-		});
 		
 	</script>
 </body>

@@ -1,10 +1,14 @@
 package com.mycompany.app.infra.modules.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -63,4 +67,19 @@ public class MemberController {
 		return "xdm/infra/member/loginXdmForm";
 	}
 	
+	@ResponseBody
+	@RequestMapping("/loginProc")
+	public Map<String, Object> loginProc(MemberVo vo) {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		Member rtMember = service.loginProc(vo);
+		
+		if(rtMember != null) {
+			returnMap.put("rtMember", rtMember);
+			returnMap.put("rt", "success");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
 }

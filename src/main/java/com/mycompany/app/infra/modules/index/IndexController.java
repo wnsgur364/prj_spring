@@ -65,25 +65,4 @@ public class IndexController {
 	public String indexXdmView() {
 		return "xdm/infra/index/indexXdmView";
 	}
-	
-	@RequestMapping(value = "/accountXdmView")
-	public String accountXdmView() {
-		return "xdm/infra/index/accountXdmView";
-	}
-	
-	@RequestMapping(value = "/transactionXdmView")
-	public String transactionXdmView() {
-		return "xdm/infra/index/transactionXdmView";
-	}
-	
-	@RequestMapping(value = "/customerXdmView")
-	public String customerXdmView() {
-		return "xdm/infra/index/customerXdmView";
-	}
-	
-	@RequestMapping(value = "/influencerXdmView")
-	public String influencerXdmView() {
-		return "xdm/infra/index/influencerXdmView";
-	}
-	
 }

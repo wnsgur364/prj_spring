@@ -14,7 +14,7 @@ import com.mycompany.app.infra.modules.codegroup.CodeGroupVo;
 public class MemberDao {
 	
 	@Inject
-	@Resource(name =  "sqlSession")
+	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 	
 	private static String namespace = "com.mycompany.app.infra.modules.member.MemberMapper";
@@ -22,6 +22,7 @@ public class MemberDao {
 	public int selectOneCount(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
 	public List<Member> selectList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
 	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo); }
+	public Member loginProc(MemberVo vo) { return sqlSession.selectOne(namespace + ".loginProc", vo); }
 	public int update(Member dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Member dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Member dto) { return sqlSession.insert(namespace + ".insert", dto); }

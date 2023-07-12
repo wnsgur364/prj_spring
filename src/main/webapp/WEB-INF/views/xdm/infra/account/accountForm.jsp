@@ -77,7 +77,11 @@
 						    <div class="form-floating">
 							    <select class="form-select" name="member_seq">
 								    <c:forEach items="${group}" var="group" varStatus="status">
-									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.id}"></c:out></option>
+	   					                <option value="<c:out value='${group.seq}'></c:out>"
+						                    <c:if test="${group.seq == item.member_seq}">selected</c:if>
+						                >
+						                    <c:out value="${group.id}"></c:out>
+						                </option>
 									</c:forEach>
 								</select>
 								<label for="floatingName">회원아이디</label>

@@ -50,22 +50,6 @@
 										</button>
 									</div>
 								</div>
-								<div class="d-flex">
-									<div class="col-2">
-				    					<select class="form-select selectPeriod">
-				      						<option selected disabled>기간</option>
-				      						<option>1주일</option>
-				      						<option>1개월</option>
-				      						<option>3개월</option>
-				    					</select>
-				  					</div>
-					    			<div class="col-2">
-				    					<input type="text" class="form-control datepicker dateStart" placeholder="시작일">
-				  					</div>
-					    			<div class="col-2">
-				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
-				  					</div>
-								</div>
 								<table class="table datatable">		
 									<thead>
 										<tr>
@@ -73,12 +57,11 @@
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
 											<th scope="col">seq</th>
-											<th scope="col">delNy</th>
-											<th scope="col">id</th>
-											<th scope="col">name</th>
-											<th scope="col">pw</th>
-											<th scope="col">email</th>
-											<th scope="col">phone</th>
+											<th scope="col">아이디</th>
+											<th scope="col">이름</th>
+											<th scope="col">비밀번호</th>
+											<th scope="col">이메일</th>
+											<th scope="col">전화번호</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -95,7 +78,6 @@
 															<input type="checkbox" name="checked" value="">
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
-														<td><c:out value="${list.delNy}"></c:out></td>
 														<td><a href="memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.id}"></c:out></a></td>
 														<td><c:out value="${list.name}"></c:out></td>
 														<td><c:out value="${list.pw}"></c:out></td>

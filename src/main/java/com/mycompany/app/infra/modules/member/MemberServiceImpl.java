@@ -25,6 +25,11 @@ public class MemberServiceImpl implements MemberService {
 	public Member selectOne(MemberVo vo) { 
 		return dao.selectOne(vo); 
 	}
+
+	@Override
+	public Member loginProc(MemberVo vo) {
+		return dao.loginProc(vo);
+	}
 	
 	@Override
 	public int update(Member dto) {
@@ -40,5 +45,5 @@ public class MemberServiceImpl implements MemberService {
 	public int uelete(Member dto) {
 		return dao.uelete(dto);
 	}
-	
+
 }
