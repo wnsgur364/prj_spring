@@ -17,11 +17,11 @@
 	<%@ include file="../../../include/headerXdmView.jsp" %>
   	<main id="main" class="main">
 	    <div class="pagetitle">
-      		<h1>memberList</h1>
+      		<h1>회원목록</h1>
       		<nav>
         		<ol class="breadcrumb">
           			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">memberList</li>
+          			<li class="breadcrumb-item active">회원목록</li>
         		</ol>
       		</nav>
     	</div>
