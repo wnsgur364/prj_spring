@@ -71,7 +71,7 @@
                								<div class="invalid-feedback"></div>
                 						</div>
                   						<div class="col-12 d-flex">
-                   							<button class="btn btn-outline-secondary w-100" id="submitForm" type="submit">회원가입</button>
+                   							<button class="btn btn-outline-secondary w-100" id="submitForm" type="button">회원가입</button>
                    						</div>
                    						<div class="col-12">
                    							<p class="small mb-0">이미 계정이 있으신가요? <a href="loginUsrForm">로그인</a></p>
@@ -86,19 +86,19 @@
     	</div>
   	</main>
 	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 	<script src="/resources/usr/usr.js"></script>
 	<script src="/resources/js/validation.js"></script>
 	<script>
-		
-		var objId = $("#id");
-		var objPw = $("#pw");
-		var objPwCheck = $("#pwCheck");
-		var objName = $("#name");
-		var objEmail = $("#email");
-		var objPhone = $("#phone");
 	
 		validationInst = function() {
+			var objId = $("#id");
+			var objPw = $("#pw");
+			var objPwCheck = $("#pwCheck");
+			var objName = $("#name");
+			var objEmail = $("#email");
+			var objPhone = $("#phone");
+			
 		    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
 		    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
 		    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
@@ -106,11 +106,38 @@
 		    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
 		    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
 		}
-	
+		
 		// 인서트버튼 클릭이벤트
 		$("#submitForm").on("click", function(){
 			if (validationInst() == false) return false;
 			$("form[name=form]").attr("action","/registerInsert").submit();
+		});
+		
+		$("#id").on("blur", function(){
+		    var obj = $(this);
+		    
+			$.ajax({
+		    	async: true,
+		    	cache: false,
+		    	type: "post",
+		    	url: "/checkIdProc",
+		    	data: { "id": $("#id").val() },
+		    	success: function(response) {
+		      		if (response.rt == "available") {
+		                obj.removeClass("is-invalid");
+		                obj.addClass("is-valid");
+		                $(".invalid-feedback").text("사용 가능 합니다.");
+		      		} else {
+		                obj.removeClass("is-valid");
+		                obj.addClass("is-invalid");
+		                obj.focus();
+		                $(".invalid-feedback").text("사용 불가능 합니다.");
+		      		}
+		    	},
+	    		error: function(jqXHR, textStatus, errorThrown) {
+		      		alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+	    		}
+		  	});
 		});
 		
 	</script>

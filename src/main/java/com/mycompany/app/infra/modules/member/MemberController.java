@@ -71,14 +71,15 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("/loginProc")
-	public Map<String, Object> loginProc(MemberVo vo, HttpSession session) {
+	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		Member rtMember = service.loginProc(vo);
 		
 		if(rtMember != null) {
 	        // 로그인 성공 시 세션에 사용자 정보 저장
-	        session.setAttribute("id", rtMember.getId());
+			httpSession.setMaxInactiveInterval(60*60); //60min
+			httpSession.setAttribute("id", vo.getId());
 	        
 			returnMap.put("rtMember", rtMember);
 			returnMap.put("rt", "success");
@@ -88,11 +89,29 @@ public class MemberController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-	    // 세션에서 사용자 정보를 제거하여 로그아웃 처리
-	    session.removeAttribute("id");
-	    
-	    return "redirect:indexUsrView"; // 로그아웃 후에 메인 페이지로 리다이렉트
+	@ResponseBody
+	@RequestMapping("/logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		System.out.println(httpSession.getAttribute("id"));
+		httpSession.invalidate();
+	    returnMap.put("rt", "success");
+	    return returnMap; 
 	}
+	
+	@ResponseBody
+	@RequestMapping("/checkIdProc")
+	public Map<String, Object> checkIdProc(MemberVo vo) {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		int rtNum = service.selectOneIdCheck(vo);
+		
+		if(rtNum == 0) {
+			returnMap.put("rt", "available");
+		} else {
+			returnMap.put("rt", "unavailable");
+		}
+		return returnMap;
+	}
+		
 }

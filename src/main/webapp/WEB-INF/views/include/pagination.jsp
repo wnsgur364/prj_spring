@@ -24,10 +24,3 @@
         </div>
     </div>
 </div>
-
-<script>
-	goList = function(thisPage) {
-		$("input:hidden[name=thisPage]").val(thisPage);
-		$("form[name=formList]").attr("action", "codeGroupList").submit();
-	}
-</script>

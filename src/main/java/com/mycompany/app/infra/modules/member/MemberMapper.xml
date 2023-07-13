@@ -99,4 +99,13 @@
 		 	seq = #{seq}
     </update>
     
+   	<select id="selectOneIdCheck" resultType="Integer">
+		SELECT
+			COUNT(seq)
+		FROM
+			member
+		WHERE 1=1
+			AND id = #{id}
+	</select>
+    
 </mapper>

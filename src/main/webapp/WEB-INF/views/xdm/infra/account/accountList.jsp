@@ -163,7 +163,12 @@
 		    // 체크박스 해제
 		    $("input[name='checked']").prop('checked', false);
 		});
-  	
+  		
+		goList = function(thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			$("form[name=formList]").attr("action", "accountList").submit();
+		}
+		
   	</script>
 </body>
 </html>

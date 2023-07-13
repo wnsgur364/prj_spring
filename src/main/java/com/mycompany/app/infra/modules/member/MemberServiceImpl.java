@@ -46,4 +46,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.uelete(dto);
 	}
 
+	@Override
+	public int selectOneIdCheck(MemberVo vo) {
+		return dao.selectOneIdCheck(vo); 
+	}
+
 }

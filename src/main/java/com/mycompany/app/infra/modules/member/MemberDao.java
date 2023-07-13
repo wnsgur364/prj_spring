@@ -26,6 +26,6 @@ public class MemberDao {
 	public int update(Member dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Member dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Member dto) { return sqlSession.insert(namespace + ".insert", dto); }
-
+	public int selectOneIdCheck(MemberVo vo){ return sqlSession.selectOne(namespace + ".selectOneIdCheck", vo); }
 }
  
