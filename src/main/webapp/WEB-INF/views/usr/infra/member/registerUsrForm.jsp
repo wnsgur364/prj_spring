@@ -92,13 +92,13 @@
 	<script>
 	
 		validationInst = function() {
-			var objId = $("#id");
-			var objPw = $("#pw");
-			var objPwCheck = $("#pwCheck");
-			var objName = $("#name");
-			var objEmail = $("#email");
-			var objPhone = $("#phone");
-			
+		    var objId = $("#id");
+		    var objPw = $("#pw");
+		    var objPwCheck = $("#pwCheck");
+		    var objName = $("#name");
+		    var objEmail = $("#email");
+		    var objPhone = $("#phone");
+	
 		    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
 		    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
 		    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
@@ -106,40 +106,45 @@
 		    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
 		    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
 		}
-		
-		// 인서트버튼 클릭이벤트
-		$("#submitForm").on("click", function(){
-			if (validationInst() == false) return false;
-			$("form[name=form]").attr("action","/registerInsert").submit();
+	
+		// 인서트 버튼 클릭 이벤트
+		$("#submitForm").on("click", function() {
+		    if (validationInst() === false) return false;
+		    $("form[name=form]").attr("action", "/registerInsert").submit();
 		});
-		
-		$("#id").on("blur", function(){
+	
+		$("#id").on("blur", function() {
 		    var obj = $(this);
 		    
-			$.ajax({
-		    	async: true,
-		    	cache: false,
-		    	type: "post",
-		    	url: "/checkIdProc",
-		    	data: { "id": $("#id").val() },
-		    	success: function(response) {
-		      		if (response.rt == "available") {
+		    // AJAX 요청 수행
+		    $.ajax({
+		        async: true,
+		        cache: false,
+		        type: "post",
+		        url: "/checkIdProc",
+		        data: { "id": obj.val() },
+		        success: function(response) {
+		            if (response.rt === "available") {
+		     		    if (!checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.")) {
+		 		        	return false;
+		 		    	} else {
 		                obj.removeClass("is-invalid");
 		                obj.addClass("is-valid");
-		                $(".invalid-feedback").text("사용 가능 합니다.");
-		      		} else {
+		                obj.siblings(".invalid-feedback").text("사용 가능합니다.");
+		 		    	}
+		            } else {
 		                obj.removeClass("is-valid");
 		                obj.addClass("is-invalid");
 		                obj.focus();
-		                $(".invalid-feedback").text("사용 불가능 합니다.");
-		      		}
-		    	},
-	    		error: function(jqXHR, textStatus, errorThrown) {
-		      		alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-	    		}
-		  	});
+		                obj.siblings(".invalid-feedback").text("사용 불가능합니다.");
+		            }
+		        },
+		        error: function(jqXHR, textStatus, errorThrown) {
+		            alert("ajaxUpdate " + textStatus + " : " + errorThrown);
+		        }
+		    });
 		});
-		
+
 	</script>
 </body>
 </html>
