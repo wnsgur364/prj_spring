@@ -22,7 +22,7 @@
        		</a>
       	</li>
       	<li>
-       		<a href="indexXdmView"> 	
+       		<a href="loginXdmForm"> 	
 	       		<i class="zmdi zmdi-view-dashboard"></i> 
        			<span>KOKOA BANK ADMIN</span>
        		</a>

@@ -12,24 +12,9 @@ public class TestController {
 		return "/modules/tables";
 	}
 	
-	@RequestMapping("/login")
-	public String login() {
-		return "/modules/login";
-	}
-	
 	@RequestMapping("/forms")
 	public String forms() {
 		return "/modules/forms";
-	}
-	
-	@RequestMapping("/profile")
-	public String profile() {
-		return "/modules/profile";
-	}
-	
-	@RequestMapping("/reset-password")
-	public String resetPassword() {
-		return "/modules/reset-password";
 	}
 	
 	@RequestMapping("/calendar")

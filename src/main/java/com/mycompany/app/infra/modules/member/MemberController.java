@@ -113,5 +113,10 @@ public class MemberController {
 		}
 		return returnMap;
 	}
+	
+	@RequestMapping("/resetPassword")
+	public String resetPassword() {
+		return "/usr/infra/member/resetPassword";
+	}
 		
 }

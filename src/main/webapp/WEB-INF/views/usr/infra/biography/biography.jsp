@@ -131,7 +131,7 @@
 					                                    </tr>
 					                                    <tr>
 					                                        <td>
-					                                            <strong>링크 : </strong><a href="indexXdmView"><strong>개인프로젝트 관리자 KOKOA BANK (가상 웹 뱅킹 서비스)</strong></a>
+					                                            <strong>링크 : </strong><a href="loginXdmForm"><strong>개인프로젝트 관리자 KOKOA BANK (가상 웹 뱅킹 서비스)</strong></a>
 					                                        </td>
 					                                    </tr>
 					                                    <tr>

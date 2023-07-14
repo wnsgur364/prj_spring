@@ -14,7 +14,7 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
   <title>비밀번호 초기화</title>
-	<%@ include file="../include/css.jsp" %>
+	<%@ include file="../../../include/css.jsp" %>
 </head>
 
 <body class="bg-theme bg-theme9">
@@ -44,15 +44,15 @@
 		   </div>
 		  </div>
 		   <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Return to the <a href="login.html"> Sign In</a></p>
+		    <p class="text-warning mb-0">Return to the <a href="loginUsrForm"> Sign In</a></p>
 		  </div>
 	     </div>
 	     </div>
     
 
-<%@ include file="../include/footer.jsp" %>  	
+<%@ include file="../../../include/footer.jsp" %>  	
 	</div><!--wrapper-->
-<%@ include file="../include/script.jsp" %>  	
+<%@ include file="../../../include/script.jsp" %>  	
 
 </body>
 </html>
