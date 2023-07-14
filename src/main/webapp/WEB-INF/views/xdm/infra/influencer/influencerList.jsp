@@ -46,7 +46,7 @@
 				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
 				  					</div>  
 				  					<div class="col-1">
-										<button type="submit" class="btn btn-dark" id="btnSearch">
+										<button type="button" class="btn" id="btnSearch">
 											<i class="bi bi-search"></i>
 										</button>
 									</div>
@@ -70,7 +70,7 @@
 								<table class="table datatable">		
 									<thead>
 										<tr>
-											<th scope="col" class="doNotScript">
+											<th scope="col">
 												<input type="checkbox" name="checked" id="allCheck" value="">
 											</th>
 											<th scope="col">seq</th>
