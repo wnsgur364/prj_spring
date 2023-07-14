@@ -8,124 +8,108 @@
 <!DOCTYPE html>
 <html lang="KO">
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <meta name="description" content=""/>
-  <meta name="author" content=""/>
-  <title>KOKOA BANK REGISTER</title>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>KOKOA BANK REGISTER</title>
 	<%@ include file="../../../include/css.jsp" %>
 </head>
 
 <body class="bg-theme bg-theme9">
 
 <!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
+<div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+<!-- end loader -->
 
 <!-- Start wrapper-->
- <div id="wrapper">
-
+<div id="wrapper">
 	<div class="card card-authentication1 mx-auto my-4">
 		<div class="card-body">
-		 <div class="card-content p-2">
-		 	<div class="text-center">
-		 		<a href="index"><img src="/resources/assets/images/logo-icon.png" alt="logo icon"></a>
-		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">KOKOA BANK REGISTER</div>
-		    <form class="needs-validation" name="form" method="post" novalidate>
-			  <div class="form-group">
-			  <label for="id" class="sr-only">아이디</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Your Id" required>
-				  <div class="form-control-position">
-					  <i class="icon-user"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			  <label for="pw" class="sr-only">비밀번호</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Your Password" required>
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			   <label for="pwCheck" class="sr-only">비밀번호 확인</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="password" id="pwCheck" name="pwCheck" class="form-control input-shadow" placeholder="Enter Your Password Check" required>
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-  			  <div class="form-group">
-			   <label for="name" class="sr-only">이름</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="name" name="name" class="form-control input-shadow" placeholder="Enter Your Name" required>
-				  <div class="form-control-position">
-					  <i class="icon-user"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			   <label for="email" class="sr-only">이메일</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="email" name="email" class="form-control input-shadow" placeholder="Enter Your Email" required>
-				  <div class="form-control-position">
-					  <i class="icon-envelope-open"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-  			  <div class="form-group">
-			   <label for="phone" class="sr-only">전화번호</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="phone" name="phone" class="form-control input-shadow" placeholder="Enter Your Phone" required>
-				  <div class="form-control-position">
-					  <i class="icon-phone"></i>
-				  </div>
-				  <div class="invalid-feedback"></div>
-			   </div>
-			  </div>
-			   <div class="form-group">
-			     <div class="icheck-material-white">
-                   <input type="checkbox" id="user-checkbox" checked="" />
-                   <label for="user-checkbox">I Agree With Terms & Conditions</label>
-			     </div>
-			    </div>
-			  
-			 <button type="button" id="submitForm" class="btn btn-light btn-block waves-effect waves-light">회원가입</button>
-			  <div class="text-center mt-3">Sign Up With</div>
-			  
-			 <div class="form-row mt-4">
-			  <div class="form-group mb-0 col-6">
-			   <button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-			 </div>
-			 <div class="form-group mb-0 col-6 text-right">
-			  <button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-			 </div>
+		 	<div class="card-content p-2">
+		 		<div class="text-center">
+		 			<a href="index"><img src="/resources/assets/images/logo-icon.png" alt="logo icon"></a>
+		 		</div>
+		  		<div class="card-title text-uppercase text-center py-3">KOKOA BANK REGISTER</div>
+		    	<form class="needs-validation" name="form" method="post" novalidate>
+			  		<div class="form-group">
+			  			<label for="id" class="sr-only">아이디</label>
+		   				<div class="position-relative has-icon-right">
+			  				<input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Your Id" required>
+			  				<div class="form-control-position"><i class="icon-user"></i></div>
+			  				<div class="invalid-feedback"></div>
+		   				</div>
+		  			</div>
+			  		<div class="form-group">
+			  			<label for="pw" class="sr-only">비밀번호</label>
+			   			<div class="position-relative has-icon-right">
+					  		<input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Your Password" required>
+					  		<div class="form-control-position"><i class="icon-lock"></i></div>
+					  		<div class="invalid-feedback"></div>
+			   			</div>
+			  		</div>
+			  		<div class="form-group">
+			   			<label for="pwCheck" class="sr-only">비밀번호 확인</label>
+			   			<div class="position-relative has-icon-right">
+				  			<input type="password" id="pwCheck" name="pwCheck" class="form-control input-shadow" placeholder="Enter Your Password Check" required>
+				  			<div class="form-control-position"><i class="icon-lock"></i></div>
+				  			<div class="invalid-feedback"></div>
+			   			</div>
+			  		</div>
+  			  		<div class="form-group">
+			   			<label for="name" class="sr-only">이름</label>
+		   				<div class="position-relative has-icon-right">
+				  			<input type="text" id="name" name="name" class="form-control input-shadow" placeholder="Enter Your Name" required>
+				  			<div class="form-control-position"><i class="icon-user"></i></div>
+				  			<div class="invalid-feedback"></div>
+			   			</div>
+			  		</div>
+		  			<div class="form-group">
+			   			<label for="email" class="sr-only">이메일</label>
+			   			<div class="position-relative has-icon-right">
+				  			<input type="text" id="email" name="email" class="form-control input-shadow" placeholder="Enter Your Email" required>
+				  			<div class="form-control-position"><i class="icon-envelope-open"></i></div>
+				  			<div class="invalid-feedback"></div>
+			   			</div>
+			  		</div>
+  			  		<div class="form-group">
+			   			<label for="phone" class="sr-only">전화번호</label>
+		   				<div class="position-relative has-icon-right">
+				  			<input type="text" id="phone" name="phone" class="form-control input-shadow" placeholder="Enter Your Phone" required>
+				  			<div class="form-control-position"><i class="icon-phone"></i></div>
+				  			<div class="invalid-feedback"></div>
+			   			</div>
+			  		</div>
+			   		<div class="form-group">
+			     		<div class="icheck-material-white">
+                   			<input type="checkbox" id="user-checkbox" checked="" />
+                   			<label for="user-checkbox">I Agree With Terms & Conditions</label>
+			     		</div>
+		    		</div>
+			 		<button type="button" id="submitForm" class="btn btn-light btn-block waves-effect waves-light">회원가입</button>
+			  		<div class="text-center mt-3">Sign Up With</div>
+			 		<div class="form-row mt-4">
+			  			<div class="form-group mb-0 col-6">
+			   				<button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
+			 			</div>
+			 			<div class="form-group mb-0 col-6 text-right">
+			  				<button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
+			 			</div>
+					</div>
+				</form>
 			</div>
-			
-			 </form>
-		   </div>
-		  </div>
-		  <div class="card-footer text-center py-3">
-		    <p class="text-warning mb-0">Already have an account? <a href="loginUsrForm">Sign In here</a></p>
-		  </div>
-	     </div>
+		</div>
+		<div class="card-footer text-center py-3">
+			<p class="text-warning mb-0">Already have an account? <a href="loginUsrForm">Sign In here</a></p>
+		</div>
+	</div>
     
-     <!--Start Back To Top Button-->
-    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-    <!--End Back To Top Button-->
+	<!--Start Back To Top Button-->
+	<a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+	<!--End Back To Top Button-->
 	
-	</div><!--wrapper-->
+</div><!--wrapper-->
 <%@ include file="../../../include/script.jsp" %> 
 <script>
 	
