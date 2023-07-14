@@ -1,66 +1,186 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>	
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
-<!-- CSS -->
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="/resources/usr/usr.css" rel="stylesheet">
-<link href="/resources/vendor/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-<!-- Google Fonts -->
-<link href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-<!-- font-family: 'Dongle', sans-serif; -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">	
-<!-- fontawesome -->
-<script src="https://kit.fontawesome.com/b05f67c88a.js" crossorigin="anonymous"></script>
-
-<header class="fixed-top container" id="header">
-	<div class="container">
-		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-			<ul class="nav col-auto me-auto mb-2 align-items-center">
-				<li><a href="indexUsrView" class="nav-link text-secondary fs-3 px-5">KOKOA BANK</a></li>
-				<c:choose>
-					<c:when test="${not empty id}">
-						<li><a href="accountUsrView" class="nav-link px-3 text-black">조회</a></li>
-						<li><a href="depositUsrView" class="nav-link px-3 text-black">입금</a></li>
-						<li><a href="sendUsrView" class="nav-link px-3 text-black">이체</a></li>
-						<li><a href="autoSendUsrView" class="nav-link px-3 text-black">자동이체</a></li>
-						<li><a href="exchangeRateUsrView" class="nav-link px-3 text-black">환율</a></li>
-						<li><a href="domesticStockUsrView" class="nav-link px-3 text-black">국내주식</a></li>
-						<li><a href="foreignStockUsrView" class="nav-link px-3 text-black">해외주식</a></li>
-						<li>
-							<span class="px-3" class="nav-link px-3 text-black">반갑습니다 <c:out value="${id}"/> 님</span>
-						</li>
-						<li>
-							<button type="button" class="btn btn-primary" id="btnLogout">로그아웃</button>
-						</li>
-					</c:when>
-					<c:otherwise>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">조회</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">입금</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">이체</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">자동이체</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">환율</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">국내주식</a></li>
-						<li><a href="loginUsrForm" class="nav-link px-3 text-black">해외주식</a></li>
-						<li>
-							<a href="loginUsrForm" class="nav-link px-3 text-black">로그인</a>
-						</li>
-						<li>
-							<a href="registerUsrForm" class="nav-link px-3 text-black">회원가입</a>
-						</li>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
+ 
+<!--Start sidebar-wrapper-->
+<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+	<div class="brand-logo">
+      	<a href="indexUsrView">
+       		<img src="/resources/images/profile-img.jpg" class="logo-icon" alt="logo icon">
+       		<h5 class="logo-text">KOKOA BANK</h5>
+     	</a>
 	</div>
+   	<ul class="sidebar-menu do-nicescrol">
+      	<li class="sidebar-header">KOKOA BANK</li>
+      	<li>
+        	<a href="indexUsrView">
+        		<i class="zmdi zmdi-view-dashboard"></i> 
+        		<span>홈</span>
+        	</a>
+      	</li>	
+      	<c:choose>
+			<c:when test="${not empty id}">
+		      	<li>
+		        	<a href="accountUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>조회</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="depositUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>입금</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="sendUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>이체</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="autoSendUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>자동이체</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="exchangeRateUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>환율</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="domesticStockUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>국내주식</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="foreignStockUsrView">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>해외주식</span>
+		        	</a>
+		      	</li>
+			</c:when>
+			<c:otherwise>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>조회</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>입금</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>이체</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>자동이체</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>환율</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>국내주식</span>
+		        	</a>
+		      	</li>
+		      	<li>
+		        	<a href="loginUsrForm">
+		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+		          		<span>해외주식</span>
+		        	</a>
+		      	</li>
+			</c:otherwise>
+		</c:choose>
+   	</ul>
+</div>
+<!--End sidebar-wrapper-->
+
+<!--Start topbar header-->
+<header class="topbar-nav">
+ 	<nav class="navbar navbar-expand fixed-top">
+  		<ul class="navbar-nav mr-auto align-items-center">
+    		<li class="nav-item">
+      			<a class="nav-link toggle-menu" href="javascript:void();">
+       				<i class="icon-menu menu-icon"></i>
+     			</a>
+    		</li>
+    		<li class="nav-item">
+	      		<form class="search-bar">
+	        		<input type="text" class="form-control" placeholder="Enter keywords">
+	         		<a href="javascript:void();">
+	         			<i class="icon-magnifier"></i>
+	         		</a>
+	      		</form>
+    		</li>
+  		</ul>
+		<c:choose>
+			<c:when test="${not empty id}">
+		  		<ul class="navbar-nav align-items-center right-nav-link">
+		    		<li class="nav-item">
+		      			<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+		        			<span class="user-profile">
+		        				<img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar">
+		        			</span>
+		      			</a>
+		      			<ul class="dropdown-menu dropdown-menu-right">
+		       				<li class="dropdown-item user-details">
+		        				<a href="javaScript:void();">
+		           					<div class="media">
+		             					<div class="avatar">
+		             						<img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar">
+		             					</div>
+		            					<div class="media-body">
+		            						<h6 class="mt-2 user-title">아이디</h6>
+		            						<p class="user-subtitle">이름</p>
+		            					</div>
+		           					</div>
+		          				</a>
+		        			</li>
+		        			<li class="dropdown-item"><button type="button" id="btnLogout" class="btn text-white"><i class="icon-power mr-2"></i>로그아웃</button></li>
+		      			</ul>
+		    		</li>
+		  		</ul>
+		  		</c:when>
+		  		<c:otherwise>
+			  		<ul class="navbar-nav align-items-center right-nav-link">
+				      	<li class="px-3">
+				        	<a href="loginUsrForm">
+				          		<i class="zmdi zmdi-lock"></i> 
+				          		<span>로그인</span>
+				        	</a>
+				      	</li>
+				       	<li class="px-3">
+				        	<a href="registerUsrForm">
+				          		<i class="zmdi zmdi-account-circle"></i> 
+				          		<span>회원가입</span>
+				        	</a>
+				      	</li>
+			      	</ul>
+				</c:otherwise>
+			</c:choose>
+		</nav>
 </header>
+<!--End topbar header-->
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script>

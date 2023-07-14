@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   	<title>KOKOA BANK ADMIN</title>
+	<%@ include file="../../../include/css.jsp" %>
 </head>
 <body>
 	<%@ include file="../../../include/headerXdmView.jsp" %>
@@ -84,7 +85,8 @@
 		</div>	
 	</main>
 	<%@ include file="../../../include/modalBase.jsp" %>
-	<%@ include file="../../../include/footerXdmView.jsp" %>
+	<%@ include file="../../../include/footer.jsp" %>
+	<%@ include file="../../../include/script.jsp" %>
 	<script>
 	
 		var objId = $("#id");

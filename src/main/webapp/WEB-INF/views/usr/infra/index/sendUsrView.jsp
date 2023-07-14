@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOKOA BANK</title>
+    <%@ include file="../../../include/css.jsp" %>
 </head>
 <body>
 	<%@ include file="../../../include/headerUsrView.jsp" %>
@@ -46,6 +47,7 @@
 	    	<button class="btn btn-outline-secondary">취소</button>   		
 	    </div>
 	</div>
-	<%@ include file="../../../include/footerUsrView.jsp" %>
+	<%@ include file="../../../include/footer.jsp" %>
+	<%@ include file="../../../include/script.jsp" %>
 </body>
 </html>
