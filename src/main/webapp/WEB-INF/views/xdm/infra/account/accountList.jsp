@@ -32,7 +32,7 @@
 	 		<div class="col-12 col-lg-12">
 	   			<div class="card">
 	     			<div class="card-header">계좌목록</div>
-	       			<div class="table">
+	       			<div class="table align-items-center table-flush table-borderless">
 	       				<form name=formList method="post">
 	       					<div class="d-flex">
 								<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
@@ -52,30 +52,30 @@
 	               			<table class="table align-items-center table-flush table-borderless">
 	                  			<thead>
 			                   		<tr>
-										<th scope="col" class="">
+										<th>
 											<input type="checkbox" name="checked" id="allCheck" value="">
 										</th>
-										<th scope="col">seq</th>
-										<th scope="col">아이디</th>
-										<th scope="col">이름</th>
-										<th scope="col">대표계좌</th>
-										<th scope="col">계좌번호</th>
-										<th scope="col">계좌이름</th>
-										<th scope="col">계좌비밀번호</th>
-										<th scope="col">계좌잔액</th>
+										<th>seq</th>
+										<th>아이디</th>
+										<th>이름</th>
+										<th>대표계좌</th>
+										<th>계좌번호</th>
+										<th>계좌이름</th>
+										<th>계좌비밀번호</th>
+										<th>계좌잔액</th>
 									</tr>
 	                   			</thead>
 	                   			<tbody>
 	                   				<c:choose>
 										<c:when test="${fn:length(list) eq 0}">
 											<tr>
-												<td class="text-cneter" colspan="9">데이터가 없습니다.</td>
+												<td>데이터가 없습니다.</td>
 											</tr>
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" >
 												<tr>
-													<td scope="col">
+													<td>
 														<input type="checkbox" name="checked" value="">
 													</td>
 													<td><c:out value="${list.seq}"></c:out></td>
@@ -152,11 +152,25 @@
 	    // 체크박스 해제
 	    $("input[name='checked']").prop('checked', false);
 	});
- 		
+ 	
+	// 페이지네이션 
 	goList = function(thisPage) {
 		$("input:hidden[name=thisPage]").val(thisPage);
 		$("form[name=formList]").attr("action", "accountList").submit();
 	}
+	
+	// 체크박스 올 체크
+	$(document).ready(function() {
+		$('#allCheck').click(function() {
+		    $('input[name="checked"]').prop('checked', this.checked);
+	  	});
+	
+	  	$('input[name="checked"]').click(function() {
+	    	if (!$(this).is(':checked')) {
+   		  		$('#allCheck').prop('checked', false);
+	    	}
+	  	});
+	});
 		
 </script> 	
 </body>

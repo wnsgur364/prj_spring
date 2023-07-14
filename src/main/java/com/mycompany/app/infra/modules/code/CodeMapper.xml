@@ -19,7 +19,16 @@
 			code a 
 				LEFT JOIN codeGroup b ON b.delNy = 0 AND b.seq = a.codeGroup_seq
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">
+	            AND (
+	                a.name LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR b.name LIKE CONCAT('%',#{shKeyword},'%')
+	            )
+        	</if>
+			<choose>
+				<when test="shOption == 1">AND a.name LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 2">AND b.name LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
