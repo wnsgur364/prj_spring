@@ -150,13 +150,12 @@
 		             						<img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar">
 		             					</div>
 		            					<div class="media-body">
-		            						<h6 class="mt-2 user-title">아이디</h6>
-		            						<p class="user-subtitle">이름</p>
+		            						<h6 class="mt-2 user-title"><c:out value = "${id}" /></h6>
+		            						<button type="button" id="btnLogout" class="btn text-white"><i class="icon-power mr-2"></i>로그아웃</button>
 		            					</div>
 		           					</div>
 		          				</a>
 		        			</li>
-		        			<li class="dropdown-item"><button type="button" id="btnLogout" class="btn text-white"><i class="icon-power mr-2"></i>로그아웃</button></li>
 		      			</ul>
 		    		</li>
 		  		</ul>

@@ -37,7 +37,6 @@
         	<a href="memberList">
           		<i class="zmdi zmdi-calendar-check"></i> 
           		<span>회원관리</span>
-          		<small class="badge float-right badge-light">New</small>
         	</a>
       	</li>
       	<li>
@@ -97,8 +96,7 @@
 		             						<img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar">
 		             					</div>
 		            					<div class="media-body">
-		            						<h6 class="mt-2 user-title">name</h6>
-		            						<p class="user-subtitle">email</p>
+		            						<h6 class="mt-2 user-title"><c:out value = "${id}" /></h6>
 		            					</div>
 		           					</div>
 		          				</a>
@@ -107,19 +105,19 @@
 		      			</ul>
 		    		</li>
 		  		</ul>
-		  		</c:when>
-		  		<c:otherwise>
-			  		<ul class="navbar-nav align-items-center right-nav-link">
-				      	<li class="px-3">
-				        	<a href="loginXdmForm">
-				          		<i class="zmdi zmdi-lock"></i> 
-				          		<span>로그인</span>
-				        	</a>
-				      	</li>
-			      	</ul>
-				</c:otherwise>
-			</c:choose>
-		</nav>
+	  		</c:when>
+	  		<c:otherwise>
+		  		<ul class="navbar-nav align-items-center right-nav-link">
+			      	<li class="px-3">
+			        	<a href="loginXdmForm">
+			          		<i class="zmdi zmdi-lock"></i> 
+			          		<span>로그인</span>
+			        	</a>
+			      	</li>
+		      	</ul>
+			</c:otherwise>
+		</c:choose>
+	</nav>
 </header>
 <!--End topbar header-->
 

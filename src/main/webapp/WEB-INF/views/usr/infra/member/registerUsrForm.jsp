@@ -6,145 +6,183 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="KO">
 <head>
-	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KOKOA BANK REGISTER</title>
-    <!-- 부트스트랩 -->
-	<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Template Main CSS File -->
-	<link href="/resources/usr/usr.css" rel="stylesheet">
-  	<!-- Google Fonts -->
-  	<link href="https://fonts.gstatic.com" rel="preconnect">
-  	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>KOKOA BANK REGISTER</title>
+	<%@ include file="../../../include/css.jsp" %>
 </head>
-<body>
-	<main>
-    	<div class="container">
-			<section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        		<div class="container">
-          			<div class="row justify-content-center">
-            			<div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-              				<div class="d-flex justify-content-center py-4">
-                				<a href="indexUsrView" class="logo d-flex align-items-center w-auto">
-                  					<!-- <img src="assets/img/logo.png" alt=""> -->
-                  					<span class="d-none d-lg-block">KOKOA BANK</span>
-                				</a>
-              				</div>
-              				<div class="card mb-3">
-                				<div class="card-body">
-                  					<div class="pt-4 pb-2">
-                    					<h5 class="card-title text-center pb-0 fs-4">회원가입</h5>
-                    					<p class="text-center small">계정을 만들려면 개인 정보를 입력해 주세요.</p>
-                  					</div>
-                  					<form class="row g-3 needs-validation" name="form" method="post" novalidate>
-                  						<div class="col-12">
-                    						<label for="id" class="form-label">아이디</label>
-                    						<input type="text" name="id" class="form-control" id="id" required>
-                    						<div class="invalid-feedback"></div>
-                    					</div>
-                   						<div class="col-12">
-                  							<label for="pw" class="form-label">비밀번호</label>
-                   							<input type="password" name="pw" class="form-control" id="pw" required>
-                   							<div class="invalid-feedback"></div>
-                   						</div>
-                   						<div class="col-12">
-                  							<label for="pwCheck" class="form-label">비밀번호 확인</label>
-                   							<input type="password" name="pwCheck" class="form-control" id="pwCheck" required>
-                   							<div class="invalid-feedback"></div>
-                   						</div>
-                    					<div class="col-12">
-                    						<label for="name" class="form-label">이름</label>
-                      						<input type="text" name="name" class="form-control" id="name" required>	
-                   							<div class="invalid-feedback"></div>
-                    					</div>
-                    					<div class="col-12">
-                      						<label for="email" class="form-label">이메일</label>
-                       						<input type="text" name="email" class="form-control" id="email" required>
-                       						<div class="invalid-feedback"></div>
-                    					</div>
-                   						<div class="col-12">
-                  							<label for="phone" class="form-label">전화번호</label>
-               								<input type="text" name="phone" class="form-control" id="phone" required>
-               								<div class="invalid-feedback"></div>
-                						</div>
-                  						<div class="col-12 d-flex">
-                   							<button class="btn btn-outline-secondary w-100" id="submitForm" type="button">회원가입</button>
-                   						</div>
-                   						<div class="col-12">
-                   							<p class="small mb-0">이미 계정이 있으신가요? <a href="loginUsrForm">로그인</a></p>
-            							</div>
-               						</form>
-               					</div>
-           					</div>
-            			</div>
-          			</div>
-        		</div>
-      		</section>
-    	</div>
-  	</main>
-	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-	<script src="/resources/usr/usr.js"></script>
-	<script src="/resources/js/validation.js"></script>
-	<script>
-	
-		validationInst = function() {
-		    var objId = $("#id");
-		    var objPw = $("#pw");
-		    var objPwCheck = $("#pwCheck");
-		    var objName = $("#name");
-		    var objEmail = $("#email");
-		    var objPhone = $("#phone");
-	
-		    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
-		    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
-		    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
-		    if (checkName(objName, "이름은 한글만 입력 가능합니다.") === false) return false;
-		    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
-		    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
-		}
-	
-		// 인서트 버튼 클릭 이벤트
-		$("#submitForm").on("click", function() {
-		    if (validationInst() === false) return false;
-		    $("form[name=form]").attr("action", "/registerInsert").submit();
-		});
-	
-		$("#id").on("blur", function() {
-		    var obj = $(this);
-		    
-		    // AJAX 요청 수행
-		    $.ajax({
-		        async: true,
-		        cache: false,
-		        type: "post",
-		        url: "/checkIdProc",
-		        data: { "id": obj.val() },
-		        success: function(response) {
-		            if (response.rt === "available") {
-		     		    if (!checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.")) {
-		 		        	return false;
-		 		    	} else {
-		                obj.removeClass("is-invalid");
-		                obj.addClass("is-valid");
-		                obj.siblings(".invalid-feedback").text("사용 가능합니다.");
-		 		    	}
-		            } else {
-		                obj.removeClass("is-valid");
-		                obj.addClass("is-invalid");
-		                obj.focus();
-		                obj.siblings(".invalid-feedback").text("사용 불가능합니다.");
-		            }
-		        },
-		        error: function(jqXHR, textStatus, errorThrown) {
-		            alert("ajaxUpdate " + textStatus + " : " + errorThrown);
-		        }
-		    });
-		});
 
-	</script>
+<body class="bg-theme bg-theme9">
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+	<div class="card card-authentication1 mx-auto my-4">
+		<div class="card-body">
+		 <div class="card-content p-2">
+		 	<div class="text-center">
+		 		<a href="index"><img src="/resources/assets/images/logo-icon.png" alt="logo icon"></a>
+		 	</div>
+		  <div class="card-title text-uppercase text-center py-3">KOKOA BANK REGISTER</div>
+		    <form class="needs-validation" name="form" method="post" novalidate>
+			  <div class="form-group">
+			  <label for="id" class="sr-only">아이디</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Your Id" required>
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			  <label for="pw" class="sr-only">비밀번호</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Your Password" required>
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <label for="pwCheck" class="sr-only">비밀번호 확인</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="password" id="pwCheck" name="pwCheck" class="form-control input-shadow" placeholder="Enter Your Password Check" required>
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+  			  <div class="form-group">
+			   <label for="name" class="sr-only">이름</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="name" name="name" class="form-control input-shadow" placeholder="Enter Your Name" required>
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <label for="email" class="sr-only">이메일</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="email" name="email" class="form-control input-shadow" placeholder="Enter Your Email" required>
+				  <div class="form-control-position">
+					  <i class="icon-envelope-open"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+  			  <div class="form-group">
+			   <label for="phone" class="sr-only">전화번호</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="phone" name="phone" class="form-control input-shadow" placeholder="Enter Your Phone" required>
+				  <div class="form-control-position">
+					  <i class="icon-phone"></i>
+				  </div>
+				  <div class="invalid-feedback"></div>
+			   </div>
+			  </div>
+			   <div class="form-group">
+			     <div class="icheck-material-white">
+                   <input type="checkbox" id="user-checkbox" checked="" />
+                   <label for="user-checkbox">I Agree With Terms & Conditions</label>
+			     </div>
+			    </div>
+			  
+			 <button type="button" id="submitForm" class="btn btn-light btn-block waves-effect waves-light">회원가입</button>
+			  <div class="text-center mt-3">Sign Up With</div>
+			  
+			 <div class="form-row mt-4">
+			  <div class="form-group mb-0 col-6">
+			   <button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
+			 </div>
+			 <div class="form-group mb-0 col-6 text-right">
+			  <button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
+			 </div>
+			</div>
+			
+			 </form>
+		   </div>
+		  </div>
+		  <div class="card-footer text-center py-3">
+		    <p class="text-warning mb-0">Already have an account? <a href="loginUsrForm">Sign In here</a></p>
+		  </div>
+	     </div>
+    
+     <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	
+	</div><!--wrapper-->
+<%@ include file="../../../include/script.jsp" %> 
+<script>
+	
+	validationInst = function() {
+	    var objId = $("#id");
+	    var objPw = $("#pw");
+	    var objPwCheck = $("#pwCheck");
+	    var objName = $("#name");
+	    var objEmail = $("#email");
+	    var objPhone = $("#phone");
+
+	    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
+	    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
+	    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
+	    if (checkName(objName, "이름은 한글만 입력 가능합니다.") === false) return false;
+	    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
+	    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
+	}
+
+	// 인서트 버튼 클릭 이벤트
+	$("#submitForm").on("click", function() {
+	    if (validationInst() === false) return false;
+	    $("form[name=form]").attr("action", "/registerInsert").submit();
+	});
+
+	$("#id").on("blur", function() {
+	    var obj = $(this);
+	    
+	    // AJAX 요청 수행
+	    $.ajax({
+	        async: true,
+	        cache: false,
+	        type: "post",
+	        url: "/checkIdProc",
+	        data: { "id": obj.val() },
+	        success: function(response) {
+	            if (response.rt === "available") {
+	     		    if (!checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.")) {
+	 		        	return false;
+	 		    	} else {
+	                obj.removeClass("is-invalid");
+	                obj.addClass("is-valid");
+	                obj.siblings(".invalid-feedback").text("사용 가능합니다.");
+	 		    	}
+	            } else {
+	                obj.removeClass("is-valid");
+	                obj.addClass("is-invalid");
+	                obj.focus();
+	                obj.siblings(".invalid-feedback").text("사용 불가능합니다.");
+	            }
+	        },
+	        error: function(jqXHR, textStatus, errorThrown) {
+	            alert("ajaxUpdate " + textStatus + " : " + errorThrown);
+	        }
+	    });
+	});
+
+</script>
 </body>
 </html>
