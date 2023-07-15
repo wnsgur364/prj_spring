@@ -13,6 +13,7 @@ public class Transaction {
 	private Date dateStart;
 	private Date dateFinish;
 	private String account_seq;
+	private String accountNumber;
 //	-----
 	public String getSeq() {
 		return seq;
@@ -67,6 +68,12 @@ public class Transaction {
 	}
 	public void setAccount_seq(String account_seq) {
 		this.account_seq = account_seq;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 	
 }

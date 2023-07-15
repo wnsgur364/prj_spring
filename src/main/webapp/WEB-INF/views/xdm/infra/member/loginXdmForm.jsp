@@ -35,7 +35,7 @@
 				  	<div class="form-group">
 				  		<label for="id" class="sr-only">아이디</label>
 			   			<div class="position-relative has-icon-right">
-				  			<input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Userid" required value="test333">
+				  			<input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Userid" required value="admin">
 				  			<div class="form-control-position"><i class="icon-user"></i></div>
 			   				<div class="invalid-feedback"></div>
 			   			</div>
@@ -43,7 +43,7 @@
 				  	<div class="form-group">
 				  		<label for="pw" class="sr-only">비밀번호</label>
 			   			<div class="position-relative has-icon-right">
-				  			<input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Password" required value="Ezen0508!">
+				  			<input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Password" required value="Admin123@!">
 				  			<div class="form-control-position"><i class="icon-lock"></i></div>
 			   				<div class="invalid-feedback"></div>
 			   			</div>

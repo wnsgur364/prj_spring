@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis,org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.mycompany.app.infra.modules.influencer.InfluencerMapper">
+
+	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.influencer.Influencer"></resultMap>
+					
+	<sql id="influencer">
+		seq,
+		delNy,
+		influencerName,
+		youtubeUrl,
+		instagramUrl
+	</sql>
+	
+	<sql id="selectCommon">
+		FROM 
+			influencer
+		WHERE 1=1
+			<if test="shKeyword != null and !shKeyword.equals('')">AND influencerName LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<choose>
+				<when test="shOption == 1">AND influencerName LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>
+	</sql>
+	
+   	<select id="selectOneCount" resultType="Integer">
+		SELECT count(*)
+		<include refid="selectCommon" />
+	</select>
+	
+   	<select id="selectList" resultMap="resultMapObj">
+		SELECT iu.* FROM (   	
+	   		SELECT
+				<include refid="influencer" />
+	   			<include refid="selectCommon" />
+		) iu
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
+   	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT 
+		  	<include refid="influencer" /> 
+		FROM 
+		  	influencer 
+		WHERE 1=1
+	  		AND seq = #{seq}
+	</select>
+	
+    <update id="update">
+        UPDATE 
+        	influencer
+        SET 
+        	influencerName = #{influencerName},
+        	youtubeUrl = #{youtubeUrl},
+        	instagramUrl = #{instagramUrl}
+        WHERE 
+        	seq = #{seq}
+    </update>
+    
+	<insert id="insert">
+ 		INSERT INTO influencer (
+ 			delNy,
+			influencerName,
+			youtubeUrl,
+			instagramUrl
+    	) VALUES (
+    		0, 
+    		#{influencerName},
+    		#{youtubeUrl},
+    		#{instagramUrl}
+		)
+	</insert>
+     
+    <update id="uelete">
+        UPDATE 
+        	influencer
+       	SET
+			delNy = "1"
+		WHERE				
+		 	seq = #{seq}
+    </update>
+    
+</mapper>

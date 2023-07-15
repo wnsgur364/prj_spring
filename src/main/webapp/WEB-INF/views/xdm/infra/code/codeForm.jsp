@@ -30,7 +30,7 @@
 				<div class="col-lg-12">
   					<div class="card">
            				<div class="card-body">
-           					<div class="card-title">코드수정</div>
+           					<div class="card-title">코드 수정</div>
        						<hr>
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
@@ -69,8 +69,8 @@
 							                <button type="button" class="btn btn-light" id="btnInsert">저장</button>
 							            </c:when>
 							            <c:otherwise>
-							            	<button type="button" class="btn btn-light" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
 							                <button type="button" class="btn btn-light" id="btnUpdate">저장</button>
+							           		<button type="button" class="btn btn-light" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
 							            </c:otherwise>
 							        </c:choose>
 							    </div>

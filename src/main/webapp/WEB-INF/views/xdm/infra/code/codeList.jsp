@@ -34,7 +34,7 @@
 	     			<div class="card-header">코드목록</div>
 		       			<div class="table align-items-center table-flush table-borderless">
 		       				<form name=formList method="post">
-		       					<div class="d-flex">
+		       					<div class="d-flex py-3">
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-4 d-flex">

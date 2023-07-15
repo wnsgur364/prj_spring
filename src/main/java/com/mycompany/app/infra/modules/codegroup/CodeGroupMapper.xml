@@ -22,6 +22,9 @@
 			codeGroup
 		WHERE 1=1
 			<if test="shKeyword != null and !shKeyword.equals('')">AND name LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<choose>
+				<when test="shOption == 1">AND name LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">

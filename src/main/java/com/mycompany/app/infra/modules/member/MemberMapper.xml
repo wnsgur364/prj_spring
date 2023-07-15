@@ -21,7 +21,20 @@
 		FROM 
 			member
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND id LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">
+	            AND (
+	                b.id LIKE CONCAT('%',#{shKeyword},'%')
+	                OR name LIKE CONCAT('%',#{shKeyword},'%')
+	                OR email LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR phone LIKE CONCAT('%',#{shKeyword},'%')
+	            )
+        	</if>
+			<choose>
+				<when test="shOption == 1">AND id LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 2">AND name LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 3">AND email LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 4">AND phone LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>		
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">

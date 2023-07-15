@@ -31,7 +31,7 @@
 				<div class="col-lg-12">
   					<div class="card">
            				<div class="card-body">
-           					<div class="card-title">계좌수정</div>
+           					<div class="card-title">계좌 수정</div>
        						<hr>
             				<form class="needs-validation" name="form" method="post" novalidate>
            						<div class="col-md-4 py-2">

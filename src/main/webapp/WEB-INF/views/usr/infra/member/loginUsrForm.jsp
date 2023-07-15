@@ -35,7 +35,7 @@
 				  	<div class="form-group">
 				  		<label for="id" class="sr-only">아이디</label>
 			   			<div class="position-relative has-icon-right">
-				  			<input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Userid" required value="test333">
+				  			<input type="text" id="id" name="id" class="form-control input-shadow" placeholder="Enter Userid" required value="user">
 				  			<div class="form-control-position"><i class="icon-user"></i></div>
 			   				<div class="invalid-feedback"></div>
 			   			</div>

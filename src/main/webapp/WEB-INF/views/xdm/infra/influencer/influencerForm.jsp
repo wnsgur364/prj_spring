@@ -8,137 +8,109 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>KOKOA BANK ADMIN</title>
-	<%@ include file="../../../include/css.jsp" %>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>KOKOA BANK ADMIN</title>
+	<%@ include file="../../../include/css.jsp" %>  
 </head>
-<body>
-	<%@ include file="../../../include/headerXdmView.jsp" %>
-	<main id="main" class="main">
-	    <div class="pagetitle">
-      		<h1>accountForm</h1>
-      		<nav>
-        		<ol class="breadcrumb">
-          			<li class="breadcrumb-item"><a href="#">KOKOA BANK</a></li>
-          			<li class="breadcrumb-item active">accountForm</li>
-        		</ol>
-      		</nav>
-    	</div>
-	    <div class="col-lg-12">
-          	<div class="card">
-            	<div class="card-body">
-              		<h5 class="card-title">accountForm</h5>
-              		<p>accountForm</p>
-              		<form class="row g-3 needs-validation" name="form" method="post" novalidate>
-					    <div class="col-md-4">
-						    <div class="form-floating">
-						        <input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>" ${empty item.seq ? 'disabled' : ''}>
-						        <label for="floatingName">seq (unable to input)</label>
-						        <div class="invalid-feedback">
-						            Looks good!
-						        </div>
-						    </div>
-						</div>
-					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="defaultNy" name="defaultNy" required value="<c:out value="${item.defaultNy}"/>">
-					            <label for="floatingName">defaultNy</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required value="<c:out value="${item.accountNumber}"/>">
-					            <label for="floatingName">accountNumber</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountName" name="accountName" required value="<c:out value="${item.accountName}"/>">
-					            <label for="floatingName">accountName</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>">
-					            <label for="floatingName">accountPassword</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-   					    <div class="col-md-4">
-					        <div class="form-floating">
-					            <input type="text" class="form-control" id="accountBalance" name="accountBalance" required value="<c:out value="${item.accountBalance}"/>">
-					            <label for="floatingName">accountBalance</label>
-					            <div class="invalid-feedback">
-					                Looks good!
-					            </div>
-					        </div>
-					    </div>
-					    <div class="col-md-4">
-						    <div class="form-floating">
-							    <select class="form-select" name="member_seq">
-								    <c:forEach items="${group}" var="group" varStatus="status">
-									    <option value="<c:out value='${group.seq}'></c:out>"><c:out value="${group.seq}"></c:out></option>
-									</c:forEach>
-								</select>
-								<label for="floatingName">member_seq</label>
-							</div>
-   					     </div>
-					    <div class="d-flex justify-content-center">
-					        <button type="button" class="btn btn-primary" id="btnList" onclick="location.href='accountList'">List</button>
-					        <c:choose>
-					            <c:when test="${empty item.seq}">
-					                <button type="button" class="btn btn-success" id="btnInsert">Insert</button>
-					            </c:when>
-					            <c:otherwise>
-					            	<button type="button" class="btn btn-danger" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-					                <button type="button" class="btn btn-success" id="btnUpdate">Update</button>
-					            </c:otherwise>
-					        </c:choose>
-					    </div>
-					</form>
-            	</div>
-          	</div>
-		</div>	
-	</main>
-  	<%@ include file="../../../include/modalBase.jsp" %>	
-	<%@ include file="../../../include/footer.jsp" %>
-	<%@ include file="../../../include/script.jsp" %>
-	<script>
+<body class="bg-theme bg-theme9">
+<!-- start loader -->
+<div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+<!-- end loader -->
+
+<!-- Start wrapper-->
+<div id="wrapper">
+<%@ include file="../../../include/headerXdmView.jsp" %>
+<div class="clearfix"></div>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row mt-3">
+				<div class="col-lg-12">
+  					<div class="card">
+           				<div class="card-body">
+           					<div class="card-title">인플루언서 수정</div>
+       						<hr>
+            				<form class="needs-validation" name="form" method="post" novalidate>
+           						<div class="col-md-4 py-2">
+           							<div class="form-floating">
+	           							<label for="seq">Seq (Auto Increment)</label>
+		      							<input type="text" class="form-control" id="seq" name="seq" required readonly value="<c:out value="${item.seq}"/>" ${empty item.seq ? 'disabled' : ''}>
+			      						<div class="invalid-feedback"></div>
+	           						</div>
+           						</div>
+							    <div class="col-md-4 py-2">
+							        <div class="form-floating">
+										<label for="influencerName">인플루언서 이름</label>
+							            <input type="text" class="form-control" id="influencerName" name="influencerName" required value="<c:out value="${item.influencerName}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+		   					    <div class="col-md-4 py-2">
+							        <div class="form-floating">
+										<label for="youtubeUrl">유튜브 주소</label>
+							            <input type="text" class="form-control" id="youtubeUrl" name="youtubeUrl" required value="<c:out value="${item.youtubeUrl}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+		   					    <div class="col-md-4 py-2">
+							        <div class="form-floating">
+							            <label for="instagramUrl">인스타그램 주소</label>
+							            <input type="text" class="form-control" id="instagramUrl" name="instagramUrl" required value="<c:out value="${item.instagramUrl}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+								<hr>
+								<div class="form-group">
+							        <button type="button" class="btn btn-light" id="btnList" onclick="location.href='influencerList'">목록</button>
+							        <c:choose>
+							            <c:when test="${empty item.seq}">
+							                <button type="button" class="btn btn-light" id="btnInsert">저장</button>
+							            </c:when>
+							            <c:otherwise>
+							                <button type="button" class="btn btn-light" id="btnUpdate">저장</button>
+											<button type="button" class="btn btn-light" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+							            </c:otherwise>
+							        </c:choose>
+							    </div>
+							</form>
+         				</div>
+         			</div>
+      			</div>
+    		</div><!--End Row-->
+
+		<!--start overlay-->
+		<div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+	</div>
+	<!-- End container-fluid-->
+    
+</div><!--End content-wrapper-->
+<%@ include file="../../../include/modalBase.jsp" %>
+<%@ include file="../../../include/footer.jsp" %>   
+   
+</div><!--End wrapper-->
+<%@ include file="../../../include/script.jsp" %>
+<script>
 	
-		// 업데이트버튼 클릭이벤트
-		$("#btnUpdate").on("click", function(){
-			
-			$("form[name=form]").attr("action","/accountUpdate").submit();
-			
-		});
+	// 업데이트버튼 클릭이벤트
+	$("#btnUpdate").on("click", function(){
+		$("form[name=form]").attr("action","/influencerUpdate").submit();
+	});
+
+	// 인서트버튼 클릭이벤트
+	$("#btnInsert").on("click", function(){
+		$("form[name=form]").attr("action","/influencerInsert").submit();
+	});
 	
-		// 인서트버튼 클릭이벤트
-		$("#btnInsert").on("click", function(){
-			
-			$("form[name=form]").attr("action","/accountInsert").submit();
-			
-		});
+	// 율리트버튼 클릭이벤트
+	$("#btnDelete").on("click", function(){
+		$("form[name=form]").attr("action","/influencerUelete").submit();
+	});
 	
-		// 율리트버튼 클릭이벤트
-		$("#btnDelete").on("click", function(){
-			
-			$("form[name=form]").attr("action","/accountUelete").submit();
-			
-		});
-	
-	</script>
+</script>
 </body>
 </html>

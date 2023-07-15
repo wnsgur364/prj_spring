@@ -8,22 +8,36 @@
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.transaction.Transaction"></resultMap>
 					
 	<sql id="transaction">
-		seq,
-		delNy,
-		recipientAccountNumber,
-		balance,
-		date,
-		contents,
-		dateStart,
-		dateFinish,
-		account_seq
+		a.seq,
+		a.delNy,
+		a.recipientAccountNumber,
+		a.balance,
+		a.date,
+		a.contents,
+		a.dateStart,
+		a.dateFinish,
+		b.accountNumber
 	</sql>
 	
 	<sql id="selectCommon">
 		FROM 
-			transaction
+			transaction a
+				LEFT JOIN account b ON b.delNy = 0 AND b.seq = a.account_seq
 		WHERE 1=1
-			<if test="shKeyword != null and !shKeyword.equals('')">AND contents LIKE CONCAT('%',#{shKeyword},'%')</if>
+			<if test="shKeyword != null and !shKeyword.equals('')">
+	            AND (
+	                b.accountNumber LIKE CONCAT('%',#{shKeyword},'%')
+	                OR a.recipientAccountNumber LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR a.balance LIKE CONCAT('%',#{shKeyword},'%')
+	               	OR a.date LIKE CONCAT('%',#{shKeyword},'%')
+	            )
+        	</if>
+			<choose>
+				<when test="shOption == 1">AND b.accountNumber LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 2">AND a.recipientAccountNumber LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 3">AND a.balance LIKE CONCAT('%',#{shKeyword},'%')</when>
+				<when test="shOption == 4">AND a.date LIKE CONCAT('%',#{shKeyword},'%')</when>
+			</choose>
 	</sql>
 	
    	<select id="selectOneCount" resultType="Integer">
@@ -42,7 +56,15 @@
 	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT 
-		  	<include refid="transaction" /> 
+		  	seq,
+			delNy,
+			recipientAccountNumber,
+			balance,
+			date,
+			contents,
+			dateStart,
+			dateFinish,
+			account_seq
 		FROM 
 		  	transaction
 		WHERE 1=1
