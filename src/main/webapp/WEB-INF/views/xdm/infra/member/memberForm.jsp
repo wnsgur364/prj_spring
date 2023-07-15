@@ -79,8 +79,9 @@
 							    <div class="form-group">
 							        <button type="button" class="btn btn-light" id="btnList" onclick="location.href='memberList'">목록</button>
 					                <button type="button" class="btn btn-light" id="btnUpdate">저장</button>
-					                <button type="button" class="btn btn-light" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+					                <button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">삭제</button>
 							    </div>
+							    <%@ include file="../../../include/modalBase.jsp" %>
 							</form>
 						</div>
          			</div>
@@ -95,7 +96,6 @@
 	<!-- End container-fluid-->
     
 </div><!--End content-wrapper-->
-<%@ include file="../../../include/modalBase.jsp" %>
 <%@ include file="../../../include/footer.jsp" %>   
    
 </div><!--End wrapper-->

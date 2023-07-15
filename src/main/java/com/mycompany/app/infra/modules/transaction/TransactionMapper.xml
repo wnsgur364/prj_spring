@@ -51,6 +51,7 @@
 				<include refid="transaction" />
 				<include refid="selectCommon" />
 			) t
+		WHERE delNy = 0
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	

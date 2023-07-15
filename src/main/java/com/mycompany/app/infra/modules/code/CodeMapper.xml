@@ -42,6 +42,7 @@
 				<include refid="code" />
 				<include refid="selectCommon" />
 			) c
+		WHERE delNy = 0
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	

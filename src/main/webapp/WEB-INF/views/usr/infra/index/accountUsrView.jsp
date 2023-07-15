@@ -70,7 +70,7 @@
 		               			<br>
 		               			<div class="form-group d-flex justify-content-center">
 									<button type="button" class="btn btn-light" onclick="location.href='accountAddUsrView'">계좌 추가</button>
-									<button type="button" class="btn btn-light" id="btnDeleteCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop">계좌 삭제</button>
+									<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">계좌 삭제</button>
 								</div>
 							</form>
 	       				</div>

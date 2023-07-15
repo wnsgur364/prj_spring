@@ -38,6 +38,7 @@
 				<include refid="codeGroup" />
 	   			<include refid="selectCommon" />
 		) cg
+		WHERE delNy = 0
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
    	</select>
 	

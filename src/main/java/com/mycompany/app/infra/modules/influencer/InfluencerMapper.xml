@@ -36,6 +36,7 @@
 				<include refid="influencer" />
 	   			<include refid="selectCommon" />
 		) iu
+		WHERE delNy = 0
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}	   			
    	</select>
 	

@@ -55,16 +55,16 @@
 							            </c:when>
 							            <c:otherwise>
 							                <button type="button" class="btn btn-light" id="btnUpdate">저장</button>
-							            	<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-bs-target="#staticBackdrop">삭제</button>
+							            	<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">삭제</button>
 							            </c:otherwise>
 							        </c:choose>
 							    </div>
+							    <%@ include file="../../../include/modalBase.jsp" %>
 							</form>
    		            	</div>
 		          	</div>
 				</div>	
     		</div><!--End Row-->
-		<%@ include file="../../../include/modalBase.jsp" %>
 		<!--start overlay-->
 		<div class="overlay toggle-menu"></div>
 		<!--end overlay-->
@@ -74,7 +74,6 @@
     
 </div><!--End content-wrapper-->
 <%@ include file="../../../include/footer.jsp" %>   
-   
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
 <script>

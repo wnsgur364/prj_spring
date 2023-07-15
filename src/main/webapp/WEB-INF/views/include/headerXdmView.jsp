@@ -4,25 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
-<!--favicon-->
-<link rel="apple-touch-icon" sizes="57x57" href="/resources/images/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/resources/images/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/resources/images/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/resources/images/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/resources/images/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/resources/images/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/resources/images/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/resources/images/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/resources/images/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/resources/images/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/resources/images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/resources/images/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/resources/images/favicon/favicon-16x16.png">
-<link rel="manifest" href="/resources/images/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/resources/images/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
  
 <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
@@ -104,7 +85,7 @@
 		    		<li class="nav-item">
 		      			<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
 		        			<span class="user-profile">
-		        				<img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar">
+		        				<img src="resources/images/profile-img.jpg" class="img-circle" alt="user avatar">
 		        			</span>
 		      			</a>
 		      			<ul class="dropdown-menu dropdown-menu-right">
@@ -112,7 +93,7 @@
 		        				<a href="javaScript:void();">
 		           					<div class="media">
 		             					<div class="avatar">
-		             						<img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar">
+		             						<img class="align-self-start mr-3" src="resources/images/profile-img.jpg" alt="user avatar">
 		             					</div>
 		            					<div class="media-body">
 		            						<h6 class="mt-2 user-title"><c:out value = "${id}" /></h6>
@@ -120,7 +101,7 @@
 		           					</div>
 		          				</a>
 		        			</li>
-		        			<li class="dropdown-item"><button type="button" id="btnLogout" class="btn text-white"><i class="icon-power mr-2"></i>Logout</button></li>
+		        			<li class="dropdown-item"><button type="button" id="btnLogout" class="btn text-white"><i class="icon-power mr-2"></i>로그아웃</button></li>
 		      			</ul>
 		    		</li>
 		  		</ul>
