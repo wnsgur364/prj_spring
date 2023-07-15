@@ -28,7 +28,7 @@
 			<div class="card-body">
 		 		<div class="card-content p-2">
 		 			<div class="text-center">
-		 				<a href="indexUsrView"><img src="/resources/assets/images/logo-icon.png" alt="logo icon"></a>
+		 				<a href="indexUsrView"><img src="/resources/images/logo.png" alt="logo icon"></a>
 		 			</div>
 		  			<div class="card-title text-uppercase text-center py-3">KOKOA BANK</div>
 		    	<form class="needs-validation" name="form" method="post" novalidate>

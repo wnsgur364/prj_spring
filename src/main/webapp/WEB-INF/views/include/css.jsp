@@ -8,8 +8,6 @@
 <!-- loader-->
 <link href="/resources/assets/css/pace.min.css" rel="stylesheet"/>
 <script src="/resources/assets/js/pace.min.js"></script>
-<!--favicon-->
-<link rel="icon" href="/resources/assets/images/favicon.ico" type="image/x-icon">
 <!-- simplebar CSS-->
 <link href="/resources/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
 <!-- Bootstrap core CSS-->

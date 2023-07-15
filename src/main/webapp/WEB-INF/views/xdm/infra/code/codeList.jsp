@@ -29,7 +29,7 @@
 	<div class="content-wrapper">
   		<div class="container-fluid">
 			<div class="row">
-	 		<div class="col-12 col-lg-12">
+	 		<div class="col-lg-12">
 	   			<div class="card">
 	     			<div class="card-header">코드목록</div>
 		       			<div class="table align-items-center table-flush table-borderless">

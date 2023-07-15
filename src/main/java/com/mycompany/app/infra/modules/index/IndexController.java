@@ -26,11 +26,6 @@ public class IndexController {
 		return "usr/infra/index/accountAddUsrView";
 	}
 	
-	@RequestMapping(value = "/accountModificationUsrView")
-	public String accountModificationUsrView() {
-		return "usr/infra/index/accountModificationUsrView";
-	}
-	
 	@RequestMapping(value = "/autoSendUsrView")
 	public String autoSendUsrView() {
 		return "usr/infra/index/autoSendUsrView";

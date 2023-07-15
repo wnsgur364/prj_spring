@@ -91,7 +91,7 @@
 									</div>
 	   					     	</div>
 								<hr>
-								<div class="form-group">
+								<div class="form-group d-flex justify-content-center">
 							        <button type="button" class="btn btn-light" id="btnList" onclick="location.href='accountList'">목록</button>
 							        <c:choose>
 							            <c:when test="${empty item.seq}">
@@ -119,7 +119,6 @@
 </div><!--End content-wrapper-->
 <%@ include file="../../../include/modalBase.jsp" %>
 <%@ include file="../../../include/footer.jsp" %>   
-   
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
 <script>

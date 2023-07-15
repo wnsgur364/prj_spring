@@ -29,93 +29,93 @@
 	<div class="content-wrapper">
   		<div class="container-fluid">
 			<div class="row">
-	 		<div class="col-12 col-lg-12">
-	   			<div class="card">
-	     			<div class="card-header">계좌 목록</div>
-	       			<div class="table align-items-center table-flush table-borderless">
-	       				<form name=formList method="post">
-	       					<div class="d-flex py-3">
-								<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
-								<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-								<div class="col-4 d-flex">
-			    					<select id="shOption" class="form-control" name="shOption">
-						                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
-						                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>계좌번호</option>
-						                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>계좌이름</option>
-						                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
-						                <option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>이름</option>
-			    					</select>
-			    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
-									<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+	 			<div class="col-lg-12">
+	   				<div class="card">
+	     				<div class="card-header">계좌 목록</div>
+	       				<div class="table align-items-center table-flush table-borderless">
+	       					<form name=formList method="post">
+		       					<div class="d-flex py-3">
+									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+									<div class="col-4 d-flex">
+				    					<select id="shOption" class="form-control" name="shOption">
+							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
+							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>계좌번호</option>
+							                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>계좌이름</option>
+							                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
+							                <option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>이름</option>
+				    					</select>
+				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
+										<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+									</div>
 								</div>
-							</div>
-	               			<table class="table align-items-center table-flush table-borderless">
-	                  			<thead>
-			                   		<tr>
-										<th>
-											<input type="checkbox" name="checked" id="allCheck" value="">
-										</th>
-										<th>seq</th>
-										<th>아이디</th>
-										<th>이름</th>
-										<th>대표계좌</th>
-										<th>계좌번호</th>
-										<th>계좌이름</th>
-										<th>계좌비밀번호</th>
-										<th>계좌잔액</th>
-									</tr>
-	                   			</thead>
-	                   			<tbody>
-	                   				<c:choose>
-										<c:when test="${fn:length(list) eq 0}">
-											<tr>
-												<td>데이터가 없습니다.</td>
-											</tr>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${list}" var="list" >
+		               			<table class="table align-items-center table-flush table-borderless">
+		                  			<thead>
+				                   		<tr>
+											<th>
+												<input type="checkbox" name="checked" id="allCheck" value="">
+											</th>
+											<th>seq</th>
+											<th>아이디</th>
+											<th>이름</th>
+											<th>대표계좌</th>
+											<th>계좌번호</th>
+											<th>계좌이름</th>
+											<th>계좌비밀번호</th>
+											<th>계좌잔액</th>
+										</tr>
+		                   			</thead>
+		                   			<tbody>
+		                   				<c:choose>
+											<c:when test="${fn:length(list) eq 0}">
 												<tr>
-													<td>
-														<input type="checkbox" name="checked" value="">
-													</td>
-													<td><c:out value="${list.seq}"></c:out></td>
-													<td><c:out value="${list.id}"></c:out></td>
-													<td><c:out value="${list.name}"></c:out></td>
-													<td>
-							                            <c:choose>
-							                                <c:when test="${list.defaultNy == 0}">
-							                                    미사용
-							                                </c:when>
-							                                <c:when test="${list.defaultNy == 1}">
-							                                    사용
-							                                </c:when>
-							                                <c:otherwise>
-							                                    알 수 없음
-							                                </c:otherwise>
-							                            </c:choose>
-							                        </td>
-													<td><c:out value="${list.accountNumber}"></c:out></td>
-													<td><c:out value="${list.accountName}"></c:out></td>
-													<td><c:out value="${list.accountPassword}"></c:out></td>
-													<td><c:out value="${list.accountBalance}"></c:out></td>
+													<td>데이터가 없습니다.</td>
 												</tr>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-	           					</tbody>
-	               			</table>
-	               			<br>
-	               			<%@ include file="../../../include/pagination.jsp" %> 
-	               			<br>
-	               			<div class="form-group d-flex justify-content-center">
-								<button type="button" class="btn btn-light" onclick="location.href='accountForm'">추가</button>
-								<button type="button" class="btn btn-light" id="btnModification">수정</button>
-							</div>
-               			</form>
-       				</div>
-   				</div>
- 			</div>
-		</div><!--End Row-->	  
+											</c:when>
+											<c:otherwise>
+												<c:forEach items="${list}" var="list" >
+													<tr>
+														<td>
+															<input type="checkbox" name="checked" value="">
+														</td>
+														<td><c:out value="${list.seq}"></c:out></td>
+														<td><c:out value="${list.id}"></c:out></td>
+														<td><c:out value="${list.name}"></c:out></td>
+														<td>
+								                            <c:choose>
+								                                <c:when test="${list.defaultNy == 0}">
+								                                    미사용
+								                                </c:when>
+								                                <c:when test="${list.defaultNy == 1}">
+								                                    사용
+								                                </c:when>
+								                                <c:otherwise>
+								                                    알 수 없음
+								                                </c:otherwise>
+								                            </c:choose>
+								                        </td>
+														<td><c:out value="${list.accountNumber}"></c:out></td>
+														<td><c:out value="${list.accountName}"></c:out></td>
+														<td><c:out value="${list.accountPassword}"></c:out></td>
+														<td><c:out value="${list.accountBalance}"></c:out></td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>
+		           					</tbody>
+		               			</table>
+		               			<br>
+		               			<%@ include file="../../../include/pagination.jsp" %> 
+		               			<br>
+		               			<div class="form-group d-flex justify-content-center">
+									<button type="button" class="btn btn-light" onclick="location.href='accountForm'">추가</button>
+									<button type="button" class="btn btn-light" id="btnModification">수정</button>
+								</div>
+	               			</form>
+	       				</div>
+	   				</div>
+	 			</div>
+			</div><!--End Row-->	  
 		<!--start overlay-->
   		<div class="overlay toggle-menu"></div>
 		<!--end overlay-->
