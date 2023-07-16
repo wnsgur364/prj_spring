@@ -1,50 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOKOA BANK</title>
-    <%@ include file="../../../include/css.jsp" %>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>KOKOA BANK</title>
+	<%@ include file="../../../include/css.jsp" %>  	
 </head>
-<body>
-	<%@ include file="../../../include/headerUsrView.jsp" %>
-	<div class="container text-center" id="deposit" style="width: 1320px; height: 870px; padding-top: 100px;">
-		<form>
-			<div class="row-md">
-				<div class="fs-1" style="margin-bottom: 30px; font-family: 'Dongle', sans-serif;">입금</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<select id="selectAccount" class="form-select">
-   						<option selected disabled>계좌선택</option>
-   						<option>1번</option>
-   						<option>2번</option>
-						<option>3번</option>
-   					</select>
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" id="balance" class="form-control" placeholder="잔액" disabled>
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control" placeholder="금액">
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control" placeholder="받는사람 이름">
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="text" class="form-control" placeholder="입금자명">
-				</div>
-				<div class="col-5" style="margin: 10px auto;">
-					<input type="password" class="form-control" placeholder="비밀번호">
-				</div>
-			</div>
-		</form>	
-		<div class="d-flex justify-content-center">
-			<button class="btn btn-outline-secondary">확인</button>
-	    	<button class="btn btn-outline-secondary">취소</button>   		
-	    </div>
+<body class="bg-theme bg-theme9">
+<!-- Start wrapper-->
+<div id="wrapper">
+<%@ include file="../../../include/headerUsrView.jsp" %>
+<div class="clearfix"></div>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row mt-3">
+				<div class="col-lg-12">
+  					<div class="card">
+           				<div class="card-body">
+           					<div class="card-title">자동 이체</div>
+       						<hr>
+            				<form class="needs-validation" name="form" method="post" novalidate>
+								<div class="col-md-4 py-2">
+								    <div class="form-floating">
+								    	<label for="member_seq">계좌선택</label>
+									    <select class="form-control" id="member_seq" name="member_seq">
+									   		<option value=""></option>
+										</select>
+									</div>
+						     	</div>
+								<div class="col-md-4 py-2">
+							        <div class="form-floating">
+							        	<label for="balance">금액</label>	
+							            <input type="text" class="form-control" id="balance" name="balance" required>
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+								<div class="col-md-4 py-2">
+							        <div class="form-floating">
+							       		<label for="contents">내용</label>
+							            <input type="text" class="form-control" id="contents" name="contents" required>
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+								<div class="col-md-4 py-2">
+							        <div class="form-floating">
+							            <label for="accountPassword">계좌비밀번호</label>
+							            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required>
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+							    <hr>
+								<div class="form-group">
+									<button class="btn btn-light" id="submitForm" type="button">확인</button>
+					    			<button class="btn btn-light" type="button">취소</button>   		
+					    		</div>
+							</form>
+  						</div>
+         			</div>
+      			</div>
+    		</div><!--End Row-->
+
+		<!--start overlay-->
+		<div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
 	</div>
-	<%@ include file="../../../include/footer.jsp" %>
-	<%@ include file="../../../include/script.jsp" %>
+	<!-- End container-fluid-->
+    
+</div><!--End content-wrapper-->
+<%@ include file="../../../include/modalBase.jsp" %>
+<%@ include file="../../../include/footer.jsp" %>   
+   
+</div><!--End wrapper-->
+<%@ include file="../../../include/script.jsp" %>
 </body>
 </html>
