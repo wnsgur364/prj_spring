@@ -140,7 +140,7 @@
 	
 	// 회원가입시 아이디 중복체크
 	$("#id").on("blur", function() {
-	    var obj = $(this); 
+	    var obj = $(this);
 	    
 	    // AJAX 요청 수행
 	    $.ajax({
@@ -154,9 +154,9 @@
 	     		    if (!checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.")) {
 	 		        	return false;
 	 		    	} else {
-	                obj.removeClass("is-invalid");
-	                obj.addClass("is-valid");
-	                obj.siblings(".invalid-feedback").text("사용 가능합니다.");
+			            obj.removeClass("is-invalid");
+			            obj.addClass("is-valid");
+			            obj.siblings(".invalid-feedback").text("사용 가능합니다.");
 	 		    	}
 	            } else {
 	                obj.removeClass("is-valid");
