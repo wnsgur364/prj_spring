@@ -79,6 +79,8 @@
    			recipientAccountNumber = #{recipientAccountNumber},
 			balance = #{balance},
 			contents = #{contents},
+			dateStart = #{dateStart},
+			dateFinish = #{dateFinish},
 			account_seq = #{account_seq}
         WHERE 
         	seq = #{seq}
@@ -89,12 +91,14 @@
 			delNy,
 			recipientAccountNumber,
 			balance,
+			date,
 			contents,
 			account_seq
     	) VALUES (
     		0, 
     		#{recipientAccountNumber},
     		#{balance},
+    		now(),
    			#{contents},
     		#{account_seq}
 		)

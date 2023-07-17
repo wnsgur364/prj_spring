@@ -14,6 +14,8 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>KOKOA BANK ADMIN</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  
 </head>
 <body class="bg-theme bg-theme9">
@@ -48,17 +50,17 @@
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
-							    <div class="col-md-4 py-2">
-							        <div class="form-floating">
-							        	<label for="name">이름</label>
-							            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
 		   					    <div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="pw">비밀번호</label>
-							            <input type="text" class="form-control" id="pw" name="pw" required value="<c:out value="${item.pw}"/>">
+							            <input type="password" class="form-control" id="pw" name="pw" required value="<c:out value="${item.pw}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+   							    <div class="col-md-4 py-2">
+							        <div class="form-floating">
+							        	<label for="name">이름</label>
+							            <input type="text" class="form-control" id="name" name="name" required value="<c:out value="${item.name}"/>">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>

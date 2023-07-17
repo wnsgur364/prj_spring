@@ -14,6 +14,8 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>KOKOA BANK ADMIN</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  
 </head>
 <body class="bg-theme bg-theme9">
@@ -96,13 +98,30 @@
 <%@ include file="../../../include/script.jsp" %>
 <script>
 	
+	var objName = $("#influencerName");
+	var objyoutubeUrl = $("#youtubeUrl");
+	var objsnsUrl = $("#instagramUrl");
+	
+	validationInst = function(){
+		if(validationUpdt() == false) return false;
+	}
+	
+	validationUpdt = function(){
+		if (checkOnlyKoreanEnglishNumber(objName, "인플루언서 이름은 한글, 영문대소문자, 숫자만 입력 가능합니다.") === false) return false;
+		if (checkNull(objyoutubeUrl, "유튜브 주소를 입력해 주세요.") === false) return false;
+		if (checkNull(objsnsUrl, "SNS 주소를 입력해 주세요.") === false) return false;
+	}
+
+	
 	// 업데이트버튼 클릭이벤트
 	$("#btnUpdate").on("click", function(){
+		if (validationUpdt() === false) return false;
 		$("form[name=form]").attr("action","/influencerUpdate").submit();
 	});
 
 	// 인서트버튼 클릭이벤트
 	$("#btnInsert").on("click", function(){
+		if (validationInst() === false) return false;
 		$("form[name=form]").attr("action","/influencerInsert").submit();
 	});
 	

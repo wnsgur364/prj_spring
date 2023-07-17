@@ -6,7 +6,7 @@ public class Transaction {
 	
 	private String seq;
 	private Integer delNy;
-	private Integer recipientAccountNumber;
+	private String recipientAccountNumber;
 	private Integer balance;
 	private Date date;
 	private String contents;
@@ -27,10 +27,10 @@ public class Transaction {
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
 	}
-	public Integer getRecipientAccountNumber() {
+	public String getRecipientAccountNumber() {
 		return recipientAccountNumber;
 	}
-	public void setRecipientAccountNumber(Integer recipientAccountNumber) {
+	public void setRecipientAccountNumber(String recipientAccountNumber) {
 		this.recipientAccountNumber = recipientAccountNumber;
 	}
 	public Integer getBalance() {

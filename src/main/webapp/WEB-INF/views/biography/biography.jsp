@@ -14,6 +14,8 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>Biography</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../include/css.jsp" %> 
 </head>
 <body class="bg-theme bg-theme9">

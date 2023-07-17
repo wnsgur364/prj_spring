@@ -49,6 +49,7 @@
             return false;
         } else {
             obj.removeClass("is-invalid");
+            
         }
     }
 
@@ -90,3 +91,53 @@
             obj.removeClass("is-invalid");
         }
     }
+    
+    checkNull = function(obj, message) {
+	    if ($.trim(obj.val()) === '') { // 공백 체크
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message); // 공백 메시지
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}
+	
+	checkAccount = function(obj, message) {
+	    var regExp = /^[0-9]{4}-[0-9]{2}-[0-9]{4}$/;
+	
+	    if (regExp.test($.trim(obj.val())) == false) {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}
+	
+	checkRecipientAccount = function(obj, message) {
+	    var regExp = /^[0-9-]+$/;
+	
+	    if (regExp.test($.trim(obj.val())) == false) {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}
+	
+	checkOnlyNum = function(obj, message) {
+	    var regExp = /^[0-9]+$/;
+	
+	    if (regExp.test($.trim(obj.val())) == false) {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}

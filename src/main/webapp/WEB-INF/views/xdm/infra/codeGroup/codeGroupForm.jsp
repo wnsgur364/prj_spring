@@ -12,7 +12,10 @@
   	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   	<meta name="description" content=""/>
-	<meta name="author" content=""/><title>KOKOA BANK ADMIN</title>
+	<meta name="author" content=""/>
+	<title>KOKOA BANK ADMIN</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>
 </head>
 <body class="bg-theme bg-theme9">

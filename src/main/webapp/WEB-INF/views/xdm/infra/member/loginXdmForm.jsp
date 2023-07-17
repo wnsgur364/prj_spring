@@ -14,6 +14,8 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>KOKOA BANK ADMIN LOGIN</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>
 </head>
 <body class="bg-theme bg-theme9">
@@ -83,7 +85,15 @@
 <%@ include file="../../../include/script.jsp" %> 
 <script src="/resources/js/validation.js"></script>
 <script>
+
+	var objId = $("#id");
+	var objPw = $("#pw");
 	
+	validation = function() {
+	    if (checkId(objId, "올바른 아이디를 입력해주세요.") === false) return false;
+	    if (checkPw(objPw, "올바른 비밀번호를 입력해주세요.") === false) return false;
+	}
+
 	$("#btnLogin").on("click", function(){
 		
 		if(validation() == false) return false;
@@ -112,14 +122,6 @@
 			}
 		});
 	});
-	
-	var objId = $("#id");
-	var objPw = $("#pw");
-
-	validation = function() {
-	    if (checkId(objId, "올바른 아이디를 입력해주세요.") === false) return false;
-	    if (checkPw(objPw, "올바른 비밀번호를 입력해주세요.") === false) return false;
-	}
 	
 </script>	
 </body>

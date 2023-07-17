@@ -14,6 +14,8 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>KOKOA BANK ADMIN</title>
+	<!-- favicon -->
+	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  
 </head>
 <body class="bg-theme bg-theme9">
@@ -122,6 +124,13 @@
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
 <script>
+	
+	
+	
+	
+	
+	
+	
 	
 	// 업데이트버튼 클릭이벤트
 	$("#btnUpdate").on("click", function(){
