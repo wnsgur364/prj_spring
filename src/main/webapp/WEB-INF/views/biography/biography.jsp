@@ -14,7 +14,7 @@
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
 	<title>Biography</title>
-	<%@ include file="../../../include/css.jsp" %> 
+	<%@ include file="../include/css.jsp" %> 
 </head>
 <body class="bg-theme bg-theme9">
 
@@ -24,7 +24,7 @@
 
 <!-- Start wrapper-->
 <div id="wrapper">
-<%@ include file="../../../include/headerBiography.jsp" %>
+<%@ include file="../include/headerBiography.jsp" %>
 	<div class="clearfix"></div>
   	<div class="content-wrapper">
     	<div class="container-fluid">
@@ -95,8 +95,8 @@
 	    </div>
 	    <!-- End container-fluid-->
 	</div><!--End content-wrapper-->
-<%@ include file="../../../include/footerBiography.jsp" %> 
+<%@ include file="../include/footerBiography.jsp" %> 
 </div><!--End wrapper-->
-<%@ include file="../../../include/script.jsp" %>  
+<%@ include file="../include/script.jsp" %>  
 </body>
 </html>

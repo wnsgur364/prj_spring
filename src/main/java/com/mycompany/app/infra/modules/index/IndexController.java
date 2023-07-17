@@ -8,7 +8,7 @@ public class IndexController {
 
 	@RequestMapping(value = "/")
 	public String home() {
-		return "usr/infra/biography/biography";
+		return "biography/biography";
 	}
 	
 	@RequestMapping(value = "/indexUsrView")
