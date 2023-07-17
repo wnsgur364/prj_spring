@@ -46,7 +46,7 @@
 							    <div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="id">아이디</label>
-							            <input type="text" class="form-control" id="id" name="id" required value="<c:out value="${item.id}"/>">
+							            <input type="text" class="form-control" id="id" name="id" required readonly value="<c:out value="${item.id}"/>">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
@@ -104,14 +104,12 @@
 <%@ include file="../../../include/script.jsp" %>
 <script>
 
-	var objId = $("#id");
 	var objPw = $("#pw");
 	var objName = $("#name");
 	var objEmail = $("#email");
 	var objPhone = $("#phone");
 
 	validationUpdt = function() {
-	    if (checkId(objId, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) return false;
 	    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
 	    if (checkName(objName, "이름은 한글만 입력 가능합니다.") === false) return false;
 	    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
