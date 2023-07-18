@@ -32,6 +32,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	public Member loginXdmProc(MemberVo vo) {
+		return dao.loginXdmProc(vo);
+	}
+	
+	@Override
 	public int update(Member dto) {
 		return dao.update(dto); 
 	}

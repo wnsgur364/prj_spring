@@ -23,6 +23,7 @@ public class MemberDao {
 	public List<Member> selectList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
 	public Member selectOne(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo); }
 	public Member loginProc(MemberVo vo) { return sqlSession.selectOne(namespace + ".loginProc", vo); }
+	public Member loginXdmProc(MemberVo vo) { return sqlSession.selectOne(namespace + ".loginXdmProc", vo); }
 	public int update(Member dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Member dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Member dto) { return sqlSession.insert(namespace + ".insert", dto); }

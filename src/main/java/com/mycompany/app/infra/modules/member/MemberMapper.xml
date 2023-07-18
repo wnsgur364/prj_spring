@@ -73,6 +73,18 @@
 	  		AND pw = #{pw}
 	</select>
 	
+		<select id="loginXdmProc" resultMap="resultMapObj">
+		SELECT 
+		  	seq,
+		  	id,
+		  	name
+		FROM 
+		  	member 
+		WHERE 1=1
+	  		AND id = #{id}
+	  		AND pw = #{pw}
+	</select>
+	
     <update id="update">
         UPDATE 
         	member

@@ -21,96 +21,48 @@
         		<span>홈</span>
         	</a>
       	</li>	
-      	<c:choose>
-			<c:when test="${not empty id}">
-		      	<li>
-		        	<a href="accountUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>조회</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="depositUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>입금</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="sendUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>이체</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="autoSendUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>자동이체</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="exchangeRateUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>환율</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="domesticStockUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>국내주식</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="foreignStockUsrView">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>해외주식</span>
-		        	</a>
-		      	</li>
-			</c:when>
-			<c:otherwise>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>조회</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>입금</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>이체</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>자동이체</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>환율</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>국내주식</span>
-		        	</a>
-		      	</li>
-		      	<li>
-		        	<a href="loginUsrForm">
-		          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-		          		<span>해외주식</span>
-		        	</a>
-		      	</li>
-			</c:otherwise>
-		</c:choose>
+      	<li>
+        	<a href="accountUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>조회</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="depositUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>입금</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="sendUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>이체</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="autoSendUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>자동이체</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="exchangeRateUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>환율</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="domesticStockUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>국내주식</span>
+        	</a>
+      	</li>
+      	<li>
+        	<a href="foreignStockUsrView">
+          		<i class="zmdi zmdi-format-list-bulleted"></i> 
+          		<span>해외주식</span>
+        	</a>
+      	</li>
    	</ul>
 </div>
 <!--End sidebar-wrapper-->

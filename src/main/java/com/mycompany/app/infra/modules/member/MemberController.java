@@ -12,6 +12,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author leejh
+ *
+ */
+/**
+ * @author leejh
+ *
+ */
+/**
+ * @author leejh
+ *
+ */
+/**
+ * @author leejh
+ *
+ */
+/**
+ * @author leejh
+ *
+ */
 @Controller
 public class MemberController {
 	
@@ -69,6 +89,11 @@ public class MemberController {
 		return "xdm/infra/member/loginXdmForm";
 	}
 	
+	/**
+	 * @param vo
+	 * @param httpSession
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/loginProc")
 	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession) {
@@ -89,6 +114,10 @@ public class MemberController {
 		return returnMap;
 	}
 	
+	/**
+	 * @param httpSession
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/logoutProc")
 	public Map<String, Object> logoutProc(HttpSession httpSession) {
@@ -99,6 +128,10 @@ public class MemberController {
 	    return returnMap; 
 	}
 	
+	/**
+	 * @param vo
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/checkIdProc")
 	public Map<String, Object> checkIdProc(MemberVo vo) {
@@ -114,9 +147,42 @@ public class MemberController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/resetPassword")
-	public String resetPassword() {
-		return "/usr/infra/member/resetPassword";
-	}
+	/**
+	 * @param vo
+	 * @param httpSession
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/loginXdmProc")
+	public Map<String, Object> loginXdmProc(MemberVo vo, HttpSession httpSession) {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
+		Member rtMember = service.loginXdmProc(vo);
+		
+		if(rtMember != null) {
+	        // 로그인 성공 시 세션에 사용자 정보 저장
+			httpSession.setMaxInactiveInterval(60*60); //60min
+			httpSession.setAttribute("id", vo.getId());
+	        
+			returnMap.put("rtMember", rtMember);
+			returnMap.put("rt", "success");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
+	
+	/**
+	 * @param httpSession
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/logoutXdmProc")
+	public Map<String, Object> logoutXdmProc(HttpSession httpSession) {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		System.out.println(httpSession.getAttribute("id"));
+		httpSession.invalidate();
+	    returnMap.put("rt", "success");
+	    return returnMap; 
+	}	
 }

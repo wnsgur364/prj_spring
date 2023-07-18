@@ -8,6 +8,7 @@ public interface MemberService {
 	public List<Member> selectList(MemberVo vo);
 	public Member selectOne(MemberVo vo);
 	public Member loginProc(MemberVo vo);
+	public Member loginXdmProc(MemberVo vo);
 	public int update(Member dto);
 	public int insert(Member dto);
 	public int uelete(Member dto);

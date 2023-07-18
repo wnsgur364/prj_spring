@@ -21,6 +21,41 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- session interceptor e 2023.07.18 for logincheck -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**"/>
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/indexUsrView"/>
+			<exclude-mapping path="/loginUsrForm"/>
+			<exclude-mapping path="/registerUsrForm"/>
+			<exclude-mapping path="/loginProc"/>
+			<exclude-mapping path="/logoutProc"/>
+			<exclude-mapping path="/checkIdProc"/>
+			<exclude-mapping path="/loginXdmForm"/>
+			<exclude-mapping path="/loginXdmProc"/>
+			<exclude-mapping path="/logoutXdmProc"/>
+			<beans:bean id="checkLoginSessionInterception" class="com.mycompany.app.infra.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/resources/**"/>
+			<exclude-mapping path="/"/>
+			<exclude-mapping path="/indexUsrView"/>
+			<exclude-mapping path="/loginUsrForm"/>
+			<exclude-mapping path="/registerUsrForm"/>
+			<exclude-mapping path="/loginProc"/>
+			<exclude-mapping path="/logoutProc"/>
+			<exclude-mapping path="/checkIdProc"/>
+			<exclude-mapping path="/loginXdmForm"/>
+			<exclude-mapping path="/loginXdmProc"/>
+			<exclude-mapping path="/logoutXdmProc"/>
+			<beans:bean id="checkLoginXdmSessionInterception" class="com.mycompany.app.infra.common.interceptor.CheckLoginXdmSessionInterception"/>
+		</interceptor>		
+	</interceptors>
+	<!-- session interceptor e 2023.07.18 for logincheck -->
+	
 	<context:component-scan base-package="com.mycompany.app" />
 	
 </beans:beans>

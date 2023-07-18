@@ -103,7 +103,7 @@
 			,cache: false
 			,type: "post"
 			/* ,dataType:"json" */
-			,url: "/loginProc"
+			,url: "/loginXdmProc"
 			/* ,data : $("#formLogin").serialize() */
 			,data : { "id" : $("#id").val(),
 				"pw" : $("#pw").val()}
