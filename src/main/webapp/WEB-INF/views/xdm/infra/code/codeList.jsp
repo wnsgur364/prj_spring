@@ -61,6 +61,7 @@
 										</tr>
 									</thead>
 									<tbody>
+										<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1')}"/>
 										<c:choose>
 											<c:when test="${fn:length(list) eq 0}">
 												<tr>
@@ -74,7 +75,13 @@
 															<input type="checkbox" name="checked" value="">
 														</td>
 														<td><c:out value="${list.seq}"></c:out></td>
-														<td><c:out value="${list.name}"></c:out></td>
+														<td>
+															<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
+																<c:if test="${list.seq eq listGender.seq}">
+																	<c:out value="${listGender.name}"/>
+																</c:if>
+															</c:forEach>
+														</td>
 														<td><c:out value="${list.codeGroupName}"></c:out></td>
 													</tr>
 												</c:forEach>
