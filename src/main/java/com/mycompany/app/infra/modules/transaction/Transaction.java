@@ -14,6 +14,7 @@ public class Transaction {
 	private Date dateFinish;
 	private String account_seq;
 	private String accountNumber;
+	private Integer defaultNy;
 //	-----
 	public String getSeq() {
 		return seq;
@@ -74,6 +75,12 @@ public class Transaction {
 	}
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
 	}
 	
 }

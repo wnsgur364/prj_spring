@@ -7,16 +7,36 @@
 								 <!-- select 결과를 받을 객체 -->
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.account.Account"></resultMap>
 					
+<!-- 	<sql id="account"> -->
+<!-- 		a.seq, -->
+<!-- 		a.delNy, -->
+<!-- 		a.defaultNy, -->
+<!-- 		a.accountNumber, -->
+<!-- 		a.accountName, -->
+<!-- 		a.accountPassword, -->
+<!-- 		a.accountBalance, -->
+<!-- 		b.id, -->
+<!-- 		b.name -->
+<!-- 	</sql> -->
 	<sql id="account">
-		a.seq,
-		a.delNy,
-		a.defaultNy,
-		a.accountNumber,
-		a.accountName,
-		a.accountPassword,
-		a.accountBalance,
-		b.id,
-		b.name
+	    a.seq,
+	    a.delNy,
+	    a.defaultNy,
+	    a.accountNumber,
+	    a.accountName,
+	    a.accountPassword,
+		CASE
+			WHEN EXISTS (
+			    SELECT 1 FROM transaction WHERE account_seq = a.seq AND defaultNy = 0
+			) THEN a.accountBalance + (
+			    SELECT SUM(balance) FROM transaction WHERE account_seq = a.seq AND defaultNy = 0
+			) - (
+			    SELECT SUM(balance) FROM transaction WHERE account_seq = a.seq AND defaultNy = 1
+			)
+			ELSE a.accountBalance
+	    END accountBalance,
+	    b.id,
+	    b.name
 	</sql>
 	
 	<sql id="selectCommon">

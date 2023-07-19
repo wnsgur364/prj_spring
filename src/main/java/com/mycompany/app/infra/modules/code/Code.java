@@ -1,5 +1,8 @@
 package com.mycompany.app.infra.modules.code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code {
 	
 	private String seq;
@@ -8,6 +11,9 @@ public class Code {
 	private String name;
 	private String codeGroupName;
 //  ----	
+//	for cache
+	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();
+	
 	public String getSeq() {
 		return seq;
 	}

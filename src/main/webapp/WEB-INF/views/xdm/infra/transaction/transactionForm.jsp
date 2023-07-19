@@ -43,6 +43,16 @@
 								        <div class="invalid-feedback"></div>
 								    </div>
 								</div>
+								<div class="col-md-4 py-2">
+								    <div class="form-floating">
+								        <label for="defaultNy">입·출금</label>
+								        <select class="form-control" id="defaultNy" name="defaultNy" required>
+								            <option value="0" <c:if test="${item.defaultNy eq '0'}">selected</c:if>>입금</option>
+								            <option value="1" <c:if test="${item.defaultNy eq '1'}">selected</c:if>>출금</option>
+								        </select>
+								        <div class="invalid-feedback"></div>
+								    </div>
+								</div>
 		   					    <div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="recipientAccountNumber">받는계좌</label>

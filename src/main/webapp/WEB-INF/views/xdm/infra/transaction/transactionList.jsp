@@ -58,6 +58,7 @@
 											<input type="checkbox" name="checked" id="allCheck" value="">
 										</th>
 										<th>seq</th>
+										<th>입·출금</th>
 										<th>출금계좌</th>
 										<th>받는계좌</th>
 										<th>금액</th>
@@ -81,6 +82,19 @@
 														<input type="checkbox" name="checked" value="">
 													</td>
 													<td><c:out value="${list.seq}"></c:out></td>
+													<td>
+													 	<c:choose>
+													   		<c:when test="${list.defaultNy == 0}">
+													     		입금
+													   		</c:when>
+													   		<c:when test="${list.defaultNy == 1}">
+													     		출금
+													   		</c:when>
+													   		<c:otherwise>	
+													     		입·출금 여부를 입력해 주세요.
+													   		</c:otherwise>
+													 	</c:choose>
+													</td>
 													<td><c:out value="${list.accountNumber}"></c:out></td>
 													<td><c:out value="${list.recipientAccountNumber}"></c:out></td>
 													<td><c:out value="${list.balance}"></c:out></td>
