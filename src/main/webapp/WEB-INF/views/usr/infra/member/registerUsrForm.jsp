@@ -142,33 +142,33 @@
 	$("#id").on("blur", function() {
 	    var obj = $(this);
 	    
-	    // AJAX 요청 수행
-	    $.ajax({
-	        async: true,
-	        cache: false,
-	        type: "post",
-	        url: "/checkIdProc",
-	        data: { "id": obj.val().trim() },
-	        success: function(response) {
-	            if (response.rt === "available") {
-	     		    if (!checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.")) {
-	 		        	return false;
-	 		    	} else {
+	    if (checkId(obj, "아이디는 영대소문자, 숫자, 특수문자(-_.)를 포함한 4~20자리만 입력 가능합니다.") === false) {
+			return false;
+	    } else {
+		    // AJAX 요청 수행
+		    $.ajax({
+		        async: true,
+		        cache: false,
+		        type: "post",
+		        url: "/checkIdProc",
+		        data: { "id": obj.val().trim() },
+		        success: function(response) {
+		            if (response.rt === "available") {
 			            obj.removeClass("is-invalid");
 			            obj.addClass("is-valid");
-			            obj.siblings(".invalid-feedback").text("사용 가능합니다.");
-	 		    	}
-	            } else {
-	                obj.removeClass("is-valid");
-	                obj.addClass("is-invalid");
-	                obj.focus();
-	                obj.siblings(".invalid-feedback").text("사용 불가능합니다.");
-	            }
-	        },
-	        error: function(jqXHR, textStatus, errorThrown) {
-	            alert("ajaxUpdate " + textStatus + " : " + errorThrown);
-	        }
-	    });
+	            		obj.siblings(".invalid-feedback").text("사용 가능합니다.");
+		            } else {
+		                obj.removeClass("is-valid");
+		                obj.addClass("is-invalid");
+		                obj.focus();
+		                obj.siblings(".invalid-feedback").text("사용 불가능합니다.");
+		            }
+		        },
+		        error: function(jqXHR, textStatus, errorThrown) {
+		            alert("ajaxUpdate " + textStatus + " : " + errorThrown);
+		        }
+		    });
+    	}
 	});
 
 </script>
