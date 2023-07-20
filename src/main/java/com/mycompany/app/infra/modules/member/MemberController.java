@@ -12,26 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author leejh
- *
- */
-/**
- * @author leejh
- *
- */
-/**
- * @author leejh
- *
- */
-/**
- * @author leejh
- *
- */
-/**
- * @author leejh
- *
- */
 @Controller
 public class MemberController {
 	
@@ -159,17 +139,21 @@ public class MemberController {
 		
 		Member rtMember = service.loginXdmProc(vo);
 		
-		if(rtMember != null) {
+	    if (rtMember != null) {
 	        // 로그인 성공 시 세션에 사용자 정보 저장
-			httpSession.setMaxInactiveInterval(60*60); //60min
-			httpSession.setAttribute("id", vo.getId());
-	        
-			returnMap.put("rtMember", rtMember);
-			returnMap.put("rt", "success");
-		} else {
-			returnMap.put("rt", "fail");
-		}
-		return returnMap;
+	        httpSession.setMaxInactiveInterval(60 * 60); // 60min
+	        httpSession.setAttribute("id", vo.getId());
+
+	        if (rtMember.getLevel() == 4) { // 사용자 레벨이 4인 경우에만 로그인 허용
+	            returnMap.put("rtMember", rtMember);
+	            returnMap.put("rt", "success");
+	        } else {
+	            returnMap.put("rt", "fail"); // 레벨이 4가 아닌 경우 로그인 실패 처리
+	        }
+	    } else {
+	        returnMap.put("rt", "fail"); // 로그인 실패 처리
+	    }
+	    return returnMap;
 	}
 	
 	/**

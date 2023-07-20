@@ -60,12 +60,16 @@
 										<th>seq</th>
 										<th>아이디</th>
 										<th>이름</th>
+										<th>성별</th>
 										<th>비밀번호</th>
 										<th>이메일</th>
 										<th>전화번호</th>
+										<th>권한등급</th>
 									</tr>
 								</thead>
 								<tbody>
+									<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1')}"/>	
+									<c:set var="listCodeLevel" value="${CodeServiceImpl.selectListCachedCode('2')}"/>	
 									<c:choose>
 										<c:when test="${fn:length(list) eq 0}">
 											<tr>
@@ -81,9 +85,23 @@
 													<td><c:out value="${list.seq}"></c:out></td>
 													<td><a href="memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.id}"></c:out></a></td>
 													<td><c:out value="${list.name}"></c:out></td>
+													<td>
+														<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
+															<c:if test="${list.gender eq listGender.seq}">
+																<c:out value="${listGender.name}"/>
+															</c:if>
+														</c:forEach>
+													</td>
 													<td><c:out value="${list.pw}"></c:out></td>
 													<td><c:out value="${list.email}"></c:out></td>
 													<td><c:out value="${list.phone}"></c:out></td>
+													<td>
+														<c:forEach items="${listCodeLevel}" var="listLevel" varStatus="statusLevel">
+															<c:if test="${list.level eq listLevel.seq}">
+																<c:out value="${listLevel.name}"/>
+															</c:if>
+														</c:forEach>
+													</td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>

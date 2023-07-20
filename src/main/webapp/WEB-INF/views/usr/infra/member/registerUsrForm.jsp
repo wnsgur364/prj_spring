@@ -67,6 +67,15 @@
 				  			<div class="invalid-feedback"></div>
 			   			</div>
 			  		</div>
+			  		<div class="form-group">
+				  		<select id="gender" class="form-control" name="gender">
+				  			<option value="0" selected>성별을 선택해주세요.</option>
+			                <option value="1">남성</option>
+			                <option value="2">여성</option>
+			                <option value="3">기타</option>
+    					</select>
+			  			<div class="invalid-feedback"></div>
+			  		</div>
 		  			<div class="form-group">
 			   			<label for="email" class="sr-only">이메일</label>
 			   			<div class="position-relative has-icon-right">
@@ -121,6 +130,7 @@
 		var objPw = $("#pw");
 		var objPwCheck = $("#pwCheck");
 		var objName = $("#name");
+		var objSelect = $("#gender");
 		var objEmail = $("#email");
 		var objPhone = $("#phone");
 
@@ -128,6 +138,7 @@
 	    if (checkPw(objPw, "영대소문자,숫자,특수문자(!@#$%^&*),8~20자리 조합만 입력 가능합니다.") === false) return false;
 	    if (checkPwCheck(objPwCheck, "비밀번호가 일치하지 않습니다.") === false) return false;
 	    if (checkName(objName, "이름은 한글만 입력 가능합니다.") === false) return false;
+	    if (checkSelectNull(objSelect, "성별을 선택해 주세요.") === false) return false;
 	    if (checkEmail(objEmail, "유효한 이메일 주소를 입력해주세요.") === false) return false;
 	    if (checkPhone(objPhone, "전화번호는 숫자만 입력해주세요.") === false) return false;
 	}

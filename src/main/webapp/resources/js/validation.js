@@ -154,3 +154,17 @@
 	        obj.removeClass("is-invalid");
 	    }
 	}
+	
+	checkSelectNull = function(obj, message) {
+	    var value = $.trim(obj.val());
+	
+	    // Add additional condition to check for value being 0 or null
+	    if (!value || value === '0' || !/^[0-9-]+$/.test(value)) {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}

@@ -9,6 +9,8 @@ public class Member {
 	private String pw;
 	private String email;
 	private String phone;
+	private Integer gender;
+	private	Integer level;
 //	-----
 	public String getSeq() {
 		return seq;
@@ -52,5 +54,16 @@ public class Member {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
+	public Integer getGender() {
+		return gender;
+	}
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	public Integer getLevel() {
+		return level;
+	}
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
 }
