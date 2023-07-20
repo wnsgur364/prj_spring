@@ -64,8 +64,6 @@
 										<th>금액</th>
 										<th>거래일</th>
 										<th>내용</th>
-										<th>자동이체 시작일</th>
-										<th>자동이체 종료일</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -100,8 +98,6 @@
 													<td><c:out value="${list.balance}"></c:out></td>
 													<td><c:out value="${list.date}"></c:out></td>
 													<td><c:out value="${list.contents}"></c:out></td>
-													<td><c:out value="${list.dateStart}"></c:out></td>
-													<td><c:out value="${list.dateFinish}"></c:out></td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>

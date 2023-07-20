@@ -24,5 +24,4 @@ public class AccountDao {
 	public int uelete(Account dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Account dto) { return sqlSession.insert(namespace + ".insert", dto); }
 	
-	
 }

@@ -34,20 +34,21 @@
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								    	<label for="member_seq">출금계좌</label>
-									    <select class="form-control" id="member_seq" name="member_seq">
-									   		<option value=""></option>
-										</select>
-									</div>
-						     	</div>
+								        <label for="member_seq">출금계좌</label>
+								        <select class="form-control" id="member_seq" name="member_seq" onchange="getAccountBalance(this.value)">
+								            <option value=""></option>
+								            <c:forEach items="${account}" var="account">
+								                <option value="${account.accountNumber}">${account.accountNumber}</option>
+								            </c:forEach>
+								        </select>
+								    </div>
+								</div>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								    	<label for="accountBalance">계좌잔액</label>
-									    <select class="form-control" id="accountBalance" name="accountBalance">
-											<option value=""></option>
-										</select>
-									</div>
-				   				</div>
+								        <label for="accountBalance">계좌잔액</label>
+								        <input type="text" class="form-control" id="accountBalance" name="accountBalance" readonly>
+								    </div>
+								</div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="recipientAccountNumber">받는계좌</label>
@@ -107,5 +108,53 @@
    
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
+<script>
+    $(document).ready(function() {
+        $("#submitForm").on("click", function() {
+            var fromAccountNumber = $("#member_seq").val();
+            var accountBalance = $("#accountBalance").val();
+            var toAccountNumber = $("#recipientAccountNumber").val();
+            var amount = $("#balance").val();
+            var contents = $("#contents").val();
+            var accountPassword = $("#accountPassword").val();
+
+            // Make an AJAX request to process the transfer
+            $.ajax({
+                type: "POST",
+                url: "/account/transfer", // The URL to your Spring Controller method for transfer
+                data: {
+                    fromAccountNumber: fromAccountNumber,
+                    accountBalance: accountBalance,
+                    toAccountNumber: toAccountNumber,
+                    amount: amount,
+                    contents: contents,
+                    accountPassword: accountPassword
+                },
+                success: function(response) {
+                    alert(response); // Display the response message in an alert
+                },
+                error: function(xhr, status, error) {
+                    alert("Error occurred during transfer: " + xhr.responseText);
+                }
+            });
+        });
+    });
+    
+    function getAccountBalance(accountNumber) {
+        // Make an AJAX request to get the account balance
+        $.ajax({
+            type: "POST",
+            url: "/getAccountBalance", // Replace with the actual URL to fetch the account balance
+            data: { accountNumber: accountNumber },
+            success: function(response) {
+                // Update the account balance input field with the received value
+                $("#accountBalance").val(response.accountBalance);
+            },
+            error: function(xhr, status, error) {
+                alert("Error occurred while fetching account balance: " + xhr.responseText);
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -74,24 +74,6 @@
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
-								<c:if test="${not empty item.dateStart}">
-								    <div class="col-md-4 py-2">
-								        <div class="form-floating">
-								            <label for="dateStart">자동이체 시작일</label>
-								            <input type="date" class="form-control" id="dateStart" name="dateStart" required value="<c:out value="${item.dateStart}"/>">
-								            <div class="invalid-feedback"></div>
-								        </div>
-								    </div>
-								</c:if>
-								<c:if test="${not empty item.dateFinish}">
-								    <div class="col-md-4 py-2">
-								        <div class="form-floating">
-								            <label for="dateFinish">자동이체 종료일</label>
-								            <input type="date" class="form-control" id="dateFinish" name="dateFinish" required value="<c:out value="${item.dateFinish}"/>">
-								            <div class="invalid-feedback"></div>
-								        </div>
-								    </div>
-								</c:if>
 							    <div class="col-md-4 py-2">
 								    <div class="form-floating">
 								    	<label for="account_seq">출금계좌</label>

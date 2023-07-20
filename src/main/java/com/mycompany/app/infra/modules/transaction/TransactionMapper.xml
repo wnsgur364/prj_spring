@@ -15,26 +15,8 @@
 		a.balance,
 		a.date,
 		a.contents,
-		a.dateStart,
-		a.dateFinish,
 		b.accountNumber
 	</sql>
-	
-<!-- 	<sql id="transaction"> -->
-<!-- 	    a.seq, -->
-<!-- 	    a.delNy, -->
-<!-- 	    a.defaultNy, -->
-<!-- 	    a.recipientAccountNumber, -->
-<!-- 	    CASE -->
-<!-- 	        WHEN a.defaultNy = 0 THEN b.accountBalance + a.balance -->
-<!-- 	        WHEN a.defaultNy = 1 THEN b.accountBalance - a.balance -->
-<!-- 	    END transactionBalance, -->
-<!-- 	    a.date, -->
-<!-- 	    a.contents, -->
-<!-- 	    a.dateStart, -->
-<!-- 	    a.dateFinish, -->
-<!-- 	    b.accountNumber -->
-<!-- 	</sql> -->
 	
 	<sql id="selectCommon">
 		FROM 
@@ -81,8 +63,6 @@
 			balance,
 			date,
 			contents,
-			dateStart,
-			dateFinish,
 			account_seq
 		FROM 
 		  	transaction
@@ -98,8 +78,6 @@
    			recipientAccountNumber = #{recipientAccountNumber},
 			balance = #{balance},
 			contents = #{contents},
-			dateStart = #{dateStart},
-			dateFinish = #{dateFinish},
 			account_seq = #{account_seq}
         WHERE 
         	seq = #{seq}

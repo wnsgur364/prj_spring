@@ -29,7 +29,7 @@
 				<div class="col-lg-12">
   					<div class="card">
            				<div class="card-body">
-           					<div class="card-title">자동 이체</div>
+           					<div class="card-title">출금</div>
        						<hr>
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
@@ -50,22 +50,8 @@
 				   				</div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
-							        	<label for="recipientAccountNumber">받는계좌</label>
-							            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required>
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
-								<div class="col-md-4 py-2">
-							        <div class="form-floating">
 							        	<label for="balance">금액</label>	
 							            <input type="text" class="form-control" id="balance" name="balance" required>
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
-								<div class="col-md-4 py-2">
-							        <div class="form-floating">
-							        	<label for="recipientAccountNumber">받는계좌</label>
-							            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required>
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
@@ -80,20 +66,6 @@
 							        <div class="form-floating">
 							            <label for="accountPassword">계좌비밀번호</label>
 							            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required>
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
-								<div class="col-md-4 py-2">
-							        <div class="form-floating">
-							            <label for="dateStart">시작일</label>
-							            <input type="date" class="form-control" id="dateStart" name="dateStart" required>
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
-							    <div class="col-md-4 py-2">
-							        <div class="form-floating">
-							            <label for="dateFinish">종료일</label>
-							            <input type="date" class="form-control" id="dateFinish" name="dateFinish" required>
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>

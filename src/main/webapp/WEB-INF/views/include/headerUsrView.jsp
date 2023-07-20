@@ -40,9 +40,9 @@
         	</a>
       	</li>
       	<li>
-        	<a href="autoSendUsrView">
+        	<a href="withdrawUsrView">
           		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>자동이체</span>
+          		<span>출금</span>
         	</a>
       	</li>
       	<li>

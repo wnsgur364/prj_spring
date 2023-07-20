@@ -10,8 +10,6 @@ public class Transaction {
 	private Integer balance;
 	private Date date;
 	private String contents;
-	private Date dateStart;
-	private Date dateFinish;
 	private String account_seq;
 	private String accountNumber;
 	private Integer defaultNy;
@@ -51,18 +49,6 @@ public class Transaction {
 	}
 	public void setContents(String contents) {
 		this.contents = contents;
-	}
-	public Date getDateStart() {
-		return dateStart;
-	}
-	public void setDateStart(Date dateStart) {
-		this.dateStart = dateStart;
-	}
-	public Date getDateFinish() {
-		return dateFinish;
-	}
-	public void setDateFinish(Date dateFinish) {
-		this.dateFinish = dateFinish;
 	}
 	public String getAccount_seq() {
 		return account_seq;

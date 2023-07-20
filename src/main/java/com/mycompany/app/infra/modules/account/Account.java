@@ -1,5 +1,7 @@
 package com.mycompany.app.infra.modules.account;
 
+import java.math.BigDecimal;
+
 public class Account {
 	private String seq;
 	private Integer delNy;
@@ -48,6 +50,7 @@ public class Account {
 	public void setAccountPassword(String accountPassword) {
 		this.accountPassword = accountPassword;
 	}
+
 	public Integer getAccountBalance() {
 		return accountBalance;
 	}
