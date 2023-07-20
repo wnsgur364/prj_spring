@@ -16,11 +16,6 @@ public class IndexController {
 		return "usr/infra/index/indexUsrView";
 	}
 	
-	@RequestMapping(value = "/accountUsrView")
-	public String accountUsrView() {
-		return "usr/infra/index/accountUsrView";
-	}
-	
 	@RequestMapping(value = "/accountAddUsrView")
 	public String accountAddUsrView() {
 		return "usr/infra/index/accountAddUsrView";
@@ -44,5 +39,20 @@ public class IndexController {
 	@RequestMapping(value = "/indexXdmView")
 	public String indexXdmView() {
 		return "xdm/infra/index/indexXdmView";
+	}
+	
+	@RequestMapping(value = "/depositUsrView")
+	public String depositUsrView() {
+		return "usr/infra/index/depositUsrView";
+	}
+	
+	@RequestMapping(value = "/sendUsrView")
+	public String sendUsrView() {
+		return "usr/infra/index/sendUsrView";
+	}
+	
+	@RequestMapping(value = "/withdrawUsrView")
+	public String withdrawUsrView() {
+		return "usr/infra/index/withdrawUsrView";
 	}
 }

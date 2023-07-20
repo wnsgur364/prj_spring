@@ -42,12 +42,10 @@
 						     	</div>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								    	<label for="accountBalance">계좌잔액</label>
-									    <select class="form-control" id="accountBalance" name="accountBalance">
-											<option value=""></option>
-										</select>
-									</div>
-				   				</div>
+								        <label for="accountBalance">계좌잔액</label>
+								        <input type="text" class="form-control" id="accountBalance" name="accountBalance" readonly>
+								    </div>
+								</div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="balance">금액</label>	

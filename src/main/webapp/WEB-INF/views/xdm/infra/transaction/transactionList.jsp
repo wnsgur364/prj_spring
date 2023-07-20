@@ -61,7 +61,8 @@
 										<th>입·출금</th>
 										<th>출금계좌</th>
 										<th>받는계좌</th>
-										<th>금액</th>
+										<th>거래금액</th>
+										<th>거래후잔액</th>
 										<th>거래일</th>
 										<th>내용</th>
 									</tr>
@@ -95,7 +96,8 @@
 													</td>
 													<td><c:out value="${list.accountNumber}"></c:out></td>
 													<td><c:out value="${list.recipientAccountNumber}"></c:out></td>
-													<td><c:out value="${list.balance}"></c:out></td>
+													<td><fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></td>
+													<td><fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber></td>
 													<td><c:out value="${list.date}"></c:out></td>
 													<td><c:out value="${list.contents}"></c:out></td>
 												</tr>

@@ -28,13 +28,29 @@
 			<div class="row">
 	 			<div class="col-lg-12">
 	   				<div class="card">
-	     				<div class="card-header">통장 이름</div>
+	     				<div class="card-header">계좌조회</div>
 	       				<div class="table align-items-center table-flush table-borderless">
 	       					<form name=formList method="post">
 								<div class="d-flex py-3">
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-									<div class="col-4 d-flex">
+									<div class="col-6 d-flex">
+				     					<select id="accountNumber" name="accountNumber" class="form-control">
+										    <c:forEach items="${list}" var="list">
+										        <c:choose>
+										            <c:when test="${list.defaultNy == 1}">
+										                <option value="${list.accountNumber}" selected>
+										                    <c:out value="${list.accountNumber}" />
+										                </option>
+										            </c:when>
+										            <c:otherwise>
+										                <option value="${list.accountNumber}">
+										                    <c:out value="${list.accountNumber}" />
+										                </option>
+										            </c:otherwise>
+										        </c:choose>
+										    </c:forEach>
+										</select>
 				    					<select id="shOption" class="form-control" name="shOption">
 							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색기간</option>
 							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>1주일</option>
@@ -57,14 +73,35 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-								      		<td>2023-06-15</td>
-								      		<td>순대국</td>
-								      		<td>5,000</td>
-								      		<td>출금</td>
-								      		<td>500,000</td>
-										</tr>
+									    <c:choose>
+									        <c:when test="${fn:length(list) eq 0}">
+									            <tr>
+									                <td colspan="6">통장의 거래내역이 없습니다.</td>
+									            </tr>
+									        </c:when>
+									        <c:otherwise>
+									            <c:forEach items="${list}" var="list">
+									                <tr>
+									                    <td>1</td>
+									                    <td><c:out value="${list.date}"></c:out></td>
+									                    <td><c:out value="${list.contents}"></c:out></td>
+									                    <td>
+									                        <fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber>
+									                    </td>
+									                    <td>
+									                        <c:choose>
+									                            <c:when test="${list.defaultNy == 0}">입금</c:when>
+									                            <c:when test="${list.defaultNy == 1}">출금</c:when>
+									                            <c:otherwise>입·출금 여부를 입력해 주세요.</c:otherwise>
+									                        </c:choose>
+									                    </td>
+									                    <td>
+									                        <fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber>
+									                    </td>
+									                </tr>
+									            </c:forEach>
+									        </c:otherwise>
+									    </c:choose>
 									</tbody>
 								</table>
 								<br>
@@ -97,8 +134,15 @@
 	// 페이지네이션 
 	goList = function(thisPage) {
 		$("input:hidden[name=thisPage]").val(thisPage);
-		$("form[name=formList]").attr("action", "accountList").submit();
+		$("form[name=formList]").attr("action", "accountUsrView").submit();
 	}
+	
+	// 서치버튼 클릭이벤트
+	$("#btnSearch").on("click", function(){
+		
+		$("form[name=formList]").attr("action","/accountUsrView").submit();
+		
+	});
 	
 </script> 
 </body>

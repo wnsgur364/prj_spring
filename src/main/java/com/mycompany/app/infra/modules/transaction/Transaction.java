@@ -12,6 +12,7 @@ public class Transaction {
 	private String contents;
 	private String account_seq;
 	private String accountNumber;
+	private Integer accountBalance;
 	private Integer defaultNy;
 //	-----
 	public String getSeq() {
@@ -67,6 +68,12 @@ public class Transaction {
 	}
 	public void setDefaultNy(Integer defaultNy) {
 		this.defaultNy = defaultNy;
+	}
+	public Integer getAccountBalance() {
+		return accountBalance;
+	}
+	public void setAccountBalance(Integer accountBalance) {
+		this.accountBalance = accountBalance;
 	}
 	
 }

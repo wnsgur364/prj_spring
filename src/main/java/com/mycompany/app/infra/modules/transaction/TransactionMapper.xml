@@ -15,7 +15,8 @@
 		a.balance,
 		a.date,
 		a.contents,
-		b.accountNumber
+		b.accountNumber,
+		b.accountBalance
 	</sql>
 	
 	<sql id="selectCommon">

@@ -99,7 +99,7 @@
 														<td><c:out value="${list.accountNumber}"></c:out></td>
 														<td><c:out value="${list.accountName}"></c:out></td>
 														<td><c:out value="${list.accountPassword}"></c:out></td>
-														<td><c:out value="${list.accountBalance}"></c:out></td>
+														<td><fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber></td>
 													</tr>
 												</c:forEach>
 											</c:otherwise>

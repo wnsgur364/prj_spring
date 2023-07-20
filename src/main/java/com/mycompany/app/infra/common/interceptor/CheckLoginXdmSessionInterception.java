@@ -13,7 +13,7 @@ public class CheckLoginXdmSessionInterception extends HandlerInterceptorAdapter 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if (request.getSession().getAttribute("id") != null) {
-			System.out.println("관리자");
+			System.out.println("관리자 인터셉트 정상 작동");
 			// by pass
 		} else {
 			response.sendRedirect(Constants.URL_LOGINXDMFORM);

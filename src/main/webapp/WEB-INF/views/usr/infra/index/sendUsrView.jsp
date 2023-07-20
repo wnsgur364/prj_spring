@@ -34,11 +34,16 @@
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								        <label for="member_seq">출금계좌</label>
-								        <select class="form-control" id="member_seq" name="member_seq" onchange="getAccountBalance(this.value)">
-								            <option value=""></option>
+								        <label for="accountNumber">출금계좌</label>
+								        <select class="form-control" id="accountNumber" name="accountNumber">
 								            <c:forEach items="${account}" var="account">
-								                <option value="${account.accountNumber}">${account.accountNumber}</option>
+								                <option value="${account.accountNumber}" <%-- Compare with the logged-in user's accountNumber and set 'selected' attribute --%>
+								                    <c:if test="${account.accountNumber.equals(loggedInUserAccountNumber)}">
+								                        selected
+								                    </c:if>
+								                >
+								                    ${account.accountNumber}
+								                </option>
 								            </c:forEach>
 								        </select>
 								    </div>
