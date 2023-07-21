@@ -113,7 +113,7 @@
 		 	seq = #{seq}
     </update>
     
-    	<insert id="withdraw">
+   	<insert id="withdraw">
  		INSERT INTO transaction (
 			delNy,
 			defaultNy,

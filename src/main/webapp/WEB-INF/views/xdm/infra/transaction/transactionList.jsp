@@ -58,7 +58,7 @@
 											<input type="checkbox" name="checked" id="allCheck" value="">
 										</th>
 										<th>seq</th>
-										<th>입·출금·이체</th>
+										<th>거래유형</th>
 										<th>출금계좌</th>
 										<th>받는계좌</th>
 										<th>거래금액</th>
@@ -68,6 +68,7 @@
 									</tr>
 								</thead>
 								<tbody>
+									<c:set var="listCodeTrCategory" value="${CodeServiceImpl.selectListCachedCode('3')}"/>
 									<c:choose>
 										<c:when test="${fn:length(list) eq 0}">
 											<tr>
@@ -82,20 +83,11 @@
 													</td>
 													<td><c:out value="${list.seq}"></c:out></td>
 													<td>
-													 	<c:choose>
-													   		<c:when test="${list.defaultNy == 0}">
-													     		입금
-													   		</c:when>
-													   		<c:when test="${list.defaultNy == 1}">
-													     		출금
-													   		</c:when>
-													   		<c:when test="${list.defaultNy == 2}">
-													     		이체
-													   		</c:when>
-													   		<c:otherwise>	
-													     		입·출금 여부를 입력해 주세요.
-													   		</c:otherwise>
-													 	</c:choose>
+													 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
+															<c:if test="${list.defaultNy eq listTrCategory.seq}">
+																<c:out value="${listTrCategory.name}"/>
+															</c:if>
+														</c:forEach>
 													</td>
 													<td><c:out value="${list.accountNumber}"></c:out></td>
 													<td><c:out value="${list.recipientAccountNumber}"></c:out></td>
