@@ -113,4 +113,22 @@
 		 	seq = #{seq}
     </update>
     
+    	<insert id="withdraw">
+ 		INSERT INTO transaction (
+			delNy,
+			defaultNy,
+			balance,
+			date,
+			contents,
+			account_seq
+    	) VALUES (
+    		0, 
+    		1,
+    		#{balance},
+    		now(),
+   			#{contents},
+    		#{account_seq}
+		)
+	</insert>
+    
 </mapper>

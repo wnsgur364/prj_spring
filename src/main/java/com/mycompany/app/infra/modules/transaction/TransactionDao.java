@@ -25,6 +25,6 @@ public class TransactionDao {
 	public int update(Transaction dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Transaction dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Transaction dto) { return sqlSession.insert(namespace + ".insert", dto); }
-
+	public int withdraw(Transaction dto) { return sqlSession.insert(namespace + ".withdraw", dto); }
 }
  

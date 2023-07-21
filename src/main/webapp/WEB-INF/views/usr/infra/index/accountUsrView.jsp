@@ -36,19 +36,17 @@
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
 				     					<select id="accountNumber" name="accountNumber" class="form-control">
-										    <c:forEach items="${list}" var="list">
-										        <c:choose>
-										            <c:when test="${list.defaultNy == 1}">
-										                <option value="${list.accountNumber}" selected>
-										                    <c:out value="${list.accountNumber}" />
-										                </option>
-										            </c:when>
-										            <c:otherwise>
-										                <option value="${list.accountNumber}">
-										                    <c:out value="${list.accountNumber}" />
-										                </option>
-										            </c:otherwise>
-										        </c:choose>
+										    <c:forEach items="${list}" var="account" varStatus="status">
+										        <c:if test="${account.defaultNy == 1 && status.first}">
+										            <option value="${account.accountNumber}" selected>
+										                <c:out value="${account.accountNumber}" />
+										            </option>
+										        </c:if>
+										        <c:if test="${account.defaultNy == 0}">
+										            <option value="${account.accountNumber}">
+										                <c:out value="${account.accountNumber}" />
+										            </option>
+										        </c:if>
 										    </c:forEach>
 										</select>
 				    					<select id="shOption" class="form-control" name="shOption">

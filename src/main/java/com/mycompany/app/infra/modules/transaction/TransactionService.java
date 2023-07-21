@@ -10,4 +10,5 @@ public interface TransactionService {
 	public int update(Transaction dto);
 	public int insert(Transaction dto);
 	public int uelete(Transaction dto);
+	public int withdraw(Transaction dto);
 }

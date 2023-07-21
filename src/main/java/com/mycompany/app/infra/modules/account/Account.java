@@ -1,7 +1,5 @@
 package com.mycompany.app.infra.modules.account;
 
-import java.math.BigDecimal;
-
 public class Account {
 	private String seq;
 	private Integer delNy;

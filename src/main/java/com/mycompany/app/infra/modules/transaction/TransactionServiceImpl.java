@@ -41,4 +41,9 @@ public class TransactionServiceImpl implements TransactionService {
 		return dao.uelete(dto);
 	}
 
+	@Override
+	public int withdraw(Transaction dto) {
+		return dao.withdraw(dto);
+	}
+
 }

@@ -45,10 +45,11 @@
 								</div>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								        <label for="defaultNy">입·출금</label>
+								        <label for="defaultNy">입·출금·이체</label>
 								        <select class="form-control" id="defaultNy" name="defaultNy" required>
 								            <option value="0" <c:if test="${item.defaultNy eq '0'}">selected</c:if>>입금</option>
 								            <option value="1" <c:if test="${item.defaultNy eq '1'}">selected</c:if>>출금</option>
+								            <option value="2" <c:if test="${item.defaultNy eq '2'}">selected</c:if>>이체</option>
 								        </select>
 								        <div class="invalid-feedback"></div>
 								    </div>
@@ -122,7 +123,6 @@
 <%@ include file="../../../include/script.jsp" %>
 <script>
 	
-	var objAccount = $("#recipientAccountNumber");
 	var objBalance = $("#balance");
 	
 	validationInst = function(){
@@ -130,7 +130,6 @@
 	}
 	
 	validationUpdt = function(){
-		if (checkRecipientAccount(objAccount, "받는계좌는 숫자, -(하이픈)만 입력해 주세요.") === false) return false;
 		if (checkOnlyNum(objBalance, "금액은 숫자만 입력해 주세요.") === false) return false;
 	}
 	

@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.modules.account.AccountServiceImpl;
+import com.mycompany.app.infra.modules.account.AccountVo;
 import com.mycompany.app.infra.modules.influencer.Influencer;
 import com.mycompany.app.infra.modules.influencer.InfluencerServiceImpl;
 import com.mycompany.app.infra.modules.influencer.InfluencerVo;
+import com.mycompany.app.infra.modules.transaction.Transaction;
 import com.mycompany.app.infra.modules.transaction.TransactionServiceImpl;
 import com.mycompany.app.infra.modules.transaction.TransactionVo;
 
@@ -24,13 +27,13 @@ public class IndexController {
 	}
 	
 	@Autowired
-	InfluencerServiceImpl inservice;
+	InfluencerServiceImpl inService;
 	@RequestMapping(value = "/indexUsrView")
 	public String indexUsrView(@ModelAttribute("vo") InfluencerVo vo, Model model) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		vo.setParamsPaging(inservice.selectOneCount(vo));
+		vo.setParamsPaging(inService.selectOneCount(vo));
 		if (vo.getTotalRows() > 0) {
-			List<Influencer> list = inservice.selectList(vo);
+			List<Influencer> list = inService.selectList(vo);
 			model.addAttribute("list", list);
 		} else {
 //			by pass
@@ -40,17 +43,32 @@ public class IndexController {
 	}
 	
 	@Autowired
-	TransactionServiceImpl trservice;
+	TransactionServiceImpl trService;
 	@RequestMapping(value = "/accountUsrView")
 	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		vo.setParamsPaging(trservice.selectOneCount(vo));
+		vo.setParamsPaging(trService.selectOneCount(vo));
 		if (vo.getTotalRows() > 0) {
-			model.addAttribute("list", trservice.selectList(vo));
+			model.addAttribute("list", trService.selectList(vo));
 		} else {
 //			by pass
 		}
 		return "usr/infra/index/accountUsrView";
+	}
+	@Autowired
+	AccountServiceImpl acService;
+	@RequestMapping("/withdrawUsrView")
+	public String withdrawUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
+		model.addAttribute("item", trService.selectOne(vo));
+		groupModel.addAttribute("group", acService.selectList(groupvo));
+		
+		return "usr/infra/index/withdrawUsrView";
+	}
+	
+	@RequestMapping("/withdrawInsert")
+	public String withdrawInsert(Transaction dto) {
+		trService.withdraw(dto);
+		return "redirect:/accountUsrView";
 	}
 	
 	@RequestMapping(value = "/accountAddUsrView")
@@ -87,9 +105,5 @@ public class IndexController {
 	public String sendUsrView() {
 		return "usr/infra/index/sendUsrView";
 	}
-	
-	@RequestMapping(value = "/withdrawUsrView")
-	public String withdrawUsrView() {
-		return "usr/infra/index/withdrawUsrView";
-	}
+
 }
