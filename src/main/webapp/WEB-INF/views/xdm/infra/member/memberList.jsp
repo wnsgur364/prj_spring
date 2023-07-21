@@ -92,9 +92,27 @@
 															</c:if>
 														</c:forEach>
 													</td>
-													<td><c:out value="${list.pw}"></c:out></td>
+													<c:set var="pw" value="${list.pw}" />
+													<c:set var="maskedPw" value="*" />
+													<c:forEach begin="1" end="${fn:length(pw)}" var="i">
+													  	<c:set var="maskedPw" value="${maskedPw}*"/>
+													</c:forEach>
+													<td><c:out value="${maskedPw}"></c:out></td>
 													<td><c:out value="${list.email}"></c:out></td>
-													<td><c:out value="${list.phone}"></c:out></td>
+													<td>
+														<c:choose>
+									                		<c:when test="${fn:length(list.phone) eq 10 }">
+																<c:out value="${fn:substring(list.phone,0,3)}"/>
+																- <c:out value="${fn:substring(list.phone,3,6)}"/>
+																- <c:out value="${fn:substring(list.phone,6,10)}"/>
+									                		</c:when>
+									                		<c:otherwise>
+																<c:out value="${fn:substring(list.phone,0,3)}"/>
+																- <c:out value="${fn:substring(list.phone,3,7)}"/>
+																- <c:out value="${fn:substring(list.phone,7,11)}"/>
+									                		</c:otherwise>
+									                	</c:choose>
+													</td>
 													<td>
 														<c:forEach items="${listCodeLevel}" var="listLevel" varStatus="statusLevel">
 															<c:if test="${list.level eq listLevel.seq}">

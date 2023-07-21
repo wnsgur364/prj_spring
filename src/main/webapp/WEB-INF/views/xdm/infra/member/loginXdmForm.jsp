@@ -45,7 +45,7 @@
 				  	<div class="form-group">
 				  		<label for="pw" class="sr-only">비밀번호</label>
 			   			<div class="position-relative has-icon-right">
-				  			<input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Password" required value="Admin123@!">
+				  			<input type="password" id="pw" name="pw" class="form-control input-shadow" placeholder="Enter Password" required value="Ezen0508!">
 				  			<div class="form-control-position"><i class="icon-lock"></i></div>
 			   				<div class="invalid-feedback"></div>
 			   			</div>
@@ -109,10 +109,9 @@
 				"pw" : $("#pw").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					alert(response.rtMember.name);
 					location.href = "/indexXdmView";
 				} else {
-					alert("그런 회원 없습니다.");
+					alert("아이디와 비밀번호를 확인해주세요.");
 					$("#pw").val("");
 					$("#pw").focus();
 				}

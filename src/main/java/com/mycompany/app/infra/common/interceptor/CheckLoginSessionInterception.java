@@ -13,7 +13,7 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if (request.getSession().getAttribute("id") != null) {
-			System.out.println("사용자 인터셉트 정상 작동");
+//			System.out.println("사용자 인터셉트 정상 작동");
 			// by pass
 		} else {
 			response.sendRedirect(Constants.URL_LOGINFORM);

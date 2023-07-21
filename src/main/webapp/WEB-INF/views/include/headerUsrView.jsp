@@ -24,27 +24,27 @@
       	<li>
         	<a href="accountUsrView">
           		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>조회</span>
+          		<span>계좌조회</span>
         	</a>
       	</li>
       	<li>
         	<a href="depositUsrView">
           		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>입금</span>
-        	</a>
-      	</li>
-      	<li>
-        	<a href="sendUsrView">
-          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>이체</span>
+          		<span>무통장입금</span>
         	</a>
       	</li>
       	<li>
         	<a href="withdrawUsrView">
           		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>출금</span>
+          		<span>계좌이체</span>
         	</a>
       	</li>
+<!--       	<li> -->
+<!--         	<a href="withdrawUsrView"> -->
+<!--           		<i class="zmdi zmdi-format-list-bulleted"></i>  -->
+<!--           		<span>출금</span> -->
+<!--         	</a> -->
+<!--       	</li> -->
       	<li>
         	<a href="exchangeRateUsrView">
           		<i class="zmdi zmdi-format-list-bulleted"></i> 

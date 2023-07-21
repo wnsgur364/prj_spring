@@ -10,4 +10,6 @@ public interface AccountService {
 	public int update (Account dto);
 	public int uelete (Account dto);
 	public int insert (Account dto);
+	public int accountAdd (Account dto);
+	
 }

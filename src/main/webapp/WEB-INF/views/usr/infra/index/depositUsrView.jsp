@@ -29,7 +29,7 @@
 				<div class="col-lg-12">
   					<div class="card">
            				<div class="card-body">
-           					<div class="card-title">자동 이체</div>
+           					<div class="card-title">무통장입금</div>
        						<hr>
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
@@ -51,13 +51,6 @@
 							        <div class="form-floating">
 							       		<label for="contents">내용</label>
 							            <input type="text" class="form-control" id="contents" name="contents" required>
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
-								<div class="col-md-4 py-2">
-							        <div class="form-floating">
-							            <label for="accountPassword">계좌비밀번호</label>
-							            <input type="text" class="form-control" id="accountPassword" name="accountPassword" required>
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>

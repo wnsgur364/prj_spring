@@ -155,11 +155,39 @@
 	    }
 	}
 	
+	checkAccountPwCheck = function(obj, message) {
+	    var objPassword = $("#accountPassword");
+	    var objPasswordValue = objPassword.val().trim();
+	
+	    if (obj.val().trim() === objPasswordValue) {
+	        obj.removeClass("is-invalid");
+	        return true;
+	    } else {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    }
+	}
+	
 	checkSelectNull = function(obj, message) {
 	    var value = $.trim(obj.val());
 	
 	    // Add additional condition to check for value being 0 or null
 	    if (!value || value === '0' || !/^[0-9-]+$/.test(value)) {
+	        obj.addClass("is-invalid");
+	        obj.focus();
+	        $(".invalid-feedback").text(message);
+	        return false;
+	    } else {
+	        obj.removeClass("is-invalid");
+	    }
+	}
+	
+	checkContents = function(obj, message) {
+	    var regExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9\s]+$/; // \s*을 추가하여 스페이스바(공백)를 허용
+	
+	    if (regExp.test($.trim(obj.val())) == false) {
 	        obj.addClass("is-invalid");
 	        obj.focus();
 	        $(".invalid-feedback").text(message);

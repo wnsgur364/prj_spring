@@ -104,10 +104,10 @@
 							<br>
 	               			<%@ include file="../../../include/pagination.jsp" %> 
 	               			<br>
-							<div class="d-flex justify-content-center">
-								<button type="button" class="btn btn-light" onclick="location.href='transactionForm'">추가</button>
-								<button type="button" class="btn btn-light" id="btnModification">수정</button>
-							</div>
+<!-- 							<div class="d-flex justify-content-center"> -->
+<!-- 								<button type="button" class="btn btn-light" onclick="location.href='transactionForm'">추가</button> -->
+<!-- 								<button type="button" class="btn btn-light" id="btnModification">수정</button> -->
+<!-- 							</div> -->
                			</form>
        				</div>
    				</div>

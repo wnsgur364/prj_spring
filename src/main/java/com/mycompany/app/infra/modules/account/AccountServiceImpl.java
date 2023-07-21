@@ -1,11 +1,7 @@
 package com.mycompany.app.infra.modules.account;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +39,10 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public int insert(Account dto) {
 		return dao.insert(dto);
+	}
+
+	@Override
+	public int accountAdd(Account dto) {
+		return dao.accountAdd(dto);
 	}
 }

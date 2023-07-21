@@ -23,5 +23,6 @@ public class AccountDao {
 	public int update(Account dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Account dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Account dto) { return sqlSession.insert(namespace + ".insert", dto); }
+	public int accountAdd(Account dto) { return sqlSession.insert(namespace + ".accountAdd", dto); }
 	
 }

@@ -29,7 +29,7 @@
 				<div class="col-lg-12">
   					<div class="card">
            				<div class="card-body">
-           					<div class="card-title">출금</div>
+           					<div class="card-title">계좌이체</div>
        						<hr>
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
@@ -74,9 +74,17 @@
 							        </div>
 							    </div>
 							    <hr>
+								<div class="col-md-4 py-2">
+							        <div class="form-floating">
+							        	<label for="recipientAccountNumber">받는계좌</label>
+							            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required value="<c:out value="${item.recipientAccountNumber}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+							    <hr>
 								<div class="form-group">
 									<button class="btn btn-light" id="submitForm" type="button">확인</button>
-					    			<button class="btn btn-light" type="button" onclick="location.href='indexUsrView'">취소</button>   		
+					    			<button class="btn btn-light" type="button">취소</button>   		
 					    		</div>
 							</form>
   						</div>
@@ -99,15 +107,15 @@
 <%@ include file="../../../include/script.jsp" %>
 <script>
 	var objBalance = $("#balance");
+	var objContents = $("#contents");
 	var objAccountPw = $("#accountPassword");
+	var objRecipientAccountNumber = $("#recipientAccountNumber")
 	
 	validationInst = function(){
-		if(validationUpdt() == false) return false;
-	}
-	
-	validationUpdt = function(){
 		if (checkOnlyNum(objBalance, "금액은 숫자만 입력해 주세요.") === false) return false;
+		if (checkContents(objContents, "내용을 입력해 주세요.") === false) return false;
 		if (checkAccountPw(objAccountPw, "비밀번호는 숫자 6자리 입니다.") === false) return false;
+		if (checkRecipientAccount(objRecipientAccountNumber, "계좌번호는 숫자와 -(하이픈)만 입력해 주세요.") === false) return false;
 	}
 	
 	//인서트버튼 클릭이벤트

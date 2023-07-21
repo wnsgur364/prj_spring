@@ -71,6 +71,7 @@
 										</tr>
 									</thead>
 									<tbody>
+										<c:set var="listCodeTrCategory" value="${CodeServiceImpl.selectListCachedCode('3')}"/>
 									    <c:choose>
 									        <c:when test="${fn:length(list) eq 0}">
 									            <tr>
@@ -83,16 +84,24 @@
 									                    <td>1</td>
 									                    <td><c:out value="${list.date}"></c:out></td>
 									                    <td><c:out value="${list.contents}"></c:out></td>
+									                    <c:set var="balance" value="${list.balance}" />
 									                    <td>
-									                        <fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber>
-									                    </td>
+														  <c:choose>
+														    <c:when test="${list.defaultNy eq 6}">
+														      <font color="whiteblue">+<fmt:formatNumber value="${balance}" pattern="#,###"></fmt:formatNumber></font>
+														    </c:when>
+														    <c:otherwise>
+														      <font color="red">-<fmt:formatNumber value="${balance}" pattern="#,###"></fmt:formatNumber></font>
+														    </c:otherwise>
+														  </c:choose>
+														</td>
 									                    <td>
-									                        <c:choose>
-									                            <c:when test="${list.defaultNy == 0}">입금</c:when>
-									                            <c:when test="${list.defaultNy == 1}">출금</c:when>
-									                            <c:otherwise>입·출금 여부를 입력해 주세요.</c:otherwise>
-									                        </c:choose>
-									                    </td>
+													 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
+															<c:if test="${list.defaultNy eq listTrCategory.seq}">
+																<c:out value="${listTrCategory.name}"/>
+															</c:if>
+														</c:forEach>
+													</td>
 									                    <td>
 									                        <fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber>
 									                    </td>
@@ -109,6 +118,7 @@
 									<button type="button" class="btn btn-light" onclick="location.href='accountAddUsrView'">계좌 추가</button>
 									<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">계좌 삭제</button>
 								</div>
+								<%@ include file="../../../include/modalBase.jsp" %>
 							</form>
 	       				</div>
 	   				</div>

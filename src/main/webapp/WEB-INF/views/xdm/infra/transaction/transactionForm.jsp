@@ -50,7 +50,6 @@
 								        	<option value="0" <c:if test="${item.defaultNy eq '0'}">selected</c:if>>거래유형을 선택해주세요.</option>
 								            <option value="6" <c:if test="${item.defaultNy eq '6'}">selected</c:if>>입금</option>
 								            <option value="7" <c:if test="${item.defaultNy eq '7'}">selected</c:if>>출금</option>
-								            <option value="8" <c:if test="${item.defaultNy eq '8'}">selected</c:if>>이체</option>
 								        </select>
 								        <div class="invalid-feedback"></div>
 								    </div>
@@ -58,7 +57,7 @@
 		   					    <div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="recipientAccountNumber">받는계좌</label>
-							            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required value="<c:out value="${item.recipientAccountNumber}"/>">
+							            <input type="text" class="form-control" id="recipientAccountNumber" name="recipientAccountNumber" required readonly value="<c:out value="${item.recipientAccountNumber}"/>">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
@@ -77,17 +76,21 @@
 							        </div>
 							    </div>
 							    <div class="col-md-4 py-2">
+							        <div class="form-floating">
+							       		<label for="accountNumber">출금계좌</label>
+							            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required readonly value="<c:out value="${item.accountNumber}"/>">
+							            <div class="invalid-feedback"></div>
+							        </div>
+							    </div>
+							    <div class="col-md-4 py-2">
 								    <div class="form-floating">
 								    	<label for="account_seq">출금계좌</label>
-									    <select class="form-control" id="account_seq" name="account_seq">
-										    <c:forEach items="${group}" var="group" varStatus="status">
-			   					                <option value="<c:out value='${group.seq}'></c:out>"
-								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
-								                >
-								                    <c:out value="${group.accountNumber}"></c:out>
-								                </option>
-											</c:forEach>
-										</select>
+								    	<c:forEach items="${group}" var="group" varStatus="status">
+									    	<input type="text" class="form-control" id="account_seq" name="account_seq" required readonly 
+							    				value="<c:out value='${group.seq}'></c:out>"
+							                    <c:if test="${group.seq == item.account_seq}">selected</c:if>>
+							                    <c:out value="${group.accountNumber}"></c:out>
+										</c:forEach>
 									</div>
 	   					     	</div>
 							    <hr>
@@ -125,14 +128,14 @@
 <script>
 	
 	var objBalance = $("#balance");
-	var objSelect = $("#defaultNy");
+// 	var objSelect = $("#defaultNy");
 	
 	validationInst = function(){
 		if(validationUpdt() == false) return false;
 	}
 	
 	validationUpdt = function(){
-		if (checkSelectNull(objSelect, "거래유형을 선택해 주세요.") === false) return false;
+// 		if (checkSelectNull(objSelect, "거래유형을 선택해 주세요.") === false) return false;
 		if (checkOnlyNum(objBalance, "금액은 숫자만 입력해 주세요.") === false) return false;
 	}
 	
@@ -142,16 +145,16 @@
 		$("form[name=form]").attr("action","/transactionUpdate").submit();
 	});
 
-	// 인서트버튼 클릭이벤트
-	$("#btnInsert").on("click", function(){
-		if (validationInst() === false) return false;
-		$("form[name=form]").attr("action","/transactionInsert").submit();
-	});
+// 	// 인서트버튼 클릭이벤트
+// 	$("#btnInsert").on("click", function(){
+// 		if (validationInst() === false) return false;
+// 		$("form[name=form]").attr("action","/transactionInsert").submit();
+// 	});
 
-	// 율리트버튼 클릭이벤트
-	$("#btnDelete").on("click", function(){
-		$("form[name=form]").attr("action","/transactionUelete").submit();
-	});
+// 	// 율리트버튼 클릭이벤트
+// 	$("#btnDelete").on("click", function(){
+// 		$("form[name=form]").attr("action","/transactionUelete").submit();
+// 	});
 	
 </script>
 </body>

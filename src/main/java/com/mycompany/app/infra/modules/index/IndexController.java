@@ -8,11 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.app.infra.modules.account.Account;
 import com.mycompany.app.infra.modules.account.AccountServiceImpl;
 import com.mycompany.app.infra.modules.account.AccountVo;
 import com.mycompany.app.infra.modules.influencer.Influencer;
 import com.mycompany.app.infra.modules.influencer.InfluencerServiceImpl;
 import com.mycompany.app.infra.modules.influencer.InfluencerVo;
+import com.mycompany.app.infra.modules.member.MemberServiceImpl;
+import com.mycompany.app.infra.modules.member.MemberVo;
 import com.mycompany.app.infra.modules.transaction.Transaction;
 import com.mycompany.app.infra.modules.transaction.TransactionServiceImpl;
 import com.mycompany.app.infra.modules.transaction.TransactionVo;
@@ -72,9 +75,18 @@ public class IndexController {
 		return "redirect:/accountUsrView";
 	}
 	
+	@Autowired
+	MemberServiceImpl mbService;
 	@RequestMapping(value = "/accountAddUsrView")
-	public String accountAddUsrView() {
+	public String accountAddUsrView(MemberVo vo, Model model) {
+		model.addAttribute("member", mbService.selectList(vo));
 		return "usr/infra/index/accountAddUsrView";
+	}
+	
+	@RequestMapping("/accountAdd")
+	public String accountAdd(Account dto) {
+		acService.accountAdd(dto);
+		return "redirect:/accountUsrView";
 	}
 	
 	@RequestMapping(value = "/domesticStockUsrView")

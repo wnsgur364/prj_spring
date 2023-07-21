@@ -115,4 +115,24 @@
 		 	seq = #{seq}
     </update>
     
+   	<insert id="accountAdd">
+ 		INSERT INTO account (
+ 			delNy,
+ 			defaultNy,
+ 			accountNumber,
+ 			accountName,
+ 			accountPassword,
+			accountBalance,
+ 			member_seq
+    	) VALUES (
+    		0, 
+    		#{defaultNy},
+    		#{accountNumber},
+    		#{accountName},
+   			#{accountPassword},
+   			0,
+    		#{member_seq}
+		)
+	</insert>
+    
 </mapper>
