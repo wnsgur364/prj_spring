@@ -56,7 +56,7 @@
 										</th>
 										<th>seq</th>
 										<th>인플루언서 이름</th>
-										<th>유튜브 주소</th>
+										<th class="col-2">유튜브 주소</th>
 										<th>인스타그램 주소</th>
 									</tr>
 	                   			</thead>
@@ -75,7 +75,17 @@
 													</td>
 													<td><c:out value="${list.seq}"></c:out></td>
 													<td><c:out value="${list.influencerName}"></c:out></td>
-													<td><c:out value="${list.youtubeUrl}"></c:out></td>
+													<td>
+													  	<c:choose>
+													    	<c:when test="${fn:length(list.youtubeUrl) > 100}">
+													      		<c:set var="shortenedUrl" value="${fn:substring(list.youtubeUrl, 0, 100)}" />
+													      		<c:out value="${shortenedUrl}..."></c:out>
+												    		</c:when>
+													    	<c:otherwise>
+													      		<c:out value="${list.youtubeUrl}"></c:out>
+													    	</c:otherwise>
+													  	</c:choose>
+													</td>
 													<td><c:out value="${list.instagramUrl}"></c:out></td>
 												</tr>
 											</c:forEach>

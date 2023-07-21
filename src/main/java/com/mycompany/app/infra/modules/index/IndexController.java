@@ -1,19 +1,56 @@
 package com.mycompany.app.infra.modules.index;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.mycompany.app.infra.modules.influencer.Influencer;
+import com.mycompany.app.infra.modules.influencer.InfluencerServiceImpl;
+import com.mycompany.app.infra.modules.influencer.InfluencerVo;
+import com.mycompany.app.infra.modules.transaction.TransactionServiceImpl;
+import com.mycompany.app.infra.modules.transaction.TransactionVo;
 
 @Controller
 public class IndexController {
+	
 
 	@RequestMapping(value = "/")
 	public String home() {
 		return "biography/biography";
 	}
 	
+	@Autowired
+	InfluencerServiceImpl inservice;
 	@RequestMapping(value = "/indexUsrView")
-	public String indexUsrView() {
+	public String indexUsrView(@ModelAttribute("vo") InfluencerVo vo, Model model) {
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
+		vo.setParamsPaging(inservice.selectOneCount(vo));
+		if (vo.getTotalRows() > 0) {
+			List<Influencer> list = inservice.selectList(vo);
+			model.addAttribute("list", list);
+		} else {
+//			by pass
+		}
+		
 		return "usr/infra/index/indexUsrView";
+	}
+	
+	@Autowired
+	TransactionServiceImpl trservice;
+	@RequestMapping(value = "/accountUsrView")
+	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model) {
+		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
+		vo.setParamsPaging(trservice.selectOneCount(vo));
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", trservice.selectList(vo));
+		} else {
+//			by pass
+		}
+		return "usr/infra/index/accountUsrView";
 	}
 	
 	@RequestMapping(value = "/accountAddUsrView")

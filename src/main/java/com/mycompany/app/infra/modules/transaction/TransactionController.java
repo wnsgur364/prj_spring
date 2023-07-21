@@ -54,16 +54,4 @@ public class TransactionController {
 		return "redirect:/transactionList";
 	}
 	
-	@RequestMapping(value = "/accountUsrView")
-	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model) {
-		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		vo.setParamsPaging(service.selectOneCount(vo));
-		if (vo.getTotalRows() > 0) {
-			model.addAttribute("list", service.selectList(vo));
-		} else {
-//			by pass
-		}
-		return "usr/infra/index/accountUsrView";
-	}
-	
 }
