@@ -24,13 +24,20 @@ import com.mycompany.app.infra.modules.transaction.TransactionVo;
 public class IndexController {
 	
 
+	@Autowired
+	AccountServiceImpl acService;
+	@Autowired
+	InfluencerServiceImpl inService;
+	@Autowired
+	TransactionServiceImpl trService;
+	@Autowired
+	MemberServiceImpl mbService;
+	
 	@RequestMapping(value = "/")
 	public String home() {
 		return "biography/biography";
 	}
 	
-	@Autowired
-	InfluencerServiceImpl inService;
 	@RequestMapping(value = "/indexUsrView")
 	public String indexUsrView(@ModelAttribute("vo") InfluencerVo vo, Model model) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
@@ -45,12 +52,12 @@ public class IndexController {
 		return "usr/infra/index/indexUsrView";
 	}
 	
-	@Autowired
-	TransactionServiceImpl trService;
 	@RequestMapping(value = "/accountUsrView")
-	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model) {
+	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model , AccountVo groupvo, Model groupModel) {
 		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
 		vo.setParamsPaging(trService.selectOneCount(vo));
+		groupModel.addAttribute("group", acService.selectList(groupvo));
+		
 		if (vo.getTotalRows() > 0) {
 			model.addAttribute("list", trService.selectList(vo));
 		} else {
@@ -59,8 +66,6 @@ public class IndexController {
 		return "usr/infra/index/accountUsrView";
 	}
 	
-	@Autowired
-	AccountServiceImpl acService;
 	@RequestMapping("/withdrawUsrView")
 	public String withdrawUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
 		model.addAttribute("item", trService.selectOne(vo));
@@ -75,8 +80,6 @@ public class IndexController {
 		return "redirect:/accountUsrView";
 	}
 	
-	@Autowired
-	MemberServiceImpl mbService;
 	@RequestMapping(value = "/accountAddUsrView")
 	public String accountAddUsrView(MemberVo vo, Model model) {
 		model.addAttribute("member", mbService.selectList(vo));

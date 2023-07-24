@@ -35,19 +35,14 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
-				     					<select id="accountNumber" name="accountNumber" class="form-control">
-										    <c:forEach items="${list}" var="account" varStatus="status">
-										        <c:if test="${account.defaultNy == 1 && status.first}">
-										            <option value="${account.accountNumber}" selected>
-										                <c:out value="${account.accountNumber}" />
-										            </option>
-										        </c:if>
-										        <c:if test="${account.defaultNy == 0}">
-										            <option value="${account.accountNumber}">
-										                <c:out value="${account.accountNumber}" />
-										            </option>
-										        </c:if>
-										    </c:forEach>
+				     					<select class="form-control" id="account_seq" name="account_seq">
+										    <c:forEach items="${group}" var="group" varStatus="status">
+			   					                <option value="<c:out value='${group.seq}'></c:out>"
+								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
+								                >
+								                    <c:out value="${group.accountNumber}"></c:out>
+								                </option>
+											</c:forEach>
 										</select>
 				    					<select id="shOption" class="form-control" name="shOption">
 							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색기간</option>
@@ -79,9 +74,9 @@
 									            </tr>
 									        </c:when>
 									        <c:otherwise>
-									            <c:forEach items="${list}" var="list">
+									            <c:forEach items="${list}" var="list" varStatus="loop">
 									                <tr>
-									                    <td>1</td>
+								                    	<td>${loop.count}</td>
 									                    <td><c:out value="${list.date}"></c:out></td>
 									                    <td><c:out value="${list.contents}"></c:out></td>
 									                    <c:set var="balance" value="${list.balance}" />
