@@ -16,6 +16,7 @@
 		a.date,
 		a.contents,
 		b.accountNumber,
+		a.remainingBalance,
 		b.accountBalance
 	</sql>
 	
@@ -113,24 +114,74 @@
 		 	seq = #{seq}
     </update>
     
-   	<insert id="withdraw">
- 		INSERT INTO transaction (
-			delNy,
-			defaultNy,
-			balance,
-			date,
-			contents,
-			recipientAccountNumber,
-			account_seq
-    	) VALUES (
-    		0, 
-    		7,
-    		#{balance},
-    		now(),
-   			#{contents},
-   			#{recipientAccountNumber},
-    		#{account_seq}
-		)
+	<insert id="withdraw">
+	    INSERT INTO transaction (
+	        delNy,
+	        defaultNy,
+	        balance,
+	        date,
+	        contents,
+	        recipientAccountNumber,
+	        account_seq,
+	        remainingBalance
+	    ) VALUES (
+	        0,
+	        7,
+	        #{balance},
+	        NOW(),
+	        #{contents},
+	        #{recipientAccountNumber},
+	        #{account_seq},
+	        (SELECT 
+	        	accountBalance 
+	        FROM 
+	        	account 
+	        WHERE 
+	        	seq = #{account_seq}) - #{balance}
+	    )
 	</insert>
-    
+	
+	<insert id="deposit">
+	    INSERT INTO transaction (
+	        delNy,
+	        defaultNy,
+	        balance,
+	        date,
+	        contents,
+	        account_seq,
+	        remainingBalance
+	    ) VALUES (
+	        0,
+	        6,
+	        #{balance},
+	        NOW(),
+	        #{contents},
+	        #{account_seq},
+	        (SELECT 
+	        	accountBalance 
+	        FROM 
+	        	account 
+	        WHERE 
+	        	seq = #{account_seq}) + #{balance}
+	    )
+	</insert>
+	
+	<update id="updateAccountBalanceForWithdraw" parameterType="com.mycompany.app.infra.modules.transaction.Transaction">
+	    UPDATE 
+	    	account
+	    SET 
+	    	accountBalance = accountBalance - #{balance}
+	    WHERE 
+	    	seq = #{account_seq};
+	</update>
+
+	<update id="updateAccountBalanceForDeposit" parameterType="com.mycompany.app.infra.modules.transaction.Transaction">
+	    UPDATE 
+	    	account
+	    SET 
+	    	accountBalance = accountBalance + #{balance}
+	    WHERE 
+	    	seq = #{account_seq};
+	</update>
+	
 </mapper>

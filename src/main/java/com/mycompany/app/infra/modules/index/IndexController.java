@@ -66,6 +66,18 @@ public class IndexController {
 		return "usr/infra/index/accountUsrView";
 	}
 	
+	@RequestMapping(value = "/accountAddUsrView")
+	public String accountAddUsrView(MemberVo vo, Model model) {
+		model.addAttribute("member", mbService.selectList(vo));
+		return "usr/infra/index/accountAddUsrView";
+	}
+	
+	@RequestMapping("/accountAdd")
+	public String accountAdd(Account dto) {
+		acService.accountAdd(dto);
+		return "redirect:/accountUsrView";
+	}
+	
 	@RequestMapping("/withdrawUsrView")
 	public String withdrawUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
 		model.addAttribute("item", trService.selectOne(vo));
@@ -80,15 +92,17 @@ public class IndexController {
 		return "redirect:/accountUsrView";
 	}
 	
-	@RequestMapping(value = "/accountAddUsrView")
-	public String accountAddUsrView(MemberVo vo, Model model) {
-		model.addAttribute("member", mbService.selectList(vo));
-		return "usr/infra/index/accountAddUsrView";
+	@RequestMapping("/depositUsrView")
+	public String depositUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
+		model.addAttribute("item", trService.selectOne(vo));
+		groupModel.addAttribute("group", acService.selectList(groupvo));
+		
+		return "usr/infra/index/depositUsrView";
 	}
 	
-	@RequestMapping("/accountAdd")
-	public String accountAdd(Account dto) {
-		acService.accountAdd(dto);
+	@RequestMapping("/depositInsert")
+	public String depositInsert(Transaction dto) {
+		trService.deposit(dto);
 		return "redirect:/accountUsrView";
 	}
 	
@@ -112,14 +126,4 @@ public class IndexController {
 		return "xdm/infra/index/indexXdmView";
 	}
 	
-	@RequestMapping(value = "/depositUsrView")
-	public String depositUsrView() {
-		return "usr/infra/index/depositUsrView";
-	}
-	
-	@RequestMapping(value = "/sendUsrView")
-	public String sendUsrView() {
-		return "usr/infra/index/sendUsrView";
-	}
-
 }

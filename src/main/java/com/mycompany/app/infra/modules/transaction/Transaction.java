@@ -15,6 +15,7 @@ public class Transaction {
 	private Integer accountBalance;
 	private Integer defaultNy;
 	private String member_seq;
+	private Integer remainingBalance;
 //	-----
 	public String getSeq() {
 		return seq;
@@ -81,6 +82,12 @@ public class Transaction {
 	}
 	public void setMember_seq(String member_seq) {
 		this.member_seq = member_seq;
+	}
+	public Integer getRemainingBalance() {
+		return remainingBalance;
+	}
+	public void setRemainingBalance(Integer remainingBalance) {
+		this.remainingBalance = remainingBalance;
 	}
 	
 }

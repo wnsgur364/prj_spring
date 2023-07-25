@@ -34,30 +34,36 @@
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								    	<label for="member_seq">계좌선택</label>
-									    <select class="form-control" id="member_seq" name="member_seq">
-									   		<option value=""></option>
+								    	<label for="accountNumber">입금계좌</label>
+									    <select class="form-control" id="account_seq" name="account_seq">
+										    <c:forEach items="${group}" var="group" varStatus="status">
+			   					                <option value="<c:out value='${group.seq}'></c:out>"
+								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
+								                >
+								                    <c:out value="${group.accountNumber}"></c:out>
+								                </option>
+											</c:forEach>
 										</select>
 									</div>
 						     	</div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							        	<label for="balance">금액</label>	
-							            <input type="text" class="form-control" id="balance" name="balance" required>
+							            <input type="text" class="form-control" id="balance" name="balance" required value="<c:out value="${item.balance}"/>">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							       		<label for="contents">내용</label>
-							            <input type="text" class="form-control" id="contents" name="contents" required>
+							            <input type="text" class="form-control" id="contents" name="contents" required value="<c:out value="${item.contents}"/>">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>
 							    <hr>
 								<div class="form-group">
 									<button class="btn btn-light" id="submitForm" type="button">확인</button>
-					    			<button class="btn btn-light" type="button">취소</button>   		
+					    			<button class="btn btn-light" type="button" onclick="location.href='accountUsrView'">취소</button>   		
 					    		</div>
 							</form>
   						</div>
@@ -78,5 +84,22 @@
    
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
+<script>
+
+	var objBalance = $("#balance");
+	var objContents = $("#contents");
+	
+	validationInst = function(){
+		if (checkOnlyNum(objBalance, "금액은 숫자만 입력해 주세요.") === false) return false;
+		if (checkContents(objContents, "내용을 입력해 주세요.") === false) return false;
+	}
+	
+	//인서트버튼 클릭이벤트
+	$("#submitForm").on("click", function(){
+		if (validationInst() === false) return false;
+		$("form[name=form]").attr("action","/depositInsert").submit();
+	});
+
+</script>
 </body>
 </html>

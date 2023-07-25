@@ -91,14 +91,14 @@
 														  </c:choose>
 														</td>
 									                    <td>
-													 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
-															<c:if test="${list.defaultNy eq listTrCategory.seq}">
-																<c:out value="${listTrCategory.name}"/>
-															</c:if>
-														</c:forEach>
-													</td>
+														 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
+																<c:if test="${list.defaultNy eq listTrCategory.seq}">
+																	<c:out value="${listTrCategory.name}"/>
+																</c:if>
+															</c:forEach>
+														</td>
 									                    <td>
-									                        <fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber>
+									                        <fmt:formatNumber value="${list.remainingBalance}" pattern="#,###"></fmt:formatNumber>
 									                    </td>
 									                </tr>
 									            </c:forEach>
@@ -142,9 +142,7 @@
 	
 	// 서치버튼 클릭이벤트
 	$("#btnSearch").on("click", function(){
-		
 		$("form[name=formList]").attr("action","/accountUsrView").submit();
-		
 	});
 	
 </script> 

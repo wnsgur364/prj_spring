@@ -84,7 +84,7 @@
 							    <hr>
 								<div class="form-group">
 									<button class="btn btn-light" id="submitForm" type="button">확인</button>
-					    			<button class="btn btn-light" type="button">취소</button>   		
+					    			<button class="btn btn-light" type="button" onclick="location.href='accountUsrView'">취소</button>   		
 					    		</div>
 							</form>
   						</div>
@@ -106,6 +106,7 @@
 </div><!--End wrapper-->
 <%@ include file="../../../include/script.jsp" %>
 <script>
+
 	var objBalance = $("#balance");
 	var objContents = $("#contents");
 	var objAccountPw = $("#accountPassword");

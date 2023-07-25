@@ -45,5 +45,10 @@ public class TransactionServiceImpl implements TransactionService {
 	public int withdraw(Transaction dto) {
 		return dao.withdraw(dto);
 	}
+	
+	@Override
+	public int deposit(Transaction dto) {
+		return dao.deposit(dto);
+	}
 
 }
