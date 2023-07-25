@@ -34,31 +34,31 @@
             				<form class="needs-validation" name="form" method="post" novalidate>
 								<div class="col-md-4 py-2">
 								    <div class="form-floating">
-								    	<label for="accountNumber">출금계좌</label>
-									    <select class="form-control" id="account_seq" name="account_seq">
-										    <c:forEach items="${group}" var="group" varStatus="status">
-			   					                <option value="<c:out value='${group.seq}'></c:out>"
+								        <label for="accountNumber">출금계좌</label>
+								        <select class="form-control" id="account_seq" name="account_seq">
+								            <c:forEach items="${group}" var="group" varStatus="status">
+								                <option value="${group.seq}" data-account-balance="${group.accountBalance}"
 								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
 								                >
-								                    <c:out value="${group.accountNumber}"></c:out>
+								                    ${group.accountNumber}
 								                </option>
-											</c:forEach>
-										</select>
-									</div>
-						     	</div>
-								<div class="col-md-4 py-2">
-								    <div class="form-floating">
-								        <label for="accountBalance">계좌잔액</label>
-								        <input type="text" class="form-control" id="accountBalance" name="accountBalance" required readonly value="<c:out value="${item.accountBalance}"/>">
+								            </c:forEach>
+								        </select>
 								    </div>
 								</div>
 								<div class="col-md-4 py-2">
-							        <div class="form-floating">
-							        	<label for="balance">금액</label>	
-							            <input type="text" class="form-control" id="balance" name="balance" required value="<c:out value="${item.balance}"/>">
-							            <div class="invalid-feedback"></div>
-							        </div>
-							    </div>
+								    <div class="form-floating">
+								        <label for="accountBalance">계좌잔액</label>
+								        <input type="text" class="form-control" id="accountBalance" name="accountBalance" required readonly value="<fmt:formatNumber value='${item.accountBalance}' pattern='#,###'/>">
+								    </div>
+								</div>
+								<div class="col-md-4 py-2">
+								    <div class="form-floating">
+								        <label for="balance">금액</label>	
+								        <input type="text" class="form-control" id="balance" name="balance" required>
+								        <div class="invalid-feedback"></div>
+								    </div>
+								</div>
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							       		<label for="contents">내용</label>
@@ -124,6 +124,24 @@
 		if (validationInst() === false) return false;
 		$("form[name=form]").attr("action","/withdrawInsert").submit();
 	});
+	
+    function showAccountBalance() {
+        var selectedAccountSeq = $("#account_seq").val();
+        var accountBalance = $("#account_seq option:selected").data("account-balance");
+        $("#accountBalance").val(accountBalance);
+        // fmt 태그를 사용하여 3자리마다 쉼표를 찍히게 함
+        $("input#accountBalance").val(accountBalance);
+    }
+    
+    // 페이지 로드 시 함수 호출하여 초기 계좌 잔액을 표시합니다.
+    $(document).ready(function() {
+        showAccountBalance();
+    });
+    
+    // 계좌 선택이 변경되면 함수를 호출하여 잔액을 업데이트합니다.
+    $("#account_seq").change(function() {
+        showAccountBalance();
+    });
 
 </script>
 </body>
