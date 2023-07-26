@@ -17,6 +17,25 @@
 	<!-- favicon -->
 	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  
+	<style type="text/css">
+
+		.addScroll{
+			overflow-y:auto;
+			height: 200px;
+			background-color:#E9ECEF;
+			padding-top:5px; 
+			padding-left:5px;
+		}
+	 	
+		.input-file-button{
+			padding: 4px 25px;
+			background-color:#FF6600;
+			border-radius: 4px;
+			color: white;
+			cursor: pointer;
+		}
+	
+	</style>
 </head>
 <body class="bg-theme bg-theme9">
 <!-- start loader -->
@@ -35,12 +54,12 @@
            				<div class="card-body">
            					<div class="card-title">회원 수정</div>
        						<hr>
-            				<form class="needs-validation" name="form" method="post" novalidate>
+            				<form class="needs-validation" id="form" name="form" method="post" autocomplete="off" enctype="multipart/form-data" novalidate>
             					<div class="col-md-4 text-center">
 						      		<c:set var="type" value="1"/>		<!-- #-> -->
 						        	<c:set var="name" value="uploadImgProfile"/>		<!-- #-> -->
 									<c:choose>
-										<c:when test="${ifmmSeq eq 0 }">
+										<c:when test="${seq eq 0 }">
 											<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
 										</c:when>
 										<c:otherwise>
@@ -67,7 +86,7 @@
 									</c:choose>
 									<input type="hidden" id="<c:out value="${name }"/>Type" name="<c:out value="${name }"/>Type" value="<c:out value="${type }"/>"/>
 									<input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
-									<label for="<c:out value="${name }"/>" class="form-label input-file-button" style="font-size: 30px;"><b>+</b></label>
+									<label for="<c:out value="${name }"/>" class="form-label input-file-button"><b>+</b></label>
 						 			<input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 1, 1, 0, 0, 3);">
 						        </div>
 							    <div class="col-md-4 py-2">
@@ -228,7 +247,7 @@
 		$("form[name=form]").attr("action","/memberUelete").submit();
 	});
 	
-	
+	// 파일 업로드
 	upload = function(objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
 		
 //		objName 과 seq 는 jsp 내에서 유일 하여야 함.

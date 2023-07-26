@@ -69,7 +69,7 @@
 								<div class="col-md-4 py-2">
 							        <div class="form-floating">
 							            <label for="accountPassword">계좌비밀번호</label>
-							            <input type="password" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>">
+							            <input type="password" class="form-control" id="accountPassword" name="accountPassword" required value="<c:out value="${item.accountPassword}"/>" placeholder="123456">
 							            <div class="invalid-feedback"></div>
 							        </div>
 							    </div>

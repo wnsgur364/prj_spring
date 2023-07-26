@@ -35,7 +35,7 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
-				     					<select class="form-control" id="account_seq" name="account_seq">
+				     					<select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
 										    <c:forEach items="${group}" var="group" varStatus="status">
 			   					                <option value="<c:out value='${group.seq}'></c:out>"
 								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
@@ -63,6 +63,7 @@
 								      		<th>금액</th>
 								      		<th>입·출금</th>
 								      		<th>잔액</th>
+								      		<th>받는계좌</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -100,6 +101,7 @@
 									                    <td>
 									                        <fmt:formatNumber value="${list.remainingBalance}" pattern="#,###"></fmt:formatNumber>
 									                    </td>
+									                    <td><c:out value="${list.recipientAccountNumber}"></c:out>                </td>
 									                </tr>
 									            </c:forEach>
 									        </c:otherwise>
@@ -144,6 +146,34 @@
 	$("#btnSearch").on("click", function(){
 		$("form[name=formList]").attr("action","/accountUsrView").submit();
 	});
+	
+	// 계좌 정보와 거래 내역 조회 요청
+	function loadAccountAndTransactions() {
+	    var selectedAccountSeq = $("#account_seq").val();
+	    $.ajax({
+	        type: "POST",
+	        url: "/getAccountAndTransactions", // 계좌 정보 및 거래 내역 조회 컨트롤러 URL
+	        data: { seq: selectedAccountSeq }, // 선택된 계좌의 seq 전달
+	        dataType: "json",
+	        success: function(data) {
+	            if (data.rt === "success") {
+	                alert("sfae");
+	                // 성공적으로 계좌 정보와 거래 내역을 받아온 경우
+	                var accountInfo = data.account;
+	                var transactions = data.transactions;
+
+	                // 계좌 정보와 거래 내역을 사용하여 JSP에 표시하는 로직을 추가
+	                // ...
+	            } else if (data.rt === "error") {
+	                // 조회 에러 처리 등
+	                // ...
+	            }
+	        },
+	        error: function(xhr, status, error) {
+	            console.error("에러 발생:", error);
+	        }
+	    });
+	}
 	
 </script> 
 </body>

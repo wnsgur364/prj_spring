@@ -1,12 +1,15 @@
 package com.mycompany.app.infra.modules.index;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.app.infra.modules.account.Account;
 import com.mycompany.app.infra.modules.account.AccountServiceImpl;
@@ -64,6 +67,32 @@ public class IndexController {
 //			by pass
 		}
 		return "usr/infra/index/accountUsrView";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getAccountAndTransactions")
+	public Map<String, Object> getAccountAndTransactions(MemberVo vo) {
+	    Map<String, Object> returnMap = new HashMap<String, Object>();
+
+	    // 1. 아이디 체크
+	    int rtNum = mbService.selectOneIdCheck(vo);
+	    
+	    if (rtNum == 0) {
+	        // 아이디가 존재하지 않으면 에러 메시지 반환
+	        returnMap.put("rt", "error");
+	        returnMap.put("message", "아이디가 존재하지 않습니다.");
+	    } else {
+	        // 아이디가 존재하는 경우 계좌 정보와 거래 내역 조회
+	        Account account = acService.getAccountInfoByMemberSeq(vo.getSeq());
+	        List<Transaction> transactions = trService.getAccountTransactionsByAccountSeq(account.getSeq());
+
+	        // 결과를 반환
+	        returnMap.put("rt", "success");
+	        returnMap.put("account", account);
+	        returnMap.put("transactions", transactions);
+	    }
+
+	    return returnMap;
 	}
 	
 	@RequestMapping(value = "/accountAddUsrView")

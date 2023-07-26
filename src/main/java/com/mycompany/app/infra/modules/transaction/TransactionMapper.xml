@@ -57,17 +57,11 @@
 	</select> 
 	
 	<select id="selectOne" resultMap="resultMapObj">
-		SELECT 
-		  	seq,
-			delNy,
-			defaultNy,
-			recipientAccountNumber,
-			balance,
-			date,
-			contents,
-			account_seq
-		FROM 
-		  	transaction
+		SELECT t.* FROM (
+			SELECT
+		  		<include refid="transaction" />
+		  		<include refid="selectCommon" />
+		  	) t
 		WHERE 1=1
 	  		AND seq = #{seq}
 	</select>

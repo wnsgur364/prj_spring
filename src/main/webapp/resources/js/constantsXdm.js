@@ -1,0 +1,3 @@
+const MAX_EACH_FILE_SIZE = 5 * 1024 * 1024;		//	5M
+const MAX_TOTAL_FILE_SIZE = 25 * 1024 * 1024;	//	25M
+const MAX_TOTAL_FILE_NUMBER = 5;				//	5

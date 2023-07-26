@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mycompany.app.infra.modules.member.MemberVo;
+
 @Repository
 public class AccountDao {
 
@@ -19,6 +21,7 @@ public class AccountDao {
 			
 	public int selectOneCount(AccountVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
 	public List<Account> selectList(AccountVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
+	public List<Account> selectList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
 	public Account selectOne(AccountVo vo) { return sqlSession.selectOne(namespace + ".selectOne", vo); }
 	public int update(Account dto) { return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Account dto) { return sqlSession.update(namespace + ".uelete", dto); }

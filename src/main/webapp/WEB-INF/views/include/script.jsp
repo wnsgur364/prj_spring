@@ -23,3 +23,5 @@
 <script src="/resources/assets/js/index.js"></script>
 <!-- validation js -->
 <script src="/resources/js/validation.js"></script>
+<!-- commonXdm js -->
+<script src="/resources/js/commonXdm.js"></script>

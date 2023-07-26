@@ -7,6 +7,7 @@ public class TransactionVo extends BaseVo {
 	private Integer shOption;
 	private String shKeyword;
 	private String seq;
+	private String account_seq;
 	
 //	-----
 	public Integer getShOption() {
@@ -26,6 +27,12 @@ public class TransactionVo extends BaseVo {
 	}
 	public void setSeq(String seq) {
 		this.seq = seq;
+	}
+	public String getAccount_seq() {
+		return account_seq;
+	}
+	public void setAccount_seq(String account_seq) {
+		this.account_seq = account_seq;
 	}
 	
 }
