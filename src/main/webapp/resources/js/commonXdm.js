@@ -9,7 +9,6 @@ checkUploadedTotalFileNumber = function(obj, allowedMaxTotalFileNumber, filesCou
 	}
 }
 
-
 checkUploadedExt = function(objName, seq, div) {
 	var ext = objName.split('.').pop().toLowerCase();
 	var extArray = eval("extArray" + div);
@@ -20,7 +19,6 @@ checkUploadedExt = function(objName, seq, div) {
 		return false;
 	}
 }
-
 
 checkUploadedEachFileSize = function(obj, seq, allowedEachFileSize) {
 
@@ -39,7 +37,6 @@ checkUploadedTotalFileSize = function(seq, totalSize, allowedTotalFileSize) {
 		return false;
 	}
 }
-
 
 // 이미지 전용
 var extArray1 = new Array();
