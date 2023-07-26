@@ -10,6 +10,7 @@ public final class Constants {
 	public static final String URL_LOGINFORM = "/loginUsrForm";
 	public static final String URL_LOGINXDMFORM = "/loginXdmForm";
 	
+//	파일 업로드	
 	public static final String UPLOAD_PATH_PREFIX_EXTERNAL = "D://factory/ws_eclipse/prj_spring/src/main/webapp";
 	public static final String UPLOAD_PATH_PREFIX = "D://factory/ws_eclipse/prj_spring/src/main/webapp/resources/uploaded";
 	public static final String UPLOAD_PATH_PREFIX_FOR_VIEW = "/resources/uploaded";
