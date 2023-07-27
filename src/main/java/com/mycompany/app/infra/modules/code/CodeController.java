@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mycompany.app.infra.modules.codegroup.CodeGroup;
 import com.mycompany.app.infra.modules.codegroup.CodeGroupServiceImpl;
 import com.mycompany.app.infra.modules.codegroup.CodeGroupVo;
 
