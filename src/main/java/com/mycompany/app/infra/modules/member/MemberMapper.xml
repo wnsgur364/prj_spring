@@ -146,5 +146,22 @@
 		WHERE 1=1
 			AND id = #{id}
 	</select>
+	
+	<select id="selectListUploaded" resultMap="resultMapObj">
+		SELECT 
+			seq
+			,type
+			,defaultNy
+			,sort
+			,path
+			,originalName
+			,uuidName
+		FROM kokoabank.memberUploaded
+		WHERE 1=1
+			AND delNy = 0
+			AND pseq = #{seq}
+		ORDER BY
+			type, sort
+	</select>
     
 </mapper>

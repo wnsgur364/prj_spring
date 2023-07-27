@@ -35,15 +35,21 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
-				     					<select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
-										    <c:forEach items="${group}" var="group" varStatus="status">
-			   					                <option value="<c:out value='${group.seq}'></c:out>"
-								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
-								                >
-								                    <c:out value="${group.accountNumber}"></c:out>
-								                </option>
-											</c:forEach>
-										</select>
+									    <%-- 로그인 여부 체크, 로그인 상태에서만 셀렉트 박스 표시 --%>
+									    <c:if test="${not empty sessionScope.id}">
+									        <select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
+									            <c:forEach items="${group}" var="group" varStatus="status">
+									                <%-- 해당 계좌의 member_seq와 세션에 저장된 로그인 아이디가 일치하는 경우에만 옵션 추가 --%>
+									                <c:if test="${group.member_seq eq sessionScope.id}">
+									                    <option value="<c:out value='${group.seq}'></c:out>"
+									                        <c:if test="${group.seq == item.account_seq}">selected</c:if>>
+									                        <c:out value="${group.accountNumber}"></c:out>
+									                    </option>
+									                </c:if>
+									            </c:forEach>
+									        </select>
+									    </c:if>
+									    <%-- 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시 등의 처리를 할 수 있습니다. --%>
 				    					<select id="shOption" class="form-control" name="shOption">
 							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색기간</option>
 							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>1주일</option>
@@ -54,6 +60,9 @@
 										<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
 									</div>
 								</div>
+						        <div>계좌 번호: <span id="account_number"></span></div>
+								<div>이름: <span id="account_name"></span></div>
+								<div>잔액: <span id="account_balance"></span></div>
 		               			<table class="table align-items-center table-flush table-borderless">	
 									<thead>
 										<tr>
@@ -75,35 +84,32 @@
 									            </tr>
 									        </c:when>
 									        <c:otherwise>
-									            <c:forEach items="${list}" var="list" varStatus="loop">
-									                <tr>
-								                    	<td>${loop.count}</td>
-									                    <td><c:out value="${list.date}"></c:out></td>
-									                    <td><c:out value="${list.contents}"></c:out></td>
-									                    <c:set var="balance" value="${list.balance}" />
-									                    <td>
-														  <c:choose>
-														    <c:when test="${list.defaultNy eq 6}">
-														      <font color="whiteblue">+<fmt:formatNumber value="${balance}" pattern="#,###"></fmt:formatNumber></font>
-														    </c:when>
-														    <c:otherwise>
-														      <font color="red">-<fmt:formatNumber value="${balance}" pattern="#,###"></fmt:formatNumber></font>
-														    </c:otherwise>
-														  </c:choose>
-														</td>
-									                    <td>
-														 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
-																<c:if test="${list.defaultNy eq listTrCategory.seq}">
-																	<c:out value="${listTrCategory.name}"/>
-																</c:if>
-															</c:forEach>
-														</td>
-									                    <td>
-									                        <fmt:formatNumber value="${list.remainingBalance}" pattern="#,###"></fmt:formatNumber>
-									                    </td>
-									                    <td><c:out value="${list.recipientAccountNumber}"></c:out>                </td>
-									                </tr>
-									            </c:forEach>
+												<c:forEach items="${list}" var="list" varStatus="loop">
+						                       		<tr>
+											            <td>${loop.count}</td>
+											            <td>${list.date}</td>
+											            <td>${list.contents}</td>
+											            <td>
+											                <c:choose>
+											                    <c:when test="${list.defaultNy eq 6}">
+											                        <font color="blue">+<fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></font>
+											                    </c:when>
+											                    <c:otherwise>
+											                        <font color="red">-<fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></font>
+											                    </c:otherwise>
+											                </c:choose>
+											            </td>
+											            <td>
+											                <c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
+											                    <c:if test="${list.defaultNy eq listTrCategory.seq}">
+											                        <c:out value="${listTrCategory.name}" />
+											                    </c:if>
+											                </c:forEach>
+											            </td>
+											            <td><fmt:formatNumber value="${list.remainingBalance}" pattern="#,###"></fmt:formatNumber></td>
+											            <td>${list.recipientAccountNumber}</td>
+											        </tr>
+											    </c:forEach>
 									        </c:otherwise>
 									    </c:choose>
 									</tbody>
@@ -147,23 +153,45 @@
 		$("form[name=formList]").attr("action","/accountUsrView").submit();
 	});
 	
-	// 계좌 정보와 거래 내역 조회 요청
 	function loadAccountAndTransactions() {
 	    var selectedAccountSeq = $("#account_seq").val();
 	    $.ajax({
 	        type: "POST",
-	        url: "/getAccountAndTransactions", // 계좌 정보 및 거래 내역 조회 컨트롤러 URL
-	        data: { seq: selectedAccountSeq }, // 선택된 계좌의 seq 전달
+	        url: "/getAccountAndTransactions",
+	        data: { seq: selectedAccountSeq },
 	        dataType: "json",
 	        success: function(data) {
 	            if (data.rt === "success") {
-	                alert("sfae");
-	                // 성공적으로 계좌 정보와 거래 내역을 받아온 경우
 	                var accountInfo = data.account;
 	                var transactions = data.transactions;
 
-	                // 계좌 정보와 거래 내역을 사용하여 JSP에 표시하는 로직을 추가
-	                // ...
+	                // 계좌 정보 표시
+	                $("#account_number").text(accountInfo.accountNumber);
+	                $("#account_name").text(accountInfo.name);
+	                $("#account_balance").text(accountInfo.balance);
+
+	                // 거래 내역 표시
+	                var transactionTable = $("#transaction_table tbody");
+	                transactionTable.empty(); // 이전 데이터 삭제
+	                $.each(transactions, function(index, transaction) {
+	                    var row = $("<tr>");
+	                    row.append($("<td>").text(index + 1));
+	                    row.append($("<td>").text(transaction.date));
+	                    row.append($("<td>").text(transaction.contents));
+	                    var balanceCell = $("<td>");
+	                    if (transaction.defaultNy === 6) {
+	                        balanceCell.html("<font color='blue'>+" + transaction.balance + "</font>");
+	                    } else {
+	                        balanceCell.html("<font color='red'>-" + transaction.balance + "</font>");
+	                    }
+	                    row.append(balanceCell);
+	                    var transactionCategoryCell = $("<td>").text(transaction.transactionCategoryName);
+	                    row.append(transactionCategoryCell);
+	                    row.append($("<td>").text(transaction.remainingBalance));
+	                    row.append($("<td>").text(transaction.recipientAccountNumber));
+	                    transactionTable.append(row);
+	                });
+
 	            } else if (data.rt === "error") {
 	                // 조회 에러 처리 등
 	                // ...
@@ -174,6 +202,14 @@
 	        }
 	    });
 	}
+	
+	// 페이지 로드 시 계좌 정보와 거래 내역을 표시합니다.
+	loadAccountAndTransactions();
+	
+	// 계좌 선택 드롭다운에 이벤트 리스너를 추가하여 계좌를 변경할 때마다 거래 내역을 업데이트합니다.
+	$("#account_seq").on("change", function() {
+		loadAccountAndTransactions();
+	});
 	
 </script> 
 </body>

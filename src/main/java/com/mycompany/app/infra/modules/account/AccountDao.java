@@ -27,5 +27,6 @@ public class AccountDao {
 	public int uelete(Account dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int insert(Account dto) { return sqlSession.insert(namespace + ".insert", dto); }
 	public int accountAdd(Account dto) { return sqlSession.insert(namespace + ".accountAdd", dto); }
-	
+	// 아이디를 기준으로 계좌 정보를 조회하는 메서드 추가
+    public List<Account> selectListByMemberId(String id) { return sqlSession.selectList(namespace + ".selectListByMemberId", id); }
 }

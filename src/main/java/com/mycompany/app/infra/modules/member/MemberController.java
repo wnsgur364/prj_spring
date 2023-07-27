@@ -37,7 +37,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberUpdate")
-	public String memberUpdate(Member dto) {
+	public String memberUpdate(Member dto) throws Exception {
 		service.update(dto);
 		return "redirect:/memberList";
 	}

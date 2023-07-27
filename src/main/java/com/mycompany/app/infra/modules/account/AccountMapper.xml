@@ -41,6 +41,15 @@
 			</choose>
 	</sql>
 	
+		
+	<select id="selectListByMemberId" resultMap="resultMapObj">
+        SELECT *
+        FROM 
+        	account
+        WHERE 
+        	member_seq = #{id}
+    </select>
+	
    	<select id="selectOneCount" resultType="Integer">
 		SELECT count(*)
 		<include refid="selectCommon" />
