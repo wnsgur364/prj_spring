@@ -60,12 +60,12 @@
 						        	<c:set var="name" value="uploadImgProfile"/>		<!-- #-> -->
 									<c:choose>
 										<c:when test="${seq eq 0 }">
-											<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+											<img id="<c:out value="${name }"/>Preview" src="/resources/images/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
 										</c:when>
 										<c:otherwise>
 											<c:choose>
 												<c:when test="${fn:length(listUploaded) eq 0 }">
-													<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+													<img id="<c:out value="${name }"/>Preview" src="/resources/images/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
 												</c:when>
 												<c:otherwise>
 													<c:set var="GetNy" value="0"/>
@@ -78,7 +78,7 @@
 														</c:if>
 													</c:forEach>
 													<c:if test="${GetNy eq 0 }">
-														<img id="<c:out value="${name }"/>Preview" src="/resources/xdmin/image/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
+														<img id="<c:out value="${name }"/>Preview" src="/resources/images/default_100_100.png" class="rounded-circle mx-auto d-block" width="100" height="100">
 													</c:if>
 												</c:otherwise>
 											</c:choose>
