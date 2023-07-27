@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,12 +73,23 @@ public class IndexController {
 	
 	@ResponseBody
 	@RequestMapping("/getAccountAndTransactions")
-	public Map<String, Object> getAccountAndTransactions(MemberVo vo) {
+	public Map<String, Object> getAccountAndTransactions(HttpSession httpSession) {
 	    Map<String, Object> returnMap = new HashMap<String, Object>();
 
-	    // 1. 아이디 체크
+	    // 1. 세션에서 아이디 가져오기
+	    String id = (String) httpSession.getAttribute("id");
+	    if (id == null) {
+	        // 세션에 아이디가 없으면 에러 메시지 반환
+	        returnMap.put("rt", "error");
+	        returnMap.put("message", "아이디 정보가 없습니다. 로그인을 먼저 진행해주세요.");
+	        return returnMap;
+	    }
+
+	    // 2. 아이디 체크 (여기서 필요한 경우 id를 MemberVo 객체에 설정하여 사용)
+	    MemberVo vo = new MemberVo();
+	    vo.setId(id);
 	    int rtNum = mbService.selectOneIdCheck(vo);
-	    
+
 	    if (rtNum == 0) {
 	        // 아이디가 존재하지 않으면 에러 메시지 반환
 	        returnMap.put("rt", "error");

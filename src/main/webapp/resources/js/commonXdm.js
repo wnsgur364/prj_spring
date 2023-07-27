@@ -1,4 +1,5 @@
-document.write("<script src='/resources/xdm/v1/js/constantsXdm.js'></script>");
+document.write("<script src='/resources/js/constantsXdm.js'></script>");
+document.write("<script src='/resources/js/validation.js'></script>");
 
 checkUploadedTotalFileNumber = function(obj, allowedMaxTotalFileNumber, filesCount, uploadedFilesCount) {
 	if(allowedMaxTotalFileNumber < (filesCount + uploadedFilesCount)){

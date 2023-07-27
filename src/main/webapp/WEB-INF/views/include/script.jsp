@@ -21,7 +21,5 @@
 <script src="/resources/assets/plugins/Chart.js/Chart.min.js"></script>
 <!-- Index js -->
 <script src="/resources/assets/js/index.js"></script>
-<!-- validation js -->
-<script src="/resources/js/validation.js"></script>
 <!-- commonXdm js -->
 <script src="/resources/js/commonXdm.js"></script>
