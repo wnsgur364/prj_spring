@@ -11,6 +11,5 @@ public interface AccountService {
 	public int uelete (Account dto);
 	public int insert (Account dto);
 	public int accountAdd (Account dto);
-	public Account getAccountInfoByMemberSeq(String member_seq);
 	
 }

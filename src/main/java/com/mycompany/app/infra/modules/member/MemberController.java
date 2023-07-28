@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class MemberController {
@@ -36,8 +37,9 @@ public class MemberController {
 		return "xdm/infra/member/memberForm";
 	}
 	
+	@SuppressWarnings(value = { "all" })
 	@RequestMapping("/memberUpdate")
-	public String memberUpdate(Member dto) throws Exception {
+	public String memberUpdate(Member dto, MultipartFile file) throws Exception {
 		service.update(dto);
 		return "redirect:/memberList";
 	}

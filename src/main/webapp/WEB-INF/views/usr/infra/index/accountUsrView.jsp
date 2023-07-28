@@ -35,21 +35,15 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
-									    <%-- 로그인 여부 체크, 로그인 상태에서만 셀렉트 박스 표시 --%>
-									    <c:if test="${not empty sessionScope.id}">
-									        <select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
-									            <c:forEach items="${group}" var="group" varStatus="status">
-									                <%-- 해당 계좌의 member_seq와 세션에 저장된 로그인 아이디가 일치하는 경우에만 옵션 추가 --%>
-									                <c:if test="${group.member_seq eq sessionScope.id}">
-									                    <option value="<c:out value='${group.seq}'></c:out>"
-									                        <c:if test="${group.seq == item.account_seq}">selected</c:if>>
-									                        <c:out value="${group.accountNumber}"></c:out>
-									                    </option>
-									                </c:if>
-									            </c:forEach>
-									        </select>
-									    </c:if>
-									    <%-- 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시 등의 처리를 할 수 있습니다. --%>
+										<select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
+								            <c:forEach items="${group}" var="group" varStatus="status">
+								                <option value="<c:out value='${group.seq}'></c:out>"
+								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
+								                >
+								                    <c:out value="${group.accountNumber}"></c:out>
+								                </option>
+								            </c:forEach>
+								        </select>
 				    					<select id="shOption" class="form-control" name="shOption">
 							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색기간</option>
 							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>1주일</option>
@@ -60,10 +54,7 @@
 										<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
 									</div>
 								</div>
-						        <div>계좌 번호: <span id="account_number"></span></div>
-								<div>이름: <span id="account_name"></span></div>
-								<div>잔액: <span id="account_balance"></span></div>
-		               			<table class="table align-items-center table-flush table-borderless">	
+		               			<table class="table align-items-center table-flush table-borderless" id="">	
 									<thead>
 										<tr>
 											<th>순서</th>
@@ -151,64 +142,6 @@
 	// 서치버튼 클릭이벤트
 	$("#btnSearch").on("click", function(){
 		$("form[name=formList]").attr("action","/accountUsrView").submit();
-	});
-	
-	function loadAccountAndTransactions() {
-	    var selectedAccountSeq = $("#account_seq").val();
-	    $.ajax({
-	        type: "POST",
-	        url: "/getAccountAndTransactions",
-	        data: { seq: selectedAccountSeq },
-	        dataType: "json",
-	        success: function(data) {
-	            if (data.rt === "success") {
-	                var accountInfo = data.account;
-	                var transactions = data.transactions;
-
-	                // 계좌 정보 표시
-	                $("#account_number").text(accountInfo.accountNumber);
-	                $("#account_name").text(accountInfo.name);
-	                $("#account_balance").text(accountInfo.balance);
-
-	                // 거래 내역 표시
-	                var transactionTable = $("#transaction_table tbody");
-	                transactionTable.empty(); // 이전 데이터 삭제
-	                $.each(transactions, function(index, transaction) {
-	                    var row = $("<tr>");
-	                    row.append($("<td>").text(index + 1));
-	                    row.append($("<td>").text(transaction.date));
-	                    row.append($("<td>").text(transaction.contents));
-	                    var balanceCell = $("<td>");
-	                    if (transaction.defaultNy === 6) {
-	                        balanceCell.html("<font color='blue'>+" + transaction.balance + "</font>");
-	                    } else {
-	                        balanceCell.html("<font color='red'>-" + transaction.balance + "</font>");
-	                    }
-	                    row.append(balanceCell);
-	                    var transactionCategoryCell = $("<td>").text(transaction.transactionCategoryName);
-	                    row.append(transactionCategoryCell);
-	                    row.append($("<td>").text(transaction.remainingBalance));
-	                    row.append($("<td>").text(transaction.recipientAccountNumber));
-	                    transactionTable.append(row);
-	                });
-
-	            } else if (data.rt === "error") {
-	                // 조회 에러 처리 등
-	                // ...
-	            }
-	        },
-	        error: function(xhr, status, error) {
-	            console.error("에러 발생:", error);
-	        }
-	    });
-	}
-	
-	// 페이지 로드 시 계좌 정보와 거래 내역을 표시합니다.
-	loadAccountAndTransactions();
-	
-	// 계좌 선택 드롭다운에 이벤트 리스너를 추가하여 계좌를 변경할 때마다 거래 내역을 업데이트합니다.
-	$("#account_seq").on("change", function() {
-		loadAccountAndTransactions();
 	});
 	
 </script> 

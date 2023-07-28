@@ -45,23 +45,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int update(Member dto) throws Exception {
 		
-		dto.setName(dto.getName());
-		dao.update(dto);
-		
-		if(!dto.getUploadImgProfile()[0].isEmpty()) {
-			deleteFiles(dto.getUploadImgProfileDeleteSeq(), dto.getUploadImgProfileDeletePathFile(), dto, "memberUploaded");
-			uploadFiles(dto.getUploadImgProfile(), dto, "memberUploaded", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
-		} else {
-			// by pass : empty
-		}
-		
-		deleteFiles(dto.getUploadImgDeleteSeq(), dto.getUploadImgDeletePathFile(), dto, "memberUploaded");
+		uploadFiles(dto.getUploadImgProfile(), dto, "memberUploaded", dto.getUploadImgProfileType(), dto.getUploadImgProfileMaxNumber());
 		uploadFiles(dto.getUploadImg(), dto, "memberUploaded", dto.getUploadImgType(), dto.getUploadImgMaxNumber());
-		
-		deleteFiles(dto.getUploadFileDeleteSeq(), dto.getUploadFileDeletePathFile(), dto, "memberUploaded");
 		uploadFiles(dto.getUploadFile(), dto, "memberUploaded", dto.getUploadFileType(), dto.getUploadFileMaxNumber());
 
-		return 1;
+		return dao.update(dto);
 	}
 	
 	@Override
@@ -100,7 +88,7 @@ public class MemberServiceImpl implements MemberService {
 				File uploadPath = new File(path);
 				
 				if (!uploadPath.exists()) {
-					uploadPath.mkdir();
+					uploadPath.mkdirs();
 				} else {
 					// by pass
 				}
@@ -121,38 +109,6 @@ public class MemberServiceImpl implements MemberService {
 
 				dao.insertUploaded(dto);
     		}
-		}
-	}
-
-	
-	@Override
-	public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception{
-		for (int i=0; i<deleteSeq.length; i++) {
-			File file = new File(Constants.UPLOAD_PATH_PREFIX_EXTERNAL + deletePathFile[i]);
-        
-			boolean result = file.delete();
-            
-            if(result) {
-            	dto.setSeq(deleteSeq[i]);
-            	dto.setTableName(tableName);
-            	dao.deleteUploaded(dto);
-            }
-		}
-	}
-	
-	
-	@Override
-	public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception{
-		
-		for (int i=0; i<deleteSeq.length; i++) {
-//			File file = new File(Constants.UPLOAD_PATH_PREFIX_EXTERNAL + deletePathFile[i]);
-//			boolean result = file.delete();
-			
-//			if(result) {
-				dto.setSeq(deleteSeq[i]);
-				dto.setTableName(tableName);
-				dao.ueleteUploaded(dto);
-//			}
 		}
 	}
 
