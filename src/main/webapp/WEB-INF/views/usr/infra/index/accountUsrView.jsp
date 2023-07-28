@@ -59,6 +59,7 @@
 										<tr>
 											<th>순서</th>
 											<th>날짜</th>
+											<th>출금계좌</th>
 								      		<th>내용</th>
 								      		<th>금액</th>
 								      		<th>입·출금</th>
@@ -79,6 +80,7 @@
 						                       		<tr>
 											            <td>${loop.count}</td>
 											            <td>${list.date}</td>
+											            <td>${list.accountNumber}</td>
 											            <td>${list.contents}</td>
 											            <td>
 											                <c:choose>

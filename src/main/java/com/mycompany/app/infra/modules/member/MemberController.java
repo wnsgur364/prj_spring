@@ -37,9 +37,8 @@ public class MemberController {
 		return "xdm/infra/member/memberForm";
 	}
 	
-	@SuppressWarnings(value = { "all" })
 	@RequestMapping("/memberUpdate")
-	public String memberUpdate(Member dto, MultipartFile file) throws Exception {
+	public String memberUpdate(Member dto) throws Exception {
 		service.update(dto);
 		return "redirect:/memberList";
 	}

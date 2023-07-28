@@ -51,11 +51,4 @@ public class TransactionServiceImpl implements TransactionService {
 		return dao.deposit(dto);
 	}
 
-	@Override
-	public List<Transaction> getAccountTransactionsByAccountSeq(String account_seq) {
-		TransactionVo vo = new TransactionVo();
-        vo.setAccount_seq(account_seq);
-        return dao.selectList(vo);
-	}
-
 }

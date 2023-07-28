@@ -12,5 +12,4 @@ public interface TransactionService {
 	public int uelete(Transaction dto);
 	public int withdraw(Transaction dto);
 	public int deposit(Transaction dto);
-	List<Transaction> getAccountTransactionsByAccountSeq(String account_seq);
 }
