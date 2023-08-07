@@ -18,7 +18,6 @@
 	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  	
 </head>
-<body class="bg-theme bg-theme9">
 <!-- Start wrapper-->
 <div id="wrapper">
 <%@ include file="../../../include/headerUsrView.jsp" %>
@@ -26,6 +25,10 @@
 	<div class="content-wrapper">
 		<div class="container" style="width: 1320px; height: 870px;" id="exchangeRate">
 			<div class="h4 d-flex justify-content-center">환율 API</div>
+			<c:forEach items="${items}" var="item" varStatus="status">
+				<c:out value="${item.newsTitl }"/>	
+				<c:out value="${item.newsBdt }"/>	
+			</c:forEach>
 		</div>
 		<!--start overlay-->
 		<div class="overlay toggle-menu"></div>

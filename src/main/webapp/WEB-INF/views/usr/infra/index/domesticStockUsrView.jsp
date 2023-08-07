@@ -18,7 +18,6 @@
 	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  	
 </head>
-<body class="bg-theme bg-theme9">
 <!-- Start wrapper-->
 <div id="wrapper">
 <%@ include file="../../../include/headerUsrView.jsp" %>
@@ -26,14 +25,14 @@
 	<div class="content-wrapper">
 		<div class="container" style="width: 1320px; height: 870px;" id="domesticStock">
 			<div class="h4 d-flex justify-content-center">국내 주식 API</div>
-			<br> aaa : <c:out value="${resultCode }"/>
-			<br> aaa : <c:out value="${resultMsg }"/>
-			<br> aaa : <c:out value="${pageNo }"/>
-			<br> aaa : <c:out value="${totalCount }"/>
-			<br> aaa : <c:out value="${numOfRows }"/>
-			<br> aaa : <c:out value="${items }"/>
-			<br> aaa : <c:out value="${fn:length(items) }"/>
-			<hr>
+<%-- 			<br> aaa : <c:out value="${resultCode }"/> --%>
+<%-- 			<br> aaa : <c:out value="${resultMsg }"/> --%>
+<%-- 			<br> aaa : <c:out value="${pageNo }"/> --%>
+<%-- 			<br> aaa : <c:out value="${totalCount }"/> --%>
+<%-- 			<br> aaa : <c:out value="${numOfRows }"/> --%>
+<%-- 			<br> aaa : <c:out value="${items }"/> --%>
+<%-- 			<br> aaa : <c:out value="${fn:length(items) }"/> --%>
+<!-- 			<hr> -->
 			<c:forEach items="${items}" var="item" varStatus="status">
 				<c:out value="${item.YYYY }"/>
 				<br><c:out value="${item.MM }"/>	

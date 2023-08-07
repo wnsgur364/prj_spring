@@ -1,7 +1,5 @@
 package com.mycompany.app.infra.modules.index;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -11,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.io.ResolverUtil.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -121,7 +118,7 @@ public class IndexController {
 	public String domesticStockUsrView(Model model) throws Exception {
 		System.out.println("adsada");
 		String apiUrl = "http://apis.data.go.kr/1471000/CovidDagnsRgntProdExprtStusService/getMmCovidDagnsRgntExprtStusInq?serviceKey=cJZCAaKLXQVTAdWHQZ2e4QAP9scRJY2NuYNfZ8ysuMU1IZginxVKZT2DucfvChVv8CDgU23hz39uiw8uPuKzQA%3D%3D&numOfRows=3&pageNo=1&type=json";
-		
+
 		URL url = new URL(apiUrl);
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 		httpURLConnection.setRequestMethod("GET");
@@ -161,10 +158,10 @@ public class IndexController {
 			System.out.println("[key]:" + key + ", [value]:" + value);
 		}
 		
-		String aaa = (String) header.get("resultCode");
-		
-		System.out.println("header.get(\"resultCode\"): " + header.get("resultCode"));
-		System.out.println("header.get(\"resultMsg\"): " + header.get("resultMsg"));
+//		String aaa = (String) header.get("resultCode");
+//		
+//		System.out.println("header.get(\"resultCode\"): " + header.get("resultCode"));
+//		System.out.println("header.get(\"resultMsg\"): " + header.get("resultMsg"));
 		
 		Map<String, Object> body = new HashMap<String, Object>();
 		body = (Map<String, Object>) map.get("body");
@@ -186,7 +183,38 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/exchangeRateUsrView")
-	public String exchangeRateUsrView() {
+	public String exchangeRateUsrView(Model model) throws Exception {
+		String apiUrl = "http://apis.data.go.kr/B410001/ovseaMrktNewsService/ovseaMrktNews?serviceKey=cJZCAaKLXQVTAdWHQZ2e4QAP9scRJY2NuYNfZ8ysuMU1IZginxVKZT2DucfvChVv8CDgU23hz39uiw8uPuKzQA%3D%3D&numOfRows=1&pageNo=1&type=json";
+		
+		URL url = new URL(apiUrl);
+		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+		httpURLConnection.setRequestMethod("GET");
+		
+		BufferedReader bufferedReader;
+		if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+		} else {
+			bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+		}
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		String line;
+		while((line = bufferedReader.readLine()) != null) {
+			System.out.println("line: " + line);
+			stringBuilder.append(line);
+		}
+		
+		bufferedReader.close();
+		httpURLConnection.disconnect();
+
+	    ObjectMapper objectMapper = new ObjectMapper();
+		Map<String, Object> map = objectMapper.readValue(stringBuilder.toString(), Map.class);
+		
+		List<Home> items = new ArrayList<Home>();
+		items = (List<Home>) map.get("items");
+		
+	    model.addAllAttributes(map);
+		
 		return "usr/infra/index/exchangeRateUsrView";
 	}
 	

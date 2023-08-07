@@ -20,7 +20,6 @@
 	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>  	
 </head>
-<body class="bg-theme bg-theme9">
 <!-- Start wrapper-->
 <div id="wrapper">
 <%@ include file="../../../include/headerUsrView.jsp" %>
