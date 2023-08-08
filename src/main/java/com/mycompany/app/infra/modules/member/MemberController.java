@@ -70,11 +70,6 @@ public class MemberController {
 		return "xdm/infra/member/loginXdmForm";
 	}
 	
-	/**
-	 * @param vo
-	 * @param httpSession
-	 * @return
-	 */
 	@ResponseBody
 	@RequestMapping("/loginProc")
 	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession) {
@@ -95,10 +90,6 @@ public class MemberController {
 		return returnMap;
 	}
 	
-	/**
-	 * @param httpSession
-	 * @return
-	 */
 	@ResponseBody
 	@RequestMapping("/logoutProc")
 	public Map<String, Object> logoutProc(HttpSession httpSession) {
@@ -109,10 +100,6 @@ public class MemberController {
 	    return returnMap; 
 	}
 	
-	/**
-	 * @param vo
-	 * @return
-	 */
 	@ResponseBody
 	@RequestMapping("/checkIdProc")
 	public Map<String, Object> checkIdProc(MemberVo vo) {
@@ -128,11 +115,6 @@ public class MemberController {
 		return returnMap;
 	}
 	
-	/**
-	 * @param vo
-	 * @param httpSession
-	 * @return
-	 */
 	@ResponseBody
 	@RequestMapping("/loginXdmProc")
 	public Map<String, Object> loginXdmProc(MemberVo vo, HttpSession httpSession) {
@@ -157,10 +139,6 @@ public class MemberController {
 	    return returnMap;
 	}
 	
-	/**
-	 * @param httpSession
-	 * @return
-	 */
 	@ResponseBody
 	@RequestMapping("/logoutXdmProc")
 	public Map<String, Object> logoutXdmProc(HttpSession httpSession) {

@@ -4,7 +4,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.mycompany.app.infra.modules.transaction.TransactionMapper">
-								 <!-- select 결과를 받을 객체 -->
 	<resultMap id="resultMapObj" type="com.mycompany.app.infra.modules.transaction.Transaction"></resultMap>
 					
 	<sql id="transaction">
