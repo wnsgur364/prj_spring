@@ -111,9 +111,9 @@
 			</div>	
 		</div>
 		<!-- 뉴스 -->
-		<div class="container" id="news" style="width: 1320px; height: 900px; padding-top: 100px;">
-			<div class="h4 d-flex justify-content-center">뉴스 API</div>
-		</div>
+<!-- 		<div class="container" id="news" style="width: 1320px; height: 900px; padding-top: 100px;"> -->
+<!-- 			<div class="h4 d-flex justify-content-center">뉴스 API</div> -->
+<!-- 		</div> -->
 		<!--start overlay-->
 	  	<div class="overlay toggle-menu"></div>
 		<!--end overlay-->

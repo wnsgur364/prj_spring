@@ -10,6 +10,7 @@ public class TransactionVo extends BaseVo {
 	private String account_seq;
 	
 //	-----
+	
 	public Integer getShOption() {
 		return shOption;
 	}

@@ -23,3 +23,5 @@
 <script src="/resources/assets/js/index.js"></script>
 <!-- commonXdm js -->
 <script src="/resources/js/commonXdm.js"></script>
+<!-- jquery ui js -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

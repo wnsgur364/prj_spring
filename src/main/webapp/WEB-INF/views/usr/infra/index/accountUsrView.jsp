@@ -34,7 +34,7 @@
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
 									<div class="col-6 d-flex">
-										<select class="form-control" id="account_seq" name="account_seq" onchange="loadAccountAndTransactions()">
+										<select class="form-control" id="account_seq" name="account_seq">
 								            <c:forEach items="${group}" var="group" varStatus="status">
 								                <option value="<c:out value='${group.seq}'></c:out>"
 								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
@@ -43,12 +43,14 @@
 								                </option>
 								            </c:forEach>
 								        </select>
-				    					<select id="shOption" class="form-control" name="shOption">
-							                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색기간</option>
-							                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>1주일</option>
-							                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>1달</option>
-							                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>3달</option>
+				    					<select class="form-control datepicker selectPeriod">
+				      						<option selected disabled>기간</option>
+				      						<option>1주일</option>
+				      						<option>1개월</option>
+				      						<option>3개월</option>
 				    					</select>
+				    					<input type="text" class="form-control datepicker dateStart" placeholder="시작일">
+				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
 				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
 										<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
 									</div>
@@ -111,7 +113,7 @@
 		               			<br>
 		               			<div class="form-group d-flex justify-content-center">
 									<button type="button" class="btn btn-light" onclick="location.href='accountAddUsrView'">계좌 추가</button>
-									<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">계좌 삭제</button>
+<!-- 									<button type="button" class="btn btn-light" id="btnDeleteCheck" data-toggle="modal" data-target="#staticModal" data-backdrop="static">계좌 삭제</button> -->
 								</div>
 								<%@ include file="../../../include/modalBase.jsp" %>
 							</form>
@@ -144,6 +146,39 @@
 	$("#btnSearch").on("click", function(){
 		$("form[name=formList]").attr("action","/accountUsrView").submit();
 	});
+	
+	// datepicker
+	$(function() {
+
+		$(".datepicker").datepicker({
+			dateFormat: 'yy-mm-dd'
+		});
+
+	});
+
+	// 기간설정
+	$(".selectPeriod").on("change", function() {
+		var period = $(this).val();
+		var today = new Date();
+		var oneWeekAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
+		var oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+		var threeMonthsAgo = new Date(today.getTime() - (90 * 24 * 60 * 60 * 1000));
+		
+		switch (period) {
+			case "1주일":
+				$(".dateStart").datepicker("setDate", oneWeekAgo);
+				$(".dateFinish").datepicker("setDate", today);
+				break;
+			case "1개월":
+				$(".dateStart").datepicker("setDate", oneMonthAgo);
+				$(".dateFinish").datepicker("setDate", today);
+				break;
+			case "3개월":
+				$(".dateStart").datepicker("setDate", threeMonthsAgo);
+				$(".dateFinish").datepicker("setDate", today);
+				break;
+		}
+	});	
 	
 </script> 
 </body>

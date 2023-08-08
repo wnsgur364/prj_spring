@@ -216,6 +216,14 @@
 		</dependency>
 		<!-- fileupload e 2022.03.30 -->
 		
+		<!-- https://mvnrepository.com/artifact/org.json/json s 2023.08.08-->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20230618</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json e 2023.08.08-->
+		
 	</dependencies>
     <build>
         <plugins>

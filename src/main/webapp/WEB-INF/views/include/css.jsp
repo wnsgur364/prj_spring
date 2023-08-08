@@ -25,3 +25,5 @@
 <link href="/resources/assets/css/app-style.css" rel="stylesheet"/>
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/b05f67c88a.js" crossorigin="anonymous"></script>
+<!-- JqueryUi -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">

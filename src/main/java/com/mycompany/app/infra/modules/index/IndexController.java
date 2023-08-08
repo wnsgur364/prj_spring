@@ -9,11 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.app.infra.modules.account.Account;
@@ -22,6 +25,7 @@ import com.mycompany.app.infra.modules.account.AccountVo;
 import com.mycompany.app.infra.modules.influencer.Influencer;
 import com.mycompany.app.infra.modules.influencer.InfluencerServiceImpl;
 import com.mycompany.app.infra.modules.influencer.InfluencerVo;
+import com.mycompany.app.infra.modules.member.Member;
 import com.mycompany.app.infra.modules.member.MemberServiceImpl;
 import com.mycompany.app.infra.modules.member.MemberVo;
 import com.mycompany.app.infra.modules.transaction.Transaction;
@@ -83,6 +87,12 @@ public class IndexController {
 	@RequestMapping("/accountAdd")
 	public String accountAdd(Account dto) {
 		acService.accountAdd(dto);
+		return "redirect:/accountUsrView";
+	}
+	
+	@RequestMapping("/accountDelete")
+	public String accountDelete(Account dto) {
+		acService.uelete(dto);
 		return "redirect:/accountUsrView";
 	}
 	

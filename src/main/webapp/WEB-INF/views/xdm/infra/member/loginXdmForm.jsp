@@ -18,10 +18,10 @@
 	<link rel="icon" href="/resources/assets/images/favicon/favicon.ico" type="image/x-icon" />
 	<%@ include file="../../../include/css.jsp" %>
 </head>
+<body class="bg-theme bg-theme2">
 <!-- start loader -->
 <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
 <!-- end loader -->
-
 <!-- Start wrapper-->
 <div id="wrapper">
  	<div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>

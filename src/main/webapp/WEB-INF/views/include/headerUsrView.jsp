@@ -46,24 +46,24 @@
 <!--           		<span>출금</span> -->
 <!--         	</a> -->
 <!--       	</li> -->
-      	<li>
-        	<a href="exchangeRateUsrView">
-          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>환율</span>
-        	</a>
-      	</li>
-      	<li>
-        	<a href="domesticStockUsrView">
-          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>국내주식</span>
-        	</a>
-      	</li>
-      	<li>
-        	<a href="foreignStockUsrView">
-          		<i class="zmdi zmdi-format-list-bulleted"></i> 
-          		<span>해외주식</span>
-        	</a>
-      	</li>
+<!--       	<li> -->
+<!--         	<a href="exchangeRateUsrView"> -->
+<!--           		<i class="zmdi zmdi-format-list-bulleted"></i>  -->
+<!--           		<span>환율</span> -->
+<!--         	</a> -->
+<!--       	</li> -->
+<!--       	<li> -->
+<!--         	<a href="domesticStockUsrView"> -->
+<!--           		<i class="zmdi zmdi-format-list-bulleted"></i>  -->
+<!--           		<span>국내주식</span> -->
+<!--         	</a> -->
+<!--       	</li> -->
+<!--       	<li> -->
+<!--         	<a href="foreignStockUsrView"> -->
+<!--           		<i class="zmdi zmdi-format-list-bulleted"></i>  -->
+<!--           		<span>해외주식</span> -->
+<!--         	</a> -->
+<!--       	</li> -->
    	</ul>
 </div>
 <!--End sidebar-wrapper-->
