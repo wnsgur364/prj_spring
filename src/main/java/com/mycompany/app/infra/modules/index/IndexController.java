@@ -65,13 +65,13 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/accountUsrView")
-	public String accountUsrView(@ModelAttribute("vo") TransactionVo vo, Model model , AccountVo groupvo, Model groupModel) {
-		vo.setShKeyword(vo.getShKeyword() == null ? "" : vo.getShKeyword());
-		vo.setParamsPaging(trService.selectOneCount(vo));
-		groupModel.addAttribute("group", acService.selectList(groupvo));
+	public String accountUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel , AccountVo avo, Model aModel) {
+		tvo.setShKeyword(tvo.getShKeyword() == null ? "" : tvo.getShKeyword());
+		tvo.setParamsPaging(trService.selectOneCount(tvo));
+		aModel.addAttribute("group", acService.selectList(avo));
 		
-		if (vo.getTotalRows() > 0) {
-			model.addAttribute("list", trService.selectList(vo));
+		if (tvo.getTotalRows() > 0) {
+			tModel.addAttribute("list", trService.selectList(tvo));
 		} else {
 //			by pass
 		}
