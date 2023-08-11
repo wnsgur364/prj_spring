@@ -33,34 +33,24 @@
 								<div class="d-flex py-3">
 									<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 									<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-									<div class="col-6 d-flex">
-										<select class="form-control" id="account_seq" name="account_seq">
-								            <c:forEach items="${group}" var="group" varStatus="status">
-								                <option value="<c:out value='${group.seq}'></c:out>"
-								                    <c:if test="${group.seq == item.account_seq}">selected</c:if>
-								                >
-								                    <c:out value="${group.accountNumber}"></c:out>
-								                </option>
-								            </c:forEach>
-								        </select>
-				    					<select class="form-control datepicker selectPeriod">
-				      						<option selected disabled>기간</option>
-				      						<option>1주일</option>
-				      						<option>1개월</option>
-				      						<option>3개월</option>
-				    					</select>
-				    					<input type="text" class="form-control datepicker dateStart" placeholder="시작일">
-				    					<input type="text" class="form-control datepicker dateFinish" placeholder="종료일">
-				    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
-										<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-									</div>
+									<div class="col-4 d-flex">
+			    					<select id="shOption" class="form-control" name="shOption">
+						                <option value="" <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
+						                <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>출금계좌</option>
+						                <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>받는계좌</option>
+						                <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>금액</option>
+						                <option value="4" <c:if test="${vo.shOption eq 4}">selected</c:if>>거래일</option>
+			    					</select>
+			    					<input type="text" class="form-control" placeholder="검색어" name="shKeyword" value="<c:out value="${vo.shKeyword}"/>">
+									<button type="button" class="btn btn-light" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+								</div>
 								</div>
 		               			<table class="table align-items-center table-flush table-borderless" id="">	
 									<thead>
-										<tr>
+									<tr>
 											<th>순서</th>
 											<th>날짜</th>
-											<th>출금계좌</th>
+											<th>계좌번호</th>
 								      		<th>내용</th>
 								      		<th>금액</th>
 								      		<th>입·출금</th>

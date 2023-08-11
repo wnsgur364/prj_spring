@@ -55,14 +55,14 @@
 										<th>
 											<input type="checkbox" name="checked" id="allCheck" value="">
 										</th>
-										<th>seq</th>
-										<th>거래유형</th>
+										<th>순서</th>
+										<th>날짜</th>
 										<th>출금계좌</th>
-										<th>받는계좌</th>
-										<th>거래금액</th>
-										<th>거래후잔액</th>
-										<th>거래일</th>
-										<th>내용</th>
+							      		<th>내용</th>
+							      		<th>금액</th>
+							      		<th>입·출금</th>
+							      		<th>잔액</th>
+							      		<th>받는계좌</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -74,25 +74,34 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach items="${list}" var="list" >
+											<c:forEach items="${list}" var="list" varStatus="loop">
 												<tr>
 													<td>
 														<input type="checkbox" name="checked" value="">
 													</td>
-													<td><c:out value="${list.seq}"></c:out></td>
-													<td>
-													 	<c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
-															<c:if test="${list.defaultNy eq listTrCategory.seq}">
-																<c:out value="${listTrCategory.name}"/>
-															</c:if>
-														</c:forEach>
-													</td>
-													<td><c:out value="${list.accountNumber}"></c:out></td>
-													<td><c:out value="${list.recipientAccountNumber}"></c:out></td>
-													<td><fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></td>
-													<td><fmt:formatNumber value="${list.accountBalance}" pattern="#,###"></fmt:formatNumber></td>
-													<td><c:out value="${list.date}"></c:out></td>
-													<td><c:out value="${list.contents}"></c:out></td>
+													<td>${loop.count}</td>
+										            <td>${list.date}</td>
+										            <td>${list.accountNumber}</td>
+										            <td>${list.contents}</td>
+										            <td>
+										                <c:choose>
+										                    <c:when test="${list.defaultNy eq 6}">
+										                        <font color="blue">+<fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></font>
+										                    </c:when>
+										                    <c:otherwise>
+										                        <font color="red">-<fmt:formatNumber value="${list.balance}" pattern="#,###"></fmt:formatNumber></font>
+										                    </c:otherwise>
+										                </c:choose>
+										            </td>
+										            <td>
+										                <c:forEach items="${listCodeTrCategory}" var="listTrCategory" varStatus="statusTrCategory">
+										                    <c:if test="${list.defaultNy eq listTrCategory.seq}">
+										                        <c:out value="${listTrCategory.name}" />
+										                    </c:if>
+										                </c:forEach>
+										            </td>
+										            <td><fmt:formatNumber value="${list.remainingBalance}" pattern="#,###"></fmt:formatNumber></td>
+										            <td>${list.recipientAccountNumber}</td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>

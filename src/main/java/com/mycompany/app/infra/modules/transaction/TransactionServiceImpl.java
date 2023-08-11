@@ -50,5 +50,5 @@ public class TransactionServiceImpl implements TransactionService {
 	public int deposit(Transaction dto) {
 		return dao.deposit(dto);
 	}
-
+	
 }

@@ -52,6 +52,7 @@
 				<include refid="selectCommon" />
 			) t
 		WHERE delNy = 0
+		ORDER BY date DESC
 		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
 	</select> 
 	
@@ -131,7 +132,7 @@
 	        	account 
 	        WHERE 
 	        	seq = #{account_seq}) - #{balance}
-	    )
+		)
 	</insert>
 	
 	<insert id="deposit">
