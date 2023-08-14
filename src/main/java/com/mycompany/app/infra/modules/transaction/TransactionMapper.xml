@@ -178,4 +178,34 @@
 	    	seq = #{account_seq};
 	</update>
     
+	<insert id="transfer">
+	    INSERT INTO transaction (
+	        delNy,
+	        defaultNy,
+	        balance,
+	        date,
+	        contents,
+	        account_seq,
+	        remainingBalance
+	    ) VALUES (
+	        0,
+	        6,
+	        #{balance},
+	        NOW(),
+	        #{contents},
+	        (SELECT 
+	            seq 
+	        FROM 
+	            account 
+	        WHERE 
+	            accountNumber = #{recipientAccountNumber}),
+	        (SELECT 
+	            accountBalance 
+	        FROM 
+	            account 
+	        WHERE 
+	            accountNumber = #{accountNumber}) + #{balance}
+	    );
+	</insert>
+    
 </mapper>

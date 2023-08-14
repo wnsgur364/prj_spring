@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -43,12 +44,31 @@ public class TransactionServiceImpl implements TransactionService {
 
 	@Override
 	public int withdraw(Transaction dto) {
-		return dao.withdraw(dto);
+		int result = dao.withdraw(dto);
+        if (result > 0) {
+            // 출금 성공 시 계좌 잔액을 감소시킵니다.
+        	dao.updateAccountBalanceForWithdraw(dto);
+        }
+        return result;
 	}
 	
 	@Override
 	public int deposit(Transaction dto) {
-		return dao.deposit(dto);
+        int result = dao.deposit(dto);
+        if (result > 0) {
+            // 입금 성공 시 계좌 잔액을 증가시킵니다.
+        	dao.updateAccountBalanceForDeposit(dto);
+        }
+        return result;
 	}
-	
+
+	@Override
+	public int transfer(Transaction dto) {
+	    int result = dao.withdraw(dto);
+	    if (result > 0) {
+	    	// 출금 성공 시 받는 계좌로 입금시킵니다.
+	    	dao.transfer(dto);
+	    }
+	    return result;
+	}
 }

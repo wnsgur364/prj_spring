@@ -92,24 +92,15 @@
 			   		<div class="form-group">
 			     		<div class="icheck-material-white">
                    			<input type="checkbox" id="user-checkbox" checked="" />
-                   			<label for="user-checkbox">I Agree With Terms & Conditions</label>
+                   			<label for="user-checkbox">이용 약관에 동의합니다</label>
 			     		</div>
 		    		</div>
 			 		<button type="button" id="submitForm" class="btn btn-light btn-block waves-effect waves-light">회원가입</button>
-			  		<div class="text-center mt-3">Sign Up With</div>
-			 		<div class="form-row mt-4">
-			  			<div class="form-group mb-0 col-6">
-			   				<button type="button" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-			 			</div>
-			 			<div class="form-group mb-0 col-6 text-right">
-			  				<button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-			 			</div>
-					</div>
 				</form>
 			</div>
 		</div>
 		<div class="card-footer text-center py-3">
-			<p class="text-warning mb-0">Already have an account? <a href="loginUsrForm">Sign In here</a></p>
+			<p class="text-warning mb-0">아이디가 이미 있으신가요? <a href="loginUsrForm">로그인</a></p>
 		</div>
 	</div>
     

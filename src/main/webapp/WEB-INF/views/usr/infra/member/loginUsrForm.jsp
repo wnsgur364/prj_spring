@@ -25,13 +25,13 @@
 <!-- Start wrapper-->
 <div id="wrapper">
  	<div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-		<div class="card card-authentication1 mx-auto my-5">
-			<div class="card-body">
-		 		<div class="card-content p-2">
-		 			<div class="text-center">
-		 				<a href="indexUsrView"><img src="/resources/images/logo.png" alt="logo icon"></a>
-		 			</div>
-		  			<div class="card-title text-uppercase text-center py-3">KOKOA BANK</div>
+	<div class="card card-authentication1 mx-auto my-5">
+		<div class="card-body">
+	 		<div class="card-content p-2">
+	 			<div class="text-center">
+	 				<a href="indexUsrView"><img src="/resources/images/logo.png" alt="logo icon"></a>
+	 			</div>
+	  			<div class="card-title text-uppercase text-center py-3">KOKOA BANK</div>
 		    	<form class="needs-validation" name="form" method="post" novalidate>
 				  	<div class="form-group">
 				  		<label for="id" class="sr-only">아이디</label>
@@ -53,30 +53,18 @@
 				 		<div class="form-group col-6">
 				   			<div class="icheck-material-white">
 	                			<input type="checkbox" id="user-checkbox" checked="" />
-	                			<label for="user-checkbox">Remember me</label>
+	                			<label for="user-checkbox">아이디 저장</label>
 			  				</div>
 			 			</div>
-					 	<div class="form-group col-6 text-right">
-					  		<a href="resetPassword">Reset Password</a>
-					 	</div>
 					</div>
 				 	<button type="button" id="btnLogin" class="btn btn-light btn-block">로그인</button>
-				  	<div class="text-center mt-3">Sign In With</div>
-				 	<div class="form-row mt-4">
-				  		<div class="form-group mb-0 col-6">
-				   			<button type="button" id="btnLogin" class="btn btn-light btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-						 </div>
-				 	<div class="form-group mb-0 col-6 text-right">
-				  		<button type="button" class="btn btn-light btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-				 	</div>
-				</div>
-			</form>
+				</form>
+			</div>
+		</div>
+		<div class="card-footer text-center py-3">
+			<p class="text-warning mb-0">아이디가 없으신가요? <a href="registerUsrForm">회원가입</a></p>
 		</div>
 	</div>
-	<div class="card-footer text-center py-3">
-		<p class="text-warning mb-0">아이디가 없으신가요? <a href="registerUsrForm">회원가입</a></p>
-	</div>
-</div>
 <!--Start Back To Top Button-->
 <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
 <!--End Back To Top Button-->

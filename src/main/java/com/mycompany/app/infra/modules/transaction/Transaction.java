@@ -7,12 +7,12 @@ public class Transaction {
 	private String seq;
 	private Integer delNy;
 	private String recipientAccountNumber;
-	private Integer balance;
+	private long balance;
 	private Date date;
 	private String contents;
 	private String account_seq;
 	private String accountNumber;
-	private Integer accountBalance;
+	private long accountBalance;
 	private Integer defaultNy;
 	private String member_seq;
 	private Integer remainingBalance;
@@ -35,10 +35,10 @@ public class Transaction {
 	public void setRecipientAccountNumber(String recipientAccountNumber) {
 		this.recipientAccountNumber = recipientAccountNumber;
 	}
-	public Integer getBalance() {
+	public long getBalance() {
 		return balance;
 	}
-	public void setBalance(Integer balance) {
+	public void setBalance(long balance) {
 		this.balance = balance;
 	}
 	public Date getDate() {
@@ -71,10 +71,10 @@ public class Transaction {
 	public void setDefaultNy(Integer defaultNy) {
 		this.defaultNy = defaultNy;
 	}
-	public Integer getAccountBalance() {
+	public long getAccountBalance() {
 		return accountBalance;
 	}
-	public void setAccountBalance(Integer accountBalance) {
+	public void setAccountBalance(long accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 	public String getMember_seq() {

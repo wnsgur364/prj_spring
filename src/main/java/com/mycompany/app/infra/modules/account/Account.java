@@ -7,7 +7,7 @@ public class Account {
 	private String accountNumber;
 	private String accountName;
 	private String accountPassword;
-	private Integer accountBalance;
+	private long accountBalance;
 	private String member_seq; 
 	private String id;
 	private String name;
@@ -49,10 +49,10 @@ public class Account {
 		this.accountPassword = accountPassword;
 	}
 
-	public Integer getAccountBalance() {
+	public long getAccountBalance() {
 		return accountBalance;
 	}
-	public void setAccountBalance(Integer accountBalance) {
+	public void setAccountBalance(long accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 	public String getMember_seq() {
