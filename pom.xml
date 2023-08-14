@@ -224,6 +224,13 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.json/json e 2023.08.08-->
 		
+		<!-- @Service -->
+		<dependency> <!-- 트랜잭션 처리를 위한 dependency -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
 	</dependencies>
     <build>
         <plugins>
