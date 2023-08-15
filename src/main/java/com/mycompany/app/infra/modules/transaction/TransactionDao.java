@@ -28,5 +28,6 @@ public class TransactionDao {
     public int transfer(Transaction dto) { return sqlSession.insert(namespace + ".transfer", dto); }
     public int updateAccountBalanceForWithdraw(Transaction dto) { return sqlSession.update(namespace + ".updateAccountBalanceForWithdraw", dto); }
     public int updateAccountBalanceForDeposit(Transaction dto) { return sqlSession.update(namespace + ".updateAccountBalanceForDeposit", dto); }
+    public int updateAccountBalanceForTransfer(Transaction dto) { return sqlSession.update(namespace + ".updateAccountBalanceForTransfer", dto); }
 }
  

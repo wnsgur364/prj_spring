@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.app.infra.modules.account.Account;
@@ -102,10 +101,24 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/withdrawInsert")
-	public String withdrawInsert(Transaction dto) {
-		trService.withdraw(dto);
-		trService.transfer(dto);
-
+	public String withdrawInsert(Transaction dto, Model model, AccountVo vo) {
+	    // 수신 계좌번호와 일치하는 계좌가 있는지 확인합니다.
+	    List<Account> accountList = acService.selectList(vo);
+	    boolean hasMatchingAccount = false;
+	    
+	    for (Account account : accountList) {
+	        if (account.getAccountNumber().equals(dto.getRecipientAccountNumber())) {
+	            hasMatchingAccount = true;
+	            break;
+	        }
+	    }
+	    
+	    trService.withdraw(dto);
+	    
+	    if (hasMatchingAccount) {
+	        trService.transfer(dto);
+	    }
+	    
 	    return "redirect:/accountUsrView";
 	}
 	

@@ -44,31 +44,31 @@ public class TransactionServiceImpl implements TransactionService {
 
 	@Override
 	public int withdraw(Transaction dto) {
-		int result = dao.withdraw(dto);
-        if (result > 0) {
+		int withdraw = dao.withdraw(dto);
+        if (withdraw > 0) {
             // 출금 성공 시 계좌 잔액을 감소시킵니다.
         	dao.updateAccountBalanceForWithdraw(dto);
         }
-        return result;
+        return withdraw;
 	}
 	
 	@Override
 	public int deposit(Transaction dto) {
-        int result = dao.deposit(dto);
-        if (result > 0) {
+        int deposit = dao.deposit(dto);
+        if (deposit > 0) {
             // 입금 성공 시 계좌 잔액을 증가시킵니다.
         	dao.updateAccountBalanceForDeposit(dto);
         }
-        return result;
+        return deposit;
 	}
-
+	
 	@Override
 	public int transfer(Transaction dto) {
-	    int result = dao.withdraw(dto);
-	    if (result > 0) {
-	    	// 출금 성공 시 받는 계좌로 입금시킵니다.
-	    	dao.transfer(dto);
+	    int transfer = dao.transfer(dto);
+	    if (transfer > 0) {
+	    	// 입금 성공 시 계좌 잔액을 증가시킵니다.
+	        dao.updateAccountBalanceForTransfer(dto);
 	    }
-	    return result;
+	    return transfer;
 	}
 }

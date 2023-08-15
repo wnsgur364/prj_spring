@@ -134,6 +134,15 @@
 	        	seq = #{account_seq}) - #{balance}
 		)
 	</insert>
+
+	<update id="updateAccountBalanceForWithdraw">
+	    UPDATE 
+	    	account
+	    SET 
+	    	accountBalance = accountBalance - #{balance}
+	    WHERE 
+	    	seq = #{account_seq};
+	</update>
 	
 	<insert id="deposit">
 	    INSERT INTO transaction (
@@ -159,17 +168,8 @@
 	        	seq = #{account_seq}) + #{balance}
 	    )
 	</insert>
-	
-	<update id="updateAccountBalanceForWithdraw" parameterType="com.mycompany.app.infra.modules.transaction.Transaction">
-	    UPDATE 
-	    	account
-	    SET 
-	    	accountBalance = accountBalance - #{balance}
-	    WHERE 
-	    	seq = #{account_seq};
-	</update>
 
-	<update id="updateAccountBalanceForDeposit" parameterType="com.mycompany.app.infra.modules.transaction.Transaction">
+	<update id="updateAccountBalanceForDeposit">
 	    UPDATE 
 	    	account
 	    SET 
@@ -187,7 +187,7 @@
 	        contents,
 	        account_seq,
 	        remainingBalance
-	    ) VALUES (
+	    ) VALUES ( 
 	        0,
 	        6,
 	        #{balance},
@@ -207,5 +207,14 @@
 	            accountNumber = #{recipientAccountNumber}) + #{balance}
 	    );
 	</insert>
+	
+	<update id="updateAccountBalanceForTransfer">
+		UPDATE 
+	    	account
+	    SET 
+	    	accountBalance = accountBalance + #{balance}
+	    WHERE 
+	    	accountNumber = #{recipientAccountNumber};
+    </update>
     
 </mapper>
