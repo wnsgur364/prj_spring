@@ -13,4 +13,5 @@ public interface TransactionService {
 	public int withdraw(Transaction dto);
 	public int deposit(Transaction dto);
 	public int transfer(Transaction dto);
+	public List<Transaction> selectListByAccountSeqAndKeyword(TransactionVo vo);
 }

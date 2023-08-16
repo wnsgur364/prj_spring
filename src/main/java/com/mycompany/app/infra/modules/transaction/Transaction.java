@@ -89,5 +89,4 @@ public class Transaction {
 	public void setRemainingBalance(Integer remainingBalance) {
 		this.remainingBalance = remainingBalance;
 	}
-	
 }

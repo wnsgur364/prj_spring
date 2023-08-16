@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -70,5 +69,10 @@ public class TransactionServiceImpl implements TransactionService {
 	        dao.updateAccountBalanceForTransfer(dto);
 	    }
 	    return transfer;
+	}
+
+	@Override
+	public List<Transaction> selectListByAccountSeqAndKeyword(TransactionVo vo) {
+		return dao.selectListByAccountSeqAndKeyword(vo);
 	}
 }

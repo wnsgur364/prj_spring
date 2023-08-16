@@ -47,5 +47,10 @@ public class AccountServiceImpl implements AccountService {
 	public int accountAdd(Account dto) {
 		return dao.accountAdd(dto);
 	}
+
+	@Override
+	public List<Account> getAccountSeqByMemberSeq(String memberSeq) {
+		return dao.getAccountSeqByMemberSeq(memberSeq);
+	}
 	
 }

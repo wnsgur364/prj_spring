@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,19 +63,40 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/accountUsrView")
-	public String accountUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel , AccountVo avo, Model aModel) {
+	public String accountUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel , AccountVo avo, Model aModel, HttpSession httpSession) {
 		tvo.setShKeyword(tvo.getShKeyword() == null ? "" : tvo.getShKeyword());
 		tvo.setParamsPaging(trService.selectOneCount(tvo));
+		
+		String sessionId = (String) httpSession.getAttribute("id");
+		System.out.println("ID: " + sessionId);
+
+		if (sessionId != null) {
+		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
+		    if (memberSeq != null) {
+		    	System.out.println(sessionId + "의 seq: " + memberSeq);
+		        List<Account> accountSeqList = acService.getAccountSeqByMemberSeq(memberSeq);
+		        aModel.addAttribute("accountSeq", accountSeqList);
+
+		        if (tvo.getTotalRows() > 0 && !accountSeqList.isEmpty()) {
+					// 거래내역을 조회할 때 accountSeq를 조건으로 추가하여 조회
+					tvo.setAccountSeqList(accountSeqList); 
+					System.out.println(memberSeq + "의 해당 계좌 seq: " + accountSeqList);
+		            List<Transaction> transactionList = trService.selectListByAccountSeqAndKeyword(tvo);
+		            tModel.addAttribute("transactionList", transactionList);
+		            System.out.println(memberSeq + "의 거래리스트: " + transactionList);
+				} else {
+//					by pass
+				}
+		    } else {
+//				by pass
+		    }
+		}
+		
 		aModel.addAttribute("group", acService.selectList(avo));
 		
-		if (tvo.getTotalRows() > 0) {
-			tModel.addAttribute("list", trService.selectList(tvo));
-		} else {
-//			by pass
-		}
 		return "usr/infra/index/accountUsrView";
 	}
-	
+
 	@RequestMapping(value = "/accountAddUsrView")
 	public String accountAddUsrView(MemberVo vo, Model model) {
 		model.addAttribute("member", mbService.selectList(vo));

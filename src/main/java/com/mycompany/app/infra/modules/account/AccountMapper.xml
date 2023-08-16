@@ -135,4 +135,13 @@
 		)
 	</insert>
     
+    <select id="getAccountSeqByMemberSeq" resultType="java.lang.String">
+        SELECT
+         	seq
+        FROM
+           	account
+        WHERE
+       		member_seq = #{memberSeq}
+    </select>
+    
 </mapper>

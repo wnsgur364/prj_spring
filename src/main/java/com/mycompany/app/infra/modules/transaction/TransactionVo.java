@@ -1,6 +1,9 @@
 package com.mycompany.app.infra.modules.transaction;
 
+import java.util.List;
+
 import com.mycompany.app.infra.common.base.BaseVo;
+import com.mycompany.app.infra.modules.account.Account;
 
 public class TransactionVo extends BaseVo {
 
@@ -8,9 +11,8 @@ public class TransactionVo extends BaseVo {
 	private String shKeyword;
 	private String seq;
 	private String account_seq;
-	
+	private List<Account> accountSeqList;
 //	-----
-	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -34,6 +36,12 @@ public class TransactionVo extends BaseVo {
 	}
 	public void setAccount_seq(String account_seq) {
 		this.account_seq = account_seq;
+	}
+	public List<Account> getAccountSeqList() {
+		return accountSeqList;
+	}
+	public void setAccountSeqList(List<Account> accountSeqList) {
+		this.accountSeqList = accountSeqList;
 	}
 	
 }

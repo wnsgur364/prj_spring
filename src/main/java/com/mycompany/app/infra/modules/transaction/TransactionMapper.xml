@@ -217,4 +217,30 @@
 	    	accountNumber = #{recipientAccountNumber};
     </update>
     
+    <select id="selectListByAccountSeqAndKeyword" resultMap="resultMapObj">
+        SELECT * FROM 
+        	transaction
+        WHERE 
+        	account_seq IN
+        <foreach item="accountSeq" collection="accountSeqList" open="(" separator="," close=")">
+            #{accountSeq}
+        </foreach>
+        <if test="shKeyword != null and !shKeyword.equals('')">
+            AND (
+                b.accountNumber LIKE CONCAT('%',#{shKeyword},'%')
+                OR a.recipientAccountNumber LIKE CONCAT('%',#{shKeyword},'%')
+               	OR a.balance LIKE CONCAT('%',#{shKeyword},'%')
+               	OR a.date LIKE CONCAT('%',#{shKeyword},'%')
+            )
+       	</if>
+		<choose>
+			<when test="shOption == 1">AND b.accountNumber LIKE CONCAT('%',#{shKeyword},'%')</when>
+			<when test="shOption == 2">AND a.recipientAccountNumber LIKE CONCAT('%',#{shKeyword},'%')</when>
+			<when test="shOption == 3">AND a.balance LIKE CONCAT('%',#{shKeyword},'%')</when>
+			<when test="shOption == 4">AND a.date LIKE CONCAT('%',#{shKeyword},'%')</when>
+		</choose> 
+		ORDER BY date DESC
+		LIMIT #{rowNumToShow} OFFSET #{startRnumForMysql}
+    </select>
+    
 </mapper>

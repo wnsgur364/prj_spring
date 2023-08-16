@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -64,6 +65,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int selectOneIdCheck(MemberVo vo) {
 		return dao.selectOneIdCheck(vo); 
+	}
+    
+	@Override
+	public String getMemberSeqBySessionId(String sessionId) {
+		return dao.getMemberSeqBySessionId(sessionId);
 	}
 	
 	@Override

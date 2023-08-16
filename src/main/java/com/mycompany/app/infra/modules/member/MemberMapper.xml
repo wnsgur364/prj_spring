@@ -147,6 +147,15 @@
 			AND id = #{id}
 	</select>
 	
+    <select id="getMemberSeqBySessionId" resultType="java.lang.String">
+        SELECT 
+        	seq 
+        FROM 
+        	member 
+        WHERE 
+        	id = #{sessionId}
+    </select>
+	
 	<select id="selectListUploaded" resultMap="resultMapObj">
 		SELECT 
 			seq
