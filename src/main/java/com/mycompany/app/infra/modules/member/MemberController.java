@@ -11,13 +11,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+
+import com.mycompany.app.infra.modules.account.AccountServiceImpl;
+import com.mycompany.app.infra.modules.account.AccountVo;
+import com.mycompany.app.infra.modules.transaction.TransactionServiceImpl;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
 	MemberServiceImpl service;
+	@Autowired
+	AccountServiceImpl aService;
+	@Autowired
+	TransactionServiceImpl tService;
 	
 	@RequestMapping(value = "/memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) {
@@ -72,9 +79,8 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("/loginProc")
-	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession) {
+	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession, AccountVo aVo) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		
 		Member rtMember = service.loginProc(vo);
 		
 		if(rtMember != null) {

@@ -11,5 +11,4 @@ public interface AccountService {
 	public int uelete (Account dto);
 	public int insert (Account dto);
 	public int accountAdd (Account dto);
-	
 }
