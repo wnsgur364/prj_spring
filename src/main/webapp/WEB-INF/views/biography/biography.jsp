@@ -74,13 +74,30 @@
 						          		<div class="col-md-6">
 											<a href="indexUsrView" target="_blank">
 												<h5>KOKOA BANK</h5>
-												<img src="resources/images/pf1.PNG" class="rounded">
+												<img src="resources/images/logo.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						          		<div class="col-md-6">
 											<a href="loginXdmForm" target="_blank">
 												<h5>KOKOA BANK ADMIN</h5>
-												<img src="resources/images/pfad1.PNG" class="rounded">
+												<img src="resources/images/logo.png" class="rounded" style="width: 150px; height: 150px;">
+											</a>
+										</div>
+						        	</div>
+						        	<hr>
+						        	<h3 class="text-center">팀 프로젝트 (3인)</h3>
+						        	<!--/row-->
+                    				<div class="row text-center">
+						          		<div class="col-md-6">
+											<a href="http://52.79.240.22:8080/" target="_blank">
+												<h5>Lingo Connect</h5>
+												<img src="resources/images/LingoLogo.png" class="rounded" style="width: 150px; height: 150px;">
+											</a>
+										</div>
+						          		<div class="col-md-6">
+											<a href="http://52.79.240.22:8080/login" target="_blank">
+												<h5>Lingo Connect ADMIN</h5>
+												<img src="resources/images/LingoLogo.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						        	</div>

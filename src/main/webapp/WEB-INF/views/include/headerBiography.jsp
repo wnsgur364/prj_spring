@@ -27,6 +27,18 @@
        			<span>KOKOA BANK ADMIN</span>
        		</a>
       	</li>
+      	<li>
+    		<a href="http://52.79.240.22:8080/"> 	
+	       		<i class="zmdi zmdi-view-dashboard"></i> 
+       			<span>Lingo Connect</span>
+       		</a>
+      	</li>
+      	<li>
+    		<a href="http://52.79.240.22:8080/login"> 	
+	       		<i class="zmdi zmdi-view-dashboard"></i> 
+       			<span>Lingo Connect ADMIN</span>
+       		</a>
+      	</li>
    	</ul>
 </div>
 <!--End sidebar-wrapper-->
