@@ -75,4 +75,9 @@ public class TransactionServiceImpl implements TransactionService {
 	public List<Transaction> selectListByAccountSeqAndKeyword(TransactionVo vo) {
 		return dao.selectListByAccountSeqAndKeyword(vo);
 	}
+
+	@Override
+	public Transaction selectOneByAccountSeq(TransactionVo vo) {
+		return dao.selectOneByAccountSeq(vo);
+	}
 }

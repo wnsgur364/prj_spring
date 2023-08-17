@@ -68,22 +68,22 @@ public class IndexController {
 		tvo.setParamsPaging(trService.selectOneCount(tvo));
 		
 		String sessionId = (String) httpSession.getAttribute("id");
-		System.out.println("ID: " + sessionId);
+//		System.out.println("ID: " + sessionId);
 
 		if (sessionId != null) {
 		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
 		    if (memberSeq != null) {
-		    	System.out.println(sessionId + "의 seq: " + memberSeq);
-		        List<Account> accountSeqList = acService.getAccountSeqByMemberSeq(memberSeq);
-		        aModel.addAttribute("accountSeq", accountSeqList);
+//		    	System.out.println(sessionId + "의 seq: " + memberSeq);
+		        List<Account> accountSeq = acService.getAccountSeqByMemberSeq(memberSeq);
+//		        aModel.addAttribute("accountSeq", accountSeq);
 
-		        if (tvo.getTotalRows() > 0 && !accountSeqList.isEmpty()) {
+		        if (tvo.getTotalRows() > 0 && !accountSeq.isEmpty()) {
 					// 거래내역을 조회할 때 accountSeq를 조건으로 추가하여 조회
-					tvo.setAccountSeqList(accountSeqList); 
-					System.out.println(memberSeq + "의 해당 계좌 seq: " + accountSeqList);
-		            List<Transaction> transactionList = trService.selectListByAccountSeqAndKeyword(tvo);
-		            tModel.addAttribute("transactionList", transactionList);
-		            System.out.println(memberSeq + "의 거래리스트: " + transactionList);
+					tvo.setAccountSeqList(accountSeq); 
+//					System.out.println(memberSeq + "의 해당 계좌 seq: " + accountSeq);
+		            List<Transaction> list = trService.selectListByAccountSeqAndKeyword(tvo);
+		            tModel.addAttribute("list", list);
+//		            System.out.println(memberSeq + "의 거래리스트: " + list.toString());
 				} else {
 //					by pass
 				}
@@ -91,9 +91,7 @@ public class IndexController {
 //				by pass
 		    }
 		}
-		
 		aModel.addAttribute("group", acService.selectList(avo));
-		
 		return "usr/infra/index/accountUsrView";
 	}
 
@@ -109,16 +107,30 @@ public class IndexController {
 		return "redirect:/accountUsrView";
 	}
 	
-	@RequestMapping("/accountDelete")
-	public String accountDelete(Account dto) {
-		acService.uelete(dto);
-		return "redirect:/accountUsrView";
-	}
-	
 	@RequestMapping("/withdrawUsrView")
-	public String withdrawUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
-		model.addAttribute("item", trService.selectOne(vo));
-		groupModel.addAttribute("group", acService.selectList(groupvo));
+	public String withdrawUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel, AccountVo avo, Model aModel, HttpSession httpSession) {
+		String sessionId = (String) httpSession.getAttribute("id");
+		if (sessionId != null) {
+		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
+		    System.out.println(sessionId + "의 seq는 " + memberSeq);
+		    if (memberSeq != null) {
+		        List<Account> accountSeq = acService.getAccountSeqByMemberSeq(memberSeq);
+		        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq);
+		        if (accountSeq != null && !accountSeq.isEmpty()) {
+		        	tvo.setAccountSeqList(accountSeq); 
+		        	tModel.addAttribute("item", trService.selectOneByAccountSeq(tvo));
+		        	avo.setMemberSeq(memberSeq.toString());
+			        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq + " 의 MemberSeq는 " + avo.getMemberSeq());
+			        aModel.addAttribute("group", acService.selectListByMemberSeq(avo));
+		        } else {
+//		        	by pass
+		        }
+		    } else {
+//		    	by pass
+		    }
+		} else {
+//			by pass
+		}
 		
 		return "usr/infra/index/withdrawUsrView";
 	}
@@ -128,20 +140,16 @@ public class IndexController {
 	    // 수신 계좌번호와 일치하는 계좌가 있는지 확인합니다.
 	    List<Account> accountList = acService.selectList(vo);
 	    boolean hasMatchingAccount = false;
-	    
 	    for (Account account : accountList) {
 	        if (account.getAccountNumber().equals(dto.getRecipientAccountNumber())) {
 	            hasMatchingAccount = true;
 	            break;
 	        }
 	    }
-	    
 	    trService.withdraw(dto);
-	    
 	    if (hasMatchingAccount) {
 	        trService.transfer(dto);
 	    }
-	    
 	    return "redirect:/accountUsrView";
 	}
 	

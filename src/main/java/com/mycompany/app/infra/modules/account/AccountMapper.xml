@@ -144,4 +144,20 @@
        		member_seq = #{memberSeq}
     </select>
     
+    <select id="selectListByMemberSeq" resultMap="resultMapObj" resultType="java.lang.String">
+		SELECT a.* FROM (
+		    SELECT
+		        <include refid="account" /> 
+		    FROM 
+		    	account a
+		    		LEFT JOIN member b ON b.delNy = 0 AND b.seq = a.member_seq
+		    WHERE 
+		    	member_seq 
+	    	<foreach item="memberSeq" collection="memberSeqList" open="(" separator="," close=")">
+	            #{memberSeq}
+	        </foreach>
+			) a
+		ORDER BY seq DESC
+    </select>
+    
 </mapper>

@@ -28,4 +28,5 @@ public class AccountDao {
 	public int insert(Account dto) { return sqlSession.insert(namespace + ".insert", dto); }
 	public int accountAdd(Account dto) { return sqlSession.insert(namespace + ".accountAdd", dto); }
 	public List<Account> getAccountSeqByMemberSeq(String memberSeq) { return sqlSession.selectList(namespace + ".getAccountSeqByMemberSeq", memberSeq);	}
+	public List<Account> selectListByMemberSeq(AccountVo vo) { return sqlSession.selectList(namespace + ".selectListByMemberSeq", vo);	}
 }

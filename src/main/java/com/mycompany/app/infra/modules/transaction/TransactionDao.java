@@ -30,5 +30,6 @@ public class TransactionDao {
     public int updateAccountBalanceForDeposit(Transaction dto) { return sqlSession.update(namespace + ".updateAccountBalanceForDeposit", dto); }
     public int updateAccountBalanceForTransfer(Transaction dto) { return sqlSession.update(namespace + ".updateAccountBalanceForTransfer", dto); }
     public List<Transaction> selectListByAccountSeqAndKeyword(TransactionVo vo) { return sqlSession.selectList(namespace + ".selectListByAccountSeqAndKeyword", vo); }
+    public Transaction selectOneByAccountSeq(TransactionVo vo) { return sqlSession.selectOne(namespace + ".selectOneByAccountSeq", vo); }
 }
  

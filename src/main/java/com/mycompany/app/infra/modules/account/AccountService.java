@@ -11,5 +11,6 @@ public interface AccountService {
 	public int uelete (Account dto);
 	public int insert (Account dto);
 	public int accountAdd (Account dto);
-	public List<Account> getAccountSeqByMemberSeq(String memberSeq);
+	public List<Account> getAccountSeqByMemberSeq (String memberSeq);
+	public List<Account> selectListByMemberSeq (AccountVo vo);
 }
