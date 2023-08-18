@@ -152,10 +152,7 @@
 		    	account a
 		    		LEFT JOIN member b ON b.delNy = 0 AND b.seq = a.member_seq
 		    WHERE 
-		    	member_seq 
-	    	<foreach item="memberSeq" collection="memberSeqList" open="(" separator="," close=")">
-	            #{memberSeq}
-	        </foreach>
+		    	member_seq = #{memberSeq}
 			) a
 		ORDER BY seq DESC
     </select>

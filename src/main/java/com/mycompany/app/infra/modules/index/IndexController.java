@@ -110,16 +110,19 @@ public class IndexController {
 	@RequestMapping("/withdrawUsrView")
 	public String withdrawUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel, AccountVo avo, Model aModel, HttpSession httpSession) {
 		String sessionId = (String) httpSession.getAttribute("id");
+		
 		if (sessionId != null) {
 		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
 		    System.out.println(sessionId + "의 seq는 " + memberSeq);
+		    
 		    if (memberSeq != null) {
 		        List<Account> accountSeq = acService.getAccountSeqByMemberSeq(memberSeq);
 		        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq);
+		        
 		        if (accountSeq != null && !accountSeq.isEmpty()) {
 		        	tvo.setAccountSeqList(accountSeq); 
 		        	tModel.addAttribute("item", trService.selectOneByAccountSeq(tvo));
-		        	avo.setMemberSeq(memberSeq.toString());
+		        	avo.setMemberSeq(memberSeq);
 			        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq + " 의 MemberSeq는 " + avo.getMemberSeq());
 			        aModel.addAttribute("group", acService.selectListByMemberSeq(avo));
 		        } else {
@@ -131,7 +134,6 @@ public class IndexController {
 		} else {
 //			by pass
 		}
-		
 		return "usr/infra/index/withdrawUsrView";
 	}
 	
@@ -154,10 +156,32 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/depositUsrView")
-	public String depositUsrView(TransactionVo vo, Model model, AccountVo groupvo, Model groupModel) {
-		model.addAttribute("item", trService.selectOne(vo));
-		groupModel.addAttribute("group", acService.selectList(groupvo));
+	public String depositUsrView(@ModelAttribute("vo") TransactionVo tvo, Model tModel, AccountVo avo, Model aModel, HttpSession httpSession) {
+		String sessionId = (String) httpSession.getAttribute("id");
 		
+		if (sessionId != null) {
+		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
+		    System.out.println(sessionId + "의 seq는 " + memberSeq);
+		    
+		    if (memberSeq != null) {
+		        List<Account> accountSeq = acService.getAccountSeqByMemberSeq(memberSeq);
+		        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq);
+		        
+		        if (accountSeq != null && !accountSeq.isEmpty()) {
+		        	tvo.setAccountSeqList(accountSeq); 
+		        	tModel.addAttribute("item", trService.selectOneByAccountSeq(tvo));
+		        	avo.setMemberSeq(memberSeq);
+			        System.out.println(sessionId + " 의 seq는 " + memberSeq + " 의 계좌 seq는 " + accountSeq + " 의 MemberSeq는 " + avo.getMemberSeq());
+			        aModel.addAttribute("group", acService.selectListByMemberSeq(avo));
+		        } else {
+//		        	by pass
+		        }
+		    } else {
+//		    	by pass
+		    }
+		} else {
+//			by pass
+		}
 		return "usr/infra/index/depositUsrView";
 	}
 	

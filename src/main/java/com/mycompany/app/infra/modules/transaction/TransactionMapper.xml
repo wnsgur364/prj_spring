@@ -69,7 +69,16 @@
     <select id="selectOneByAccountSeq" resultMap="resultMapObj">
         SELECT t.* FROM (
 			SELECT
-				<include refid="transaction" />
+				a.seq,
+				a.delNy,
+				a.defaultNy,
+<!-- 				a.recipientAccountNumber, -->
+<!-- 				a.balance, -->
+				a.date,
+<!-- 				a.contents, -->
+				b.accountNumber,
+				a.remainingBalance,
+				b.accountBalance
 			FROM 
 				transaction a
 					LEFT JOIN account b ON b.delNy = 0 AND b.seq = a.account_seq
