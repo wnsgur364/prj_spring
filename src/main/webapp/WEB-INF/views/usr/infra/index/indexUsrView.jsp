@@ -25,7 +25,7 @@
 	<div class="content-wrapper">
    		<div class="container-fluid">
     		<div class="row-md d-flex justify-content-center">
-				<iframe width="1200" height="714" src="https://www.youtube.com/embed/NJUjU9ALj4A?controls=0&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 15px; margin: 50px;"></iframe>
+				<iframe width="1200" height="714" src="https://www.youtube.com/embed/NJUjU9ALj4A?controls=1&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 15px; margin: 50px;"></iframe>
 			</div>
 			<div class="row-md d-flex justify-content-center">
 				<div class="card" style="width: 13rem; height: 330px; margin: 0 20px;">
