@@ -11,6 +11,7 @@ public class Account {
 	private String member_seq; 
 	private String id;
 	private String name;
+	private String memberSeq;
 //  ----
 	public String getSeq() {
 		return seq;
@@ -72,5 +73,11 @@ public class Account {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getMemberSeq() {
+		return memberSeq;
+	}
+	public void setMemberSeq(String memberSeq) {
+		this.memberSeq = memberSeq;
 	}
 }

@@ -131,7 +131,7 @@
     		#{accountName},
    			#{accountPassword},
    			0,
-    		#{member_seq}
+    		#{memberSeq}
 		)
 	</insert>
     

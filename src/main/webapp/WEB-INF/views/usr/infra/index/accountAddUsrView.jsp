@@ -73,20 +73,20 @@
 								        <div class="invalid-feedback"></div>
 								    </div>
 								</div>
-								<div class="col-md-4 py-2">
-								    <div class="form-floating">
-								    	<label for="member_seq">회원아이디</label>
-									    <select class="form-control" id="member_seq" name="member_seq">
-										    <c:forEach items="${member}" var="member" varStatus="status">
-			   					                <option value="<c:out value='${member.seq}'></c:out>"
-								                    <c:if test="${member.seq == item.member_seq}">selected</c:if>
-								                >
-								                    <c:out value="${member.id}"></c:out>
-								                </option>
-											</c:forEach>
-										</select>
-									</div>
-	   					     	</div>
+<!-- 								<div class="col-md-4 py-2"> -->
+<!-- 								    <div class="form-floating"> -->
+<!-- 								    	<label for="member_seq">회원아이디</label> -->
+<!-- 									    <select class="form-control" id="member_seq" name="member_seq"> -->
+<%-- 										    <c:forEach items="${member}" var="member" varStatus="status"> --%>
+<%-- 			   					                <option value="<c:out value='${member.seq}'></c:out>" --%>
+<%-- 								                    <c:if test="${member.seq == item.member_seq}">selected</c:if> --%>
+<!-- 								                > -->
+<%-- 								                    <c:out value="${member.id}"></c:out> --%>
+<!-- 								                </option> -->
+<%-- 											</c:forEach> --%>
+<!-- 										</select> -->
+<!-- 									</div> -->
+<!-- 	   					     	</div> -->
 								<hr>
 								<div class="form-group">
 									<button class="btn btn-light" id="submitForm" type="button">확인</button>

@@ -102,8 +102,18 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/accountAdd")
-	public String accountAdd(Account dto) {
-		acService.accountAdd(dto);
+	public String accountAdd(Account dto, HttpSession httpSession) {
+		String sessionId = (String) httpSession.getAttribute("id");
+		
+		if (sessionId != null) {
+		    String memberSeq = mbService.getMemberSeqBySessionId(sessionId);
+		    System.out.println(sessionId + "의 seq는 " + memberSeq);
+		    dto.setMemberSeq(memberSeq);
+		    acService.accountAdd(dto);
+		} else {
+//			by pass
+		}
+		
 		return "redirect:/accountUsrView";
 	}
 	
