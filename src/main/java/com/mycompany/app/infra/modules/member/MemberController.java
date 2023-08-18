@@ -79,7 +79,7 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping("/loginProc")
-	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession, AccountVo aVo) {
+	public Map<String, Object> loginProc(MemberVo vo, HttpSession httpSession) {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		Member rtMember = service.loginProc(vo);
 		
