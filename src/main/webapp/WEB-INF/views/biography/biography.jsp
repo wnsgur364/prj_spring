@@ -73,14 +73,14 @@
                     				<div class="row text-center">
 						          		<div class="col-md-6">
 											<a href="indexUsrView" target="_blank">
-												<h5>KOKOA BANK</h5>
-												<img src="resources/images/logo.png" class="rounded" style="width: 150px; height: 150px;">
+												<h5>KOKOA BANK USER</h5>
+												<img src="resources/images/kbusr.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						          		<div class="col-md-6">
 											<a href="loginXdmForm" target="_blank">
 												<h5>KOKOA BANK ADMIN</h5>
-												<img src="resources/images/logo.png" class="rounded" style="width: 150px; height: 150px;">
+												<img src="resources/images/kbadmin.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						        	</div>
@@ -90,14 +90,14 @@
                     				<div class="row text-center">
 						          		<div class="col-md-6">
 											<a href="http://52.79.240.22:8080/" target="_blank">
-												<h5>Lingo Connect</h5>
-												<img src="resources/images/LingoLogo.png" class="rounded" style="width: 150px; height: 150px;">
+												<h5>LINGO CONNECT USER</h5>
+												<img src="resources/images/lcusr.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						          		<div class="col-md-6">
-											<a href="http://52.79.240.22:8080/login" target="_blank">
-												<h5>Lingo Connect ADMIN</h5>
-												<img src="resources/images/LingoLogo.png" class="rounded" style="width: 150px; height: 150px;">
+											<a href="http://52.79.240.22:8080/adminLogin" target="_blank">
+												<h5>LINGO CONNECT ADMIN</h5>
+												<img src="resources/images/lcadmino.png" class="rounded" style="width: 150px; height: 150px;">
 											</a>
 										</div>
 						        	</div>

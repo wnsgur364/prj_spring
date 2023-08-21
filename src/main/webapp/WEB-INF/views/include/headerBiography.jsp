@@ -18,7 +18,7 @@
       	<li>
     		<a href="indexUsrView"> 	
 	       		<i class="zmdi zmdi-view-dashboard"></i> 
-       			<span>KOKOA BANK</span>
+       			<span>KOKOA BANK USER</span>
        		</a>
       	</li>
       	<li>
@@ -30,13 +30,13 @@
       	<li>
     		<a href="http://52.79.240.22:8080/"> 	
 	       		<i class="zmdi zmdi-view-dashboard"></i> 
-       			<span>Lingo Connect</span>
+       			<span>LINGO CONNECT USER</span>
        		</a>
       	</li>
       	<li>
-    		<a href="http://52.79.240.22:8080/login"> 	
+    		<a href="http://52.79.240.22:8080/adminLogin"> 	
 	       		<i class="zmdi zmdi-view-dashboard"></i> 
-       			<span>Lingo Connect ADMIN</span>
+       			<span>LINGO CONNECT ADMIN</span>
        		</a>
       	</li>
    	</ul>
