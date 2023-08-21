@@ -7,18 +7,18 @@
 <table>
   <thead>
     <th>System</th>
-    <th>AWS EC2 : CentOS 7</th>
+    <th>DB</th>
+    <th>language</th>
+    <th>was</th>
+    <th>framework</th>
+    <th>library</th>
   </thead>
   <tbody>
-    <td>DB</td>
+    <td>AWS EC2 : CentOS 7</td>
     <td>AWS RDS : Mysql</td>
-    <td>language</td>
     <td>java, jsp, jstl/el, javascript, sql</td>
-    <td>was</td>
     <td>tomcat 9.0</td>
-    <td>framework</td>
     <td>spring, mybatis, maven</td>
-    <td>library</td>
     <td>bootstrap, jquery, jquery-ui</td>
   </tbody>
 </table>
