@@ -4,7 +4,7 @@
 사용자 URL : http://52.79.240.22/indexUsrView <br>
 관리자 URL : http://52.79.240.22/loginXdmForm <br>
 <hr>
-<table style="width: 100%; height: 100%; font-size: 10px;">
+<table style="width: 100%; height: 100%; font-size: 2.5vw;">
   <thead>
     <th>System</th>
     <th>DB</th>
