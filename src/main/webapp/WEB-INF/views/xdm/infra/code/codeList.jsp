@@ -86,6 +86,7 @@
 								<div class="form-group d-flex justify-content-center">
 									<button type="button" class="btn btn-light" onclick="location.href='codeForm'">추가</button>
 									<button type="button" class="btn btn-light" id="btnModification">수정</button>
+									<button type="button" class="btn btn-light" id="btnExcel"><i class="far fa-file-excel fa-lg"></i></button>
 								</div>
 							</form>    
 						</div>
@@ -146,6 +147,11 @@
    		  		$('#allCheck').prop('checked', false);
 	    	}
 	  	});
+	});
+	
+	// 엑셀 변환
+	$("#btnExcel").click(function() {
+		$("form[name=formList]").attr("action", "/excelDownload").submit();
 	});
 	
 </script>
